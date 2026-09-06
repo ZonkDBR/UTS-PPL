@@ -1,0 +1,722 @@
+/* ===========================================================
+   E-Portfolio 1 — PPL Mandiri
+   Fahira Firzha Wianda · IKIP Siliwangi · SMA Negeri 1 Cisarua
+
+   "Enam Kelopak": six analyses, six petal hues. Colour is
+   navigation here, so each section scopes its own --tint/--hue/
+   --ink and everything inside inherits. No JS touches colour.
+   =========================================================== */
+
+:root {
+  color-scheme: light;
+
+  --page:      #FFF9FC;
+  --page-2:    #F7F0FA;
+  --card:      #FFFFFF;
+  --ink-dark:  #2E2430;   /* 14.3:1 on page */
+  --ink-muted: #6B5A66;   /*  6.2:1 on page */
+  --line:      #F2E4EC;
+
+  /* Default accent = blossom, so anything outside a section still has a hue. */
+  --tint: #FFEEF2;
+  --hue:  #FF8FA3;
+  --ink:  #C42E58;
+
+  --display: "Fredoka", "Poppins", "Segoe UI", system-ui, sans-serif;
+  --body:    "Plus Jakarta Sans", "Poppins", "Segoe UI", system-ui, sans-serif;
+
+  --col: 70rem;
+  --r-card: 26px;
+  --r-inner: 20px;
+  --r-pill: 999px;
+}
+
+/* --- the six hues -------------------------------------------------
+   Every --ink is solved for >= 4.5:1 on white, on its own --tint, and
+   on --page. Pastels are for grounds and decoration only; text always
+   takes --ink. Re-run the contrast check if any value here moves. */
+
+.c-rancangan { --tint: #FFEEF2; --hue: #FF8FA3; --ink: #C42E58; } /* 4.84 min */
+.c-materi    { --tint: #EAF4FE; --hue: #7FB6E8; --ink: #1A6BAE; } /* 5.02 min */
+.c-media    { --tint: #F2ECF9; --hue: #B79BE0; --ink: #6B3FA8; } /* 6.25 min */
+.c-video    { --tint: #E4F6EF; --hue: #6FCFB0; --ink: #0F7A5B; } /* 4.73 min */
+.c-nonmengajar   { --tint: #FFF0E4; --hue: #FFB783; --ink: #A85110; } /* 4.89 min */
+.c-instrumen{ --tint: #FBEAF2; --hue: #E191BC; --ink: #A93871; } /* 5.20 min */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink-dark);
+  background: linear-gradient(160deg, var(--page) 0%, var(--page-2) 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+a { color: var(--ink); }
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+
+/* Skip link: off-screen until focused, then parked over the hero. */
+.skip {
+  position: absolute;
+  left: -9999px;
+  z-index: 100;
+  background: var(--card);
+  color: var(--ink);
+  font-weight: 600;
+  padding: .7rem 1.2rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--hue);
+  text-decoration: none;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+}
+.wrap { max-width: var(--col); margin: 0 auto; padding: 0 1.5rem; }
+
+.eyebrow {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 .6rem;
+}
+
+/* ---------- falling petals ----------
+   CSS shapes, no images: one blossom-petal silhouette tinted per petal.
+
+   Two animations on one element, as E-Porto does it: `fall` drives `top`,
+   `sway` drives `transform`. Separate properties, so they never fight — and
+   the sideways flutter is what makes these read as petals rather than dots. */
+
+.petals { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+
+.petal {
+  position: absolute;
+  top: -10vh;
+  width: var(--s, 15px);
+  height: var(--s, 15px);
+  background: var(--p, #FF8FA3);
+  border-radius: 100% 0 100% 0;
+  opacity: 0;
+  box-shadow: 0 0 6px rgba(255, 143, 163, .25);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .petal {
+    animation:
+      fall linear infinite,
+      sway ease-in-out infinite;
+    animation-duration: calc(11s + var(--i) * .55s), calc(3s + var(--i) * .17s);
+    animation-delay: calc(var(--i) * -.9s), calc(var(--i) * -.31s);
+  }
+}
+
+@keyframes fall {
+  0%   { top: -10vh; opacity: 0; }
+  8%   { opacity: .85; }
+  90%  { opacity: .7; }
+  100% { top: 110vh;  opacity: 0; }
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25%      { transform: translateX(26px) rotate(50deg); }
+  50%      { transform: translateX(-18px) rotate(95deg); }
+  75%      { transform: translateX(22px) rotate(140deg); }
+}
+
+/* ---------- hero ---------- */
+
+.hero { position: relative; z-index: 1; padding: 4.5rem 0 3.5rem; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 60rem) {
+  .hero-grid { grid-template-columns: 1.35fr .65fr; gap: 3.5rem; }
+}
+
+.hello {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: .45rem 1.1rem;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--ink);
+  box-shadow: 0 8px 22px rgba(255, 143, 163, .14);
+  margin-bottom: 1.25rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hello .wave { display: inline-block; animation: wave 2.6s ease-in-out infinite; transform-origin: 70% 70%; }
+}
+
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(12deg); }
+  40% { transform: rotate(-4deg); }
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 6.5vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -.015em;
+  margin: 0 0 1.1rem;
+  color: var(--ink-dark);
+  text-wrap: balance;
+}
+
+.hero h1 .name {
+  background: linear-gradient(115deg, #FF8FA3 0%, #C76BC0 45%, #7FB6E8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #C42E58; /* fallback where background-clip:text is unsupported */
+}
+
+.hero .lede { font-size: 1.08rem; color: var(--ink-muted); max-width: 36rem; }
+
+.why {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--hue);
+  border-radius: var(--r-inner);
+  padding: 1.1rem 1.35rem;
+  margin: 1.5rem 0;
+  max-width: 36rem;
+  box-shadow: 0 10px 26px rgba(46, 36, 48, .05);
+}
+
+.why h2 {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 .4rem;
+  color: var(--ink);
+}
+
+.why p { font-size: .95rem; color: var(--ink-muted); }
+
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+
+.chips li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: .4rem .95rem;
+  font-size: .82rem;
+  color: var(--ink-muted);
+}
+
+.chips strong { color: var(--ink-dark); font-weight: 600; }
+
+/* ---------- hero stats ---------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .75rem;
+  margin-top: 1.75rem;
+  max-width: 36rem;
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 34rem) {
+  .stats { grid-template-columns: repeat(4, 1fr); }
+}
+
+.stats li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-inner);
+  padding: .9rem .75rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(46, 36, 48, .04);
+}
+
+.stats .num {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.stats .lbl {
+  display: block;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--ink-muted);
+  margin-top: .15rem;
+}
+
+/* Each stat borrows one of the six hues, so the palette is introduced
+   before the reader ever reaches a section. */
+.stats li:nth-child(1) { --ink: #C42E58; }
+.stats li:nth-child(2) { --ink: #1A6BAE; }
+.stats li:nth-child(3) { --ink: #0F7A5B; }
+.stats li:nth-child(4) { --ink: #A85110; }
+
+/* portrait in a petal-shaped frame */
+.portrait { position: relative; justify-self: center; width: min(280px, 74vw); }
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;          /* the height="1600" attribute would otherwise beat aspect-ratio */
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 58% 42% 55% 45% / 48% 45% 55% 52%;
+  border: 6px solid var(--card);
+  box-shadow: 0 22px 50px rgba(255, 143, 163, .3);
+}
+
+.portrait::after {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: inherit;
+  border: 2px dashed rgba(255, 143, 163, .45);
+  border-radius: 58% 42% 55% 45% / 48% 45% 55% 52%;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .portrait img { animation: blob 14s ease-in-out infinite; }
+}
+
+@keyframes blob {
+  0%, 100% { border-radius: 58% 42% 55% 45% / 48% 45% 55% 52%; }
+  50%      { border-radius: 44% 56% 42% 58% / 56% 52% 48% 44%; }
+}
+
+/* ---------- sticky nav: the six-petal blossom ---------- */
+
+.sitenav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 249, 252, .88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.sitenav .wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: .55rem;
+  padding-bottom: .55rem;
+}
+
+.blossom { flex: none; width: 52px; height: 52px; }
+
+/* Rotation lives on the wrapping <g> as an attribute, so the path itself is
+   free for a CSS transform. Pivot is the petal's base = the flower's centre. */
+.blossom .kelopak {
+  fill: #F3E7EE;
+  stroke: #E4D3DE;
+  stroke-width: 1.5;
+  transform: scale(.84);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.blossom .kelopak.mekar { fill: var(--k); stroke: none; transform: scale(1); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .blossom .kelopak {
+    transition: fill .55s ease, transform .55s cubic-bezier(.34, 1.5, .64, 1);
+  }
+}
+
+.blossom .inti { fill: #FFFFFF; stroke: #EADFE6; stroke-width: 2; }
+
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.navlinks a {
+  display: block;
+  padding: .35rem .8rem;
+  border-radius: var(--r-pill);
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink-muted);
+  border: 1px solid transparent;
+  transition: color .2s, background-color .2s, border-color .2s;
+  white-space: nowrap;
+}
+
+.navlinks a:hover { color: var(--ink); background: var(--tint); }
+
+.navlinks a.active {
+  color: var(--ink);
+  background: var(--tint);
+  border-color: var(--hue);
+}
+
+/* ---------- course sections ---------- */
+
+.course { position: relative; z-index: 1; padding: 4.5rem 0 1.5rem; }
+
+.course-head { max-width: 46rem; margin-bottom: 2.25rem; }
+
+.course-title {
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+  margin: 0 0 .8rem;
+}
+
+.course-title .emoji {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  background: var(--tint);
+  border: 1px solid var(--hue);
+  border-radius: var(--r-inner);
+}
+
+.course-title h2 {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 3.6vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  margin: 0;
+  color: var(--ink-dark);
+  text-wrap: balance;
+}
+
+.course-head .summary { color: var(--ink-muted); font-size: 1.02rem; }
+
+/* Deskripsi → Analisis → Refleksi is a sequence: three equal columns, never auto-fit. */
+.tiga-tahap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 62rem) {
+  .tiga-tahap { grid-template-columns: repeat(3, 1fr); }
+}
+
+.stage {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: 1.6rem 1.6rem 1.7rem;
+  box-shadow: 0 12px 30px rgba(46, 36, 48, .05);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stage:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(46, 36, 48, .09);
+  }
+}
+
+.stage-label { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+
+.stage-label .step {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: var(--tint);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.stage-label h3 {
+  margin: 0;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.stage p { font-size: .95rem; color: var(--ink-muted); }
+
+/* ---------- artefak + kaitan praktis ---------- */
+
+.block {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: 1.85rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 12px 30px rgba(46, 36, 48, .05);
+}
+
+.block.kaitan-praktis { background: var(--tint); border-color: var(--hue); }
+
+.block > h3 {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1.15rem;
+  color: var(--ink);
+}
+
+.block h4 {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 1.6rem 0 .55rem;
+}
+
+.block h4:first-of-type { margin-top: 0; }
+
+.block p { color: var(--ink-muted); font-size: .96rem; }
+
+/* ---------- artefak document cards ----------
+   The cover is an icon, not a screenshot: a tinted page glyph carrying the
+   artefak's code. It must never look like a preview of the real file — the
+   files themselves live in restricted Drive folders and are not published. */
+
+.doc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 40rem) { .doc-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 64rem) { .doc-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.doc-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-inner);
+  overflow: hidden;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .doc-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--hue);
+    box-shadow: 0 16px 32px rgba(46, 36, 48, .09);
+  }
+}
+
+.doc-cover {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 92px;
+  background: var(--tint);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* faux page edge, purely ornamental */
+.doc-cover::before {
+  content: "";
+  position: absolute;
+  inset: 14px 26px -30px;
+  background: var(--card);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -2px 10px rgba(46, 36, 48, .07);
+}
+
+.doc-cover .code {
+  position: relative;
+  font-family: var(--display);
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: .15rem .6rem;
+  background: var(--tint);
+  border-radius: var(--r-pill);
+}
+
+.doc-body { padding: .9rem 1rem 1rem; }
+
+.doc-body h5 {
+  margin: 0 0 .35rem;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--ink-dark);
+  line-height: 1.35;
+}
+
+.doc-body p { font-size: .85rem; line-height: 1.6; color: var(--ink-muted); margin: 0; }
+
+/* ---------- evidence ---------- */
+
+.bukti {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: 1.35rem 1.6rem;
+  box-shadow: 0 12px 30px rgba(46, 36, 48, .05);
+}
+
+.bukti .label {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+}
+
+.bukti .files { flex: 1 1 18rem; font-size: .86rem; color: var(--ink-muted); margin: 0; }
+
+.bukti .drive {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .88rem;
+  padding: .65rem 1.3rem;
+  border-radius: var(--r-pill);
+  transition: transform .25s ease, box-shadow .25s ease;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bukti .drive:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(46, 36, 48, .22); }
+}
+
+.bukti.empty { border-style: dashed; border-color: var(--hue); box-shadow: none; }
+.bukti.empty .note { font-size: .88rem; color: var(--ink-muted); margin: 0; font-style: italic; }
+
+/* ---------- footer ---------- */
+
+.thanks { position: relative; z-index: 1; text-align: center; padding: 6rem 0 5rem; }
+
+.thanks .blossom { width: 68px; height: 68px; margin: 0 auto 1.25rem; }
+
+.thanks h2 {
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 600;
+  margin: 0 0 .9rem;
+  background: linear-gradient(115deg, #FF8FA3 0%, #C76BC0 50%, #7FB6E8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #C42E58;
+}
+
+.thanks p { color: var(--ink-muted); max-width: 32rem; margin: 0 auto 1rem; }
+
+.thanks .sign {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink-dark);
+}
+
+/* ---------- scroll reveal ----------
+   Visible by default; only a browser running the script opts into hiding,
+   so a JS failure degrades to a plain readable page. */
+
+@media (prefers-reduced-motion: no-preference) {
+  body.js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  body.js-reveal .visible .reveal { opacity: 1; transform: none; }
+
+  /* Stagger only the 4C cards — scoping matters, or the artefak and bukti
+     blocks pick up delays from their own position in .wrap. */
+  body.js-reveal .visible .tiga-tahap .reveal:nth-child(2) { transition-delay: .07s; }
+  body.js-reveal .visible .tiga-tahap .reveal:nth-child(3) { transition-delay: .14s; }
+}
+
+/* ---------- narrow ---------- */
+
+@media (max-width: 56rem) {
+  .sitenav .wrap { flex-wrap: wrap; gap: .6rem; }
+  .blossom { width: 38px; height: 38px; }
+  .navlinks { gap: .3rem; }
+  .navlinks a { font-size: .74rem; padding: .3rem .6rem; }
+}
+
+@media (max-width: 34rem) {
+  .hero { padding-top: 3rem; }
+  .stage, .block, .bukti { padding: 1.3rem; }
+  .course { padding-top: 3.25rem; }
+  .course-title { gap: .6rem; }
+  .course-title .emoji { width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
+}
+
+@media print {
+  .petals, .sitenav { display: none; }
+  body { background: #fff; }
+  .stage, .block, .bukti { box-shadow: none; break-inside: avoid; }
+}
