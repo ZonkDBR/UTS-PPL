@@ -58,23 +58,25 @@ gambar bergaris.
 **Tidak boleh ada ungu di mana pun.** Warna ungu dan lavender pernah dipakai dan ditolak
 pada 20 September 2026 karena aksen halaman jadi terbaca ungu, bukan merah muda.
 
+**Tema dikunci terang, `color-scheme: light`, tanpa blok
+`@media (prefers-color-scheme: dark)` sama sekali.** Mode gelap pernah dipasang dan juga
+ditolak: di perangkat yang setelan sistemnya gelap, latar plum gelapnya terbaca sebagai
+ungu dan keseluruhan halaman terasa gelap, padahal temanya harus merah muda untuk semua
+orang yang membuka, termasuk penilai. Jangan menambahkannya kembali.
+
 ```css
 /* terang */
 --ink: #17121A;  --muted: #5E4A56;  --edge: #17121A;   /* --edge = semua garis dan bayangan */
 --page: #FFF1F5; --card: #FFFFFF;
 --wash-pink: #FFDCE8;  --wash-blush: #FFE9F0;          /* latar bagian */
 
-/* blok terang, nilainya SAMA di kedua mode */
+/* blok terang */
 --blush: #FFE4EC;  --pink: #FFD2E0;  --butter: #FFE68C;
 --blossom: #FF8FB3;   /* hiasan saja */
 --rose: #C2185B;      /* isi tombol utama, teks putih 5.9:1 */
 --on-block: #17121A;  /* teks di atas blok terang, >= 12:1 */
 
-/* gelap, lewat prefers-color-scheme: hanya latar, teks, dan garis yang ditukar.
-   Rona latar gelapnya sengaja dijaga di keluarga merah muda (sekitar 325 derajat),
-   bukan 280-an, supaya tidak terbaca ungu tua. */
---ink:#FFF1F5; --muted:#DCC4D0; --edge:#FFF1F5;
---page:#1A141C; --card:#241C26; --wash-pink:#2E1F27; --wash-blush:#261A21;
+/* tidak ada varian gelap. Satu palet ini berlaku di semua perangkat. */
 
 --hard-sm: 3px 3px 0 var(--edge);
 --hard:    4px 4px 0 var(--edge);
@@ -92,7 +94,7 @@ pada 20 September 2026 karena aksen halaman jadi terbaca ungu, bukan merah muda.
 - Teks putih hanya di atas `--rose`.
 - Kalau ada nilai warna diubah, sapu ulang dua hal lewat Playwright di server lokal:
   rasio kontras tiap elemen teks yang terlihat terhadap latar efektifnya (target nol
-  elemen di bawah 4.5:1, kedua mode), dan rona tiap warna yang dipakai (target nol warna
+  elemen di bawah 4.5:1), dan rona tiap warna yang dipakai (target nol warna
   di rentang 255 sampai 320 derajat dengan kejenuhan di atas 0,18, yaitu keluarga ungu).
 
 Satu skala radius saja, dan hover memakai `translate(-2px, -2px)` dengan bayangan

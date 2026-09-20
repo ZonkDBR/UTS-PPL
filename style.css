@@ -14,7 +14,10 @@
    =========================================================== */
 
 :root {
-  color-scheme: light dark;
+  /* Dikunci terang. Mode gelap pernah dipasang dan ditolak: di perangkat yang
+     setelan sistemnya gelap, latar plum gelapnya terbaca sebagai ungu, dan
+     temanya harus merah muda untuk semua orang yang membuka, termasuk penilai. */
+  color-scheme: light;
 
   --ink:      #17121A;   /* 18.5:1 di atas putih, 16.8:1 di atas --page */
   --muted:    #5E4A56;   /*  8.1:1 di atas putih, 6.0:1 di atas --pink */
@@ -48,19 +51,6 @@
   --r-sm: 16px;
   --r-lg: 28px;
   --pill: 999px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink:   #FFF1F5;   /* 16.5:1 di atas --page gelap */
-    --muted: #DCC4D0;   /*  9.9:1 di atas --page gelap */
-    --edge:  #FFF1F5;
-
-    --page:       #1A141C;
-    --card:       #241C26;
-    --wash-pink:  #2E1F27;
-    --wash-blush: #261A21;
-  }
 }
 
 *, *::before, *::after { box-sizing: border-box; }

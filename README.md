@@ -23,27 +23,32 @@ assets/RPL .../     RPL dan PPT yang ditautkan sebagai unduhan dari halaman
 ## Gaya: neo-brutalism merah muda
 
 Garis tebal, bayangan keras tanpa blur, blok warna datar, sudut membulat. Merah muda
-tetap warna utama; kuning mentega dan lavender hanya blok pendukung. Yang membedakan tiap
-bagian adalah bentuk layoutnya dan pergantian latar.
+warna utama, kuning mentega satu-satunya pendamping. Yang membedakan tiap bagian adalah
+bentuk layoutnya dan pergantian latar.
 
-| Token | Terang | Gelap | Catatan |
-|---|---|---|---|
-| `--ink` | `#17121A` | `#FFF1F5` | teks utama, 18.5:1 di atas putih |
-| `--muted` | `#5E4A56` | `#DCC4D0` | teks sekunder, 8.1:1 di atas putih |
-| `--edge` | `#17121A` | `#FFF1F5` | **semua** garis dan bayangan |
-| `--page` | `#FFF1F5` | `#1A141C` | latar halaman |
-| `--card` | `#FFFFFF` | `#241C26` | kartu |
-| `--wash-pink` | `#FFDCE8` | `#2E1F27` | latar bagian |
-| `--wash-blush` | `#FFE9F0` | `#261A21` | latar bagian |
-| `--blush` `--pink` `--butter` | `#FFE4EC` `#FFD2E0` `#FFE68C` | sama | blok terang, teksnya selalu `--on-block` |
-| `--rose` | `#C2185B` | sama | isi tombol utama, teks putih 5.9:1 |
-| `--blossom` | `#FF8FB3` | sama | **hiasan saja**, tidak pernah jadi latar teks |
+| Token | Nilai | Catatan |
+|---|---|---|
+| `--ink` | `#17121A` | teks utama, 18.5:1 di atas putih |
+| `--muted` | `#5E4A56` | teks sekunder, 8.1:1 di atas putih |
+| `--edge` | `#17121A` | **semua** garis dan bayangan |
+| `--page` | `#FFF1F5` | latar halaman |
+| `--card` | `#FFFFFF` | kartu |
+| `--wash-pink` | `#FFDCE8` | latar bagian |
+| `--wash-blush` | `#FFE9F0` | latar bagian |
+| `--blush` `--pink` `--butter` | `#FFE4EC` `#FFD2E0` `#FFE68C` | blok terang, teksnya selalu `--on-block` |
+| `--rose` | `#C2185B` | isi tombol utama, teks putih 5.9:1 |
+| `--blossom` | `#FF8FB3` | **hiasan saja**, tidak pernah jadi latar teks |
 
 **Tidak ada ungu sama sekali.** Versi sebelumnya sempat memakai lavender dan ungu, dan
 itu membuat aksen halaman terbaca ungu, bukan merah muda.
 
+**Tema dikunci terang** (`color-scheme: light`, tanpa blok
+`@media (prefers-color-scheme: dark)`). Mode gelap pernah ada dan dibuang: di perangkat
+yang setelan sistemnya gelap, latar plum gelapnya terbaca sebagai ungu dan halaman terasa
+gelap. Sekarang semua orang melihat merah muda yang sama, apa pun setelan perangkatnya.
+
 **Bila salah satu nilai warna diubah, sapu ulang** kontras (nol elemen teks di bawah
-4.5:1, kedua mode) dan rona (nol warna di keluarga ungu).
+4.5:1) dan rona (nol warna di keluarga ungu).
 
 ## Gerak dan hiasan
 
@@ -51,10 +56,9 @@ Kelopak sakura berjatuhan, stiker bergaris mengambang di hero, kepala tiap bagia
 footer, kartu memantul saat disinggahi, dan kursor meninggalkan jejak kelopak yang
 memercik saat diklik.
 
-Halaman mengikuti `prefers-color-scheme` dan `prefers-reduced-motion`. Di mode hemat
-gerak semua animasi mati, jejak kursornya tidak dipasang sama sekali, dan garis serta
-bayangannya tetap ada sehingga tampilannya utuh. Jejak kursor juga tidak dipasang pada
-perangkat layar sentuh.
+Halaman mengikuti `prefers-reduced-motion`. Di mode hemat gerak semua animasi mati, jejak
+kursornya tidak dipasang sama sekali, dan garis serta bayangannya tetap ada sehingga
+tampilannya utuh. Jejak kursor juga tidak dipasang pada perangkat layar sentuh.
 
 Acuan bahasa visualnya: <https://ppganthonioakbar.vercel.app/>.
 
