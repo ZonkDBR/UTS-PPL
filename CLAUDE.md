@@ -30,8 +30,10 @@ Tanpa framework, tanpa build step, tanpa dependensi npm. Buka `index.html` langs
 berkas (`file://`) dan halaman harus tampil utuh — tidak boleh butuh server. Font lewat
 Google Fonts, sisanya inline/lokal.
 
-Publikasi: GitHub Pages dari akar repo (`main`, folder `/`). Alamat Pages itulah yang
-dikirim sebagai jawaban tugas.
+Publikasi: GitHub Pages dari akar repo (`main`, folder `/`) pada repo
+`ZonkDBR/UTS-PPL`. Alamat yang dikirim sebagai jawaban tugas:
+**<https://zonkdbr.github.io/UTS-PPL/>**. Cukup `git push origin main`, Pages menyebar
+ulang sendiri sekitar satu menit.
 
 Rujukan pola yang sudah terbukti: `C:\Users\ZonkDBR\Documents\Araa\Seminar PPG\Topik 2\website`
 (live di <https://zonkdbr.github.io/Seminar-PPG-UTS-Porto/>). Rujukan kedua:
@@ -46,50 +48,65 @@ memblokir `file://` dan Chromium bawaannya tidak punya codec H.264**, jadi untuk
 memeriksa tampilan perlu server lokal sementara, dan isi klip mp4 tidak bisa diputar di
 sana.
 
-## Tema: satu keluarga merah muda
+## Gaya: neo-brutalism merah muda
 
-Enam rona berbeda per bagian sudah dihapus pada redesain 20 September 2026. Sekarang
-satu aksen untuk seluruh halaman; pembeda antarbagian adalah bentuk layout dan
-pergantian latar, bukan warna.
+Rujukan gaya: <https://ppganthonioakbar.vercel.app/> (e-portofolio PPG milik orang lain,
+dipakai sebagai acuan bahasa visual saja, bukan isinya). Ciri yang diambil: garis tebal,
+bayangan keras tanpa blur, blok warna datar, sudut membulat, huruf tebal, dan potongan
+gambar bergaris.
 
 ```css
 /* terang */
---page: #FFF6F8;  --sand: #FBF1E9;  --card: #FFFFFF;
---ink:  #3A2430;  /* 13.4:1 di atas --page */
---muted:#7A5A66;  /*  5.5:1 di atas --page, 5.0:1 di atas --tint */
---rose: #B9265A;  /*  6.0:1 di atas putih, 5.2:1 di atas --tint */
---blossom: #FF9FB6;  /* HIASAN SAJA */
---tint: #FFE8EE;  --tint-2: #FFD5E0;  --line: #F6E3EA;
+--ink: #17121A;  --muted: #5E4A56;  --edge: #17121A;   /* --edge = semua garis dan bayangan */
+--page: #FFF1F5; --card: #FFFFFF;
+--wash-pink: #FFDCE8;  --wash-lilac: #E6DBFF;          /* latar bagian */
 
-/* gelap, lewat prefers-color-scheme */
---page:#1E141A; --sand:#241820; --card:#291B23; --ink:#FBEFF3;
---muted:#D0AFBE; --rose:#FFA6C0; --blossom:#C4567C;
---tint:#3A2330; --tint-2:#4A2C3B; --line:#402A36;
+/* blok terang, nilainya SAMA di kedua mode */
+--pink: #FFD2E0;  --butter: #FFE68C;  --lilac: #D9C8FF;
+--blossom: #FF8FB3;   /* hiasan saja */
+--grape: #5B2BD9;     /* isi tombol utama, teks putih 7.5:1 */
+--on-block: #17121A;  /* teks di atas blok terang, >= 12:1 */
 
---display: "Fredoka", "Poppins", "Segoe UI", system-ui, sans-serif;
---body:    "Plus Jakarta Sans", "Poppins", "Segoe UI", system-ui, sans-serif;
+/* gelap, lewat prefers-color-scheme: hanya latar, teks, dan garis yang ditukar */
+--ink:#FFF1F5; --muted:#DCC4D0; --edge:#FFF1F5;
+--page:#1A141C; --card:#241C26; --wash-pink:#2B1F2E; --wash-lilac:#221C2E;
+
+--hard-sm: 3px 3px 0 var(--edge);
+--hard:    4px 4px 0 var(--edge);
+--hard-lg: 6px 6px 0 var(--edge);
+--r: 18px; --r-sm: 14px; --r-lg: 22px; --pill: 999px;
+
+--display: "Fredoka", ...;  --body: "Plus Jakarta Sans", ...;  --mono: tumpukan monospace sistem;
 ```
 
-**Aturan warna yang tidak boleh dilanggar:** pastel hanya untuk latar dan hiasan. Teks
-selalu `--ink`, `--muted`, atau `--rose`. Kalau ada nilai warna diubah, hitung ulang
-rasio kontrasnya sampai >= 4.5:1 di atas putih, di atas `--tint`-nya sendiri, dan di atas
-`--page`, untuk kedua mode.
+**Aturan warna yang tidak boleh dilanggar:**
 
-Satu skala radius saja: kartu dan gambar 20px, elemen interaktif pill.
+- Semua garis dan bayangan memakai `--edge`. Tidak ada lagi bayangan lembut ber-blur.
+- Teks di atas blok terang (`--pink`, `--butter`, `--lilac`) **selalu** `--on-block`.
+  Aturan ini harus ditulis SESUDAH aturan warna umumnya, karena kekhususannya sama.
+- Teks putih hanya di atas `--grape`.
+- Kalau ada nilai warna diubah, sapu ulang kontrasnya. Cara cepat: jalankan server lokal,
+  lalu di Playwright hitung rasio setiap elemen teks yang terlihat terhadap latar
+  efektifnya; targetnya nol elemen di bawah 4.5:1, di mode terang dan gelap.
 
-Hiasan sakura: kelopak berjatuhan dari CSS murni (bukan gambar, bukan library) dan satu
-mark bunga enam kelopak di nav yang mekar mengikuti bagian yang terbaca. Hormati
-`prefers-reduced-motion: reduce` — animasi mati, isi tetap terbaca.
+Satu skala radius saja, dan hover memakai `translate(-2px, -2px)` dengan bayangan
+membesar, `:active` memakai `translate(2px, 2px)` tanpa bayangan.
+
+Hiasan sakura: kelopak berjatuhan dari CSS murni bergaris hitam (bukan gambar, bukan
+library) dan satu mark bunga enam kelopak di nav yang mekar mengikuti bagian yang
+terbaca. Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap terbaca.
 
 ### Aturan tampilan yang sudah diterapkan, jangan dibalik lagi
 
 - **Tanpa emoji** di judul bagian, kartu, atau tombol. Kesan manis datang dari bentuk.
 - **Tanpa penomoran bagian sebagai label** ("Analisis 01" dan sejenisnya sudah dihapus).
 - **Tiap bagian punya keluarga layout sendiri**: dua kartu berdampingan, editorial dengan
-  kutipan, bento enam sel, baris klip scroll-snap, kotak kosong, lalu klaster plus tile
+  kutipan, bento enam sel, baris klip scroll-snap, kotak kosong, lalu klaster plus blok
   rumus. Jangan menyamakan semuanya jadi tiga kartu seragam lagi.
 - **Tanpa tanda pisah panjang** (em dash dan en dash) di teks yang terlihat. Pakai tanda
   hubung biasa.
+- Nav membungkus jadi dua baris di bawah 56rem, karena itu `scroll-padding-top` di lebar
+  tersebut dinaikkan ke 11rem. Kalau isi nav berubah, periksa lagi angka ini.
 
 ## Enam bagian wajib
 

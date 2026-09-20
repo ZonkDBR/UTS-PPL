@@ -20,26 +20,33 @@ assets/video/       empat cuplikan rekaman pelaksanaan
 assets/RPL .../     RPL dan PPT yang ditautkan sebagai unduhan dari halaman
 ```
 
-## Tema: satu keluarga merah muda
+## Gaya: neo-brutalism merah muda
 
-Tidak ada lagi enam rona berbeda per bagian. Seluruh halaman memakai satu aksen merah
-muda; yang membedakan tiap bagian adalah bentuk layoutnya dan pergantian latar
-(`--page`, `--card`, `--sand`).
+Garis tebal, bayangan keras tanpa blur, blok warna datar, sudut membulat. Merah muda
+tetap warna utama; kuning mentega dan lavender hanya blok pendukung. Yang membedakan tiap
+bagian adalah bentuk layoutnya dan pergantian latar.
 
 | Token | Terang | Gelap | Catatan |
 |---|---|---|---|
-| `--page` | `#FFF6F8` | `#1E141A` | latar halaman |
-| `--sand` | `#FBF1E9` | `#241820` | latar bagian selang-seling |
-| `--ink` | `#3A2430` | `#FBEFF3` | 13.4:1 di atas `--page` |
-| `--muted` | `#7A5A66` | `#D0AFBE` | 5.5:1 di atas `--page` |
-| `--rose` | `#B9265A` | `#FFA6C0` | 6.0:1 di atas putih, 5.2:1 di atas `--tint` |
-| `--blossom` | `#FF9FB6` | `#C4567C` | **hiasan saja**, tidak pernah dipakai sebagai teks |
+| `--ink` | `#17121A` | `#FFF1F5` | teks utama, 18.5:1 di atas putih |
+| `--muted` | `#5E4A56` | `#DCC4D0` | teks sekunder, 8.1:1 di atas putih |
+| `--edge` | `#17121A` | `#FFF1F5` | **semua** garis dan bayangan |
+| `--page` | `#FFF1F5` | `#1A141C` | latar halaman |
+| `--card` | `#FFFFFF` | `#241C26` | kartu |
+| `--wash-pink` | `#FFDCE8` | `#2B1F2E` | latar bagian |
+| `--wash-lilac` | `#E6DBFF` | `#221C2E` | latar bagian |
+| `--pink` `--butter` `--lilac` | `#FFD2E0` `#FFE68C` `#D9C8FF` | sama | blok terang, teksnya selalu `--on-block` |
+| `--grape` | `#5B2BD9` | sama | isi tombol utama, teks putih 7.5:1 |
+| `--blossom` | `#FF8FB3` | sama | **hiasan saja**, tidak pernah jadi latar teks |
 
-**Bila salah satu nilai warna diubah, hitung ulang rasio kontrasnya** sampai memenuhi
-WCAG AA (>= 4.5:1) di atas putih, di atas `--tint`-nya sendiri, dan di atas `--page`.
+**Bila salah satu nilai warna diubah, sapu ulang kontrasnya** sampai tidak ada satu pun
+elemen teks di bawah 4.5:1, di mode terang maupun gelap.
 
 Halaman mengikuti `prefers-color-scheme` dan `prefers-reduced-motion`. Di mode hemat
-gerak, kelopak sakura dan animasi reveal mati sepenuhnya, isi tetap terbaca.
+gerak, kelopak sakura dan animasi reveal mati sepenuhnya, garis dan bayangannya tetap ada
+sehingga tampilannya utuh.
+
+Acuan bahasa visualnya: <https://ppganthonioakbar.vercel.app/>.
 
 ## Yang masih kosong
 
@@ -57,6 +64,7 @@ terbawa. Dokumen kerja (LK, PDF) tetap diabaikan lewat `.gitignore`.
 
 ## Menerbitkan
 
-Situs dilayani dari akar repo lewat GitHub Pages (Settings, Pages, Source: `main`,
-folder `/ (root)`). Pages menyebar ulang sekitar satu menit; periksa lewat jendela
-incognito karena cache-nya cukup agresif.
+Live di **<https://zonkdbr.github.io/UTS-PPL/>**, dilayani dari akar repo lewat GitHub
+Pages (Settings, Pages, Source: `main`, folder `/ (root)`). Cukup `git push origin main`;
+Pages menyebar ulang sekitar satu menit. Periksa lewat jendela incognito karena cache-nya
+cukup agresif.
