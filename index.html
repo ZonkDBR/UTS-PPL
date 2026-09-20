@@ -15,6 +15,29 @@
 
 <a class="skip" href="#rancangan">Lompat ke isi</a>
 
+<!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="st-sakura" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(72 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(144 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(216 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#FFE68C"/>
+  </symbol>
+  <symbol id="st-hati" viewBox="0 0 100 100">
+    <path d="M50,84 C22,64 12,48 12,36 C12,24 22,16 32,16 C40,16 46,21 50,28 C54,21 60,16 68,16 C78,16 88,24 88,36 C88,48 78,64 50,84 Z"/>
+  </symbol>
+  <symbol id="st-kilau" viewBox="0 0 100 100">
+    <path d="M50,8 C54,34 66,46 92,50 C66,54 54,66 50,92 C46,66 34,54 8,50 C34,46 46,34 50,8 Z"/>
+  </symbol>
+  <symbol id="st-bintang" viewBox="0 0 100 100">
+    <path d="M50,10 L61,38 L91,40 L68,59 L76,88 L50,72 L24,88 L32,59 L9,40 L39,38 Z"/>
+  </symbol>
+</svg>
+
 <!-- Kelopak berjatuhan: bentuk CSS murni bergaris hitam, seperti stiker tempel. -->
 <div class="petals" aria-hidden="true">
   <div class="petal" style="--i:0;  left:5%;  --s:16px; --p:var(--blossom)"></div>
@@ -54,8 +77,10 @@
     </div>
 
     <div class="photo-stack">
+      <svg class="stiker s-atas" aria-hidden="true"><use href="#st-sakura"></use></svg>
       <img class="main" src="assets/profile.jpeg" width="900" height="1600" alt="Foto Fahira Firzha Wianda">
       <img class="inset" src="assets/dokumentasi/fahira-kelas.jpg" width="720" height="1280" loading="lazy" alt="Fahira di ruang kelas SMA Negeri 1 Cisarua sebelum layanan dimulai">
+      <svg class="stiker s-bawah" aria-hidden="true"><use href="#st-hati"></use></svg>
     </div>
   </div>
 </header>
@@ -100,6 +125,7 @@
 <section class="sec sec--card" id="rancangan">
   <div class="wrap">
     <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 8deg; --tunda: -1s"><use href="#st-sakura"></use></svg>
       <h2>Analisis Produk Rancangan Layanan</h2>
       <p>
         Dua Rencana Pelaksanaan Layanan bimbingan klasikal yang saya susun dan
@@ -203,6 +229,7 @@
 <section class="sec sec--pink" id="materi">
   <div class="wrap">
     <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -10deg; --tunda: -2s"><use href="#st-kilau"></use></svg>
       <h2>Analisis Materi Layanan yang Disusun dan Diterapkan</h2>
       <p>
         Materi pada Lampiran 1 kedua RPL, yang saya ringkas sendiri menjadi dua paket
@@ -301,6 +328,7 @@
 <section class="sec" id="media">
   <div class="wrap">
     <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom); --rot: 12deg; --tunda: -3s"><use href="#st-hati"></use></svg>
       <h2>Analisis Media Layanan yang Dipergunakan</h2>
       <p>
         Enam media untuk dua layanan. Hanya satu di antaranya berupa slide, sisanya
@@ -414,6 +442,7 @@
 <section class="sec sec--card" id="video">
   <div class="wrap">
     <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -7deg; --tunda: -4s"><use href="#st-bintang"></use></svg>
       <h2>Analisis Video Pelaksanaan Praktik Mengajar Mandiri</h2>
       <p>
         Empat cuplikan rekaman layanan klasikal di kelas XI J, diambil kamera diam dari
@@ -515,9 +544,10 @@
 </section>
 
 <!-- ============ 5. NONMENGAJAR ============ -->
-<section class="sec sec--lilac" id="nonmengajar">
+<section class="sec sec--blush" id="nonmengajar">
   <div class="wrap">
     <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 14deg; --tunda: -5s"><use href="#st-kilau"></use></svg>
       <h2>Analisis Kegiatan Nonmengajar</h2>
       <p>
         Peran saya di luar jam layanan klasikal, bagian dari PPL yang paling banyak
@@ -550,6 +580,7 @@
 <section class="sec" id="instrumen">
   <div class="wrap">
     <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -12deg; --tunda: -6s"><use href="#st-sakura"></use></svg>
       <h2>Instrumen Penilaian yang Dirancang beserta Analisisnya</h2>
       <p>
         Tiga instrumen untuk tiap layanan: evaluasi proses yang saya isi sebagai pengamat,
@@ -656,6 +687,8 @@
 </main>
 
 <footer class="thanks">
+  <svg class="stiker s-kiri" aria-hidden="true"><use href="#st-bintang"></use></svg>
+  <svg class="stiker s-kanan" aria-hidden="true"><use href="#st-kilau"></use></svg>
   <div class="wrap">
     <svg class="blossom" viewBox="0 0 100 100" role="img" aria-label="Bunga sakura">
       <g transform="rotate(0 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>

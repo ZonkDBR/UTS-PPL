@@ -2,13 +2,14 @@
    E-Portfolio 1 - PPL Mandiri
    Fahira Firzha Wianda - IKIP Siliwangi - SMA Negeri 1 Cisarua
 
-   Gaya: neo-brutalism merah muda. Semua kotak bergaris tebal
-   dengan bayangan keras tanpa blur, blok warna datar, dan sudut
-   membulat. Merah muda tetap warna utama; kuning mentega dan
-   lavender hanya blok pendukung.
+   Gaya: neo-brutalism merah muda yang manis. Semua kotak bergaris
+   tebal dengan bayangan keras tanpa blur, blok warna datar, sudut
+   membulat lebar, dan stiker bergaris di titik-titik penting.
+   Merah muda satu-satunya warna utama; kuning mentega satu-satunya
+   pendamping. Tidak ada ungu di mana pun.
 
    Aturan warna: teks di atas blok terang SELALU --on-block yang
-   gelap; teks putih hanya di atas --grape. Garis dan bayangan
+   gelap; teks putih hanya di atas --rose. Garis dan bayangan
    selalu --edge.
    =========================================================== */
 
@@ -22,28 +23,30 @@
   --page:       #FFF1F5;
   --card:       #FFFFFF;
   --wash-pink:  #FFDCE8;   /* 14.6:1 dengan --ink, 6.4:1 dengan --muted */
-  --wash-lilac: #E6DBFF;   /* 14.0:1 dengan --ink, 6.2:1 dengan --muted */
+  --wash-blush: #FFE9F0;   /* 15.9:1 dengan --ink, 7.0:1 dengan --muted */
 
-  /* blok terang, nilainya sama di kedua mode */
+  /* blok terang, nilainya sama di kedua mode. Tidak ada ungu di sini. */
+  --blush:   #FFE4EC;
   --pink:    #FFD2E0;
   --butter:  #FFE68C;
-  --lilac:   #D9C8FF;
   --blossom: #FF8FB3;   /* hiasan saja, tidak pernah jadi latar teks */
-  --grape:   #5B2BD9;   /* 7.5:1 dengan teks putih */
-  --on-block:#17121A;   /* >= 12:1 di atas pink, butter, dan lilac */
+  --rose:    #C2185B;   /* isi tombol utama, teks putih 5.9:1 */
+  --on-block:#17121A;   /* >= 12:1 di atas blush, pink, dan butter */
 
   --hard-sm: 3px 3px 0 var(--edge);
   --hard:    4px 4px 0 var(--edge);
   --hard-lg: 6px 6px 0 var(--edge);
+
+  --pegas: cubic-bezier(.34, 1.56, .64, 1);   /* pantulan kecil, bukan ease datar */
 
   --display: "Fredoka", "Poppins", "Segoe UI", system-ui, sans-serif;
   --body:    "Plus Jakarta Sans", "Poppins", "Segoe UI", system-ui, sans-serif;
   --mono:    ui-monospace, "Cascadia Code", "Segoe UI Mono", Consolas, monospace;
 
   --col: 72rem;
-  --r: 18px;
-  --r-sm: 14px;
-  --r-lg: 22px;
+  --r: 22px;
+  --r-sm: 16px;
+  --r-lg: 28px;
   --pill: 999px;
 }
 
@@ -55,8 +58,8 @@
 
     --page:       #1A141C;
     --card:       #241C26;
-    --wash-pink:  #2B1F2E;
-    --wash-lilac: #221C2E;
+    --wash-pink:  #2E1F27;
+    --wash-blush: #261A21;
   }
 }
 
@@ -81,7 +84,7 @@ p:last-child { margin-bottom: 0; }
 a { color: var(--ink); }
 img, video { max-width: 100%; }
 
-:focus-visible { outline: 3px solid var(--grape); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; border-radius: 4px; }
 
 .wrap { max-width: var(--col); margin: 0 auto; padding-inline: 1.5rem; }
 .narrow { max-width: 65ch; }
@@ -197,9 +200,18 @@ img, video { max-width: 100%; }
   display: block; width: 100%; height: auto;
   aspect-ratio: 3 / 4; object-fit: cover; object-position: center 20%;
   border: 4px solid var(--edge);
-  border-radius: var(--r-lg);
+  border-radius: 46% 54% 42% 58% / 38% 36% 64% 62%;
   box-shadow: var(--hard-lg);
   background: var(--pink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .photo-stack .main { animation: blob 16s ease-in-out infinite; }
+}
+
+@keyframes blob {
+  0%, 100% { border-radius: 46% 54% 42% 58% / 38% 36% 64% 62%; }
+  50%      { border-radius: 56% 44% 58% 42% / 52% 48% 52% 48%; }
 }
 
 .photo-stack .inset {
@@ -316,7 +328,7 @@ img, video { max-width: 100%; }
 
 .sec--card  { background: var(--card); }
 .sec--pink  { background: var(--wash-pink); }
-.sec--lilac { background: var(--wash-lilac); }
+.sec--blush { background: var(--wash-blush); }
 
 .sec__head { max-width: 46rem; margin-bottom: 2.25rem; }
 
@@ -402,7 +414,7 @@ img, video { max-width: 100%; }
 @media (min-width: 58rem) { .materi-grid { grid-template-columns: 1.25fr .75fr; gap: 2.5rem; } }
 
 .quote {
-  background: var(--lilac);
+  background: var(--blush);
   color: var(--on-block);
   border: 3px solid var(--edge);
   border-radius: var(--r);
@@ -420,8 +432,12 @@ img, video { max-width: 100%; }
 
 .quote figcaption { font-size: .82rem; color: var(--on-block); }
 
+/* height: auto WAJIB. Tanpa itu atribut height pada <img> menang dan foto
+   potret ini ditarik memanjang sampai ribuan piksel, merusak dua kolomnya. */
 .quote img {
-  display: block; width: 100%;
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover; object-position: center 30%;
   border: 3px solid var(--edge);
   border-radius: var(--r-sm);
   margin-top: 1.1rem;
@@ -598,7 +614,7 @@ img, video { max-width: 100%; }
 
 .bukti a {
   display: inline-flex; align-items: center; gap: .4rem;
-  background: var(--grape); color: #FFFFFF;
+  background: var(--rose); color: #FFFFFF;
   border: 3px solid var(--edge);
   border-radius: var(--pill);
   box-shadow: var(--hard);
@@ -620,14 +636,98 @@ img, video { max-width: 100%; }
 
 @media (prefers-reduced-motion: no-preference) {
   .rpl-card, .tile, .outline section, .klaster article, .temuan article {
-    transition: transform .18s ease, box-shadow .18s ease;
+    transition: transform .3s var(--pegas), box-shadow .3s var(--pegas);
   }
   .rpl-card:hover, .tile:hover, .outline section:hover,
   .klaster article:hover, .temuan article:hover {
-    transform: translate(-2px, -2px);
+    transform: translate(-3px, -3px) rotate(-.4deg);
     box-shadow: var(--hard-lg);
   }
 }
+
+/* ---------- stiker ----------
+   Satu set bentuk SVG bergaris hitam yang dipakai ulang lewat <use>.
+   Ditempel hanya di hero, kepala bagian, dan footer. Bayangannya memakai
+   drop-shadow supaya mengikuti lekuk bentuknya, bukan kotak pembatasnya. */
+
+/* Selektor kelas tidak menembus isi <use>, jadi warnanya diberikan lewat
+   properti yang memang diwariskan ke shadow tree: fill dan stroke. */
+.stiker {
+  position: absolute;
+  width: var(--sw, 46px);
+  height: var(--sw, 46px);
+  pointer-events: none;
+  z-index: 2;
+  transform: rotate(var(--rot, 0deg));
+  fill: var(--isi, var(--pink));
+  stroke: var(--edge);
+  stroke-width: 4.5;
+  stroke-linejoin: round;
+  filter: drop-shadow(3px 3px 0 var(--edge));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stiker { animation: apung 5s ease-in-out infinite; animation-delay: var(--tunda, 0s); }
+  .photo-stack:hover .stiker,
+  .sec__head:hover .stiker,
+  .thanks:hover .stiker { animation: goyang .6s var(--pegas); }
+}
+
+@keyframes apung {
+  0%, 100% { transform: rotate(var(--rot, 0deg)) translateY(0); }
+  50%      { transform: rotate(var(--rot, 0deg)) translateY(-8px); }
+}
+
+@keyframes goyang {
+  0%, 100% { transform: rotate(var(--rot, 0deg)) scale(1); }
+  30%      { transform: rotate(calc(var(--rot, 0deg) - 14deg)) scale(1.12); }
+  65%      { transform: rotate(calc(var(--rot, 0deg) + 10deg)) scale(1.06); }
+}
+
+/* penempatan: hero */
+.photo-stack .s-atas  { top: -36px; left: -32px; --sw: 62px; --rot: -12deg; --isi: var(--butter); }
+.photo-stack .s-bawah { bottom: 6px; left: -36px; --sw: 48px; --rot: 14deg; --tunda: -2s; }
+
+/* penempatan: kepala tiap bagian, hanya muncul kalau ruangnya cukup */
+.sec__head { position: relative; }
+.sec__head .stiker { display: none; }
+
+@media (min-width: 62rem) {
+  .sec__head .stiker { display: block; right: -6rem; top: .2rem; --sw: 50px; --rot: 9deg; }
+}
+
+/* penempatan: footer */
+.thanks .s-kiri  { left: 8%;  top: 3.2rem; --sw: 46px; --rot: -16deg; --isi: var(--card); }
+.thanks .s-kanan { right: 9%; top: 5.2rem; --sw: 40px; --rot: 18deg; --tunda: -2.5s; --isi: var(--blossom); }
+
+@media (max-width: 48rem) {
+  .thanks .s-kiri, .thanks .s-kanan { display: none; }
+}
+
+/* mark bunga di nav ikut berputar saat disinggahi */
+@media (prefers-reduced-motion: no-preference) {
+  .sitenav .blossom { transition: transform .5s var(--pegas); }
+  .sitenav .wrap:hover .blossom { transform: rotate(60deg) scale(1.08); }
+}
+
+/* ---------- jejak kelopak di kursor ----------
+   Elemennya dibuat oleh script.js dan hanya kalau perangkatnya berpenunjuk
+   halus serta mode hemat gerak tidak aktif. Hanya transform yang digerakkan. */
+
+.kursor { position: fixed; inset: 0; z-index: 60; pointer-events: none; overflow: hidden; }
+
+.kursor .jejak {
+  position: absolute; top: 0; left: 0;
+  width: 15px; height: 15px;
+  background: var(--blossom);
+  border: 1.5px solid var(--edge);
+  border-radius: 100% 0 100% 0;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.kursor .jejak.butter { background: var(--butter); }
+.kursor .jejak.muda   { background: var(--pink); }
 
 /* ---------- footer ---------- */
 

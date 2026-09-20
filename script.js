@@ -48,3 +48,96 @@
 
   sections.forEach(function (section) { garis.observe(section); });
 })();
+
+
+/* Jejak kelopak di belakang kursor, plus percikan kecil saat diklik.
+
+   Tidak dipasang sama sekali pada perangkat sentuh dan saat mode hemat gerak
+   aktif. Hanya transform dan opacity yang digerakkan, semuanya di dalam satu
+   requestAnimationFrame, jadi tidak ada pekerjaan tata letak per frame. */
+
+(function () {
+  var halus = window.matchMedia('(hover: hover) and (pointer: fine)');
+  var hematGerak = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!halus.matches || hematGerak.matches) return;
+
+  var JUMLAH = 14;
+  var lapisan = document.createElement('div');
+  lapisan.className = 'kursor';
+  lapisan.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(lapisan);
+
+  var rona = ['', 'muda', 'butter'];
+  var kelopak = [];
+  var i;
+
+  for (i = 0; i < JUMLAH; i++) {
+    var el = document.createElement('div');
+    el.className = 'jejak ' + rona[i % rona.length];
+    lapisan.appendChild(el);
+    kelopak.push({
+      el: el,
+      x: -100, y: -100,
+      putar: Math.random() * 360,
+      skala: 1 - (i / JUMLAH) * 0.55,   // makin belakang makin kecil
+      lekat: 0.32 - (i / JUMLAH) * 0.2, // dan makin lambat mengejar
+      pecah: null
+    });
+  }
+
+  var tujuanX = -100, tujuanY = -100, pernahGerak = false;
+
+  window.addEventListener('pointermove', function (e) {
+    tujuanX = e.clientX;
+    tujuanY = e.clientY;
+    pernahGerak = true;
+  }, { passive: true });
+
+  // Klik memercikkan enam kelopak paling belakang ke segala arah.
+  window.addEventListener('pointerdown', function (e) {
+    var mulai = JUMLAH - 6;
+    for (var n = mulai; n < JUMLAH; n++) {
+      var sudut = ((n - mulai) / 6) * Math.PI * 2 + Math.random() * 0.4;
+      kelopak[n].pecah = {
+        x: e.clientX, y: e.clientY,
+        dx: Math.cos(sudut) * (3.4 + Math.random() * 1.6),
+        dy: Math.sin(sudut) * (3.4 + Math.random() * 1.6),
+        sisa: 34
+      };
+    }
+  }, { passive: true });
+
+  (function gerak() {
+    var x = tujuanX, y = tujuanY;
+
+    for (var n = 0; n < JUMLAH; n++) {
+      var k = kelopak[n];
+
+      if (k.pecah) {
+        k.pecah.x += k.pecah.dx;
+        k.pecah.y += k.pecah.dy;
+        k.pecah.dy += 0.22;             // sedikit gravitasi supaya jatuh
+        k.pecah.sisa -= 1;
+        k.x = k.pecah.x;
+        k.y = k.pecah.y;
+        k.putar += 11;
+        k.el.style.opacity = Math.max(0, k.pecah.sisa / 34);
+        if (k.pecah.sisa <= 0) k.pecah = null;
+      } else {
+        k.x += (x - k.x) * k.lekat;
+        k.y += (y - k.y) * k.lekat;
+        k.putar += 2.4;
+        k.el.style.opacity = pernahGerak ? (0.85 - (n / JUMLAH) * 0.6).toFixed(2) : 0;
+      }
+
+      k.el.style.transform =
+        'translate3d(' + k.x + 'px,' + k.y + 'px,0) rotate(' + k.putar + 'deg) scale(' + k.skala + ')';
+
+      // kelopak berikutnya mengejar posisi kelopak ini, bukan kursornya
+      x = k.x;
+      y = k.y;
+    }
+
+    requestAnimationFrame(gerak);
+  })();
+})();

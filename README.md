@@ -33,18 +33,28 @@ bagian adalah bentuk layoutnya dan pergantian latar.
 | `--edge` | `#17121A` | `#FFF1F5` | **semua** garis dan bayangan |
 | `--page` | `#FFF1F5` | `#1A141C` | latar halaman |
 | `--card` | `#FFFFFF` | `#241C26` | kartu |
-| `--wash-pink` | `#FFDCE8` | `#2B1F2E` | latar bagian |
-| `--wash-lilac` | `#E6DBFF` | `#221C2E` | latar bagian |
-| `--pink` `--butter` `--lilac` | `#FFD2E0` `#FFE68C` `#D9C8FF` | sama | blok terang, teksnya selalu `--on-block` |
-| `--grape` | `#5B2BD9` | sama | isi tombol utama, teks putih 7.5:1 |
+| `--wash-pink` | `#FFDCE8` | `#2E1F27` | latar bagian |
+| `--wash-blush` | `#FFE9F0` | `#261A21` | latar bagian |
+| `--blush` `--pink` `--butter` | `#FFE4EC` `#FFD2E0` `#FFE68C` | sama | blok terang, teksnya selalu `--on-block` |
+| `--rose` | `#C2185B` | sama | isi tombol utama, teks putih 5.9:1 |
 | `--blossom` | `#FF8FB3` | sama | **hiasan saja**, tidak pernah jadi latar teks |
 
-**Bila salah satu nilai warna diubah, sapu ulang kontrasnya** sampai tidak ada satu pun
-elemen teks di bawah 4.5:1, di mode terang maupun gelap.
+**Tidak ada ungu sama sekali.** Versi sebelumnya sempat memakai lavender dan ungu, dan
+itu membuat aksen halaman terbaca ungu, bukan merah muda.
+
+**Bila salah satu nilai warna diubah, sapu ulang** kontras (nol elemen teks di bawah
+4.5:1, kedua mode) dan rona (nol warna di keluarga ungu).
+
+## Gerak dan hiasan
+
+Kelopak sakura berjatuhan, stiker bergaris mengambang di hero, kepala tiap bagian, dan
+footer, kartu memantul saat disinggahi, dan kursor meninggalkan jejak kelopak yang
+memercik saat diklik.
 
 Halaman mengikuti `prefers-color-scheme` dan `prefers-reduced-motion`. Di mode hemat
-gerak, kelopak sakura dan animasi reveal mati sepenuhnya, garis dan bayangannya tetap ada
-sehingga tampilannya utuh.
+gerak semua animasi mati, jejak kursornya tidak dipasang sama sekali, dan garis serta
+bayangannya tetap ada sehingga tampilannya utuh. Jejak kursor juga tidak dipasang pada
+perangkat layar sentuh.
 
 Acuan bahasa visualnya: <https://ppganthonioakbar.vercel.app/>.
 

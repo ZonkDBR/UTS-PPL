@@ -55,21 +55,26 @@ dipakai sebagai acuan bahasa visual saja, bukan isinya). Ciri yang diambil: gari
 bayangan keras tanpa blur, blok warna datar, sudut membulat, huruf tebal, dan potongan
 gambar bergaris.
 
+**Tidak boleh ada ungu di mana pun.** Warna ungu dan lavender pernah dipakai dan ditolak
+pada 20 September 2026 karena aksen halaman jadi terbaca ungu, bukan merah muda.
+
 ```css
 /* terang */
 --ink: #17121A;  --muted: #5E4A56;  --edge: #17121A;   /* --edge = semua garis dan bayangan */
 --page: #FFF1F5; --card: #FFFFFF;
---wash-pink: #FFDCE8;  --wash-lilac: #E6DBFF;          /* latar bagian */
+--wash-pink: #FFDCE8;  --wash-blush: #FFE9F0;          /* latar bagian */
 
 /* blok terang, nilainya SAMA di kedua mode */
---pink: #FFD2E0;  --butter: #FFE68C;  --lilac: #D9C8FF;
+--blush: #FFE4EC;  --pink: #FFD2E0;  --butter: #FFE68C;
 --blossom: #FF8FB3;   /* hiasan saja */
---grape: #5B2BD9;     /* isi tombol utama, teks putih 7.5:1 */
+--rose: #C2185B;      /* isi tombol utama, teks putih 5.9:1 */
 --on-block: #17121A;  /* teks di atas blok terang, >= 12:1 */
 
-/* gelap, lewat prefers-color-scheme: hanya latar, teks, dan garis yang ditukar */
+/* gelap, lewat prefers-color-scheme: hanya latar, teks, dan garis yang ditukar.
+   Rona latar gelapnya sengaja dijaga di keluarga merah muda (sekitar 325 derajat),
+   bukan 280-an, supaya tidak terbaca ungu tua. */
 --ink:#FFF1F5; --muted:#DCC4D0; --edge:#FFF1F5;
---page:#1A141C; --card:#241C26; --wash-pink:#2B1F2E; --wash-lilac:#221C2E;
+--page:#1A141C; --card:#241C26; --wash-pink:#2E1F27; --wash-blush:#261A21;
 
 --hard-sm: 3px 3px 0 var(--edge);
 --hard:    4px 4px 0 var(--edge);
@@ -82,12 +87,13 @@ gambar bergaris.
 **Aturan warna yang tidak boleh dilanggar:**
 
 - Semua garis dan bayangan memakai `--edge`. Tidak ada lagi bayangan lembut ber-blur.
-- Teks di atas blok terang (`--pink`, `--butter`, `--lilac`) **selalu** `--on-block`.
+- Teks di atas blok terang (`--blush`, `--pink`, `--butter`) **selalu** `--on-block`.
   Aturan ini harus ditulis SESUDAH aturan warna umumnya, karena kekhususannya sama.
-- Teks putih hanya di atas `--grape`.
-- Kalau ada nilai warna diubah, sapu ulang kontrasnya. Cara cepat: jalankan server lokal,
-  lalu di Playwright hitung rasio setiap elemen teks yang terlihat terhadap latar
-  efektifnya; targetnya nol elemen di bawah 4.5:1, di mode terang dan gelap.
+- Teks putih hanya di atas `--rose`.
+- Kalau ada nilai warna diubah, sapu ulang dua hal lewat Playwright di server lokal:
+  rasio kontras tiap elemen teks yang terlihat terhadap latar efektifnya (target nol
+  elemen di bawah 4.5:1, kedua mode), dan rona tiap warna yang dipakai (target nol warna
+  di rentang 255 sampai 320 derajat dengan kejenuhan di atas 0,18, yaitu keluarga ungu).
 
 Satu skala radius saja, dan hover memakai `translate(-2px, -2px)` dengan bayangan
 membesar, `:active` memakai `translate(2px, 2px)` tanpa bayangan.
@@ -107,6 +113,25 @@ terbaca. Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap te
   hubung biasa.
 - Nav membungkus jadi dua baris di bawah 56rem, karena itu `scroll-padding-top` di lebar
   tersebut dinaikkan ke 11rem. Kalau isi nav berubah, periksa lagi angka ini.
+- **Stiker** memakai satu set `<symbol>` SVG di awal `index.html`, dipakai ulang lewat
+  `<use>`. Selektor kelas **tidak menembus** isi `<use>`, jadi warnanya diberikan lewat
+  properti yang diwariskan (`fill`, `stroke`, `stroke-width`) pada `.stiker`. Pernah
+  keliru memakai `.stiker .badan` dan hasilnya semua stiker jadi hitam pekat.
+- **Jebakan ukuran gambar**: setiap `<img>` yang punya atribut `width`/`height` wajib
+  diberi `height` eksplisit di CSS (`height: auto` atau tinggi tetap). Tanpa itu
+  atributnya menang dan foto potret ditarik memanjang. Pernah terjadi pada `.quote img`,
+  kartunya sampai setinggi 2015px.
+
+## Gerak
+
+- Kelopak berjatuhan, stiker mengambang, kartu memantul dengan `--pegas`, mark bunga nav
+  berputar saat disinggahi, foto hero berbentuk blob yang berubah pelan.
+- **Jejak kursor** ada di `script.js`: 14 kelopak dalam satu lapisan `position: fixed`,
+  digerakkan satu `requestAnimationFrame`, tiap kelopak mengejar kelopak di depannya.
+  Klik memercikkan enam kelopak terakhir. Hanya `transform` dan `opacity` yang digerakkan.
+- Semua gerak, termasuk jejak kursor, mati total saat `prefers-reduced-motion: reduce`.
+  Jejak kursor juga tidak dipasang sama sekali kalau `(hover: hover) and (pointer: fine)`
+  tidak terpenuhi, jadi layar sentuh tidak menanggung biayanya.
 
 ## Enam bagian wajib
 
