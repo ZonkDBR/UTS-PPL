@@ -1,722 +1,599 @@
 /* ===========================================================
-   E-Portfolio 1 — PPL Mandiri
-   Fahira Firzha Wianda · IKIP Siliwangi · SMA Negeri 1 Cisarua
+   E-Portfolio 1 - PPL Mandiri
+   Fahira Firzha Wianda - IKIP Siliwangi - SMA Negeri 1 Cisarua
 
-   "Enam Kelopak": six analyses, six petal hues. Colour is
-   navigation here, so each section scopes its own --tint/--hue/
-   --ink and everything inside inherits. No JS touches colour.
+   "Sakura Riso": satu keluarga merah muda, satu ground pasir
+   hangat, tinta plum. Warna bukan penanda bagian; yang
+   membedakan bagian adalah bentuk layoutnya. Pastel hanya untuk
+   latar dan hiasan, teks selalu --ink / --muted / --rose.
    =========================================================== */
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
 
-  --page:      #FFF9FC;
-  --page-2:    #F7F0FA;
-  --card:      #FFFFFF;
-  --ink-dark:  #2E2430;   /* 14.3:1 on page */
-  --ink-muted: #6B5A66;   /*  6.2:1 on page */
-  --line:      #F2E4EC;
-
-  /* Default accent = blossom, so anything outside a section still has a hue. */
-  --tint: #FFEEF2;
-  --hue:  #FF8FA3;
-  --ink:  #C42E58;
+  --page:    #FFF6F8;
+  --sand:    #FBF1E9;
+  --card:    #FFFFFF;
+  --ink:     #3A2430;   /* 13.4:1 di atas --page */
+  --muted:   #7A5A66;   /*  5.5:1 di atas --page, 5.0:1 di atas --tint */
+  --rose:    #B9265A;   /*  6.0:1 di atas putih, 5.2:1 di atas --tint */
+  --blossom: #FF9FB6;   /* HIASAN SAJA: garis, kelopak, pita. Tidak pernah teks. */
+  --tint:    #FFE8EE;
+  --tint-2:  #FFD5E0;
+  --line:    #F6E3EA;
+  --shadow:  rgba(148, 74, 102, .13);
 
   --display: "Fredoka", "Poppins", "Segoe UI", system-ui, sans-serif;
   --body:    "Plus Jakarta Sans", "Poppins", "Segoe UI", system-ui, sans-serif;
 
-  --col: 70rem;
-  --r-card: 26px;
-  --r-inner: 20px;
-  --r-pill: 999px;
+  --col: 72rem;
+  --r: 20px;          /* satu skala radius untuk kartu dan gambar */
+  --r-sm: 12px;
+  --pill: 999px;
 }
 
-/* --- the six hues -------------------------------------------------
-   Every --ink is solved for >= 4.5:1 on white, on its own --tint, and
-   on --page. Pastels are for grounds and decoration only; text always
-   takes --ink. Re-run the contrast check if any value here moves. */
-
-.c-rancangan { --tint: #FFEEF2; --hue: #FF8FA3; --ink: #C42E58; } /* 4.84 min */
-.c-materi    { --tint: #EAF4FE; --hue: #7FB6E8; --ink: #1A6BAE; } /* 5.02 min */
-.c-media    { --tint: #F2ECF9; --hue: #B79BE0; --ink: #6B3FA8; } /* 6.25 min */
-.c-video    { --tint: #E4F6EF; --hue: #6FCFB0; --ink: #0F7A5B; } /* 4.73 min */
-.c-nonmengajar   { --tint: #FFF0E4; --hue: #FFB783; --ink: #A85110; } /* 4.89 min */
-.c-instrumen{ --tint: #FBEAF2; --hue: #E191BC; --ink: #A93871; } /* 5.20 min */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page:    #1E141A;
+    --sand:    #241820;
+    --card:    #291B23;
+    --ink:     #FBEFF3;
+    --muted:   #D0AFBE;   /* 9.0:1 di atas --page */
+    --rose:    #FFA6C0;   /* 9.8:1 di atas --page */
+    --blossom: #C4567C;
+    --tint:    #3A2330;
+    --tint-2:  #4A2C3B;
+    --line:    #402A36;
+    --shadow:  rgba(0, 0, 0, .45);
+  }
+}
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
 
 body {
   margin: 0;
   font-family: var(--body);
   font-size: 1rem;
   line-height: 1.75;
-  color: var(--ink-dark);
-  background: linear-gradient(160deg, var(--page) 0%, var(--page-2) 100%);
-  background-attachment: fixed;
+  color: var(--ink);
+  background: var(--page);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.15; }
 p { margin: 0 0 1rem; }
 p:last-child { margin-bottom: 0; }
-a { color: var(--ink); }
+a { color: var(--rose); }
+img, video { max-width: 100%; }
 
-:focus-visible {
-  outline: 3px solid var(--ink);
-  outline-offset: 3px;
-  border-radius: 8px;
-}
+:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; border-radius: 6px; }
 
+.wrap { max-width: var(--col); margin: 0 auto; padding-inline: 1.5rem; }
+.narrow { max-width: 65ch; }
 
-/* Skip link: off-screen until focused, then parked over the hero. */
 .skip {
-  position: absolute;
-  left: -9999px;
-  z-index: 100;
-  background: var(--card);
-  color: var(--ink);
-  font-weight: 600;
-  padding: .7rem 1.2rem;
-  border-radius: var(--r-pill);
-  border: 1px solid var(--hue);
-  text-decoration: none;
+  position: absolute; left: -9999px; z-index: 100;
+  background: var(--card); color: var(--rose); font-weight: 600;
+  padding: .7rem 1.2rem; border-radius: var(--pill);
+  border: 1px solid var(--blossom); text-decoration: none;
 }
+.skip:focus { left: 1rem; top: 1rem; }
 
-.skip:focus {
-  left: 1rem;
-  top: 1rem;
-}
-.wrap { max-width: var(--col); margin: 0 auto; padding: 0 1.5rem; }
-
-.eyebrow {
-  font-size: .74rem;
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin: 0 0 .6rem;
-}
-
-/* ---------- falling petals ----------
-   CSS shapes, no images: one blossom-petal silhouette tinted per petal.
-
-   Two animations on one element, as E-Porto does it: `fall` drives `top`,
-   `sway` drives `transform`. Separate properties, so they never fight — and
-   the sideways flutter is what makes these read as petals rather than dots. */
+/* ---------- kelopak berjatuhan: bentuk CSS murni ---------- */
 
 .petals { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 
 .petal {
-  position: absolute;
-  top: -10vh;
-  width: var(--s, 15px);
-  height: var(--s, 15px);
-  background: var(--p, #FF8FA3);
+  position: absolute; top: -10vh;
+  width: var(--s, 14px); height: var(--s, 14px);
+  background: var(--p, #FF9FB6);
   border-radius: 100% 0 100% 0;
   opacity: 0;
-  box-shadow: 0 0 6px rgba(255, 143, 163, .25);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .petal {
-    animation:
-      fall linear infinite,
-      sway ease-in-out infinite;
-    animation-duration: calc(11s + var(--i) * .55s), calc(3s + var(--i) * .17s);
-    animation-delay: calc(var(--i) * -.9s), calc(var(--i) * -.31s);
+    animation: fall linear infinite, sway ease-in-out infinite;
+    animation-duration: calc(12s + var(--i) * .6s), calc(3.2s + var(--i) * .19s);
+    animation-delay: calc(var(--i) * -1.1s), calc(var(--i) * -.37s);
   }
 }
 
 @keyframes fall {
   0%   { top: -10vh; opacity: 0; }
-  8%   { opacity: .85; }
-  90%  { opacity: .7; }
-  100% { top: 110vh;  opacity: 0; }
+  8%   { opacity: .8; }
+  90%  { opacity: .55; }
+  100% { top: 110vh; opacity: 0; }
 }
 
 @keyframes sway {
   0%, 100% { transform: translateX(0) rotate(0deg); }
-  25%      { transform: translateX(26px) rotate(50deg); }
-  50%      { transform: translateX(-18px) rotate(95deg); }
-  75%      { transform: translateX(22px) rotate(140deg); }
+  25%      { transform: translateX(24px) rotate(50deg); }
+  50%      { transform: translateX(-16px) rotate(95deg); }
+  75%      { transform: translateX(20px) rotate(140deg); }
 }
 
 /* ---------- hero ---------- */
 
-.hero { position: relative; z-index: 1; padding: 4.5rem 0 3.5rem; }
+.hero { position: relative; z-index: 1; padding: 3.5rem 0 2.5rem; }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
+.hero-grid { display: grid; gap: 2.5rem; align-items: center; }
 
-@media (min-width: 60rem) {
-  .hero-grid { grid-template-columns: 1.35fr .65fr; gap: 3.5rem; }
-}
-
-.hello {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--r-pill);
-  padding: .45rem 1.1rem;
-  font-size: .88rem;
-  font-weight: 600;
-  color: var(--ink);
-  box-shadow: 0 8px 22px rgba(255, 143, 163, .14);
-  margin-bottom: 1.25rem;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .hello .wave { display: inline-block; animation: wave 2.6s ease-in-out infinite; transform-origin: 70% 70%; }
-}
-
-@keyframes wave {
-  0%, 60%, 100% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(12deg); }
-  40% { transform: rotate(-4deg); }
+@media (min-width: 62rem) {
+  .hero-grid { grid-template-columns: 1.15fr .85fr; gap: 4rem; }
+  .hero { padding-top: 4.5rem; }
 }
 
 .hero h1 {
-  font-family: var(--display);
-  font-size: clamp(2.5rem, 6.5vw, 4.25rem);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -.015em;
-  margin: 0 0 1.1rem;
-  color: var(--ink-dark);
+  font-size: clamp(2.4rem, 6vw, 3.9rem);
+  letter-spacing: -.02em;
+  margin: 0 0 .5rem;
   text-wrap: balance;
 }
 
-.hero h1 .name {
-  background: linear-gradient(115deg, #FF8FA3 0%, #C76BC0 45%, #7FB6E8 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: #C42E58; /* fallback where background-clip:text is unsupported */
+.hero h1 .accent { color: var(--rose); }
+
+.hero .role {
+  font-family: var(--display);
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  color: var(--muted);
+  margin: 0 0 1.1rem;
 }
 
-.hero .lede { font-size: 1.08rem; color: var(--ink-muted); max-width: 36rem; }
+.hero .lede { font-size: 1.06rem; color: var(--muted); max-width: 38rem; }
 
 .why {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--line);
-  border-left: 5px solid var(--hue);
-  border-radius: var(--r-inner);
-  padding: 1.1rem 1.35rem;
-  margin: 1.5rem 0;
-  max-width: 36rem;
-  box-shadow: 0 10px 26px rgba(46, 36, 48, .05);
+  border-radius: var(--r);
+  padding: 1.15rem 1.4rem;
+  margin-top: 1.6rem;
+  max-width: 38rem;
+  box-shadow: 0 14px 34px var(--shadow);
 }
 
-.why h2 {
-  font-family: var(--display);
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0 0 .4rem;
-  color: var(--ink);
-}
-
-.why p { font-size: .95rem; color: var(--ink-muted); }
-
-.chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
-
-.chips li {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--r-pill);
-  padding: .4rem .95rem;
-  font-size: .82rem;
-  color: var(--ink-muted);
-}
-
-.chips strong { color: var(--ink-dark); font-weight: 600; }
-
-/* ---------- hero stats ---------- */
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: .75rem;
-  margin-top: 1.75rem;
-  max-width: 36rem;
-  list-style: none;
-  padding: 0;
-}
-
-@media (min-width: 34rem) {
-  .stats { grid-template-columns: repeat(4, 1fr); }
-}
-
-.stats li {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--r-inner);
-  padding: .9rem .75rem;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(46, 36, 48, .04);
-}
-
-.stats .num {
-  display: block;
-  font-family: var(--display);
-  font-size: 1.65rem;
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--ink);
-}
-
-.stats .lbl {
-  display: block;
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  color: var(--ink-muted);
-  margin-top: .15rem;
-}
-
-/* Each stat borrows one of the six hues, so the palette is introduced
-   before the reader ever reaches a section. */
-.stats li:nth-child(1) { --ink: #C42E58; }
-.stats li:nth-child(2) { --ink: #1A6BAE; }
-.stats li:nth-child(3) { --ink: #0F7A5B; }
-.stats li:nth-child(4) { --ink: #A85110; }
-
-/* portrait in a petal-shaped frame */
-.portrait { position: relative; justify-self: center; width: min(280px, 74vw); }
-
-.portrait img {
-  display: block;
-  width: 100%;
-  height: auto;          /* the height="1600" attribute would otherwise beat aspect-ratio */
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center 22%;
-  border-radius: 58% 42% 55% 45% / 48% 45% 55% 52%;
-  border: 6px solid var(--card);
-  box-shadow: 0 22px 50px rgba(255, 143, 163, .3);
-}
-
-.portrait::after {
+/* pita washi kecil di sudut kartu, kesan tempelan buku catatan */
+.why::before {
   content: "";
-  position: absolute;
-  inset: -14px;
-  border-radius: inherit;
-  border: 2px dashed rgba(255, 143, 163, .45);
-  border-radius: 58% 42% 55% 45% / 48% 45% 55% 52%;
-  pointer-events: none;
+  position: absolute; left: 1.4rem; top: -9px;
+  width: 74px; height: 18px;
+  background: linear-gradient(105deg, var(--tint-2), var(--blossom));
+  border-radius: 3px;
+  opacity: .85;
+  transform: rotate(-2.5deg);
+}
+
+.why h2 { font-size: 1.02rem; margin: .2rem 0 .45rem; color: var(--rose); }
+.why p { font-size: .95rem; color: var(--muted); }
+
+/* foto hero: potret utama dengan satu foto kelas menimpa sudutnya */
+.photo-stack { position: relative; justify-self: center; width: min(310px, 78vw); }
+
+.photo-stack .main {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 3 / 4; object-fit: cover; object-position: center 20%;
+  border-radius: 52% 48% 54% 46% / 46% 44% 56% 54%;
+  border: 7px solid var(--card);
+  box-shadow: 0 24px 54px var(--shadow);
+}
+
+.photo-stack::after {
+  content: "";
+  position: absolute; inset: -15px;
+  border: 2px dashed var(--blossom);
+  border-radius: 52% 48% 54% 46% / 46% 44% 56% 54%;
+  opacity: .6; pointer-events: none;
+}
+
+.photo-stack .inset {
+  position: absolute; right: -10px; bottom: -24px;
+  width: 44%; height: auto;
+  border-radius: var(--r-sm);
+  border: 5px solid var(--card);
+  box-shadow: 0 14px 30px var(--shadow);
+  transform: rotate(5deg);
+  object-fit: cover; aspect-ratio: 3 / 4;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .portrait img { animation: blob 14s ease-in-out infinite; }
+  .photo-stack .main { animation: blob 16s ease-in-out infinite; }
 }
 
 @keyframes blob {
-  0%, 100% { border-radius: 58% 42% 55% 45% / 48% 45% 55% 52%; }
-  50%      { border-radius: 44% 56% 42% 58% / 56% 52% 48% 44%; }
+  0%, 100% { border-radius: 52% 48% 54% 46% / 46% 44% 56% 54%; }
+  50%      { border-radius: 44% 56% 46% 54% / 56% 52% 48% 44%; }
 }
 
-/* ---------- sticky nav: the six-petal blossom ---------- */
+/* ---------- strip identitas: di bawah hero, bukan di dalamnya ---------- */
+
+.idstrip { position: relative; z-index: 1; padding-bottom: 1.5rem; }
+
+.idstrip dl {
+  display: grid; gap: 1px;
+  grid-template-columns: 1fr;
+  margin: 0;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+@media (min-width: 40rem) { .idstrip dl { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 64rem) { .idstrip dl { grid-template-columns: repeat(5, 1fr); } }
+
+.idstrip div { background: var(--card); padding: .95rem 1.1rem; }
+.idstrip dt { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.idstrip dd { margin: .2rem 0 0; font-family: var(--display); font-size: .98rem; color: var(--ink); }
+
+/* ---------- nav lengket ---------- */
 
 .sitenav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255, 249, 252, .88);
+  position: sticky; top: 0; z-index: 50;
+  background: var(--page);   /* cadangan bila color-mix tidak didukung */
+  background: color-mix(in srgb, var(--page) 88%, transparent);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
 
 .sitenav .wrap {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-top: .55rem;
-  padding-bottom: .55rem;
+  display: flex; align-items: center; gap: 1rem;
+  min-height: 64px; padding-block: .5rem;
 }
 
-.blossom { flex: none; width: 52px; height: 52px; }
+.blossom { flex: none; width: 44px; height: 44px; }
 
-/* Rotation lives on the wrapping <g> as an attribute, so the path itself is
-   free for a CSS transform. Pivot is the petal's base = the flower's centre. */
 .blossom .kelopak {
-  fill: #F3E7EE;
-  stroke: #E4D3DE;
-  stroke-width: 1.5;
-  transform: scale(.84);
+  fill: var(--tint-2);
+  transform: scale(.82);
   transform-box: fill-box;
   transform-origin: 50% 100%;
 }
 
-.blossom .kelopak.mekar { fill: var(--k); stroke: none; transform: scale(1); }
+.blossom .kelopak.mekar { fill: var(--blossom); transform: scale(1); }
+.blossom .inti { fill: var(--card); stroke: var(--line); stroke-width: 2; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .blossom .kelopak {
-    transition: fill .55s ease, transform .55s cubic-bezier(.34, 1.5, .64, 1);
-  }
+  .blossom .kelopak { transition: fill .5s ease, transform .5s cubic-bezier(.34, 1.5, .64, 1); }
 }
 
-.blossom .inti { fill: #FFFFFF; stroke: #EADFE6; stroke-width: 2; }
-
 .navlinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .35rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  min-width: 0;
+  display: flex; flex-wrap: wrap; gap: .3rem;
+  list-style: none; margin: 0; padding: 0; min-width: 0;
 }
 
 .navlinks a {
-  display: block;
-  padding: .35rem .8rem;
-  border-radius: var(--r-pill);
-  font-size: .8rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--ink-muted);
-  border: 1px solid transparent;
+  display: block; padding: .38rem .82rem;
+  border-radius: var(--pill);
+  font-size: .82rem; font-weight: 600; text-decoration: none;
+  color: var(--muted); border: 1px solid transparent;
   transition: color .2s, background-color .2s, border-color .2s;
   white-space: nowrap;
 }
 
-.navlinks a:hover { color: var(--ink); background: var(--tint); }
+.navlinks a:hover { color: var(--rose); background: var(--tint); }
+.navlinks a.active { color: #fff; background: var(--rose); border-color: var(--rose); }
 
-.navlinks a.active {
-  color: var(--ink);
-  background: var(--tint);
-  border-color: var(--hue);
+@media (prefers-color-scheme: dark) { .navlinks a.active { color: #2A121D; } }
+
+/* ---------- kerangka bagian ---------- */
+
+.sec { position: relative; z-index: 1; padding: 4rem 0; }
+.sec--white { background: var(--card); }
+.sec--sand { background: var(--sand); }
+
+.sec__head { max-width: 46rem; margin-bottom: 2.25rem; }
+.sec__head h2 { font-size: clamp(1.7rem, 3.6vw, 2.45rem); margin: 0 0 .7rem; text-wrap: balance; }
+.sec__head p { color: var(--muted); font-size: 1.02rem; }
+
+/* Label bagian: penanda Deskripsi / Analisis / Refleksi yang memang dinilai.
+   Sengaja bukan huruf kapital semua, supaya tidak berubah jadi hiasan. */
+.lbl {
+  display: inline-block;
+  font-family: var(--display); font-size: .82rem; font-weight: 600;
+  color: var(--rose); background: var(--tint);
+  padding: .24rem .85rem; border-radius: var(--pill);
+  margin: 0 0 .9rem;
 }
 
-/* ---------- course sections ---------- */
+.prose { color: var(--muted); }
+.prose h3 { font-size: 1.22rem; color: var(--ink); margin: 0 0 .7rem; }
+.prose strong { color: var(--ink); }
+.prose em { font-style: normal; font-weight: 600; color: var(--ink); }
 
-.course { position: relative; z-index: 1; padding: 4.5rem 0 1.5rem; }
+.part { margin-top: 2.5rem; }
+.part:first-child { margin-top: 0; }
 
-.course-head { max-width: 46rem; margin-bottom: 2.25rem; }
+/* ---------- catatan refleksi: satu komponen tetap di tiap bagian ---------- */
 
-.course-title {
-  display: flex;
-  align-items: flex-start;
-  gap: .85rem;
-  margin: 0 0 .8rem;
-}
-
-.course-title .emoji {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.5rem;
-  background: var(--tint);
-  border: 1px solid var(--hue);
-  border-radius: var(--r-inner);
-}
-
-.course-title h2 {
-  font-family: var(--display);
-  font-size: clamp(1.6rem, 3.6vw, 2.35rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -.01em;
-  margin: 0;
-  color: var(--ink-dark);
-  text-wrap: balance;
-}
-
-.course-head .summary { color: var(--ink-muted); font-size: 1.02rem; }
-
-/* Deskripsi → Analisis → Refleksi is a sequence: three equal columns, never auto-fit. */
-.tiga-tahap {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-@media (min-width: 62rem) {
-  .tiga-tahap { grid-template-columns: repeat(3, 1fr); }
-}
-
-.stage {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--r-card);
-  padding: 1.6rem 1.6rem 1.7rem;
-  box-shadow: 0 12px 30px rgba(46, 36, 48, .05);
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .stage:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(46, 36, 48, .09);
-  }
-}
-
-.stage-label { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
-
-.stage-label .step {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 2.1rem;
-  height: 2.1rem;
-  border-radius: 50%;
-  background: var(--tint);
-  color: var(--ink);
-  font-family: var(--display);
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.stage-label h3 {
-  margin: 0;
-  font-size: .8rem;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-
-.stage p { font-size: .95rem; color: var(--ink-muted); }
-
-/* ---------- artefak + kaitan praktis ---------- */
-
-.block {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--r-card);
-  padding: 1.85rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 12px 30px rgba(46, 36, 48, .05);
-}
-
-.block.kaitan-praktis { background: var(--tint); border-color: var(--hue); }
-
-.block > h3 {
-  display: flex;
-  align-items: center;
-  gap: .55rem;
-  font-family: var(--display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0 0 1.15rem;
-  color: var(--ink);
-}
-
-.block h4 {
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin: 1.6rem 0 .55rem;
-}
-
-.block h4:first-of-type { margin-top: 0; }
-
-.block p { color: var(--ink-muted); font-size: .96rem; }
-
-/* ---------- artefak document cards ----------
-   The cover is an icon, not a screenshot: a tinted page glyph carrying the
-   artefak's code. It must never look like a preview of the real file — the
-   files themselves live in restricted Drive folders and are not published. */
-
-.doc-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: .85rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-@media (min-width: 40rem) { .doc-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 64rem) { .doc-grid { grid-template-columns: repeat(3, 1fr); } }
-
-.doc-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--r-inner);
-  overflow: hidden;
-  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .doc-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--hue);
-    box-shadow: 0 16px 32px rgba(46, 36, 48, .09);
-  }
-}
-
-.doc-cover {
+.refleksi {
   position: relative;
-  display: grid;
-  place-items: center;
-  height: 92px;
   background: var(--tint);
-  border-bottom: 1px solid var(--line);
+  border: 1px solid var(--tint-2);
+  border-radius: var(--r);
+  padding: 1.5rem 1.6rem 1.6rem;
+  margin-top: 2.5rem;
+  max-width: 52rem;
   overflow: hidden;
 }
 
-/* faux page edge, purely ornamental */
-.doc-cover::before {
+.refleksi::before {
   content: "";
-  position: absolute;
-  inset: 14px 26px -30px;
+  position: absolute; left: 0; top: 1.5rem; bottom: 1.5rem;
+  width: 4px; border-radius: 0 4px 4px 0;
+  background: var(--blossom);
+}
+
+.refleksi h3 { font-size: 1.1rem; margin: 0 0 .6rem; color: var(--rose); }
+.refleksi p { color: var(--muted); }
+
+/* ---------- 1. rancangan: dua kartu RPL berdampingan ---------- */
+
+.compare { display: grid; gap: 1.25rem; }
+@media (min-width: 54rem) { .compare { grid-template-columns: 1fr 1fr; } }
+
+.rpl-card {
+  display: flex; flex-direction: column;
+  background: var(--page);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.rpl-card img { display: block; width: 100%; height: 210px; object-fit: cover; object-position: center 40%; }
+.rpl-card__body { padding: 1.3rem 1.4rem 1.5rem; }
+.rpl-card h3 { font-size: 1.18rem; margin: .1rem 0 .8rem; }
+
+.facts { margin: 0; font-size: .88rem; }
+.facts div { display: flex; gap: .7rem; padding: .38rem 0; border-top: 1px solid var(--line); }
+.facts div:first-of-type { border-top: 0; }
+.facts dt { flex: 0 0 6.6rem; color: var(--muted); }
+.facts dd { margin: 0; color: var(--ink); font-weight: 500; }
+
+/* ---------- 2. materi: editorial dan kutipan ---------- */
+
+.materi-grid { display: grid; gap: 2rem; align-items: start; }
+@media (min-width: 58rem) { .materi-grid { grid-template-columns: 1.25fr .75fr; gap: 3rem; } }
+
+.quote {
   background: var(--card);
-  border-radius: 8px 8px 0 0;
-  box-shadow: 0 -2px 10px rgba(46, 36, 48, .07);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.6rem;
+  margin: 0;
+  box-shadow: 0 14px 34px var(--shadow);
 }
 
-.doc-cover .code {
-  position: relative;
+.quote blockquote {
+  margin: 0 0 1rem;
   font-family: var(--display);
-  font-size: .92rem;
-  font-weight: 600;
-  color: var(--ink);
-  padding: .15rem .6rem;
+  font-size: 1.16rem; line-height: 1.5; color: var(--ink);
+}
+
+.quote figcaption { font-size: .82rem; color: var(--muted); }
+.quote img { display: block; width: 100%; border-radius: var(--r-sm); margin-top: 1.1rem; }
+
+.outline { display: grid; gap: 1.25rem; }
+@media (min-width: 48rem) { .outline { grid-template-columns: 1fr 1fr; } }
+
+.outline section {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.3rem 1.4rem;
+}
+
+.outline h4 { font-size: 1rem; margin: 0 0 .7rem; color: var(--rose); }
+.outline ol { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: .92rem; }
+.outline li { margin-bottom: .35rem; }
+.outline li::marker { color: var(--rose); font-weight: 700; }
+
+/* ---------- 3. media: bento, jumlah sel sama dengan jumlah media ---------- */
+
+.bento { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+
+@media (min-width: 46rem) { .bento { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 68rem) { .bento { grid-template-columns: repeat(3, 1fr); } }
+
+.tile {
+  display: flex; flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.tile--tint { background: var(--tint); border-color: var(--tint-2); }
+.tile--sand { background: var(--sand); }
+.tile img { display: block; width: 100%; height: 260px; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
+.tile__body { padding: 1.1rem 1.25rem 1.3rem; }
+.tile h4 { font-size: 1rem; margin: .25rem 0 .4rem; }
+.tile p { font-size: .88rem; color: var(--muted); margin: 0; }
+.tile .kind { font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; color: var(--rose); }
+
+/* ---------- 4. video: baris klip scroll-snap ---------- */
+
+.clips {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(88%, 420px);
+  gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-bottom: .9rem;
+  scrollbar-color: var(--blossom) var(--tint);
+}
+
+.clip { scroll-snap-align: start; margin: 0; }
+
+.clip video {
+  display: block; width: 100%; aspect-ratio: 16 / 9;
   background: var(--tint);
-  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
 }
 
-.doc-body { padding: .9rem 1rem 1rem; }
+.clip figcaption { font-size: .82rem; color: var(--muted); margin-top: .5rem; }
 
-.doc-body h5 {
-  margin: 0 0 .35rem;
-  font-size: .9rem;
-  font-weight: 700;
-  color: var(--ink-dark);
-  line-height: 1.35;
+.observed { display: grid; gap: 1rem; margin-top: 1.25rem; }
+@media (min-width: 52rem) { .observed { grid-template-columns: 1fr 1fr; } }
+
+.observed > div {
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.25rem 1.4rem;
+  background: var(--card);
 }
 
-.doc-body p { font-size: .85rem; line-height: 1.6; color: var(--ink-muted); margin: 0; }
+.observed .todo { border-style: dashed; border-color: var(--blossom); background: transparent; }
+.observed h4 { font-size: .98rem; margin: 0 0 .6rem; color: var(--rose); }
+.observed ul { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: .92rem; }
+.observed li { margin-bottom: .4rem; }
+.observed li::marker { color: var(--rose); }
 
-/* ---------- evidence ---------- */
+/* ---------- 5. nonmengajar: keadaan kosong yang jujur ---------- */
+
+.empty {
+  border: 2px dashed var(--blossom);
+  border-radius: var(--r);
+  padding: 2rem 1.8rem;
+  max-width: 52rem;
+}
+
+.empty h3 { font-size: 1.15rem; margin: 0 0 .6rem; }
+.empty p { color: var(--muted); }
+.empty ul { color: var(--muted); font-size: .93rem; padding-left: 1.1rem; margin: .8rem 0 0; }
+.empty li { margin-bottom: .35rem; }
+.empty li::marker { color: var(--rose); }
+
+/* ---------- 6. instrumen: klaster dan tile rumus ---------- */
+
+.klaster { display: grid; gap: 1rem; }
+@media (min-width: 52rem) { .klaster { grid-template-columns: repeat(3, 1fr); } }
+
+.klaster article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.3rem 1.4rem 1.4rem;
+}
+
+.klaster h4 { font-size: 1rem; margin: .5rem 0 .5rem; }
+.klaster p { font-size: .89rem; color: var(--muted); margin: 0; }
+
+.klaster .n {
+  display: grid; place-items: center;
+  width: 2.1rem; height: 2.1rem; border-radius: 50%;
+  background: var(--tint); color: var(--rose);
+  font-family: var(--display); font-weight: 600; font-size: .95rem;
+}
+
+.rumus {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem;
+  background: var(--tint);
+  border: 1px solid var(--tint-2);
+  border-radius: var(--r);
+  padding: 1.4rem 1.6rem;
+  margin-top: 1rem;
+}
+
+.rumus .formula { font-family: var(--display); font-size: 1.3rem; color: var(--rose); margin: 0; }
+.rumus p { font-size: .88rem; color: var(--muted); margin: 0; flex: 1 1 20rem; }
+
+.temuan { display: grid; gap: 1rem; margin-top: 1.25rem; }
+@media (min-width: 52rem) { .temuan { grid-template-columns: 1fr 1fr; } }
+
+.temuan article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--blossom);
+  border-radius: var(--r);
+  padding: 1.25rem 1.4rem;
+}
+
+.temuan h4 { font-size: .98rem; margin: 0 0 .5rem; }
+.temuan p { font-size: .9rem; color: var(--muted); margin: 0; }
+
+/* ---------- bukti artefak ---------- */
 
 .bukti {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem 1.5rem;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--r-card);
-  padding: 1.35rem 1.6rem;
-  box-shadow: 0 12px 30px rgba(46, 36, 48, .05);
+  display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.4rem;
+  border-top: 1px solid var(--line);
+  margin-top: 2.5rem; padding-top: 1.4rem;
 }
 
-.bukti .label {
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin: 0;
-}
+.bukti p { font-size: .86rem; color: var(--muted); margin: 0; flex: 1 1 16rem; }
 
-.bukti .files { flex: 1 1 18rem; font-size: .86rem; color: var(--ink-muted); margin: 0; }
-
-.bukti .drive {
-  display: inline-flex;
-  align-items: center;
-  gap: .45rem;
-  background: var(--ink);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: .88rem;
-  padding: .65rem 1.3rem;
-  border-radius: var(--r-pill);
-  transition: transform .25s ease, box-shadow .25s ease;
+.bukti a {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--rose); color: #fff;
+  text-decoration: none; font-weight: 600; font-size: .85rem;
+  padding: .6rem 1.2rem; border-radius: var(--pill);
   white-space: nowrap;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
+
+@media (prefers-color-scheme: dark) { .bukti a { color: #2A121D; } }
+
+.bukti a.ghost { background: transparent; color: var(--rose); border: 1px solid var(--blossom); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .bukti .drive:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(46, 36, 48, .22); }
+  .bukti a:hover { transform: translateY(-2px); box-shadow: 0 10px 22px var(--shadow); }
 }
-
-.bukti.empty { border-style: dashed; border-color: var(--hue); box-shadow: none; }
-.bukti.empty .note { font-size: .88rem; color: var(--ink-muted); margin: 0; font-style: italic; }
 
 /* ---------- footer ---------- */
 
-.thanks { position: relative; z-index: 1; text-align: center; padding: 6rem 0 5rem; }
-
-.thanks .blossom { width: 68px; height: 68px; margin: 0 auto 1.25rem; }
-
-.thanks h2 {
-  font-family: var(--display);
-  font-size: clamp(1.9rem, 5vw, 3rem);
-  font-weight: 600;
-  margin: 0 0 .9rem;
-  background: linear-gradient(115deg, #FF8FA3 0%, #C76BC0 50%, #7FB6E8 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: #C42E58;
+.thanks {
+  position: relative; z-index: 1; text-align: center;
+  background: var(--tint);
+  padding: 5rem 0 4rem;
 }
 
-.thanks p { color: var(--ink-muted); max-width: 32rem; margin: 0 auto 1rem; }
-
-.thanks .sign {
-  font-family: var(--display);
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--ink-dark);
+/* tepi bergelombang seperti deretan kelopak */
+.thanks::before {
+  content: "";
+  position: absolute; left: 0; right: 0; top: -13px; height: 14px;
+  background: radial-gradient(circle at 14px 14px, var(--tint) 13px, transparent 13.5px) repeat-x;
+  background-size: 28px 28px;
 }
 
-/* ---------- scroll reveal ----------
-   Visible by default; only a browser running the script opts into hiding,
-   so a JS failure degrades to a plain readable page. */
+.thanks .blossom { width: 62px; height: 62px; margin: 0 auto 1.2rem; }
+.thanks h2 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); margin: 0 0 1rem; color: var(--ink); }
+.thanks p { color: var(--muted); max-width: 40rem; margin: 0 auto 1rem; }
+.thanks .sign { font-family: var(--display); font-size: 1.02rem; color: var(--ink); margin-top: 1.6rem; }
+
+/* ---------- reveal saat di-scroll ----------
+   Terlihat secara bawaan; hanya browser yang menjalankan skrip
+   yang ikut menyembunyikan, jadi kegagalan JS tetap terbaca. */
 
 @media (prefers-reduced-motion: no-preference) {
   body.js-reveal .reveal {
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity .65s ease, transform .65s ease;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
   }
   body.js-reveal .visible .reveal { opacity: 1; transform: none; }
-
-  /* Stagger only the 4C cards — scoping matters, or the artefak and bukti
-     blocks pick up delays from their own position in .wrap. */
-  body.js-reveal .visible .tiga-tahap .reveal:nth-child(2) { transition-delay: .07s; }
-  body.js-reveal .visible .tiga-tahap .reveal:nth-child(3) { transition-delay: .14s; }
+  body.js-reveal .visible .reveal:nth-child(2) { transition-delay: .07s; }
+  body.js-reveal .visible .reveal:nth-child(3) { transition-delay: .14s; }
 }
 
-/* ---------- narrow ---------- */
+/* ---------- layar sempit ---------- */
 
 @media (max-width: 56rem) {
-  .sitenav .wrap { flex-wrap: wrap; gap: .6rem; }
-  .blossom { width: 38px; height: 38px; }
-  .navlinks { gap: .3rem; }
-  .navlinks a { font-size: .74rem; padding: .3rem .6rem; }
+  .sitenav .wrap { flex-wrap: wrap; gap: .5rem; min-height: 0; }
+  .blossom { width: 34px; height: 34px; }
+  .navlinks a { font-size: .75rem; padding: .3rem .62rem; }
 }
 
 @media (max-width: 34rem) {
-  .hero { padding-top: 3rem; }
-  .stage, .block, .bukti { padding: 1.3rem; }
-  .course { padding-top: 3.25rem; }
-  .course-title { gap: .6rem; }
-  .course-title .emoji { width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
+  .sec { padding: 3rem 0; }
+  .hero { padding-top: 2.5rem; }
+  .rpl-card__body, .tile__body, .empty, .refleksi { padding-inline: 1.2rem; }
+  .facts dt { flex-basis: 5.6rem; }
+  .clips { grid-auto-columns: 86%; }
 }
 
 @media print {
   .petals, .sitenav { display: none; }
   body { background: #fff; }
-  .stage, .block, .bukti { box-shadow: none; break-inside: avoid; }
+  .sec, .tile, .rpl-card, .refleksi { box-shadow: none; break-inside: avoid; }
 }

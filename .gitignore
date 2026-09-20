@@ -1,4 +1,16 @@
-# Dokumen kerja & bukti artefak — dibagikan lewat Google Drive, bukan repo publik.
+# Dokumen kerja, tidak diterbitkan.
 LK.*.md
-*.docx
+LK3*.docx
 *.pdf
+
+# Bahan mentah. Versi yang diterbitkan sudah diperkecil dan diberi nama rapi di
+# assets/dokumentasi, assets/lkpd, dan assets/video.
+assets/WhatsApp*
+assets/RPL*/Dokumentasi*/
+assets/RPL*/LKPD*.png
+assets/RPL*/~$*
+
+# RPL dan PPT di dalam assets/ memang ditautkan dari situs, jadi tetap dilacak.
+
+# Tangkapan layar pemeriksaan Playwright, bukan bagian situs.
+.playwright-mcp/
