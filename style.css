@@ -705,7 +705,64 @@ img, video { max-width: 100%; }
 
 /* ---------- video Home di hero ---------- */
 
-.intro { position: relative; width: min(220px, 60vw); margin-top: 1.6rem; }
+/* video di kiri, sapaan dan ubin pintasan di kanan; bertumpuk di layar sempit */
+.intro-baris {
+  display: grid; gap: 1.5rem; align-items: center;
+  margin-top: 1.6rem; max-width: 38rem;
+}
+
+@media (min-width: 30rem) { .intro-baris { grid-template-columns: auto 1fr; } }
+
+.intro { position: relative; width: min(220px, 60vw); }
+
+.balon {
+  position: relative;
+  background: var(--card); color: var(--ink);
+  border: 3px solid var(--edge);
+  border-radius: var(--r);
+  box-shadow: var(--hard);
+  padding: .9rem 1.1rem;
+  font-family: var(--display); font-weight: 500; font-size: 1rem; line-height: 1.45;
+  margin: 0 0 1.1rem;
+}
+
+/* ekor balon menunjuk ke video di sebelah kiri */
+.balon::before {
+  content: "";
+  position: absolute; left: -12px; top: 1.4rem;
+  width: 18px; height: 18px;
+  background: var(--card);
+  border-left: 3px solid var(--edge);
+  border-bottom: 3px solid var(--edge);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 30rem) {
+  .balon::before { left: 1.5rem; top: -12px; transform: rotate(135deg); }
+}
+
+.ubin { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+
+.ubin a {
+  display: block; height: 100%;
+  background: var(--butter); color: var(--on-block);
+  border: 3px solid var(--edge);
+  border-radius: var(--r-sm);
+  box-shadow: var(--hard-sm);
+  padding: .6rem .8rem .7rem;
+  text-decoration: none;
+}
+
+.ubin li:nth-child(2n) a { background: var(--pink); }
+.ubin strong { display: block; font: 700 1.6rem/1.1 var(--display); }
+.ubin span { display: block; font-size: .8rem; font-weight: 600; line-height: 1.3; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ubin a { transition: transform .3s var(--pegas), box-shadow .3s var(--pegas); }
+  .ubin a:hover { transform: translate(-2px, -2px); box-shadow: var(--hard); }
+}
+
+.ubin a:active { transform: translate(2px, 2px); box-shadow: none; }
 
 .intro video {
   display: block; width: 100%; height: auto;
