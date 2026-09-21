@@ -1,10 +1,12 @@
-# E-Portfolio 1 - PPL Mandiri
+# LK 3 E-Portfolio - PPL Mandiri
 
 Portofolio **Fahira Firzha Wianda** (NIM 26960002, IKIP Siliwangi, PPG Prajabatan
 Bimbingan dan Konseling), PPL Mandiri di **SMA Negeri 1 Cisarua**.
 
-Enam analisis atas dua layanan bimbingan klasikal di kelas XI J: rancangan layanan,
-materi, media, video pelaksanaan, kegiatan nonmengajar, dan instrumen penilaian.
+Tugas **LK 3**: enam analisis atas dua layanan bimbingan klasikal di kelas XI J (Sosial,
+13 Agustus 2026; Pribadi, 20 Agustus 2026): rancangan layanan, materi, media, video
+pelaksanaan, kegiatan nonmengajar, dan instrumen penilaian. Di akhir halaman ada tempat
+untuk tugas UTS dan UAS yang menyusul.
 
 Satu halaman statis. Tanpa build step, tanpa framework, tanpa dependensi. Buka
 `index.html` langsung dari berkas dan halaman tampil utuh.
@@ -12,11 +14,12 @@ Satu halaman statis. Tanpa build step, tanpa framework, tanpa dependensi. Buka
 ```
 index.html          seluruh isi situs
 style.css           token warna, tata letak, animasi
-script.js           satu IntersectionObserver: memunculkan isi, memekarkan kelopak, menandai nav
+script.js           reveal dan penanda nav, jejak kursor, slider foto, video hero
 assets/profile.jpeg foto profil
-assets/dokumentasi/ foto pelaksanaan dua layanan, sudah diperkecil untuk web
+assets/dokumentasi/ seluruh foto pelaksanaan dua layanan (slider kartu RPL)
+assets/nonmengajar/ foto empat kegiatan nonmengajar (slider)
 assets/lkpd/        pindaian dua LKPD yang dipakai di kelas
-assets/video/       empat cuplikan rekaman pelaksanaan
+assets/video/       empat cuplikan rekaman pelaksanaan + home.mp4 di hero
 assets/RPL .../     RPL dan PPT yang ditautkan sebagai unduhan dari halaman
 ```
 
@@ -64,10 +67,8 @@ Acuan bahasa visualnya: <https://ppganthonioakbar.vercel.app/>.
 
 ## Yang masih kosong
 
-Bagian **Kegiatan Nonmengajar** sengaja ditampilkan sebagai kotak "menunggu catatan",
-bukan diisi karangan. Bagian **Video Praktik** sudah memuat empat cuplikan, tetapi
-tautan rekaman utuh belum ada, dan hal-hal yang hanya bisa dinilai dari rekaman penuh
-ditandai terpisah di halaman.
+Kartu **UTS** dan **UAS** di bagian "Rangkaian Tugas" masih placeholder. Bagian
+**Video Praktik** sudah memuat empat cuplikan, tetapi tautan rekaman utuh belum ada.
 
 ## Catatan privasi
 

@@ -14,3 +14,7 @@ assets/RPL*/~$*
 
 # Tangkapan layar pemeriksaan Playwright, bukan bagian situs.
 .playwright-mcp/
+
+# Bahan mentah baru; versi terbitnya ada di assets/nonmengajar dan assets/video/home.mp4.
+assets/Home.mp4
+assets/Non Mengajar/

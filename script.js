@@ -31,12 +31,18 @@
   // Penanda nav dipegang observer kedua dengan rootMargin yang menyisakan satu pita
   // tipis di bawah nav. Bagian yang menyentuh pita itulah yang sedang dibaca, jadi
   // penandanya selalu tepat tanpa perlu satu pun pendengar scroll.
-  var garis = new IntersectionObserver(function () {
+  // Pitanya diletakkan tepat di bawah nav. Tinggi nav berbeda per lebar layar
+  // (satu baris di desktop, dua baris di ponsel), jadi pita dihitung ulang dari
+  // tinggi nav yang sebenarnya setiap kali ukuran jendela berubah.
+  var nav = document.querySelector('.sitenav');
+  var TEBAL = 60;
+  var batas = 0;
+  var garis = null;
+
+  function tandai() {
     // Di perbatasan, dua bagian menyentuh pita sekaligus dan urutan entri tidak
     // dijamin. Jadi yang dipakai bukan entrinya, melainkan bagian terakhir yang
-    // sudah dimulai di atas batas bawah pita. Dihitung tepat saat pita dilewati,
-    // sehingga posisinya selalu yang terbaru.
-    var batas = window.innerHeight * 0.15;
+    // sudah dimulai di atas batas bawah pita.
     var active = 0;
     sections.forEach(function (section, n) {
       if (section.getBoundingClientRect().top <= batas) active = n;
@@ -44,9 +50,26 @@
     links.forEach(function (link, n) {
       link.classList.toggle('active', n === active);
     });
-  }, { threshold: 0, rootMargin: '-72px 0px -85% 0px' });
+  }
 
-  sections.forEach(function (section) { garis.observe(section); });
+  function pasangPita() {
+    if (garis) garis.disconnect();
+    var bawahNav = nav.offsetHeight + 10;            // top: 10px pada nav yang lengket
+    batas = bawahNav + TEBAL;
+    var sisaBawah = Math.max(0, window.innerHeight - batas);
+    garis = new IntersectionObserver(tandai, {
+      threshold: 0,
+      rootMargin: '-' + bawahNav + 'px 0px -' + sisaBawah + 'px 0px'
+    });
+    sections.forEach(function (section) { garis.observe(section); });
+  }
+
+  pasangPita();
+  var tundaUkur;
+  window.addEventListener('resize', function () {
+    clearTimeout(tundaUkur);
+    tundaUkur = setTimeout(pasangPita, 150);
+  });
 })();
 
 
@@ -140,4 +163,64 @@
 
     requestAnimationFrame(gerak);
   })();
+})();
+
+
+/* Slider foto. Geser jari dan roda mouse ditangani scroll-snap bawaan; di sini
+   hanya tombol sebelum/berikut dan penghitung "n / total". Penghitung dipegang
+   IntersectionObserver dengan root = lintasan slider, jadi tanpa pendengar scroll. */
+
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-slider]'), function (slider) {
+    var track  = slider.querySelector('.slider__track');
+    var slides = Array.prototype.slice.call(track.children);
+    var prev   = slider.querySelector('.prev');
+    var next   = slider.querySelector('.next');
+    var count  = slider.querySelector('.slider__count');
+    var kini   = 0;
+
+    function perbarui() {
+      count.textContent = (kini + 1) + ' / ' + slides.length;
+      prev.disabled = kini === 0;
+      next.disabled = kini === slides.length - 1;
+    }
+
+    function ke(n) {
+      n = Math.max(0, Math.min(slides.length - 1, n));
+      track.scrollTo({ left: n * track.clientWidth });   // tiap slide selebar lintasan
+    }
+
+    prev.addEventListener('click', function () { ke(kini - 1); });
+    next.addEventListener('click', function () { ke(kini + 1); });
+
+    // panah kiri/kanan saat lintasan difokus
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); ke(kini - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); ke(kini + 1); }
+    });
+
+    var pengamat = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          kini = slides.indexOf(entry.target);
+          perbarui();
+        }
+      });
+    }, { root: track, threshold: 0.6 });
+
+    slides.forEach(function (s) { pengamat.observe(s); });
+    perbarui();
+  });
+})();
+
+
+/* Video Home berputar otomatis tanpa suara. Di mode hemat gerak, autoplay-nya
+   dimatikan; kontrolnya tetap ada kalau pengunjung ingin memutarnya sendiri. */
+
+(function () {
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  Array.prototype.forEach.call(document.querySelectorAll('video[autoplay]'), function (v) {
+    v.removeAttribute('autoplay');
+    v.pause();
+  });
 })();

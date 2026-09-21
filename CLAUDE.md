@@ -1,7 +1,10 @@
-# E-Portfolio 1 — PPL Mandiri
+# LK 3 E-Portfolio — PPL Mandiri
 
 Situs statis satu halaman, tema merah muda dan sakura, bahasa Indonesia. Ini portofolio
 ketiga dengan pola yang sama; dua sebelumnya jadi rujukan bentuk, bukan disalin isinya.
+
+**Situs ini adalah tugas LK 3.** Tugas UTS dan UAS nanti ditambahkan ke portofolio yang
+sama; tempatnya sudah disiapkan sebagai kartu placeholder di bagian `#tugas`.
 
 ## Profil (fakta tetap — jangan tanya ulang)
 
@@ -150,6 +153,10 @@ Setiap bagian memuat tiga hal, dalam urutan ini: **deskripsi produk** → **anal
 **refleksi diri**. Analisis adalah yang dinilai paling dalam, jangan biarkan bagian ini
 lebih pendek dari deskripsinya.
 
+Setelah keenam bagian ada bagian ketujuh, `#tugas` "Rangkaian Tugas PPL Mandiri": kartu
+LK 3 (halaman ini) plus dua kartu placeholder UTS dan UAS bertanda `<!-- TODO -->`. Nav
+punya tujuh tautan; bunga di nav tetap enam kelopak untuk enam analisis.
+
 ## Empat unsur penilaian
 
 - **Profil guru** — hero dengan foto, nama, dan alasan memilih jadi Guru BK, disusul
@@ -171,7 +178,7 @@ lebih pendek dari deskripsinya.
 |---|---|
 | Komponen | Layanan Dasar · Bidang **Pribadi** |
 | Topik | Mengenal Diri Sendiri (Self Awareness): Kunci Memahami Kekuatan dan Kelemahan Diri |
-| Sasaran | Kelas **XI J** · 1 × 45 menit · dilaksanakan **9 September 2026** |
+| Sasaran | Kelas **XI J** · 1 × 45 menit · dilaksanakan **20 Agustus 2026** |
 | Model | **Reflective Learning** (Pengalaman Konkret → Observasi Reflektif → Konseptualisasi → Penerapan Aktif) |
 | Metode | Ceramah interaktif, jurnal refleksi singkat "Siapa Aku?", diskusi kelompok, LKPD |
 | Media | PPT, LCD proyektor, laptop, lembar jurnal refleksi, LKPD |
@@ -185,7 +192,7 @@ lebih pendek dari deskripsinya.
 |---|---|
 | Komponen | Layanan Dasar · Bidang **Sosial** |
 | Topik | Membangun Sikap Menghargai Guru dan Teman di Lingkungan Sekolah |
-| Sasaran | Kelas **XI J** · 1 × 45 menit · dilaksanakan **27 Agustus 2026** |
+| Sasaran | Kelas **XI J** · 1 × 45 menit · dilaksanakan **13 Agustus 2026** |
 | Model | **Cooperative Learning** (Penyajian Materi → Kerja Kelompok/Roleplay → Presentasi → Refleksi Bersama) |
 | Metode | Ceramah interaktif, roleplay dua skenario, diskusi kelompok, LKPD |
 | Media | PPT, skenario roleplay, LKPD, laptop, LCD proyektor |
@@ -202,11 +209,30 @@ tabel "Peta Diriku", sedangkan yang dicetak adalah LKPD "Kesadaran Diri" berisi 
 bagian (Siapa Aku, Kekuatanku, Kelemahanku, Emosiku, Nilai-nilaiku, Pelajaran untuk
 Diriku). LKPD Sosial berisi empat bagian, termasuk rencana tiga aksi nyata selama
 sepekan lengkap dengan kepada siapa dan kapan. Keduanya ada sebagai gambar di
-`assets/lkpd/` dan perbedaan ini sudah dibahas sebagai temuan di bagian media.
+`assets/lkpd/`. Di bagian media, LKPD "Kesadaran Diri" ditulis sebagai
+**pengembangan** dari rancangan lampiran, bukan sebagai kekeliruan.
 
-Berkas media lain: `assets/dokumentasi/` (foto pelaksanaan dua layanan yang sudah
-diperkecil), `assets/video/klip-1..4.mp4` (empat cuplikan 3 sampai 5 detik, 1024×576).
-Rekaman utuh belum ada, catatannya masih "Videonya ada di HP".
+**Kegiatan nonmengajar** (foto di `assets/nonmengajar/`). Peran yang dinyatakan pemilik
+portofolio: **bertugas bersama Guru BK**. Tanggal tiap kegiatan tidak diketahui, jangan
+disebutkan.
+
+| Kegiatan | Peran |
+|---|---|
+| Sapa Pagi | Piket di gerbang, menyambut murid yang datang pagi |
+| Penanganan siswa terlambat | Ikut menangani dan mendata murid yang terlambat |
+| Upacara Senin | Ikut mengatur barisan murid saat upacara bendera |
+| Selasa Sehat (SASESA, Salasa Sehat Sarerea) | Ikut senam bersama warga sekolah. Fotonya potongan dari unggahan Instagram sekolah, keterangannya menyebut sumber itu |
+
+Berkas media lain: `assets/dokumentasi/` (seluruh foto pelaksanaan dua layanan yang sudah
+diperkecil: `sosial-01..06`, `pribadi-01..07`, dipakai di slider kartu RPL),
+`assets/video/klip-1..4.mp4` (empat cuplikan 3 sampai 5 detik, 1024×576), dan
+`assets/video/home.mp4` (15,6 detik, potret, diputar otomatis tanpa suara di hero di atas
+kotak "Kenapa saya memilih menjadi Guru BK"). Rekaman utuh praktik belum ada.
+
+**Slider** memakai satu komponen `[data-slider]` (lintasan scroll-snap, tombol sebelum
+dan berikut, penghitung "n / total"), dipakai di kedua kartu RPL dan di bagian
+nonmengajar. Untuk menambah foto, cukup tambah `<figure class="slide">` di lintasannya;
+penghitung dan tombol menyesuaikan sendiri.
 
 Tiga dokumen LK di folder ini bukan sumber untuk keenam analisis. Pakai hanya untuk
 konteks sekolah dan profil.
@@ -218,7 +244,16 @@ Bahasa Indonesia, sudut pandang orang pertama, nada hangat tapi tidak berlebihan
 **Jangan mengarang analisis.** Bagian yang datanya belum ada diberi placeholder eksplisit
 (`<!-- TODO: … -->` plus teks placeholder yang terlihat), bukan diisi karangan yang
 terdengar meyakinkan. Portofolio ini dinilai sebagai karya nyata. Keterangan foto dan
-klip hanya boleh menyatakan apa yang benar-benar terverifikasi.
+klip hanya boleh menyatakan apa yang benar-benar terverifikasi. Ini termasuk **tidak
+menceritakan reaksi murid atau kejadian kelas** yang tidak terdokumentasi (versi lama
+pernah menulis "kelas sudah mengenali polanya" dan "materi yang paling berhasil", dan
+pemilik portofolio menilainya salah).
+
+**Kekurangan jangan ditonjolkan**, karena menurunkan nilai. Di tiap bagian cukup satu
+kalimat bernada wajar: waktu 1 x 45 menit terbatas sehingga sebagian isi RPL belum
+tersampaikan sepenuhnya. Jangan membuat daftar kesalahan diri, kartu "temuan"
+kekeliruan, atau kritik terhadap dokumen sendiri. Refleksi ditulis sebagai hal yang
+dipelajari dan rencana ke depan.
 
 ## Privasi
 
@@ -235,8 +270,7 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
 
 - [ ] **Tautan rekaman utuh** praktik mengajar mandiri (YouTube/Drive tak-terdaftar).
       Empat butir di kotak "belum bisa dinilai" pada `#video` menunggu ini.
-- [ ] **Catatan kegiatan nonmengajar** — apa saja, kapan, peran apa. `#nonmengajar` masih
-      berupa kotak kosong yang jujur.
+- [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas`.
 - [ ] Hasil pengisian instrumen, bila mau menampilkan angka nyata, bukan hanya
       rancangannya.
 - [ ] Memastikan keempat klip berasal dari layanan yang mana, agar keterangannya bisa

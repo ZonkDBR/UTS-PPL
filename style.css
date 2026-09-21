@@ -383,12 +383,6 @@ img, video { max-width: 100%; }
   overflow: hidden;
 }
 
-.rpl-card img {
-  display: block; width: 100%; height: 210px;
-  object-fit: cover; object-position: center 40%;
-  border-bottom: 3px solid var(--edge);
-}
-
 .rpl-card__body { padding: 1.3rem 1.4rem 1.5rem; }
 .rpl-card h3 { font-size: 1.16rem; font-weight: 700; margin: .1rem 0 .9rem; }
 
@@ -524,21 +518,6 @@ img, video { max-width: 100%; }
 .observed li { margin-bottom: .4rem; }
 .observed li::marker { color: var(--ink); }
 
-/* ---------- 5. nonmengajar: keadaan kosong yang jujur ---------- */
-
-.empty {
-  border: 3px dashed var(--edge);
-  border-radius: var(--r);
-  padding: 2rem 1.8rem;
-  max-width: 52rem;
-}
-
-.empty h3 { font-size: 1.16rem; font-weight: 700; margin: 0 0 .6rem; }
-.empty p { color: var(--muted); }
-.empty ul { color: var(--muted); font-size: .93rem; padding-left: 1.2rem; margin: .8rem 0 0; }
-.empty li { margin-bottom: .4rem; }
-.empty li::marker { color: var(--ink); }
-
 /* ---------- 6. instrumen: klaster dan blok rumus ---------- */
 
 .klaster { display: grid; gap: 1.5rem; }
@@ -578,19 +557,167 @@ img, video { max-width: 100%; }
 .rumus .formula { font-family: var(--mono); font-size: 1.08rem; font-weight: 700; margin: 0; }
 .rumus p { font-size: .88rem; color: var(--on-block); margin: 0; flex: 1 1 20rem; }
 
-.temuan { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
-@media (min-width: 52rem) { .temuan { grid-template-columns: 1fr 1fr; } }
+/* ---------- slider foto ----------
+   Geser jari dan roda mouse ditangani scroll-snap bawaan. script.js hanya
+   menggerakkan tombol dan memperbarui penghitung. */
 
-.temuan article {
+.slider {
+  position: relative;
+  background: var(--pink);
+  border-bottom: 3px solid var(--edge);
+}
+
+.slider__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.slider__track::-webkit-scrollbar { display: none; }
+
+.slide { flex: 0 0 100%; margin: 0; scroll-snap-align: start; position: relative; }
+
+/* height eksplisit wajib: atribut height pada <img> jangan sampai menang */
+.slide img {
+  display: block; width: 100%; height: 250px;
+  object-fit: cover; object-position: center 35%;
+}
+
+.slide figcaption {
+  position: absolute; left: .7rem; bottom: .7rem;
+  max-width: calc(100% - 7rem);
+  background: var(--card); color: var(--ink);
+  border: 2px solid var(--edge);
+  border-radius: var(--pill);
+  box-shadow: var(--hard-sm);
+  font-size: .76rem; font-weight: 600;
+  padding: .2rem .7rem;
+}
+
+.slider__btn {
+  position: absolute; top: calc(50% - 1.2rem);
+  width: 2.4rem; height: 2.4rem;
+  display: grid; place-items: center;
+  background: var(--card); color: var(--ink);
+  border: 3px solid var(--edge);
+  border-radius: 50%;
+  box-shadow: var(--hard-sm);
+  font: 700 1.4rem/1 var(--display);
+  cursor: pointer;
+  padding: 0 0 .15rem;
+}
+
+.slider__btn.prev { left: .6rem; }
+.slider__btn.next { right: .6rem; }
+.slider__btn:hover { background: var(--butter); color: var(--on-block); }
+.slider__btn:active { transform: translate(2px, 2px); box-shadow: none; }
+.slider__btn:disabled { opacity: .35; cursor: default; }
+
+.slider__count {
+  position: absolute; right: .7rem; bottom: .7rem; margin: 0;
+  background: var(--butter); color: var(--on-block);
+  border: 2px solid var(--edge);
+  border-radius: var(--pill);
+  font: 700 .72rem/1.4 var(--mono);
+  padding: .15rem .6rem;
+}
+
+/* slider nonmengajar berdiri sendiri, lebih tinggi, dengan bingkai penuh */
+.slider--tinggi {
+  border: 3px solid var(--edge);
+  border-radius: var(--r);
+  box-shadow: var(--hard-lg);
+  overflow: hidden;
+}
+
+.slider--tinggi .slide img { height: 480px; }
+@media (max-width: 34rem) { .slider--tinggi .slide img { height: 360px; } }
+
+/* ---------- 5. nonmengajar: slider di samping daftar kegiatan ---------- */
+
+.kegiatan { display: grid; gap: 1.75rem; align-items: start; }
+@media (min-width: 58rem) { .kegiatan { grid-template-columns: 1.1fr .9fr; gap: 2.5rem; } }
+
+.daftar-kegiatan {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1rem;
+  counter-reset: kegiatan;
+}
+
+.daftar-kegiatan li {
+  counter-increment: kegiatan;
+  position: relative;
   background: var(--card);
   border: 3px solid var(--edge);
   border-radius: var(--r);
   box-shadow: var(--hard);
-  padding: 1.25rem 1.4rem;
+  padding: 1rem 1.2rem 1.05rem 3.8rem;
 }
 
-.temuan h4 { font-size: 1rem; font-weight: 700; margin: 0 0 .5rem; }
-.temuan p { font-size: .9rem; color: var(--muted); margin: 0; }
+.daftar-kegiatan li::before {
+  content: counter(kegiatan);
+  position: absolute; left: 1rem; top: 1rem;
+  width: 2rem; height: 2rem;
+  display: grid; place-items: center;
+  background: var(--butter); color: var(--on-block);
+  border: 2px solid var(--edge);
+  border-radius: 50%;
+  font: 700 .9rem/1 var(--display);
+}
+
+.daftar-kegiatan h4 { font-size: 1.02rem; font-weight: 700; margin: .25rem 0 .3rem; }
+.daftar-kegiatan p { font-size: .9rem; color: var(--muted); margin: 0; }
+
+/* ---------- 7. rangkaian tugas: LK 3 dan tempat UTS serta UAS ---------- */
+
+.tugas { display: grid; gap: 1.5rem; }
+@media (min-width: 52rem) { .tugas { grid-template-columns: repeat(3, 1fr); } }
+
+.tugas__kartu {
+  border: 3px dashed var(--edge);
+  border-radius: var(--r);
+  padding: 1.4rem 1.4rem 1.5rem;
+  background: var(--wash-blush);
+}
+
+.tugas__kartu--selesai {
+  border-style: solid;
+  background: var(--card);
+  box-shadow: var(--hard);
+}
+
+.tugas__status {
+  display: inline-block;
+  font: 700 .72rem/1.4 var(--mono);
+  background: var(--card); color: var(--ink);
+  border: 2px solid var(--edge);
+  border-radius: var(--pill);
+  padding: .15rem .65rem;
+  margin: 0 0 .8rem;
+}
+
+.tugas__kartu--selesai .tugas__status { background: var(--butter); color: var(--on-block); }
+.tugas__kartu h3 { font-size: 1.5rem; font-weight: 700; margin: 0 0 .5rem; }
+.tugas__kartu p { font-size: .9rem; color: var(--muted); }
+.tugas__kartu a { display: inline-block; margin-top: .8rem; font-weight: 700; color: var(--rose); }
+
+/* ---------- video Home di hero ---------- */
+
+.intro { position: relative; width: min(220px, 60vw); margin-top: 1.6rem; }
+
+.intro video {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: var(--pink);
+  border: 3px solid var(--edge);
+  border-radius: var(--r);
+  box-shadow: var(--hard-lg);
+}
+
+.hero .intro .s-intro { top: -18px; right: -22px; --sw: 42px; --rot: 14deg; --isi: var(--butter); }
 
 /* ---------- bukti artefak ---------- */
 
@@ -625,11 +752,11 @@ img, video { max-width: 100%; }
 /* ---------- kartu yang terangkat saat disentuh ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
-  .rpl-card, .tile, .outline section, .klaster article, .temuan article {
+  .rpl-card, .tile, .outline section, .klaster article, .tugas__kartu {
     transition: transform .3s var(--pegas), box-shadow .3s var(--pegas);
   }
   .rpl-card:hover, .tile:hover, .outline section:hover,
-  .klaster article:hover, .temuan article:hover {
+  .klaster article:hover, .tugas__kartu:hover {
     transform: translate(-3px, -3px) rotate(-.4deg);
     box-shadow: var(--hard-lg);
   }
@@ -783,7 +910,7 @@ img, video { max-width: 100%; }
 @media (max-width: 34rem) {
   .sec { padding: 3rem 0; }
   .hero { padding-top: 2.5rem; }
-  .rpl-card__body, .tile__body, .empty, .refleksi, .why { padding-inline: 1.15rem; }
+  .rpl-card__body, .tile__body, .refleksi, .why { padding-inline: 1.15rem; }
   .facts dt { flex-basis: 5.4rem; }
   .clips { grid-auto-columns: 86%; }
   .photo-stack .inset { right: -6px; }
