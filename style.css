@@ -55,7 +55,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+/* 9rem: nav halaman PPG bisa membungkus jadi dua baris (sekitar 120px) di lebar 56 sampai 68rem */
+html { scroll-behavior: smooth; scroll-padding-top: 9rem; }
 
 body {
   margin: 0;
@@ -307,6 +308,58 @@ img, video { max-width: 100%; }
   border-color: var(--edge);
   box-shadow: var(--hard-sm);
 }
+
+/* Saklar halaman: Beranda, Profil, PPG, PPL. Halaman yang sedang dibuka memakai
+   --rose, satu-satunya blok yang boleh bertulisan putih. */
+.saklar {
+  display: flex; flex: none;
+  list-style: none; margin: 0; padding: 0;
+  border: 2px solid var(--edge);
+  border-radius: var(--pill);
+  overflow: hidden;
+}
+
+.saklar li + li { border-left: 2px solid var(--edge); }
+
+.saklar a {
+  display: block; padding: .32rem .75rem;
+  font-size: .8rem; font-weight: 700; text-decoration: none;
+  color: var(--ink); background: var(--card);
+}
+
+.saklar a:hover { background: var(--pink); color: var(--on-block); }
+.saklar a[aria-current="page"] { background: var(--rose); color: #FFFFFF; }
+
+/* ---------- kepala halaman dalam (PPL, PPG) ---------- */
+
+.kepala { position: relative; z-index: 1; padding: 2.5rem 0 2.75rem; }
+
+.kepala h1 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  font-weight: 700; letter-spacing: -.02em;
+  margin: 0 0 1.2rem;
+}
+
+.kepala .lede { font-size: 1.04rem; color: var(--muted); max-width: 42rem; }
+.kepala .why { max-width: 42rem; }
+.kepala .ubin { margin-top: 1.6rem; max-width: 42rem; }
+
+.kepala__jejak { font: 700 .76rem/1.4 var(--mono); color: var(--muted); margin: 0 0 1rem; }
+.kepala__jejak a { color: var(--rose); }
+
+/* pemilih semester PPG: dua pil di bawah judul */
+.semester { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin: 0 0 1.2rem; padding: 0; }
+
+.semester a {
+  display: block; padding: .4rem 1rem;
+  background: var(--card); color: var(--ink);
+  border: 2px solid var(--edge); border-radius: var(--pill);
+  box-shadow: var(--hard-sm);
+  font-weight: 700; font-size: .85rem; text-decoration: none;
+}
+
+.semester a[aria-current="page"] { background: var(--butter); color: var(--on-block); }
+.semester a:active { transform: translate(2px, 2px); box-shadow: none; }
 
 /* ---------- kerangka bagian ---------- */
 
@@ -743,7 +796,10 @@ img, video { max-width: 100%; }
 
 .ubin { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
 
-.ubin a {
+@media (min-width: 40rem) { .ubin--empat { grid-template-columns: repeat(4, 1fr); } }
+
+/* .kotak: ubin angka yang bukan tautan, di kepala halaman PPG */
+.ubin a, .ubin .kotak {
   display: block; height: 100%;
   background: var(--butter); color: var(--on-block);
   border: 3px solid var(--edge);
@@ -753,9 +809,9 @@ img, video { max-width: 100%; }
   text-decoration: none;
 }
 
-.ubin li:nth-child(2n) a { background: var(--pink); }
+.ubin li:nth-child(2n) a, .ubin li:nth-child(2n) .kotak { background: var(--pink); }
 .ubin strong { display: block; font: 700 1.6rem/1.1 var(--display); }
-.ubin span { display: block; font-size: .8rem; font-weight: 600; line-height: 1.3; }
+.ubin a span, .ubin .kotak span { display: block; font-size: .8rem; font-weight: 600; line-height: 1.3; }
 
 @media (prefers-reduced-motion: no-preference) {
   .ubin a { transition: transform .3s var(--pegas), box-shadow .3s var(--pegas); }
@@ -775,6 +831,201 @@ img, video { max-width: 100%; }
 }
 
 .hero .intro .s-intro { top: -18px; right: -22px; --sw: 42px; --rot: 14deg; --isi: var(--butter); }
+
+/* ---------- beranda: tombol profil dan dua pintu ---------- */
+
+.lanjut { margin: 1.2rem 0 0; }
+
+.lanjut a, .lini a {
+  display: inline-block;
+  background: var(--rose); color: #FFFFFF;
+  border: 3px solid var(--edge); border-radius: var(--pill);
+  box-shadow: var(--hard);
+  font-weight: 700; font-size: .88rem; text-decoration: none;
+  padding: .55rem 1.25rem;
+}
+
+.pintu { display: grid; gap: 1.75rem; }
+@media (min-width: 54rem) { .pintu { grid-template-columns: 1fr 1fr; } }
+
+.pintu__kartu {
+  background: var(--card);
+  border: 3px solid var(--edge);
+  border-radius: var(--r-lg);
+  box-shadow: var(--hard-lg);
+  padding: 1.6rem 1.6rem 1.8rem;
+}
+
+.pintu__kartu--butter { background: var(--butter); }
+
+.pintu__tag {
+  display: inline-block;
+  font: 700 .8rem/1.4 var(--mono);
+  background: var(--rose); color: #FFFFFF;
+  border: 2px solid var(--edge); border-radius: var(--pill);
+  padding: .15rem .8rem;
+  margin: 0 0 .8rem;
+}
+
+.pintu__kartu h3 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin: 0 0 .6rem; }
+.pintu__kartu > p { color: var(--muted); }
+
+.pintu__daftar { list-style: none; margin: 1.3rem 0 0; padding: 0; display: grid; gap: .8rem; }
+
+.pintu__daftar a {
+  display: block;
+  background: var(--pink); color: var(--on-block);
+  border: 3px solid var(--edge); border-radius: var(--r-sm);
+  box-shadow: var(--hard-sm);
+  padding: .75rem 1rem;
+  text-decoration: none;
+}
+
+.pintu__daftar li + li a { background: var(--blush); }
+.pintu__daftar strong { display: block; font: 700 1.1rem/1.2 var(--display); }
+.pintu__daftar span { display: block; font-size: .84rem; font-weight: 600; }
+
+/* Kartu kuning: teks di atas blok terang selalu --on-block. Sesudah .pintu__kartu > p. */
+.pintu__kartu--butter, .pintu__kartu--butter > p { color: var(--on-block); }
+.pintu__kartu > .pintu__tag { color: #FFFFFF; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .pintu__daftar a, .lanjut a, .lini a, .semester a {
+    transition: transform .3s var(--pegas), box-shadow .3s var(--pegas);
+  }
+  .pintu__daftar a:hover, .semester a:hover { transform: translate(-2px, -2px); box-shadow: var(--hard); }
+  .lanjut a:hover, .lini a:hover { transform: translate(-2px, -2px); box-shadow: var(--hard-lg); }
+}
+
+.pintu__daftar a:active, .lanjut a:active, .lini a:active { transform: translate(2px, 2px); box-shadow: none; }
+
+/* ---------- PPG: empat tahap refleksi 4C ---------- */
+
+.refleksi-4c { display: grid; gap: 1.5rem; }
+@media (min-width: 52rem) { .refleksi-4c { grid-template-columns: 1fr 1fr; } }
+
+.stage {
+  background: var(--card);
+  border: 3px solid var(--edge);
+  border-radius: var(--r);
+  box-shadow: var(--hard);
+  padding: 1.3rem 1.4rem 1.4rem;
+  color: var(--muted);
+  font-size: .94rem;
+}
+
+.stage em { font-style: normal; font-weight: 700; color: var(--ink); }
+
+.stage-label { display: flex; align-items: center; gap: .7rem; margin-bottom: .8rem; }
+.stage-label h3 { font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--ink); }
+
+.step {
+  display: grid; place-items: center; flex: none;
+  width: 2.2rem; height: 2.2rem;
+  background: var(--butter); color: var(--on-block);
+  border: 3px solid var(--edge); border-radius: 50%;
+  font: 700 1rem/1 var(--display);
+}
+
+/* ---------- PPG: blok artefak dan kaitan praktis ---------- */
+
+.block {
+  background: var(--card);
+  border: 3px solid var(--edge);
+  border-radius: var(--r);
+  box-shadow: var(--hard-lg);
+  padding: 1.5rem 1.6rem 1.7rem;
+  margin-top: 2rem;
+  color: var(--muted);
+}
+
+.block h3 { font-size: 1.3rem; font-weight: 700; margin: 0 0 .8rem; color: var(--ink); }
+.block h4 { font-size: 1.02rem; font-weight: 700; margin: 1.4rem 0 .5rem; color: var(--ink); }
+.block h3 + h4 { margin-top: 0; }
+.block em { font-style: normal; font-weight: 700; color: var(--ink); }
+.block strong { color: var(--ink); }
+
+.kaitan-praktis { background: var(--pink); }
+
+.doc-grid {
+  list-style: none; margin: 1rem 0 0; padding: 0;
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.doc-card {
+  display: flex; flex-direction: column; height: 100%;
+  background: var(--card); color: var(--ink);
+  border: 3px solid var(--edge);
+  border-radius: var(--r-sm);
+  box-shadow: var(--hard-sm);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/* sampul: pita kode di atas kartu, bukan pratinjau berkas (berkasnya tidak diterbitkan) */
+.doc-cover {
+  background: var(--butter); color: var(--on-block);
+  border-bottom: 3px solid var(--edge);
+  padding: .3rem .95rem; line-height: 1.4;
+}
+
+.doc-grid li:nth-child(2n) .doc-cover { background: var(--pink); }
+
+.code { font: 700 .74rem/1.25 var(--mono); color: var(--on-block); overflow-wrap: anywhere; }
+
+.doc-body { padding: .8rem .95rem .9rem; }
+.block .doc-title { font-size: .96rem; font-weight: 700; margin: 0 0 .3rem; color: var(--ink); }
+.doc-body p { font-size: .84rem; color: var(--muted); margin: 0; }
+
+a.doc-card:hover .doc-title { color: var(--rose); }
+
+/* Blok kaitan praktis berlatar pink: seluruh teksnya --on-block. Harus sesudah .block. */
+.kaitan-praktis, .kaitan-praktis h3, .kaitan-praktis h4,
+.kaitan-praktis p, .kaitan-praktis em, .kaitan-praktis strong { color: var(--on-block); }
+
+/* ---------- profil ---------- */
+
+.profil { display: grid; gap: 3rem; align-items: center; }
+@media (min-width: 58rem) { .profil { grid-template-columns: .8fr 1.2fr; gap: 4rem; } }
+
+.profil__nama { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -.02em; margin: 0 0 .9rem; }
+.profil__peran { font-family: var(--display); font-weight: 500; font-size: 1.15rem; color: var(--muted); margin: 1.1rem 0 1rem; }
+
+.profil__data {
+  background: var(--card);
+  border: 3px solid var(--edge);
+  border-radius: var(--r);
+  box-shadow: var(--hard);
+  padding: .5rem 1.2rem;
+  margin-top: 1.5rem;
+  max-width: 34rem;
+}
+
+/* lini masa Jejak Langkah */
+.lini { list-style: none; margin: 0; padding: 0 0 0 1.6rem; border-left: 3px solid var(--edge); display: grid; gap: 1.6rem; max-width: 48rem; }
+
+.lini li {
+  position: relative;
+  background: var(--card);
+  border: 3px solid var(--edge);
+  border-radius: var(--r);
+  box-shadow: var(--hard);
+  padding: 1.2rem 1.4rem 1.4rem;
+  color: var(--muted);
+}
+
+.lini li::before {
+  content: "";
+  position: absolute; left: calc(-1.6rem - 11px); top: 1.4rem;
+  width: 16px; height: 16px;
+  background: var(--blossom);
+  border: 3px solid var(--edge); border-radius: 50%;
+}
+
+.lini__waktu { font: 700 .74rem/1.4 var(--mono); color: var(--muted); margin: 0 0 .3rem; }
+.lini h3 { font-size: 1.15rem; font-weight: 700; color: var(--ink); margin: 0 0 .5rem; }
+.lini a { margin-top: .9rem; font-size: .82rem; padding: .4rem 1rem; }
 
 /* ---------- bukti artefak ---------- */
 
@@ -809,11 +1060,11 @@ img, video { max-width: 100%; }
 /* ---------- kartu yang terangkat saat disentuh ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
-  .rpl-card, .tile, .outline section, .klaster article, .tugas__kartu {
+  .rpl-card, .tile, .outline section, .klaster article, .tugas__kartu, .stage {
     transition: transform .3s var(--pegas), box-shadow .3s var(--pegas);
   }
   .rpl-card:hover, .tile:hover, .outline section:hover,
-  .klaster article:hover, .tugas__kartu:hover {
+  .klaster article:hover, .tugas__kartu:hover, .stage:hover {
     transform: translate(-3px, -3px) rotate(-.4deg);
     box-shadow: var(--hard-lg);
   }
@@ -962,6 +1213,14 @@ img, video { max-width: 100%; }
   .sitenav .wrap { flex-wrap: wrap; gap: .5rem; }
   .blossom { width: 32px; height: 32px; }
   .navlinks a { font-size: .75rem; padding: .28rem .6rem; }
+  /* Tautan bagian jadi satu baris geser di bawah saklar, supaya nav tetap dua
+     baris berapa pun jumlah bagiannya (PPG punya nama mata kuliah panjang). */
+  .navlinks {
+    flex: 1 0 100%; flex-wrap: nowrap;
+    overflow-x: auto; scrollbar-width: none;
+    padding: 2px 4px 4px;
+  }
+  .navlinks::-webkit-scrollbar { display: none; }
 }
 
 @media (max-width: 34rem) {

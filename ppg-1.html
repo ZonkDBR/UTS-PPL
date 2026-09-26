@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PPG Semester I - Fahira Firzha Wianda</title>
+<meta name="description" content="Refleksi 4C, analisis artefak, dan kaitan praktis dari enam mata kuliah semester I PPG Prajabatan Bimbingan dan Konseling IKIP Siliwangi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🌸%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#filosofi">Lompat ke isi</a>
+
+<!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="st-sakura" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(72 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(144 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(216 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#FFE68C"/>
+  </symbol>
+  <symbol id="st-hati" viewBox="0 0 100 100">
+    <path d="M50,84 C22,64 12,48 12,36 C12,24 22,16 32,16 C40,16 46,21 50,28 C54,21 60,16 68,16 C78,16 88,24 88,36 C88,48 78,64 50,84 Z"/>
+  </symbol>
+  <symbol id="st-kilau" viewBox="0 0 100 100">
+    <path d="M50,8 C54,34 66,46 92,50 C66,54 54,66 50,92 C46,66 34,54 8,50 C34,46 46,34 50,8 Z"/>
+  </symbol>
+  <symbol id="st-bintang" viewBox="0 0 100 100">
+    <path d="M50,10 L61,38 L91,40 L68,59 L76,88 L50,72 L24,88 L32,59 L9,40 L39,38 Z"/>
+  </symbol>
+</svg>
+
+<!-- Kelopak berjatuhan: bentuk CSS murni bergaris hitam, seperti stiker tempel. -->
+<div class="petals" aria-hidden="true">
+  <div class="petal" style="--i:0;  left:5%;  --s:16px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:1;  left:16%; --s:20px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:2;  left:27%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:3;  left:38%; --s:18px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:4;  left:49%; --s:15px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:5;  left:60%; --s:19px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:6;  left:71%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:7;  left:82%; --s:17px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:8;  left:93%; --s:15px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:9;  left:22%; --s:18px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:10; left:55%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:11; left:88%; --s:19px; --p:var(--blossom)"></div>
+</div>
+
+<nav class="sitenav" aria-label="Navigasi situs">
+  <div class="wrap">
+    <!-- Enam kelopak, enam mata kuliah. Mekar saat bagiannya terbaca. -->
+    <svg class="blossom" viewBox="0 0 100 100" role="img" aria-label="Penanda kemajuan membaca: enam kelopak, satu untuk tiap mata kuliah">
+      <g transform="rotate(0 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(60 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(120 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(180 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(240 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(300 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <circle class="inti" cx="50" cy="50" r="7"/>
+    </svg>
+
+    <ul class="saklar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="ppg-1.html" aria-current="page">PPG</a></li>
+      <li><a href="ppl.html">PPL</a></li>
+    </ul>
+
+    <ul class="navlinks">
+      <li><a href="#filosofi">Filosofi</a></li>
+      <li><a href="#asesmen">Asesmen</a></li>
+      <li><a href="#ppl">PPL Terbimbing</a></li>
+      <li><a href="#pola-pikir">Pola Pikir</a></li>
+      <li><a href="#design-thinking">Design Thinking</a></li>
+      <li><a href="#konseling">Konseling Individu</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="kepala">
+  <div class="wrap">
+    <p class="kepala__jejak"><a href="index.html">Beranda</a> / Modul Akademik PPG</p>
+    <h1><span class="sorot">PPG Semester I</span></h1>
+    <ul class="semester">
+      <li><a href="ppg-1.html" aria-current="page">Semester I</a></li>
+      <li><a href="ppg-2.html">Semester II</a></li>
+    </ul>
+    <p class="lede">
+      Ini portofolio Lembar Kerja 2-ku: refleksi dari enam mata kuliah yang
+      kutempuh di PPG Prajabatan Bimbingan dan Konseling. Setiap mata kuliah
+      punya satu kelopaknya sendiri di sini.
+    </p>
+
+    <ul class="ubin ubin--empat">
+      <li><span class="kotak"><strong>6</strong><span>Mata Kuliah</span></span></li>
+      <li><span class="kotak"><strong>24</strong><span>Refleksi 4C</span></span></li>
+      <li><span class="kotak"><strong>31</strong><span>Artefak</span></span></li>
+      <li><span class="kotak"><strong>5</strong><span>Folder Bukti</span></span></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+
+<!-- ============ FILOSOFI ============ -->
+<section class="sec sec--card" id="filosofi">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 8deg; --tunda: -1s"><use href="#st-sakura"></use></svg>
+      <h2>Filosofi Pendidikan dan Pendidikan Nilai</h2>
+      <p>
+        Dari pokok pikiran Ki Hadjar Dewantara dan kisah Sokola Rimba menuju satu
+        kesimpulan: pendidikan bukan alat asimilasi, melainkan proses pemberdayaan
+        yang menghargai identitas.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">1</span><h3>Connection</h3></div>
+        <p>
+          Mata kuliah ini membuka pemahaman saya bahwa peran calon guru tidak
+          berhenti pada penguasaan materi ajar, tetapi mencakup keteladanan nilai.
+          Ketika kelompok kami menganalisis kasus Sokola Rimba dari sudut pandang
+          Butet Manurung pada LK 2.3.1, saya menemukan bahwa baginya kemampuan
+          baca-tulis-hitung bukan target akademis, melainkan alat pertahanan agar
+          masyarakat adat tidak lagi tertipu pihak luar. Dari sana saya
+          menyimpulkan empat syarat pendidikan yang memerdekakan: kontekstual,
+          fleksibel, dialogis, dan memberdayakan.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">2</span><h3>Challenge</h3></div>
+        <p>
+          Tantangan terbesar adalah lebarnya jarak antara idealisme pendidikan yang
+          berpihak pada murid dan praktik di lapangan - dan jarak itu ternyata ada
+          juga di dalam diri saya. Melalui LK 3.5 saya menemukan empat pemahaman
+          lama yang keliru, antara lain anggapan bahwa pendidikan nilai hanya
+          tanggung jawab guru Agama dan Pendidikan Pancasila. Analisis kasus LK 4.C
+          tentang guru yang memotong paksa rambut lima siswa menunjukkan enam
+          prinsip yang dilanggar sekaligus, berakar pada ketiadaan SOP dan
+          ketidakpahaman atas batas wewenang.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">3</span><h3>Concept</h3></div>
+        <p>
+          Konsep utamanya adalah filosofi Olah Hati, Olah Pikir, Olah Raga, dan Olah
+          Rasa, serta menuntun peserta didik sesuai kodrat alam dan kodrat zaman.
+          Saya juga memahami hierarki nilai-moral-etika-karakter, dan tiga tahap
+          internalisasi nilai: transformasi, transaksi, hingga trans-internalisasi.
+          Konsep inilah yang menjelaskan mengapa nasihat searah tidak pernah cukup
+          membentuk karakter. Kode etik guru saya pahami sebagai pagar moral
+          profesi, bukan sekadar daftar larangan.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">4</span><h3>Change</h3></div>
+        <p>
+          Pada LK 4.E saya merumuskan komitmen untuk tiga lingkup. Bagi diri
+          sendiri: menyusun jadwal pengembangan diri dan mencoba satu inovasi
+          pembelajaran sederhana, lalu merefleksikannya. Bagi peserta didik:
+          bergeser dari sumber pengetahuan menjadi fasilitator, dengan pemetaan
+          minat dan kebutuhan sebagai dasar pembelajaran berdiferensiasi. Bagi
+          sekolah: menghidupkan budaya pendidikan nilai Pancasila lewat refleksi
+          singkat rutin dan keteladanan diri.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <h4>Artefak yang saya pilih</h4>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 3.1-3.4</h4><p>Analisis berita krisis moral, peta konsep urgensi pendidikan nilai, diskusi pemecahan kasus 4C, dan peran guru dengan kerangka Connect-Extend-Challenge.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 3.5 dan 3.5.2</h4><p>“I Used to Think… Now I Think…” beserta modifikasi RPL bimbingan klasikal berbasis nilai.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Aktivitas</span></div>
+          <div class="doc-body"><h4 class="doc-title">Aktivitas 1.2 dan 1.5</h4><p>Analisis pokok pikiran Ki Hadjar Dewantara dan modifikasi RPL.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 2.3.1 dan 2.3.2</h4><p>Circle of Viewpoints atas kasus Sokola Rimba dan Debat Konstruktif.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Sintesis</span></div>
+          <div class="doc-body"><h4 class="doc-title">Sintesis 2.D dan 2.E</h4><p>Peta konsep Pendidikan untuk Orang Rimba dan Manifesto Pola Pikir Bertumbuh.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 4.C, 4.D, dan 4.E</h4><p>Analisis kasus pelanggaran kode etik, kode etik dalam kerangka pendidikan nilai, dan komitmen aksi nyata.</p></div>
+        </li>
+      </ul>
+
+      <h4>Mengapa artefak ini</h4>
+      <p>
+        Kesebelas artefak dipilih karena secara berurutan merekam proses berpikir
+        saya, dari pemahaman awal, analisis kasus nyata, hingga perumusan komitmen
+        perubahan - menggambarkan keutuhan siklus 4C, bukan potret satu tugas.
+        Artefak tahap awal merekam pembentukan dasar filosofis; artefak sintesis
+        mendokumentasikan pergeseran pola pikir secara eksplisit; artefak studi
+        kasus menunjukkan kemampuan analisis, bukan penilaian moral yang dangkal.
+      </p>
+
+      <h4>Bagian yang mendukung refleksi</h4>
+      <p>
+        Pada Sintesis 2.D, bagian “Pergeseran Pola Pikir (Dulu ke Sekarang)” adalah
+        inti bukti tahap <em>concept</em>. Pada LK 2.3.1, jawaban atas “apa
+        kekhawatiran terbesar Anda” paling menantang asumsi saya, karena di sanalah
+        tertulis bahwa masyarakat adat telah memiliki sistem pendidikan mereka
+        sendiri. Pada LK 3.5 dan 4.E, seluruh isi tabel adalah bukti tahap
+        <em>change</em>, termasuk rubrik penilaian otentik pada LK 3.5.2 yang
+        membuktikan komitmen sudah diterjemahkan sampai ke instrumen penilaian.
+      </p>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang saya bawa ke praktik</h4>
+      <p>
+        Menuntun sesuai kodrat, dan karakter sebagai sesuatu yang ditumbuhkan
+        melalui tiga tahap internalisasi nilai - bukan diwariskan. Gagasan bahwa
+        karakter dapat ditumbuhkan bertemu langsung dengan mata kuliah Pola Pikir
+        Bertumbuh, sementara prinsip menuntun sesuai kodrat menuntut pemetaan
+        kebutuhan yang saya pelajari caranya pada Asesmen dan Layanan BK.
+      </p>
+      <h4>Perubahan dalam praktik saya</h4>
+      <p>
+        Saya berhenti memandang pendidikan nilai sebagai urusan mata pelajaran
+        tertentu dan mulai memperlakukan setiap interaksi layanan sebagai momen
+        internalisasi nilai. Konkretnya: layanan bimbingan klasikal saya susun
+        berbasis nilai dengan metode aktif seperti diskusi dilema moral, dan
+        dinilai lewat rubrik perilaku, bukan hafalan norma.
+      </p>
+    </div>
+
+    <div class="bukti reveal">
+      <p><strong>Bukti artefak:</strong> LK 3.1-3.5.2 · Aktivitas 1.2 &amp; 1.5 · LK 2.3.1-2.3.2 · Sintesis 2.D-2.E · LK 4.C-4.E</p>
+      <a class="ghost" href="https://drive.google.com/drive/folders/1u_4DDmys8uRV1gIl_yp1-CZg8IzmGvob" target="_blank" rel="noopener">Buka folder Google Drive</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASESMEN ============ -->
+<section class="sec sec--pink" id="asesmen">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -10deg; --tunda: -2s"><use href="#st-kilau"></use></svg>
+      <h2>Asesmen dan Layanan BK</h2>
+      <p>
+        Menyebarkan AKPD dan Sosiometri di kelas XI-J SMAN 1 Cisarua, lalu
+        menerjemahkan persentasenya menjadi empat Rencana Pelaksanaan Layanan.
+        Asesmen mendahului tindakan.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">1</span><h3>Connection</h3></div>
+        <p>
+          Asesmen adalah fondasi agar layanan BK yang saya rancang berangkat dari
+          data kebutuhan yang nyata, bukan asumsi. AKPD saya gunakan untuk
+          mengumpulkan data terstruktur mengenai hambatan dan potensi peserta didik
+          pada empat bidang layanan - pribadi, sosial, belajar, dan karier -
+          sehingga terbangun gambaran psikososial yang komprehensif. Pengalaman ini
+          membuat saya lebih percaya diri mempertanggungjawabkan setiap keputusan
+          layanan kepada guru pamong maupun kepada peserta didik sendiri.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">2</span><h3>Challenge</h3></div>
+        <p>
+          Layanan perencanaan individual idealnya mendalam dan berkelanjutan, tetapi
+          harus dipadatkan menjadi satu pertemuan 1×45 menit, dengan rasio guru BK
+          yang jauh dari standar ASCA 1:250. Secara teknis, saya terbiasa dengan
+          asesmen kertas dan kunci jawaban, sementara AKPD adalah inventori
+          kebutuhan yang menuntut ketepatan menafsirkan. Self assessment saya
+          sendiri jujur: 33 dari 41 item berkategori Baik atau Baik Sekali, namun 7
+          item cukup dan 1 item kurang, terutama pada statistik inferensial.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">3</span><h3>Concept</h3></div>
+        <p>
+          Asesmen harus mendahului tindakan. Saya mempelajari prosedur
+          pengadministrasian yang sistematis, kerangka kompetensi asesmen guru BK
+          menurut ASCA dan AAC sebagaimana dikutip Erford, pendekatan
+          <em>strengths-based</em>, serta keterkaitan hasil asesmen dengan jenis
+          layanan. Pada kelas XI-J, sebaran kebutuhan menunjukkan bidang belajar
+          tertinggi (31,65%), disusul pribadi (31,31%), sosial (21,89%), dan karier
+          (15,15%).
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">4</span><h3>Change</h3></div>
+        <p>
+          Saya akan melaksanakan layanan bertahap sesuai prioritas data, membangun
+          rapport sebelum menyebarkan instrumen agar data yang diperoleh jujur, dan
+          mengembangkan Career Action Plan yang dievaluasi berkala. Untuk kompetensi
+          teknis, saya akan mengikuti pelatihan statistik terapan dan memperdalam
+          modifikasi instrumen bagi peserta didik berkebutuhan khusus. Yang
+          terpenting: menutup siklus asesmen sampai ke asesmen ulang, bukan berhenti
+          di pelaksanaan layanan.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <h4>Artefak yang saya pilih</h4>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Laporan</span></div>
+          <div class="doc-body"><h4 class="doc-title">Laporan AKPD dan Sosiometri Kelas XI-J</h4><p>Beserta lampiran olah data, memuat pendahuluan, pelaksanaan, hasil, dan rekomendasi.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">L.K 1.4 dan 1.5</h4><p>Daftar cek dan pedoman praktik pengadministrasian asesmen, beserta LK-1.1a, 1.2b, dan 1.3b.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">RPL</span></div>
+          <div class="doc-body"><h4 class="doc-title">Empat RPL</h4><p>Bidang Belajar, Pribadi, Sosial, dan Karier, beserta LK 3.1-3.4 hasil pencermatan RPL.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">RPL</span></div>
+          <div class="doc-body"><h4 class="doc-title">RPL Perencanaan Individual Karier</h4><p>Contoh layanan untuk kebutuhan individual.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Refleksi</span></div>
+          <div class="doc-body"><h4 class="doc-title">Lembar Refleksi Akhir</h4><p>Self assessment kompetensi asesmen dengan total skor 168.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 4.1 dan 4.2</h4><p>Pemecahan kasus dukungan sistem sekolah dan sintesisnya.</p></div>
+        </li>
+      </ul>
+
+      <h4>Mengapa artefak ini</h4>
+      <p>
+        Karena bersama-sama artefak ini menggambarkan siklus utuh proses asesmen,
+        bukan potongan tugas yang berdiri sendiri: L.K 1.4-1.5 merekam pemahaman
+        prosedural sebelum turun ke lapangan, Laporan AKPD merekam pengumpulan dan
+        pengolahan data yang sesungguhnya, empat RPL merekam penerjemahan data
+        menjadi rancangan layanan, dan Lembar Refleksi Akhir merekam tahap paling
+        personal - refleksi atas kompetensi diri saya sendiri.
+      </p>
+
+      <h4>Bagian yang mendukung refleksi</h4>
+      <p>
+        Tabel butir permasalahan tertinggi beserta persentase sebaran kebutuhan per
+        bidang adalah bukti paling langsung bahwa program saya berangkat dari data.
+        Bagian “Hasil Asesmen” dan “Rekomendasi” memperlihatkan bagaimana angka
+        diterjemahkan menjadi keputusan layanan. Kolom “Ketidaksesuaian dan Revisi”
+        pada LK 3.1-3.4 penting karena memperlihatkan revisi sebagai bagian normal
+        dari kerja profesional, bukan tanda kegagalan.
+      </p>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang saya bawa ke praktik</h4>
+      <p>
+        Data mendahului program, dan kompetensi asesmen mencakup tanggung jawab
+        etika: memahami keterbatasan sebuah instrumen, menghindari instrumen yang
+        bias, dan mewaspadai bias yang muncul saat hasil ditafsirkan. Prinsip
+        menuntun sesuai kodrat dari Filosofi Pendidikan hanya bisa dijalankan bila
+        kodrat itu lebih dahulu terbaca melalui asesmen.
+      </p>
+      <h4>Perubahan dalam praktik saya</h4>
+      <p>
+        Topik bimbingan klasikal tidak lagi saya pilih berdasarkan dugaan. Empat
+        butir kebutuhan yang paling banyak dipilih peserta didik XI-J - jarang
+        mengunjungi perpustakaan, ragu terhadap pilihan karier, kebiasaan menunda
+        tugas, dan kesulitan memahami pelajaran tertentu - menjadi dasar penetapan
+        topik, termasuk “Meningkatkan Motivasi Belajar” yang merujuk teori motivasi
+        Deci dan Ryan.
+      </p>
+    </div>
+
+    <div class="bukti reveal">
+      <p><strong>Bukti artefak:</strong> Laporan AKPD &amp; Sosiometri XI-J · L.K 1.4-1.5 · 4 RPL &amp; LK 3.1-3.4 · Lembar Refleksi Akhir · LK 4.1-4.2</p>
+      <a class="ghost" href="https://drive.google.com/drive/folders/1lrRiuOMoQ2bpj4Q13PJvFIIcKYXXHAOX" target="_blank" rel="noopener">Buka folder Google Drive</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PPL TERBIMBING ============ -->
+<section class="sec" id="ppl">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom); --rot: 12deg; --tunda: -3s"><use href="#st-hati"></use></svg>
+      <h2>Praktik Pengalaman Lapangan (PPL) Terbimbing</h2>
+      <p>
+        Tiga siklus layanan di kelas nyata - Belajar, Karier, Sosial. Media yang
+        variatif ternyata belum cukup; teknik bertanya yang menentukan.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">1</span><h3>Connection</h3></div>
+        <p>
+          Seluruh siklus praktik saya jalani langsung di sekolah bersama Guru Pamong
+          dan Dosen Pembimbing Lapangan: identifikasi kebutuhan murid, penyusunan
+          rancangan layanan, pelaksanaan, hingga evaluasi dan refleksi. Melalui tiga
+          siklus pada bidang Belajar, Karier, dan Sosial, saya mengalami langsung
+          bagaimana siklus pembelajaran 5E diterapkan di kelas nyata, bukan hanya
+          dibaca di modul.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">2</span><h3>Challenge</h3></div>
+        <p>
+          Pada siklus pertama, media PPT dan permainan Ular Tangga Motivasi Belajar
+          yang saya rancang ternyata masih membuat sebagian besar murid pasif dan
+          hanya menonton. Pada siklus kedua, meski media sudah lebih variatif,
+          keterlibatan tetap belum merata karena didominasi murid yang vokal.
+          Kesenjangan ini baru teratasi pada siklus ketiga setelah saya menerapkan
+          strategi bertanya dua arah dan media Kartu Kasus Sosmed yang lebih
+          kontekstual.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">3</span><h3>Concept</h3></div>
+        <p>
+          Identifikasi kebutuhan murid melalui interview, observasi, dan
+          pre-assessment sebagai dasar merancang layanan yang tepat sasaran; siklus
+          5E dari Abell &amp; Volkmann (2006) sebagai kerangka yang memberi ruang
+          berpikir bagi murid; <em>reflection in action</em>, yaitu merespons
+          perubahan kondisi saat pelaksanaan berlangsung; serta model praktik
+          refleksi Lefebvre (2023) - identifikasi temuan, analisis akar masalah,
+          lalu rancangan tindak lanjut.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">4</span><h3>Change</h3></div>
+        <p>
+          Saya ingin menerapkan teknik bertanya terbuka sejak siklus pertama, bukan
+          menunggu umpan balik Guru Pamong di siklus berikutnya - misalnya melalui
+          Think-Pair-Share. Saya juga berkomitmen menyediakan LKPD atau lembar
+          refleksi individual dalam setiap permainan pembelajaran, agar seluruh
+          murid punya ruang berpikir. Setelah infocus mati mendadak pada siklus
+          ketiga, saya akan selalu menyiapkan alternatif bahan cetak.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <h4>Artefak yang saya pilih</h4>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Siklus 1</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 4 - bidang Belajar</h4><p>RPL Belajar, media Ular Tangga Motivasi Belajar.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Siklus 2</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 4 - bidang Karier</h4><p>RPL Karir, media Roda Karier.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Siklus 3</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 4 - bidang Sosial</h4><p>RPL Sosial, media Kartu Kasus Sosmed.</p></div>
+        </li>
+      </ul>
+
+      <h4>Mengapa artefak ini</h4>
+      <p>
+        Ketiganya disusun berurutan mengikuti tiga siklus praktik terjadwal,
+        sehingga memperlihatkan perjalanan perkembangan kompetensi saya dari siklus
+        ke siklus, bukan potret satu momen mengajar. Ketiganya memuat komponen
+        refleksi yang konsisten - apersepsi, kegiatan inti, efektivitas media,
+        respon murid, umpan balik Guru Pamong, dan rencana tindak lanjut - sehingga
+        kemajuan dapat dibandingkan secara terstruktur.
+      </p>
+
+      <h4>Bagian yang mendukung refleksi</h4>
+      <p>
+        Pada siklus 1, jawaban butir 2 dan 3 menunjukkan bahwa media yang variatif
+        belum cukup membuat murid terlibat aktif. Pada siklus 2, bagian umpan balik
+        Guru Pamong yang menyarankan teknik bertanya terbuka menjadi bukti adanya
+        perbaikan strategi antarsiklus. Pada siklus 3, jawaban butir 1 dan 4 yang
+        menyatakan kondisi “berbeda dari layanan sebelumnya” adalah bukti paling
+        kuat bahwa perubahan yang saya rencanakan berhasil diterapkan.
+      </p>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang saya bawa ke praktik</h4>
+      <p>
+        Merancang media yang menarik tidak sama dengan memfasilitasi. Strategi
+        fasilitasi dan teknik bertanya jauh lebih menentukan keberhasilan
+        keterlibatan murid daripada variasi medianya, dan praktik mengajar adalah
+        proses perbaikan berulang di mana setiap siklus memberi data untuk siklus
+        berikutnya.
+      </p>
+      <h4>Perubahan dalam praktik saya</h4>
+      <p>
+        Reflection in action menjadi kebiasaan rutin, bukan hanya kegiatan di akhir
+        sesi. Setiap rancangan layanan saya lengkapi lembar refleksi individual agar
+        partisipasi tidak terbaca hanya dari murid yang vokal, dan setiap rencana
+        yang bergantung pada perangkat selalu punya versi cadangan.
+      </p>
+    </div>
+
+    <div class="bukti reveal">
+      <p>Berkas artefak PPL Terbimbing belum diunggah.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POLA PIKIR BERTUMBUH ============ -->
+<section class="sec sec--blush" id="pola-pikir">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -7deg; --tunda: -4s"><use href="#st-bintang"></use></svg>
+      <h2>Pola Pikir Bertumbuh (Growth Mindset)</h2>
+      <p>
+        Suara pola pikir tetap paling sering muncul dari dalam diri saya sendiri,
+        bukan dari murid. Menumbuhkannya harus dimulai dari guru.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">1</span><h3>Connection</h3></div>
+        <p>
+          Growth mindset harus lebih dulu saya miliki sendiri sebagai pendidik,
+          karena cara pandang guru terhadap kemampuan murid menentukan bagaimana ia
+          merespons kegagalan dan memberi umpan balik. Pada LK 1.3 saya mencermati
+          data lintas negara: Indonesia 39% murid bergrowth mindset dengan skor PISA
+          2018 sebesar 371-396, sementara Finlandia dengan 72% mencatat 507-522.
+          Data itu memindahkan growth mindset dari wilayah motivasi personal ke
+          wilayah kebijakan pembelajaran.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">2</span><h3>Challenge</h3></div>
+        <p>
+          Beberapa kebiasaan saya ternyata berbeda dari materi. Saya terbiasa memuji
+          berdasarkan hasil - “kamu memang pintar” - padahal penelitian Carol Dweck
+          menunjukkan pujian atas proses jauh lebih efektif membangun ketahanan.
+          Saya juga kerap melabeli murid yang kesulitan, padahal materi menekankan
+          kata “belum”. Analisis kasus Bu Rina pada LK 4.C menyadarkan saya bahwa
+          banyak praktik mengajar yang tampak wajar justru memelihara pola pikir
+          tetap.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">3</span><h3>Concept</h3></div>
+        <p>
+          Kemampuan dapat berkembang melalui usaha, strategi, dan umpan balik.
+          Dasarnya neurologis: neuroplastisitas membuat latihan berulang menebalkan
+          jalur sinaps, sehingga kemampuan benar-benar berubah secara fisik. Saya
+          juga mempelajari kategori Mindset Assessment Profile (FF, FG, GF, GG) yang
+          mengajarkan membaca profil per aspek, <em>Power of Yet</em>, serta empat
+          strategi intervensi: Cognitive Framing, Scaffolding, Opportunity-Based
+          Thinking, dan Formative Assessment.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">4</span><h3>Change</h3></div>
+        <p>
+          Saya ingin membiasakan diri mereframe suara pola pikir tetap dalam diri
+          sendiri sebelum menuntut hal yang sama dari murid. Pujian akan saya buat
+          spesifik pada usaha, strategi, dan ketekunan, disertai penjelasan langkah
+          perbaikan berikutnya. Keempat strategi intervensi akan saya integrasikan
+          secara sengaja dalam rancangan layanan, dan saya ingin membaca pola pikir
+          dari data MAP, bukan sekadar kesan.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <h4>Artefak yang saya pilih</h4>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 1.1-1.3</h4><p>“Cara Pikirmu, Cermin Dirimu”, “Membaca Pola Pikir”, dan “Di Balik Angka dan Pola Pikir” berisi analisis korelasi growth mindset dengan skor PISA 2018.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 2.1-2.4</h4><p>Cara kerja otak, tabel dampak neuroplastisitas beserta implikasi praktisnya, dan kaitan growth mindset dengan kreativitas.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 3.1-3.3</h4><p>Pembacaan Mindset Assessment Profile, latihan pergeseran sepuluh suara pola pikir tetap, dan “Masalahku adalah Sahabat Belajarku”.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Lembar Kerja</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 4.1-4.3</h4><p>Guru yang menumbuhkan growth mindset, mengubah respon untuk kelas bertumbuh, dan rancangan pembelajaran berbasis proyek.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Refleksi</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 4.A-4.E</h4><p>Refleksi tindakan, diskusi kasus Bu Rina, peta konsep, dan jurnal refleksi pribadi.</p></div>
+        </li>
+      </ul>
+
+      <h4>Mengapa artefak ini</h4>
+      <p>
+        Karena bersama-sama menggambarkan perjalanan yang berjenjang: memahami
+        konsep, menguji pemahaman itu pada data, berlatih mengubah kebiasaan, lalu
+        menerjemahkannya menjadi rancangan layanan. LK 1.3 khususnya dipilih karena
+        di sanalah keyakinan tentang growth mindset diuji dengan data lintas negara,
+        sehingga saya tidak menerimanya sebagai jargon motivasi melainkan sebagai
+        temuan yang dapat diperiksa.
+      </p>
+
+      <h4>Bagian yang mendukung refleksi</h4>
+      <p>
+        Pada LK 2.2, kolom “Dampak Neuroplastisitas” dan “Implikasi Praktis”
+        mendukung tahap <em>concept</em> karena menerjemahkan cara kerja otak
+        menjadi tindakan guru yang spesifik, sampai ke contoh kalimat yang dapat
+        diucapkan di kelas. Jurnal Refleksi pada LK 4.E menjadi bukti paling
+        personal, karena di sana saya mengakui kebiasaan mengajar yang tanpa sadar
+        masih menumbuhkan pola pikir tetap.
+      </p>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang saya bawa ke praktik</h4>
+      <p>
+        Bahasa membentuk keyakinan. Mengganti “tidak bisa” menjadi “belum bisa”
+        bukan penghalusan, melainkan pembingkaian ulang yang membuka ruang
+        perkembangan. Pola pikir juga bukan label hitam-putih: MAP mengajarkan
+        membacanya per aspek, sehingga intervensi bisa disesuaikan.
+      </p>
+      <h4>Perubahan dalam praktik saya</h4>
+      <p>
+        Umpan balik saya arahkan pada proses, bukan pada bakat bawaan, dengan
+        penjelasan bagian mana yang sudah tepat dan apa langkah berikutnya. Saya
+        juga ingin meluangkan lebih banyak waktu bagi murid yang paling jarang
+        diperhatikan - merekalah yang paling membutuhkan pembingkaian ulang atas
+        kemampuannya.
+      </p>
+    </div>
+
+    <div class="bukti reveal">
+      <p><strong>Bukti artefak:</strong> LK 1.1-1.3 · LK 2.1-2.4 · LK 3.1-3.3 · LK 4.1-4.3 · LK 4.A-4.E</p>
+      <a class="ghost" href="https://drive.google.com/drive/folders/1vlRlpZYyS9WubIDapz-29HzStw0a01Z-" target="_blank" rel="noopener">Buka folder Google Drive</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESIGN THINKING ============ -->
+<section class="sec sec--card" id="design-thinking">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 14deg; --tunda: -5s"><use href="#st-kilau"></use></svg>
+      <h2>Design Thinking</h2>
+      <p>
+        Memetakan pengalaman seorang murid berinisial DB di kelas XI-L, dan membaca
+        perilaku bermain HP di kelas sebagai data kebutuhan, bukan catatan kenakalan.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">1</span><h3>Connection</h3></div>
+        <p>
+          Peran calon guru bukan sekadar penyampai materi, melainkan perancang
+          pengalaman belajar yang berangkat dari empati. Melalui User Journey saya
+          memetakan pengalaman DB secara kronologis dan memperoleh empat insight:
+          pemetaan pengalaman dari awal hingga akhir, pain points yang tersembunyi,
+          perbedaan pengalaman antarpersona, dan <em>moments that matter</em> -
+          momen ketika seorang guru menyelingi pembelajaran dengan candaan yang
+          dikaitkan dengan sepak bola.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">2</span><h3>Challenge</h3></div>
+        <p>
+          Empati yang diidealkan dalam teori jauh lebih sulit dijalankan di kelas
+          nyata: guru menghadapi banyak murid sekaligus dengan waktu terbatas,
+          sehingga membangun rapport yang cukup untuk keterbukaan yang jujur jauh
+          lebih sulit daripada gambaran panduan. Tantangan lain ada pada kebiasaan
+          saya sendiri - kecenderungan langsung menyimpulkan penyebab masalah dari
+          kesan pertama, padahal Design Thinking menuntut saya menahan diri pada
+          fase Discover sebelum menyempit ke Define.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">3</span><h3>Concept</h3></div>
+        <p>
+          Lima fase Design Thinking sebagai siklus yang iteratif, metodologi Double
+          Diamond, dan pemahaman bahwa empati membutuhkan metode yang terstruktur -
+          User Journey Mapping, In-Depth Interview, dan Sampling Extremes. Konsep
+          penilaian tiga pilar juga penting: melalui LK 4.D kelompok kami menilai
+          media “Roda Kendali” pada desirability 85%, feasibility 80%, dan viability
+          85%.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">4</span><h3>Change</h3></div>
+        <p>
+          Saya berkomitmen selalu melakukan observasi awal sebelum menyusun program
+          BK atau RPL, tidak lagi mengandalkan kesan pertama, dan menjadikan User
+          Journey sederhana sebagai kebiasaan di awal semester. Proyek “Kartu Ucapan
+          untuk Kawan” menjadi pengingat konkret: desain awal berbasis asumsi hanya
+          berupa gambar generik, dan baru setelah wawancara empati desainnya berubah
+          menjadi personal dan bermakna.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <h4>Artefak yang saya pilih</h4>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Observasi</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 2.B 2.1 dan 2.2</h4><p>Catatan observasi kelas berisi empat kategori insight User Journey terhadap murid DB, dan rumusan pertanyaan In-Depth Interview.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Refleksi</span></div>
+          <div class="doc-body"><h4 class="doc-title">Lembar Refleksi 2.B dan 2.E</h4><p>Hasil praktik empati terhadap DB di kelas XI-L.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Laporan</span></div>
+          <div class="doc-body"><h4 class="doc-title">Laporan Komprehensif UTS</h4><p>“Transformasi Pedagogi melalui Metode Design Thinking untuk Pendidikan Abad ke-21”.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Proyek</span></div>
+          <div class="doc-body"><h4 class="doc-title">Kartu Ucapan untuk Kawan</h4><p>Beserta dokumentasi perubahan desain dari Fase 0 hingga final.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Prototipe</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 4.B.1, 4.C, dan 4.D</h4><p>Rancangan prototipe, uji coba, dan penilaian desirability, feasibility, viability.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Refleksi</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK 4.E</h4><p>Refleksi ruang implementasi media layanan “Roda Kendali”.</p></div>
+        </li>
+      </ul>
+
+      <h4>Mengapa artefak ini</h4>
+      <p>
+        Karena menunjukkan perjalanan utuh proses Design Thinking, bukan potongan
+        tugas yang terpisah. Catatan observasi dipilih justru karena isinya belum
+        berupa solusi, melainkan pengamatan dan pertanyaan - di sanalah terlihat
+        saya berlatih menahan diri pada fase Discover. LK 4.C dan 4.D dipilih karena
+        memuat data hasil pengujian, bukan sekadar klaim keberhasilan.
+      </p>
+
+      <h4>Bagian yang mendukung refleksi</h4>
+      <p>
+        Pada LK 2.B 2.1, empat butir insight beserta kolom “Relevansi BK” paling
+        mendukung tahap <em>connection</em>, karena di sanalah saya menerjemahkan
+        pengamatan menjadi implikasi layanan - membaca perilaku bermain HP dan tidur
+        di kelas sebagai penanda kesulitan belajar, bukan pelanggaran semata.
+        Perbandingan dua versi desain “Kartu Ucapan untuk Kawan” adalah bukti visual
+        paling ringkas bahwa empati mengubah hasil kerja saya.
+      </p>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang saya bawa ke praktik</h4>
+      <p>
+        Sebuah solusi tidak cukup hanya disukai; ia juga harus mungkin dijalankan
+        dan benar-benar berguna. Prinsip empati di sini sejalan dengan filosofi Ki
+        Hadjar Dewantara dan psikologi humanistik Carl Rogers, sehingga mata kuliah
+        ini terhubung langsung dengan Filosofi Pendidikan dan dengan keterampilan
+        mendengarkan pada Praktikum Konseling Individu.
+      </p>
+      <h4>Perubahan dalam praktik saya</h4>
+      <p>
+        Saya akan merancang media layanan yang sederhana dan dapat diproduksi ulang,
+        karena dari analisis ruang implementasi saya belajar bahwa yang memudahkan
+        penerapan justru kesederhanaannya. Saya juga akan mengajak rekan sejawat dan
+        guru BK, agar perubahan yang saya rancang didukung ekosistem sekolah dan
+        tidak berjalan sendirian.
+      </p>
+    </div>
+
+    <div class="bukti reveal">
+      <p><strong>Bukti artefak:</strong> LK 2.B 2.1-2.2 · Refleksi 2.B &amp; 2.E · Laporan UTS · Kartu Ucapan untuk Kawan · LK 4.B.1-4.E</p>
+      <a class="ghost" href="https://drive.google.com/drive/folders/1atpna6WaqYhcGs6PTnndLSKncmagGcxW" target="_blank" rel="noopener">Buka folder Google Drive</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRAKTIKUM KONSELING ============ -->
+<section class="sec sec--pink" id="konseling">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -12deg; --tunda: -6s"><use href="#st-sakura"></use></svg>
+      <h2>Praktikum Konseling Individu</h2>
+      <p>
+        Lima sesi duduk berhadapan dengan konseli sebagai konselor, bukan sebagai
+        mahasiswa yang menghafal teori. Konseling ternyata relasi, bukan teknik.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">1</span><h3>Connection</h3></div>
+        <p>
+          Inilah mata kuliah yang paling langsung membentuk identitas saya sebagai
+          calon guru BK. Di awal praktikum saya sangat cemas; seiring waktu saya
+          menyadari kecemasan itu bukan tanda saya lemah, melainkan bagian wajar
+          dari proses. Di akhir praktikum rasa percaya diri saya meningkat, bukan
+          karena merasa sempurna, melainkan karena saya tidak lagi terjebak dalam
+          ketakutan berbuat salah dan bisa fokus hadir memahami perasaan konseli.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">2</span><h3>Challenge</h3></div>
+        <p>
+          Tantangan terbesar adalah ketergantungan saya pada teknik dan “rumus”
+          konseling, sehingga interaksi terasa kaku. Ketika cemas, saya cenderung
+          berlindung di balik teknik agar merasa aman dari rasa salah. Tantangan
+          lain: waktu sering habis pada tahap eksplorasi tanpa sempat merumuskan
+          tujuan, kecenderungan terlalu cepat memberi saran, dan - yang terberat -
+          mengelola emosi diri ketika konseli menceritakan masalah yang berat.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">3</span><h3>Concept</h3></div>
+        <p>
+          Keberhasilan konseling bergantung pada keterampilan mikro: active
+          listening, attending, refleksi perasaan, dan pertanyaan terbuka. Rapport
+          dan aliansi kerja dibangun bertahap, bukan instan. Setiap pendekatan
+          teoretis punya cara pandang berbeda sehingga harus disesuaikan dengan
+          konseli, bukan diseragamkan. Kerangka Integrative Developmental Model
+          memberi saya bahasa untuk membaca perkembangan diri dari Level 1 menuju
+          Level 2.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label"><span class="step" aria-hidden="true">4</span><h3>Change</h3></div>
+        <p>
+          Saya merumuskan rencana tindak lanjut dengan target waktu dan indikator:
+          berlatih refleksi perasaan lewat role-play dua kali seminggu selama satu
+          bulan, membaca satu artikel jurnal pendekatan konseling setiap minggu, dan
+          menulis jurnal reflektif setelah setiap sesi. Saya juga ingin melatih diri
+          menahan dorongan memberi saran terlalu cepat, dengan sengaja memberi jeda
+          dan mengembalikan pertanyaan kepada konseli.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <h4>Artefak yang saya pilih</h4>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Refleksi</span></div>
+          <div class="doc-body"><h4 class="doc-title">LK-5.1 Refleksi Akhir</h4><p>Lima bagian: Refleksi Personal, Refleksi Profesional, Apresiasi Diri, Identifikasi Kendala, dan Rencana Tindak Lanjut, ditutup dengan kontrak diri.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Analisis Kasus</span></div>
+          <div class="doc-body"><h4 class="doc-title">Analisis dan Sintesis Kasus</h4><p>Person-Centered dan Gestalt (2.D), Behavioral dan Realitas (3.D), REBT dan CBT (4.D).</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Refleksi</span></div>
+          <div class="doc-body"><h4 class="doc-title">Refleksi per sesi</h4><p>1.F, 2.F, 3.E-3.F, 4.F, dan 5.F.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Observasi</span></div>
+          <div class="doc-body"><h4 class="doc-title">Lembar Observasi Keterampilan Konseling</h4><p>Catatan pihak ketiga atas penampilan saya di setiap sesi.</p></div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">Verbatim</span></div>
+          <div class="doc-body"><h4 class="doc-title">Verbatim sesi dan laporan UAS</h4><p>Termasuk analisis kasus dengan pendekatan CBT.</p></div>
+        </li>
+      </ul>
+
+      <h4>Mengapa artefak ini</h4>
+      <p>
+        LK-5.1 saya letakkan sebagai pusat karena strukturnya memaksa saya jujur
+        pada diri sendiri, termasuk menuliskan hal yang tidak nyaman diakui. Lembar
+        observasi penting karena memberi sudut pandang dari luar diri saya, sehingga
+        klaim perkembangan yang saya tulis dapat diperiksa kebenarannya. Verbatim
+        dipilih karena memuat rekaman percakapan yang sesungguhnya, sehingga
+        keterampilan mikro yang saya klaim berkembang dapat ditelusuri langsung pada
+        tuturan saya.
+      </p>
+
+      <h4>Bagian yang mendukung refleksi</h4>
+      <p>
+        Bagian D “Identifikasi Kendala” pada LK-5.1 paling mendukung tahap
+        <em>challenge</em> karena tidak berhenti pada menyebut kesulitan, melainkan
+        menelusuri sebabnya. Bagian C “Apresiasi Diri” mencatat kemampuan saya untuk
+        tidak panik menghadapi keheningan panjang konseli: di awal praktikum
+        keheningan selalu membuat saya terburu-buru mengisinya, sekarang saya
+        memahami konseli mungkin sedang merangkai kata. Perubahan cara membaca satu
+        situasi yang sama itulah bukti pertumbuhan keterampilan mikro saya.
+      </p>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang saya bawa ke praktik</h4>
+      <p>
+        Fleksibilitas dan keaslian jauh lebih penting daripada menghafal teknik,
+        karena teknik bukan untuk dihafalkan melainkan dipahami dan diterapkan
+        sesuai kebutuhan konseli. Kendala yang saya alami bukan akhir dari proses,
+        melainkan penanda bahwa saya sedang berada di titik pertumbuhan - kerangka
+        yang bertemu langsung dengan mata kuliah Pola Pikir Bertumbuh.
+      </p>
+      <h4>Perubahan dalam praktik saya</h4>
+      <p>
+        Struktur sesi saya rencanakan sebelum konseling dimulai, karena dari
+        identifikasi kendala saya tahu akar masalahnya bukan pada kecepatan
+        berbicara melainkan pada ketiadaan rancangan tahapan. Saya juga
+        mempertahankan kebiasaan yang terbukti membantu: meninjau catatan teori
+        sebelum sesi dan aktif meminta umpan balik setelahnya.
+      </p>
+    </div>
+
+    <div class="bukti reveal">
+      <p><strong>Bukti artefak:</strong> LK-5.1 Refleksi Akhir · Analisis Kasus 2.D, 3.D, 4.D · Refleksi sesi 1.F-5.F · Lembar Observasi · Verbatim &amp; Laporan UAS</p>
+      <a class="ghost" href="https://drive.google.com/drive/folders/1JwwRZbbE2t-G0zNfSo16tEYWNesfkTkA" target="_blank" rel="noopener">Buka folder Google Drive</a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="thanks">
+  <svg class="stiker s-kiri" aria-hidden="true"><use href="#st-bintang"></use></svg>
+  <svg class="stiker s-kanan" aria-hidden="true"><use href="#st-kilau"></use></svg>
+  <div class="wrap">
+    <svg class="blossom" viewBox="0 0 100 100" aria-hidden="true">
+      <g transform="rotate(0 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(60 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(120 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(180 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(240 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(300 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <circle class="inti" cx="50" cy="50" r="7"/>
+    </svg>
+
+    <h2>Terima Kasih</h2>
+    <p>
+      Terima kasih kepada dosen pengampu, Dosen Pembimbing Lapangan, dan Guru
+      Pamong di SMA Negeri 1 Cisarua atas bimbingan sepanjang perkuliahan dan
+      praktik lapangan.
+    </p>
+    <p class="sign">Fahira Firzha Wianda, PPG Prajabatan Bimbingan dan Konseling, IKIP Siliwangi</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

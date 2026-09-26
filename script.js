@@ -50,7 +50,18 @@
     links.forEach(function (link, n) {
       link.classList.toggle('active', n === active);
     });
+
+    // Di layar sempit tautan bagian berupa satu baris geser; bawa tautan aktif
+    // ke dalam pandangan, hanya saat bagiannya berganti.
+    if (active !== terakhir && links[active]) {
+      terakhir = active;
+      var baris = links[active].closest('.navlinks');
+      if (baris.scrollWidth > baris.clientWidth) {
+        baris.scrollTo({ left: links[active].offsetLeft - baris.offsetLeft - 8 });
+      }
+    }
   }
+  var terakhir = -1;
 
   function pasangPita() {
     if (garis) garis.disconnect();

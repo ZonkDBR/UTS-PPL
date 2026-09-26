@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PPG Semester II - Fahira Firzha Wianda</title>
+<meta name="description" content="Refleksi 4C, analisis artefak, dan kaitan praktis dari lima mata kuliah semester II PPG Prajabatan Bimbingan dan Konseling IKIP Siliwangi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🌸%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#intervensi">Lompat ke isi</a>
+
+<!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="st-sakura" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(72 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(144 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(216 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#FFE68C"/>
+  </symbol>
+  <symbol id="st-hati" viewBox="0 0 100 100">
+    <path d="M50,84 C22,64 12,48 12,36 C12,24 22,16 32,16 C40,16 46,21 50,28 C54,21 60,16 68,16 C78,16 88,24 88,36 C88,48 78,64 50,84 Z"/>
+  </symbol>
+  <symbol id="st-kilau" viewBox="0 0 100 100">
+    <path d="M50,8 C54,34 66,46 92,50 C66,54 54,66 50,92 C46,66 34,54 8,50 C34,46 46,34 50,8 Z"/>
+  </symbol>
+  <symbol id="st-bintang" viewBox="0 0 100 100">
+    <path d="M50,10 L61,38 L91,40 L68,59 L76,88 L50,72 L24,88 L32,59 L9,40 L39,38 Z"/>
+  </symbol>
+</svg>
+
+<!-- Kelopak berjatuhan: bentuk CSS murni bergaris hitam, seperti stiker tempel. -->
+<div class="petals" aria-hidden="true">
+  <div class="petal" style="--i:0;  left:5%;  --s:16px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:1;  left:16%; --s:20px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:2;  left:27%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:3;  left:38%; --s:18px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:4;  left:49%; --s:15px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:5;  left:60%; --s:19px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:6;  left:71%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:7;  left:82%; --s:17px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:8;  left:93%; --s:15px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:9;  left:22%; --s:18px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:10; left:55%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:11; left:88%; --s:19px; --p:var(--blossom)"></div>
+</div>
+
+<nav class="sitenav" aria-label="Navigasi situs">
+  <div class="wrap">
+    <!-- Lima kelopak, lima mata kuliah. Mekar saat bagiannya terbaca. -->
+    <svg class="blossom" viewBox="0 0 100 100" role="img" aria-label="Penanda kemajuan membaca: lima kelopak, satu untuk tiap mata kuliah">
+      <g transform="rotate(0 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(72 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(144 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(216 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(288 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <circle class="inti" cx="50" cy="50" r="7"/>
+    </svg>
+
+    <ul class="saklar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="ppg-1.html" aria-current="page">PPG</a></li>
+      <li><a href="ppl.html">PPL</a></li>
+    </ul>
+
+    <ul class="navlinks">
+      <li><a href="#intervensi">Intervensi Guru</a></li>
+      <li><a href="#pse">Sosial Emosional</a></li>
+      <li><a href="#ppl">PPL Mandiri</a></li>
+      <li><a href="#konseling">Konseling Kelompok</a></li>
+      <li><a href="#projek">Projek Kepemimpinan</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="kepala">
+  <div class="wrap">
+    <p class="kepala__jejak"><a href="index.html">Beranda</a> / Modul Akademik PPG</p>
+    <h1><span class="sorot">PPG Semester II</span></h1>
+    <ul class="semester">
+      <li><a href="ppg-1.html">Semester I</a></li>
+      <li><a href="ppg-2.html" aria-current="page">Semester II</a></li>
+    </ul>
+    <p class="lede">
+      Ini portofolio Lembar Kerja 2-ku untuk semester II: refleksi dari lima
+      mata kuliah yang kutempuh di PPG Prajabatan Bimbingan dan Konseling.
+      Setiap mata kuliah punya satu kelopaknya sendiri di sini.
+    </p>
+
+    <div class="why">
+      <h2>Apa yang berubah di semester ini?</h2>
+      <p>
+        Semester ini mengajariku satu hal yang sama dari lima arah berbeda:
+        perilaku yang terlihat bukanlah masalahnya. Sebelum menegur, sebelum
+        merancang layanan, sebelum menilai - cari dulu kebutuhan yang ada di
+        baliknya.
+      </p>
+    </div>
+
+    <ul class="ubin ubin--empat">
+      <li><span class="kotak"><strong>5</strong><span>Mata Kuliah</span></span></li>
+      <li><span class="kotak"><strong>20</strong><span>Refleksi 4C</span></span></li>
+      <li><span class="kotak"><strong>35</strong><span>Artefak</span></span></li>
+      <li><span class="kotak"><strong>II</strong><span>Semester</span></span></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+
+<!-- ============ INTERVENSI GURU ============ -->
+<section class="sec sec--card" id="intervensi">
+  <div class="wrap">
+
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 8deg; --tunda: -1s"><use href="#st-sakura"></use></svg>
+      <h2>Intervensi Guru dalam Penelitian Universal</h2>
+      <p>
+        Mendiagnosis rendahnya <em>self-awareness</em> peserta didik terhadap tata
+        tertib penampilan di SMA Negeri 1 Cisarua, lalu merancang media
+        <strong>TOUCH (Tower of Choice)</strong> sebagai intervensinya.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">1</span>
+          <h3>Connection</h3>
+        </div>
+        <p>
+          Sebelum masuk topik ini, aku memahami “masalah pembelajaran” secara
+          dangkal: cukup menemukan apa yang salah - misalnya “siswa melanggar
+          aturan seragam” - lalu langsung mencari solusinya. Pola pikirku
+          reaktif dan gejala-sentris.
+        </p>
+        <p>
+          Yang menyambungkannya dengan pengalamanku adalah temuan di SMA Negeri
+          1 Cisarua: tata tertib sudah ada, sistem poin sudah berjalan, tetapi
+          pelanggaran penampilan tetap berulang. Make-up berlebihan, seragam
+          dimodifikasi, rambut dan atribut tidak sesuai ketentuan. Aturan
+          bukanlah yang kurang.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">2</span>
+          <h3>Challenge</h3>
+        </div>
+        <p>
+          Bagian tersulit adalah membedakan gejala dari akar masalah. Perilaku
+          yang kasat mata paling mudah dianggap sebagai “masalahnya”, karena
+          itulah yang tercatat dalam laporan pelanggaran. Menahan diri untuk
+          tidak berhenti di situ, dan terus bertanya <em>“mengapa ini terjadi,
+          padahal aturan dan sanksi sudah ada?”</em>, ternyata butuh disiplin
+          analitis tersendiri.
+        </p>
+        <p>
+          Menetapkan <em>self-awareness</em> sebagai akar masalah juga jauh lebih
+          menantang: ia abstrak dan tidak langsung terukur, tidak seperti
+          “atribut tidak lengkap” yang konkret dan mudah diobservasi.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">3</span>
+          <h3>Concept</h3>
+        </div>
+        <p>
+          Diagnosis kasus menuntut penelusuran berlapis: kondisi yang
+          diharapkan, kondisi aktual, kesenjangan, gejala, faktor penyebab,
+          hingga masalah utama - dan setiap lapisan membutuhkan bukti, bukan
+          asumsi.
+        </p>
+        <p>
+          Satu data mengubah segalanya: kepatuhan siswa bersifat semu, hanya
+          taat saat ada razia. Kalau aturan yang bermasalah, pengawasan yang
+          lebih ketat mestinya menurunkan pelanggaran secara konsisten. Polanya
+          justru situasional. Dari sana akar masalah bergeser ke ranah
+          psikologis, ditopang Erikson (<em>identity vs. role confusion</em>),
+          Kohlberg (pergeseran dari patuh karena takut hukuman menuju kesadaran
+          nilai), dan teori <em>self-awareness</em> Duval &amp; Wicklund.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">4</span>
+          <h3>Change</h3>
+        </div>
+        <p>
+          Tiga asumsiku runtuh: bahwa aturan tertulis otomatis menciptakan
+          kepatuhan, bahwa siswa yang melanggar tidak tahu aturannya, dan bahwa
+          pendekatan yang lebih tegas adalah solusi paling logis. Analisis akar
+          masalah justru menunjukkan pendekatan punitif adalah salah satu
+          <em>penyebab</em> kepatuhan semu itu.
+        </p>
+        <p>
+          Ke depan aku akan menulis dengan bahasa deskriptif-perilaku (“belum
+          memenuhi standar penampilan sesuai tata tertib”), bukan bahasa yang
+          menghakimi karakter seperti “nakal” atau “bandel”; memosisikan
+          intervensi sebagai fasilitasi refleksi, bukan koreksi perilaku; dan
+          melengkapi diagnosis dengan data kuantitatif serta wawancara langsung,
+          agar kesimpulan tentang tekanan tren dan FOMO tidak berhenti sebagai
+          dugaan dari observasi.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <p>
+        Delapan artefak dari dua topik. Yang menjadi bukti dukung utama adalah
+        dua Refleksi Individual: keduanya merekam pergeseran cara berpikirku
+        secara eksplisit, dalam format “sebelum dan sesudah”, sehingga
+        perubahannya bisa ditelusuri, bukan sekadar diklaim.
+      </p>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.D</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Sintesis: Hakikat Intervensi Guru dan Diagnosis Kasus</h4>
+            <p>Peta diagnosis kasus SMAN 1 Cisarua. Inilah dokumen tempat gejala dan akar masalah pertama kali kupisahkan secara berlapis.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.E</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Refleksi dan Tindak Lanjut Topik 1</h4>
+            <p>Rencana pengumpulan data dua tahap, sebelum dan sesudah intervensi. Bukti bahwa diagnosis diarahkan menjadi rancangan penelitian, bukan berhenti sebagai analisis.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.E</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Refleksi Individual Topik 1</h4>
+            <p>Artefak inti Connection dan Challenge. Di sini aku menuliskan sendiri asumsi-asumsi yang ternyata keliru dan mengapa bagian diagnosis terasa paling sulit.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">PPT</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Presentasi Intervensi Penelitian</h4>
+            <p>Paparan kelompok tentang latar masalah kedisiplinan dan gagasan awal media TOUCH.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.D</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Sintesis: Perkembangan Moral dan Penetapan Intervensi</h4>
+            <p>Bukti dukung Concept. Tiga akar masalah - minimnya ruang refleksi, tekanan sebaya dan FOMO, serta pendekatan punitif - dipetakan dan disandingkan dengan teori serta penelitian terdahulu.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.E</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Refleksi Individual Intervensi BK</h4>
+            <p>Artefak inti Change. Merekam risiko etis yang semula tidak kupertimbangkan: bahwa sebuah intervensi bisa membuat peserta didik merasa malu atau mendapat stigma dari temannya.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.E</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Tindak Lanjut Intervensi BK</h4>
+            <p>Rencana konkret: validasi media, penyusunan kartu GIVEN/TAKEN, pihak yang perlu dikonsultasikan, dan risiko yang harus dimitigasi.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">PPT</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Presentasi Keputusan Intervensi</h4>
+            <p>Tiga alternatif intervensi ditimbang terbuka lengkap dengan kelebihan dan kekurangannya, sebelum TOUCH dipilih. Bukti bahwa keputusannya beralasan, bukan selera.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang dipelajari</h4>
+      <p>
+        Diagnosis berbasis bukti, bukan asumsi. Perkembangan moral remaja
+        sebagai proses, bukan penilaian benar-salah. Dan prinsip bahwa
+        intervensi yang baik berangkat dari akar masalah serta kebutuhan
+        peserta didik, bukan dari apa yang paling mudah dilakukan guru.
+      </p>
+      <h4>Perubahan yang ingin kulakukan</h4>
+      <p>
+        Aku ingin memvalidasi komponen TOUCH bersama Guru BK, pihak Kesiswaan,
+        dan ahli media sebelum dipakai; menyiapkan instrumen
+        <em>self-awareness</em> agar tingkat kesenjangan terukur, bukan hanya
+        dideskripsikan; dan memperjelas indikator keberhasilannya. Yang paling
+        ingin kujaga adalah nadanya: peserta didik harus merasa didukung, bukan
+        merasa sedang dihukum secara terselubung.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PEMBELAJARAN SOSIAL EMOSIONAL ============ -->
+<section class="sec sec--pink" id="pse">
+  <div class="wrap">
+
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -10deg; --tunda: -2s"><use href="#st-kilau"></use></svg>
+      <h2>Pembelajaran Sosial Emosional</h2>
+      <p>
+        Lima kompetensi CASEL, peran guru sebagai teladan, dan pertanyaan yang
+        paling sulit dijawab: bagaimana guru mengelola emosinya sendiri
+        lebih dulu.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">1</span>
+          <h3>Connection</h3>
+        </div>
+        <p>
+          Mata kuliah ini langsung menyambung ke alasan awalku memilih BK. Di
+          SMA aku punya Guru BK yang tidak hanya membimbing, tetapi menjadi
+          teladan: empatinya besar, dan beliau tidak pernah memandangku sebelah
+          mata. Beliau selalu berusaha memahami kondisiku dulu sebelum memberi
+          arahan, sehingga aku merasa dihargai dan didengarkan.
+        </p>
+        <p>
+          Yang baru bagiku adalah menyadari bahwa yang beliau lakukan punya
+          nama dan kerangkanya sendiri - dan bisa dipelajari, bukan sekadar
+          bakat pribadi.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">2</span>
+          <h3>Challenge</h3>
+        </div>
+        <p>
+          Kasus-kasus di topik ini menantang justru karena masuk akal. Guru yang
+          kehilangan kendali setelah diprovokasi murid. Guru yang menggeledah
+          seluruh tas kelas saat uang SPP seorang murid hilang. Dan guru PPL
+          yang tegurannya makin keras justru membuat kegaduhan makin naik,
+          bukan reda.
+        </p>
+        <p>
+          Aku mengenali diriku sendiri di situ. Keteladanan tidak diuji saat
+          keadaan tenang; ia diuji tepat ketika guru sedang kesal, kecewa, dan
+          merasa tidak dihargai - sementara ruang aman untuk memproses
+          kekesalan itu jarang tersedia.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">3</span>
+          <h3>Concept</h3>
+        </div>
+        <p>
+          Bagi calon Guru BK, PSE bukan pelengkap melainkan inti bidang yang
+          kutekuni. Lima kompetensi CASEL - kesadaran diri, pengelolaan diri,
+          kesadaran sosial, keterampilan berelasi, dan pengambilan keputusan
+          yang bertanggung jawab - adalah kerangka kerja langsung dalam praktik
+          konseling, bukan teori tambahan.
+        </p>
+        <p>
+          Urutannya penting: kelola emosi sendiri dulu agar tidak bereaksi
+          berlebihan, baru berempati tanpa menghakimi, baru membangun komunikasi
+          yang membuat murid merasa aman bercerita. Layanan BK yang efektif
+          selalu berpijak pada hubungan yang peduli (Novick dkk., 2002).
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">4</span>
+          <h3>Change</h3>
+        </div>
+        <p>
+          Satu kebiasaan berpikir yang ingin kuubah: melatih diri melihat
+          perilaku murid yang menjengkelkan sebagai sinyal kebutuhan yang belum
+          terpenuhi, bukan sebagai serangan pribadi.
+        </p>
+        <p>
+          Aku juga tidak lagi menganggap perawatan diri guru sebagai urusan
+          pribadi masing-masing. Protokol “jeda sebelum bereaksi”, kelompok
+          dukungan sesama guru, dan akses konseling bagi guru - bukan hanya
+          bagi murid - adalah hal yang akan kuusulkan, karena banyak sekolah
+          lupa bahwa Guru BK juga bisa mendampingi gurunya.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <p>
+        Tiga belas artefak, yang paling banyak di antara lima mata kuliah.
+        Bukti dukung terkuatnya adalah LK 2.1 dan LK 2.E: yang pertama merekam
+        pengalamanku sebagai murid, yang kedua merekam bagaimana pengalaman itu
+        kuterjemahkan menjadi kerangka kerja profesional. Jarak antara keduanya
+        adalah refleksi ini.
+      </p>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.B</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Komponen PSE Berdasarkan Kerangka CASEL</h4>
+            <p>Analisis kasus Pak AZ. Artefak awal Challenge - strategi regulasi emosi dan dukungan institusi dirumuskan dari satu peristiwa nyata.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.C</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Studi Kasus Terpadu</h4>
+            <p>Kasus guru PPL yang tegurannya justru memicu eskalasi. Bukti bahwa aku memeriksa risiko yang sama pada diriku sendiri, bukan hanya menganalisis orang lain.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.D</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Analisis dan Sintesis PSE di Lingkungan Sekolah</h4>
+            <p>Rencana penerapan kelima kompetensi CASEL untuk jenjang SMA, termasuk program perawatan diri bagi guru yang menjadi dasar bagian Change.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">RPL</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">RPL Klasikal: Berani Berkata “Tidak”</h4>
+            <p>Layanan menolak ajakan merokok dan tekanan teman sebaya. Bukti PSE diterjemahkan menjadi rancangan layanan, bukan berhenti sebagai konsep.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.4</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Lembar Penilaian dan Video Kelompok</h4>
+            <p>Umpan balik terhadap perencanaan dan pelaksanaan layanan kelompokku dari kelompok penilai.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.A</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">LK 2.1 - Peran Guru sebagai Teladan</h4>
+            <p>Artefak inti Connection. Refleksi pengalamanku sendiri bersama Guru BK di SMA, yang menjadi titik awal seluruh mata kuliah ini bagiku.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.B</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">LK 2.2 - Analisis Kasus Guru Profesional</h4>
+            <p>Kasus guru yang menggeledah tas seluruh kelas. Bukti dukung Challenge: keteladanan diuji tepat saat guru sedang emosi.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.C</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Studi Kasus Terpadu: Karakteristik Guru Teladan</h4>
+            <p>Pemetaan kelompok atas tantangan sosial emosional guru, dari mengelola emosi hingga memahami kondisi murid sebelum menilai.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.E</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Evaluasi Rencana Pembelajaran Guru Teladan</h4>
+            <p>Artefak inti Concept. Di sinilah aku merumuskan bahwa PSE adalah inti layanan BK, lengkap dengan rujukannya.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.4</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Rubrik Penilaian Presentasi (SMAN 3)</h4>
+            <p>Penilaian antar kelompok atas presentasi analisis film guru sebagai agen perubahan.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.4</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Rubrik Penilaian dari Kelompok 4</h4>
+            <p>Umpan balik kedua atas presentasi yang sama - penguasaan materi, penyajian, dan kesimpulan yang diambil.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.4</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Rubrik Penilaian dari Kelompok 2 BK</h4>
+            <p>Umpan balik ketiga. Ketiganya kusimpan utuh karena penilaian sejawat adalah bukti yang tidak bisa kutulis sendiri.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">UTS</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">RPL Kelola Rasa, Kuatkan Relasi</h4>
+            <p>Bukti dukung Change. Layanan klasikal regulasi emosi dan komunikasi asertif untuk Fase F, disusun dari hasil AKPD - kebutuhan murid dulu, materi kemudian.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang dipelajari</h4>
+      <p>
+        Lima kompetensi CASEL sebagai kerangka kerja harian Guru BK, bukan
+        materi yang diajarkan sekali lalu selesai. Keteladanan sebagai sesuatu
+        yang dihidupkan lewat sikap, bukan disampaikan lewat nasihat - karena
+        murid belajar paling banyak dari apa yang mereka saksikan langsung.
+      </p>
+      <h4>Perubahan yang ingin kulakukan</h4>
+      <p>
+        Membiasakan jeda sebelum merespons, sekecil apa pun. Menilai murid dari
+        proses dan keberanian mencoba, bukan hanya dari angka. Dan menjaga agar
+        penyelesaian konflik selalu berujung pada perbaikan hubungan, bukan pada
+        hukuman yang mempermalukan.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PPL MANDIRI ============ -->
+<section class="sec" id="ppl">
+  <div class="wrap">
+
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom); --rot: 12deg; --tunda: -3s"><use href="#st-hati"></use></svg>
+      <h2>Praktik Pengalaman Lapangan Mandiri</h2>
+      <p>
+        Orientasi manajemen sekolah dan observasi lingkungan belajar di SMA
+        Negeri 1 Cisarua, Juli 2026 - melihat sekolah sebagai sistem, bukan
+        sekadar tempat bertugas.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">1</span>
+          <h3>Connection</h3>
+        </div>
+        <p>
+          Aku masuk PPL Mandiri dengan gambaran sekolah sebagai tempat aku akan
+          memberi layanan. Dua hari orientasi mengubah sudut pandang itu:
+          layanan BK ternyata bertumpu pada sistem yang berdiri di belakangnya -
+          manajemen sumber daya manusia, kesiswaan, sarana prasarana, anggaran,
+          sistem informasi, dan ketatalaksanaan.
+        </p>
+        <p>
+          Visi sekolah “RIKAT BERNYALI” bukan hanya jargon di dinding; ia
+          tercermin sampai ke cara Wakil Kepala Sekolah dipilih melalui voting
+          untuk menjaga legitimasi di mata rekan sejawat.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">2</span>
+          <h3>Challenge</h3>
+        </div>
+        <p>
+          Yang paling menantang adalah menahan diri untuk tidak menyimpulkan
+          terlalu cepat. Sekolah ini sangat digital: adaptasi teknologi guru
+          mencapai 99%, ada LMS Pijar, inventaris berbasis QR Code, pengelolaan
+          kinerja lewat Siap Jabar. Tetapi setengah mebel siswa masih pengadaan
+          tahun 1994, atap UKS bocor, dan banyak unit CCTV tidak berfungsi.
+        </p>
+        <p>
+          Kontras itu bukan kelalaian: anggaran operasional hanya membolehkan
+          maksimal 20% untuk rehabilitasi ringan. Di sisi lain, ada kekurangan
+          guru pada beberapa mata pelajaran termasuk BK, sehingga beban kerja
+          membengkak hingga 35-40 jam per minggu, dengan risiko burnout yang
+          nyata.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">3</span>
+          <h3>Concept</h3>
+        </div>
+        <p>
+          Manajemen sekolah adalah satu ekosistem yang saling mengunci.
+          Pengelolaan dana BOS dan BOPD disusun sistematis melalui ARKAS
+          berdasarkan hasil Evaluasi Diri Sekolah, dan kinerja dijaga lewat
+          supervisi Open Class serta evaluasi rutin bersama pengawas pembina.
+        </p>
+        <p>
+          Untuk BK, satu temuan observasi terasa paling penting: ruang BK
+          dirancang hangat dan memberi privasi tinggi. Itu bukan detail
+          estetis - ia prasyarat agar murid merasa aman datang bercerita.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">4</span>
+          <h3>Change</h3>
+        </div>
+        <p>
+          Aku ingin membaca sekolah sebagai sistem sebelum merancang program.
+          Usulan layanan yang mengabaikan batas anggaran, jadwal, dan beban
+          kerja guru akan berhenti di atas kertas, sebaik apa pun gagasannya.
+        </p>
+        <p>
+          Aku juga mencatat ini untuk diriku sendiri: beban 35-40 jam per minggu
+          adalah kondisi nyata yang akan kuhadapi. Menyiapkan cara menjaga diri
+          sejak sekarang bukan kemewahan, melainkan bagian dari kesiapan menjadi
+          guru profesional.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <p>
+        Hanya dua artefak - dan keduanya memang seluruh rekaman yang ada untuk
+        mata kuliah ini. Tidak semua mata kuliah menuntut jenis dan jumlah tugas
+        yang sama; di sini bobotnya ada pada kedalaman observasi, bukan pada
+        banyaknya berkas. Keduanya berpasangan: LK 1 melihat sekolah dari sisi
+        pengelolaannya, LK 2 dari sisi ruang tempat murid benar-benar belajar.
+      </p>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">LK 1</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Orientasi dan Observasi Manajemen Sekolah</h4>
+            <p>Bukti dukung Challenge dan Concept. Enam aspek manajemen ditelusuri lengkap dengan interpretasinya - termasuk temuan tentang kekurangan guru, beban kerja, dan batas anggaran rehabilitasi.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">LK 2</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Observasi Lingkungan Belajar</h4>
+            <p>Bukti dukung Connection. Kondisi ruang kelas, perpustakaan, laboratorium, fasilitas inklusi, dan ruang BK - beserta apa arti tiap temuan bagi kenyamanan dan keamanan murid.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang dipelajari</h4>
+      <p>
+        Sekolah sebagai ekosistem: kualitas layanan BK ditentukan juga oleh
+        hal-hal yang tampak jauh darinya - ketersediaan guru, tata kelola
+        anggaran, sistem informasi, dan budaya musyawarah di forum rapat dewan
+        guru.
+      </p>
+      <h4>Perubahan yang ingin kulakukan</h4>
+      <p>
+        Sebelum mengusulkan program, aku akan lebih dulu memeriksa daya dukung
+        yang tersedia dan menyesuaikan skalanya. Ruang BK yang hangat dan privat
+        akan kujaga sebagai prioritas, bukan sebagai pelengkap - dan aku ingin
+        ikut menjaga budaya kolaboratif yang sudah tumbuh di sekolah ini, bukan
+        datang membawa sistem baru yang asing.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PRAKTIKUM KONSELING KELOMPOK ============ -->
+<section class="sec sec--blush" id="konseling">
+  <div class="wrap">
+
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -7deg; --tunda: -4s"><use href="#st-bintang"></use></svg>
+      <h2>Praktikum Konseling Kelompok</h2>
+      <p>
+        Merancang konseling kelompok dari akar masalah, bukan dari gejalanya -
+        pendekatan Gestalt untuk kasus bullying, Terapi Realitas untuk kasus
+        bolos sekolah.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">1</span>
+          <h3>Connection</h3>
+        </div>
+        <p>
+          Sebelumnya aku terbiasa memikirkan satu konseli dalam satu waktu. Di
+          sini aku harus memikirkan enam orang sekaligus, yang saling
+          mendengarkan cerita satu sama lain - dan itu mengubah hampir semua
+          perhitungan: siapa yang boleh masuk, apa yang boleh dibicarakan, dan
+          kapan sebuah teknik aman digunakan.
+        </p>
+        <p>
+          Dua kasus yang kudalami berangkat dari data nyata di SMA Negeri 1
+          Cisarua: laporan perilaku bullying, dan rekapitulasi absensi siswa
+          dengan ketidakhadiran tanpa keterangan yang tinggi.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">2</span>
+          <h3>Challenge</h3>
+        </div>
+        <p>
+          Kasus Anita dan Erika membongkar satu kebiasaan berpikirku: menunggu.
+          Saat momen universalitas muncul dan kecemasan Anita mereda dengan
+          sendirinya, itu justru berpotensi menjadi momen yang terlewat karena
+          tidak dikuatkan konselor secara sengaja. Saat Anita tertawa
+          menceritakan gambarnya, tawa itu bisa menjadi jalan keluar dari
+          kecemasan yang belum diproses.
+        </p>
+        <p>
+          Pada kasus Erika, sinismenya ke anggota lain sebenarnya adalah
+          kecemasannya sendiri yang dialihkan - dan yang akhirnya menegakkan
+          batas justru sesama anggota kelompok, bukan konselornya.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">3</span>
+          <h3>Concept</h3>
+        </div>
+        <p>
+          Pemilihan pendekatan harus disesuaikan dengan akar masalah konseli,
+          bukan gejala yang tampak. Perilaku bullying yang berakar dari
+          pengalaman menjadi korban di masa lalu lebih tepat didekati dengan
+          Gestalt dan konsep <em>unfinished business</em>; sementara perilaku
+          bolos lebih tepat dibaca lewat Terapi Realitas - bolos sebagai pilihan
+          yang dianggap lebih memenuhi kebutuhan dasar <em>belonging, power,
+          freedom, fun</em> dibanding tetap di sekolah.
+        </p>
+        <p>
+          Tahap awal punya lima tugasnya sendiri, dan teknik eksperiensial
+          seperti kursi kosong hanya aman ditempatkan setelah kepercayaan
+          kelompok terbentuk.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">4</span>
+          <h3>Change</h3>
+        </div>
+        <p>
+          Aku berhenti menganggap publikasi terbuka sebagai cara perekrutan yang
+          netral. Untuk kasus sensitif, studi dokumentasi dan rekomendasi wali
+          kelas lebih tepat karena menjaga privasi calon anggota; dan kalaupun
+          flyer dipakai sebagai kanal tambahan, nadanya harus suportif dan tidak
+          menstigma.
+        </p>
+        <p>
+          Sebagai konselor kelompok, aku ingin berinisiatif lebih awal:
+          menormalkan kekhawatiran sejak sesi pertama, menegakkan batas sebelum
+          anggota yang melakukannya, dan menggali makna di balik tawa alih-alih
+          ikut tertawa lalu berlalu.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <p>
+        Tujuh artefak. Bukti dukung terkuatnya adalah Refleksi Topik 1 beserta
+        tindak lanjutnya, karena di sanalah pemahaman langsung diuji: aku
+        diminta menyusun ulang satu RPL utuh untuk kasus yang berbeda, dengan
+        pendekatan yang berbeda pula.
+      </p>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.C</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">RPL Konseling Kelompok: Bijak Berteman, Tolak Bullying!</h4>
+            <p>Bukti dukung Concept. Pendekatan Gestalt dipilih karena akar masalahnya, dengan tujuan membangun kesadaran pelaku secara utuh di sini dan saat ini.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.D</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Sintesis Kelompok: Mencegah Kelompok Tidak Produktif</h4>
+            <p>Rumusan solusi bersama - screening dan seleksi anggota, serta penetapan tujuan dan aturan kelompok sejak awal.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.E</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Refleksi dan Tindak Lanjut Topik 1</h4>
+            <p>Artefak inti mata kuliah ini. Berisi refleksi sekaligus RPL empat pertemuan “Kembali Semangat ke Sekolah, Yuk!” dengan kerangka WDEP - bukti pemahaman yang langsung diterapkan.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">FLY</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Flyer Publikasi Perekrutan Anggota</h4>
+            <p>Bukti dukung Change. Dirancang dengan nada suportif dan sengaja tidak menstigma siswa yang sering bolos.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.C</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Diskusi Penyelesaian Kasus Anita dan Erika</h4>
+            <p>Bukti dukung Challenge. Kedua kasus dipetakan lewat lima tugas tahap awal, lalu dirancang tindakan konselor beserta keterampilan yang dipakai.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.D</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Mind Mapping Beginning Stage</h4>
+            <p>Peta visual tahap awal konseling kelompok - ringkasan yang kupakai sebagai pengingat saat menyusun RPL berikutnya.</p>
+          </div>
+        </li>
+        <li>
+          <a class="doc-card" href="https://youtu.be/IgqThAjAKmg" target="_blank" rel="noopener">
+            <div class="doc-cover" aria-hidden="true"><span class="code">2.E</span></div>
+            <div class="doc-body">
+              <h4 class="doc-title">Video Praktik Konseling Kelompok</h4>
+              <p>Rekaman praktik. Satu-satunya artefak di portofolio ini yang tautannya memang sudah publik, sehingga bisa dibuka langsung.</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang dipelajari</h4>
+      <p>
+        Pendekatan mengikuti akar masalah, bukan sebaliknya. Tahap awal bukan
+        formalitas pembuka melainkan tempat kekhawatiran, tujuan, kontrak, dan
+        batas kelompok ditegakkan - dan kualitas seluruh sesi berikutnya
+        ditentukan di sana.
+      </p>
+      <h4>Perubahan yang ingin kulakukan</h4>
+      <p>
+        Melakukan wawancara screening individual sebelum pertemuan pertama,
+        menyusun kontrak kelompok bersama anggota alih-alih membacakannya, dan
+        menempatkan teknik eksperiensial hanya setelah kepercayaan benar-benar
+        terbentuk. Untuk kasus sensitif, perekrutan lewat referal wali kelas
+        akan kujadikan jalur utama.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PROJEK KEPEMIMPINAN ============ -->
+<section class="sec sec--card" id="projek">
+  <div class="wrap">
+
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 14deg; --tunda: -5s"><use href="#st-kilau"></use></svg>
+      <h2>Projek Kepemimpinan</h2>
+      <p>
+        Dari mengamati lingkungan sendiri sampai merancang <em>Edupop
+        Profesi</em> - projek pencegahan bullying yang berangkat dari kebutuhan
+        peserta didik, bukan dari produknya.
+      </p>
+    </div>
+
+    <div class="refleksi-4c">
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">1</span>
+          <h3>Connection</h3>
+        </div>
+        <p>
+          Mata kuliah ini dimulai dengan pertanyaan sederhana: apa yang aku
+          ketahui dan pedulikan di lingkunganku? Sebagai calon Guru BK, yang
+          paling relevan kuamati adalah komunitas sekolah.
+        </p>
+        <p>
+          Yang kutemukan: banyak siswa SMA mengalami kecemasan akademik tetapi
+          ragu mencari bantuan karena stigma terhadap layanan BK; ada ketimpangan
+          akses informasi studi lanjut antar siswa; penggunaan media sosial
+          berlebihan berdampak pada kesehatan mental dan konsentrasi belajar;
+          dan ruang bagi siswa untuk berpendapat masih sedikit.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">2</span>
+          <h3>Challenge</h3>
+        </div>
+        <p>
+          Tantangannya adalah memilih. Semua isu itu penting, tetapi projek yang
+          mencoba menyentuh semuanya tidak akan menyentuh apa pun. Kami memilih
+          pencegahan bullying, dan dari situ muncul kesulitan berikutnya:
+          menyusun tujuan yang benar-benar spesifik dan terukur, bukan niat baik
+          yang terdengar bagus.
+        </p>
+        <p>
+          Godaan terbesarnya adalah mulai dari medianya - memilih permainan atau
+          buku yang menarik dulu, baru mencari pembenarannya. Kami menahan diri
+          untuk tidak melakukan itu.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">3</span>
+          <h3>Concept</h3>
+        </div>
+        <p>
+          Kerangka WHY-HOW-WHAT membantu menjaga urutannya tetap benar. WHY
+          lebih dulu: bullying berdampak bukan hanya pada kesedihan korban,
+          tetapi pada kesehatan mental, prestasi belajar, dan rasa aman di
+          sekolah. HOW: mulai dari identifikasi kebutuhan peserta didik. Baru
+          WHAT: medianya.
+        </p>
+        <p>
+          Ketiga topik yang kami telusuri juga dipetakan ke Tujuan Pembangunan
+          Berkelanjutan - SDG 3 untuk kesejahteraan psikologis, SDG 4 untuk
+          pendidikan berkualitas, dan SDG 10 untuk mengurangi kesenjangan akses
+          informasi.
+        </p>
+      </article>
+
+      <article class="stage reveal">
+        <div class="stage-label">
+          <span class="step" aria-hidden="true">4</span>
+          <h3>Change</h3>
+        </div>
+        <p>
+          Aku ingin membiasakan diri memulai setiap program dari data kebutuhan,
+          lalu mengevaluasinya lewat umpan balik peserta didik - bukan lewat
+          penilaianku sendiri atas seberapa menarik medianya.
+        </p>
+        <p>
+          Yang juga berubah adalah cara pandangku terhadap peran Guru BK. Aku
+          semakin yakin BK bukan hanya menangani siswa yang bermasalah, tetapi
+          mendampingi perkembangan mereka dalam aspek pribadi, sosial, belajar,
+          dan karier - dan itu menuntut kerja kolaboratif, bukan kerja sendirian
+          di ruang BK.
+        </p>
+      </article>
+    </div>
+
+    <div class="block artefak reveal">
+      <h3>Analisis Artefak</h3>
+      <p>
+        Lima artefak yang tersusun sebagai satu alur utuh: dari refleksi peran,
+        ke pengamatan lingkungan, ke perumusan projek, lalu ke peta rancangan
+        dan tujuan yang terukur. Bukti dukung terkuatnya adalah Refleksi Projek,
+        karena di sanalah alasan dan cara kerja projek dinyatakan lengkap.
+      </p>
+      <ul class="doc-grid">
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">1.1</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Refleksi Peran Guru BK</h4>
+            <p>Bukti dukung Change. Berisi kesadaran bahwa peran Guru BK jauh lebih luas dari menangani siswa bermasalah, beserta tantangan nyata profesinya di SMA.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">2.1</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Identifikasi Tantangan, Peluang, dan SDGs</h4>
+            <p>Artefak inti Connection. Empat tantangan dan tiga peluang di komunitas sekolah, lalu tiga pilihan topik yang masing-masing dikaitkan dengan tujuan SDGs.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">4.1</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Refleksi Projek: Pencegahan Bullying</h4>
+            <p>Bukti dukung Concept. Kerangka WHY-HOW-WHAT diisi lengkap, termasuk rencana evaluasi lewat umpan balik peserta didik.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">5.1</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">Mindmap Perancangan Projek Kepemimpinan</h4>
+            <p>Peta pikiran Edupop Profesi. Bukti bahwa rancangannya dibangun bersama kelompok, bukan disusun sendiri lalu dibagikan.</p>
+          </div>
+        </li>
+        <li class="doc-card">
+          <div class="doc-cover" aria-hidden="true"><span class="code">6.1</span></div>
+          <div class="doc-body">
+            <h4 class="doc-title">SMART Goals Projek Kepemimpinan</h4>
+            <p>Bukti dukung Challenge. Di sinilah niat baik dipaksa menjadi tujuan yang spesifik, terukur, dan punya batas waktu.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="block kaitan-praktis reveal">
+      <h3>Kaitan Praktis</h3>
+      <h4>Konsep utama yang dipelajari</h4>
+      <p>
+        Kepemimpinan yang berangkat dari kebutuhan komunitas, bukan dari gagasan
+        pemimpinnya. Kerangka WHY-HOW-WHAT untuk menjaga urutan berpikir, dan
+        SMART Goals untuk memastikan tujuan bisa dipertanggungjawabkan.
+      </p>
+      <h4>Perubahan yang ingin kulakukan</h4>
+      <p>
+        Menyelesaikan pengembangan media layanan BK untuk pencegahan bullying,
+        mengujinya bersama peserta didik, lalu memperbaikinya berdasarkan
+        masukan mereka. Aku juga ingin melibatkan alumni dan tokoh masyarakat
+        sekitar sebagai narasumber bimbingan karier - peluang yang sudah
+        teridentifikasi tetapi belum kugarap.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+</main>
+
+<footer class="thanks">
+  <svg class="stiker s-kiri" aria-hidden="true"><use href="#st-bintang"></use></svg>
+  <svg class="stiker s-kanan" aria-hidden="true"><use href="#st-kilau"></use></svg>
+  <div class="wrap">
+    <svg class="blossom" viewBox="0 0 100 100" aria-hidden="true">
+      <g transform="rotate(0 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(72 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(144 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(216 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(288 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <circle class="inti" cx="50" cy="50" r="7"/>
+    </svg>
+
+    <h2>Terima Kasih</h2>
+    <p>
+      Lima mata kuliah, lima kelopak, satu benang merah: cari kebutuhan di balik
+      perilaku sebelum memberi respons. Terima kasih sudah membaca sampai sini.
+    </p>
+    <p class="sign">Fahira Firzha Wianda, PPG Prajabatan Bimbingan dan Konseling, IKIP Siliwangi</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

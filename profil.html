@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profil - Fahira Firzha Wianda</title>
+<meta name="description" content="Profil Fahira Firzha Wianda, mahasiswa PPG Prajabatan Bimbingan dan Konseling IKIP Siliwangi dengan praktik lapangan di SMA Negeri 1 Cisarua.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🌸%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#tentang">Lompat ke isi</a>
+
+<!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="st-sakura" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(72 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(144 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(216 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#FFE68C"/>
+  </symbol>
+  <symbol id="st-hati" viewBox="0 0 100 100">
+    <path d="M50,84 C22,64 12,48 12,36 C12,24 22,16 32,16 C40,16 46,21 50,28 C54,21 60,16 68,16 C78,16 88,24 88,36 C88,48 78,64 50,84 Z"/>
+  </symbol>
+  <symbol id="st-kilau" viewBox="0 0 100 100">
+    <path d="M50,8 C54,34 66,46 92,50 C66,54 54,66 50,92 C46,66 34,54 8,50 C34,46 46,34 50,8 Z"/>
+  </symbol>
+  <symbol id="st-bintang" viewBox="0 0 100 100">
+    <path d="M50,10 L61,38 L91,40 L68,59 L76,88 L50,72 L24,88 L32,59 L9,40 L39,38 Z"/>
+  </symbol>
+</svg>
+
+<!-- Kelopak berjatuhan: bentuk CSS murni bergaris hitam, seperti stiker tempel. -->
+<div class="petals" aria-hidden="true">
+  <div class="petal" style="--i:0;  left:5%;  --s:16px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:1;  left:16%; --s:20px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:2;  left:27%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:3;  left:38%; --s:18px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:4;  left:49%; --s:15px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:5;  left:60%; --s:19px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:6;  left:71%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:7;  left:82%; --s:17px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:8;  left:93%; --s:15px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:9;  left:22%; --s:18px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:10; left:55%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:11; left:88%; --s:19px; --p:var(--blossom)"></div>
+</div>
+
+<nav class="sitenav" aria-label="Navigasi situs">
+  <div class="wrap">
+    <ul class="saklar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html" aria-current="page">Profil</a></li>
+      <li><a href="ppg-1.html">PPG</a></li>
+      <li><a href="ppl.html">PPL</a></li>
+    </ul>
+
+    <ul class="navlinks">
+      <li><a href="#tentang">Tentang Saya</a></li>
+      <li><a href="#alasan">Alasan</a></li>
+      <li><a href="#jejak">Jejak Langkah</a></li>
+      <li><a href="#lainnya">Lainnya</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ TENTANG SAYA ============ -->
+<section class="sec sec--card" id="tentang">
+  <div class="wrap profil">
+    <div class="photo-stack">
+      <svg class="stiker s-atas" aria-hidden="true"><use href="#st-sakura"></use></svg>
+      <img class="main" src="assets/profile.jpeg" width="900" height="1600" alt="Foto Fahira Firzha Wianda">
+      <svg class="stiker s-bawah" aria-hidden="true"><use href="#st-hati"></use></svg>
+    </div>
+
+    <div class="reveal">
+      <p class="kepala__jejak"><a href="index.html">Beranda</a> / Profil</p>
+      <h1 class="profil__nama"><span class="sorot">Fahira Firzha Wianda</span></h1>
+      <p class="profil__peran">Calon Guru Bimbingan dan Konseling</p>
+      <p class="prose">
+        Saya mahasiswa PPG Prajabatan Bimbingan dan Konseling di IKIP Siliwangi.
+        Praktik lapangan saya jalani di SMA Negeri 1 Cisarua, mulai dari PPL
+        Terbimbing pada semester I sampai PPL Mandiri pada semester II.
+      </p>
+
+      <dl class="facts profil__data">
+        <div><dt>NIM</dt><dd>26960002</dd></div>
+        <div><dt>Program</dt><dd>PPG Prajabatan</dd></div>
+        <div><dt>Bidang studi</dt><dd>Bimbingan dan Konseling</dd></div>
+        <div><dt>Kampus</dt><dd>IKIP Siliwangi</dd></div>
+        <div><dt>Sekolah PPL</dt><dd>SMA Negeri 1 Cisarua</dd></div>
+        <div><dt>Kelas layanan</dt><dd>X I dan XI J (PPL Mandiri)</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ALASAN DAN NILAI ============ -->
+<section class="sec sec--pink" id="alasan">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -10deg; --tunda: -2s"><use href="#st-kilau"></use></svg>
+      <h2>Alasan dan nilai yang saya pegang</h2>
+    </div>
+
+    <div class="materi-grid">
+      <div class="why reveal">
+        <h2>Kenapa saya memilih menjadi Guru BK</h2>
+        <p>
+          Karena murid yang paling jarang diperhatikan sering kali yang paling
+          membutuhkan seseorang untuk mendengarkan. Saya ingin menemani mereka mengenali
+          diri sendiri dan tumbuh sesuai kodratnya, berangkat dari data dan empati,
+          bukan dari asumsi saya tentang mereka.
+        </p>
+      </div>
+
+      <figure class="quote reveal">
+        <blockquote>
+          "Perilaku yang terlihat bukanlah masalahnya. Sebelum menegur, sebelum
+          merancang layanan, sebelum menilai - cari dulu kebutuhan yang ada di
+          baliknya."
+        </blockquote>
+        <figcaption>
+          Benang merah yang saya tarik dari lima mata kuliah PPG semester II.
+          <a href="ppg-2.html">Baca refleksinya</a>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JEJAK LANGKAH ============ -->
+<section class="sec" id="jejak">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom); --rot: 12deg; --tunda: -3s"><use href="#st-hati"></use></svg>
+      <h2>Jejak Langkah</h2>
+      <p>Perjalanan saya di PPG Prajabatan, masing-masing dengan halamannya sendiri di portofolio ini.</p>
+    </div>
+
+    <ol class="lini reveal">
+      <li>
+        <p class="lini__waktu">PPG Semester I</p>
+        <h3>Enam mata kuliah dan PPL Terbimbing</h3>
+        <p>
+          Filosofi Pendidikan, Asesmen dan Layanan BK, PPL Terbimbing di SMA Negeri 1
+          Cisarua, Pola Pikir Bertumbuh, Design Thinking, dan Praktikum Konseling Individu.
+        </p>
+        <a href="ppg-1.html">Buka Semester I</a>
+      </li>
+      <li>
+        <p class="lini__waktu">PPG Semester II</p>
+        <h3>Lima mata kuliah</h3>
+        <p>
+          Intervensi Guru dalam Penelitian Universal, Pembelajaran Sosial Emosional, PPL
+          Mandiri, Praktikum Konseling Kelompok, dan Projek Kepemimpinan.
+        </p>
+        <a href="ppg-2.html">Buka Semester II</a>
+      </li>
+      <li>
+        <p class="lini__waktu">Mulai 27 Juli 2026</p>
+        <h3>PPL Mandiri di SMA Negeri 1 Cisarua</h3>
+        <p>
+          Orientasi sekolah, dua layanan bimbingan klasikal di kelas X I dan XI J, dan
+          kegiatan nonmengajar bersama Guru BK.
+        </p>
+        <a href="ppl.html">Buka PPL Mandiri</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ LAINNYA ============ -->
+<section class="sec sec--blush" id="lainnya">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -7deg; --tunda: -4s"><use href="#st-bintang"></use></svg>
+      <h2>Riwayat dan pengalaman</h2>
+      <p>Bagian ini sedang saya lengkapi.</p>
+    </div>
+
+    <div class="tugas reveal">
+      <!-- TODO: riwayat pendidikan sebelum PPG (S1: kampus, program studi, tahun). -->
+      <article class="tugas__kartu">
+        <p class="tugas__status">Segera dilengkapi</p>
+        <h3>Riwayat Pendidikan</h3>
+        <p>Pendidikan sebelum PPG Prajabatan akan ditampilkan di sini.</p>
+      </article>
+
+      <!-- TODO: pengalaman kerja, mengajar, atau pendampingan. -->
+      <article class="tugas__kartu">
+        <p class="tugas__status">Segera dilengkapi</p>
+        <h3>Pengalaman</h3>
+        <p>Pengalaman di luar PPG akan ditampilkan di sini.</p>
+      </article>
+
+      <!-- TODO: organisasi yang pernah diikuti beserta perannya. -->
+      <article class="tugas__kartu">
+        <p class="tugas__status">Segera dilengkapi</p>
+        <h3>Organisasi</h3>
+        <p>Organisasi yang pernah saya ikuti akan ditampilkan di sini.</p>
+      </article>
+
+      <!-- TODO: keterampilan (misalnya asesmen, desain media, aplikasi). -->
+      <article class="tugas__kartu">
+        <p class="tugas__status">Segera dilengkapi</p>
+        <h3>Keterampilan</h3>
+        <p>Keterampilan yang saya kuasai akan ditampilkan di sini.</p>
+      </article>
+
+      <!-- TODO: prestasi atau penghargaan. -->
+      <article class="tugas__kartu">
+        <p class="tugas__status">Segera dilengkapi</p>
+        <h3>Prestasi</h3>
+        <p>Prestasi dan penghargaan akan ditampilkan di sini.</p>
+      </article>
+
+      <!-- TODO: tautan CV dan kontak/media sosial yang boleh dipublikasikan. -->
+      <article class="tugas__kartu">
+        <p class="tugas__status">Segera dilengkapi</p>
+        <h3>Kontak dan CV</h3>
+        <p>Tautan CV dan kontak akan ditampilkan di sini.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="thanks">
+  <svg class="stiker s-kiri" aria-hidden="true"><use href="#st-bintang"></use></svg>
+  <svg class="stiker s-kanan" aria-hidden="true"><use href="#st-kilau"></use></svg>
+  <div class="wrap">
+    <h2>Mari lanjut membaca</h2>
+    <p>Refleksi mata kuliah ada di halaman PPG, praktik lapangan ada di halaman PPL.</p>
+    <p class="sign">Fahira Firzha Wianda, NIM 26960002, IKIP Siliwangi</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
