@@ -1,9 +1,12 @@
 # LK 3 E-Portfolio — PPL Mandiri
 
-Situs statis satu halaman, tema merah muda dan sakura, bahasa Indonesia. Ini portofolio
-ketiga dengan pola yang sama; dua sebelumnya jadi rujukan bentuk, bukan disalin isinya.
+Situs statis beberapa halaman, tema merah muda dan sakura, bahasa Indonesia. Sejak
+26 September 2026 situs ini menggabungkan dua portofolio: **PPG** (refleksi mata kuliah
+dua semester, dulu dua situs terpisah di `Seminar PPG\Topik 2\website` dan
+`Seminar PPG\Topik 3\website`) dan **PPL** (tugas LK 3). Polanya meniru halaman Refleksi
+situs rujukan: beranda dengan dua pintu, "Modul Akademik" dan "Praktik Lapangan".
 
-**Situs ini adalah tugas LK 3.** Tugas UTS dan UAS nanti ditambahkan ke portofolio yang
+**ppl.html adalah tugas LK 3.** Tugas UTS dan UAS nanti ditambahkan ke halaman yang
 sama; tempatnya sudah disiapkan sebagai kartu placeholder di bagian `#tugas`.
 
 ## Profil (fakta tetap — jangan tanya ulang)
@@ -16,18 +19,41 @@ sama; tempatnya sudah disiapkan sebagai kartu placeholder di bagian `#tugas`.
 | Kampus | IKIP Siliwangi |
 | Program | PPG Prajabatan |
 | Sekolah PPL Mandiri | SMA Negeri 1 Cisarua |
-| Kelas layanan | XI J (kedua layanan) |
+| Kelas layanan | X I (Pribadi) dan XI J (Sosial) |
 
 Sumber: header LK.1 dan LK.2 di folder ini. `<html lang="id">`.
 
 ## Bentuk teknis
 
 ```
-index.html   seluruh isi situs
-style.css    token warna, tata letak, animasi
-script.js    IntersectionObserver: memunculkan isi, memekarkan kelopak, menandai nav aktif
-assets/      foto profil, dokumentasi, LKPD, klip video, RPL dan PPT yang ditautkan
+index.html   beranda: hero profil + video Home + strip identitas + dua pintu (PPG, PPL)
+profil.html  profil lengkap: tentang, alasan dan nilai, jejak langkah, riwayat (placeholder)
+ppl.html     PPL Mandiri = tugas LK 3: enam analisis + #tugas
+ppg-1.html   PPG semester I, enam mata kuliah (refleksi 4C, artefak, kaitan praktis)
+ppg-2.html   PPG semester II, lima mata kuliah
+style.css    satu berkas untuk semua halaman
+script.js    reveal + kelopak + nav aktif, jejak kursor, slider, video hero, kotak YouTube
+assets/      foto profil, dokumentasi, LKPD, video Home, RPL dan PPT yang ditautkan
 ```
+
+Tiap halaman menyalin sendiri `<head>`, set `<symbol>` stiker, lapisan kelopak, nav, dan
+footer (tanpa build step, jadi tidak ada include). Kalau mengubah salah satunya, ubah di
+kelima berkas.
+
+**Nav bersama**: di awal `<body>` semua halaman. Isinya bunga penanda (hanya di halaman
+yang punya bagian bernomor), `.saklar` pil Beranda/Profil/PPG/PPL dengan
+`aria-current="page"` pada halaman aktif (latar `--rose`, teks putih), lalu `.navlinks`
+bagian halaman itu. Bunga punya satu kelopak per `main .sec` (6 di ppl dan ppg-1, 5 di
+ppg-2, diputar per 72 derajat). `script.js` memasangkan kelopak dan tautan ke bagian
+menurut urutan, jadi jumlahnya harus sama.
+
+**Halaman PPG** dipindah apa adanya dari dua situs lama, kata-katanya tidak diubah (suara
+"aku" di semester II dibiarkan). Yang diubah hanya: emoji dan label "Mata Kuliah 01"
+dibuang, em/en dash jadi tanda hubung, rona per mata kuliah (termasuk lavender) dibuang,
+dan kelasnya disesuaikan (`.refleksi-4c` > `.stage`, `.block.artefak` dengan `.doc-grid`,
+`.block.kaitan-praktis`). Artefak berupa kartu kode, bukan berkas; bukti semester I
+menaut ke folder Google Drive. Jangan menambah `class="intro"` di halaman mana pun:
+`.intro` adalah wadah video hero dan lebarnya dikunci 220px.
 
 Tanpa framework, tanpa build step, tanpa dependensi npm. Buka `index.html` langsung dari
 berkas (`file://`) dan halaman harus tampil utuh — tidak boleh butuh server. Font lewat
@@ -112,13 +138,15 @@ terbaca. Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap te
 - **Tanpa emoji** di judul bagian, kartu, atau tombol. Kesan manis datang dari bentuk.
 - **Tanpa penomoran bagian sebagai label** ("Analisis 01" dan sejenisnya sudah dihapus).
 - **Tiap bagian punya keluarga layout sendiri**: dua kartu berdampingan, editorial dengan
-  kutipan, bento enam sel, baris klip scroll-snap, kotak kosong, lalu klaster plus blok
+  kutipan, bento enam sel, kotak YouTube, kotak kosong, lalu klaster plus blok
   rumus. Jangan menyamakan semuanya jadi tiga kartu seragam lagi.
 - **Tanpa tanda pisah panjang** (em dash dan en dash) di teks yang terlihat. Pakai tanda
   hubung biasa.
-- Nav membungkus jadi dua baris di bawah 56rem, karena itu `scroll-padding-top` di lebar
-  tersebut dinaikkan ke 11rem. Kalau isi nav berubah, periksa lagi angka ini.
-- **Stiker** memakai satu set `<symbol>` SVG di awal `index.html`, dipakai ulang lewat
+- Di bawah 56rem nav jadi dua baris: saklar di atas, `.navlinks` satu baris geser di
+  bawahnya (tidak membungkus), sekitar 123px. `scroll-padding-top` 11rem di sana. Di atas
+  56rem nav halaman PPG bisa membungkus sampai sekitar 120px (lebar 56 sampai 68rem),
+  karena itu `scroll-padding-top` dasarnya 9rem. Kalau isi nav berubah, ukur lagi.
+- **Stiker** memakai satu set `<symbol>` SVG di awal tiap halaman, dipakai ulang lewat
   `<use>`. Selektor kelas **tidak menembus** isi `<use>`, jadi warnanya diberikan lewat
   properti yang diwariskan (`fill`, `stroke`, `stroke-width`) pada `.stiker`. Pernah
   keliru memakai `.stiker .badan` dan hasilnya semua stiker jadi hitam pekat.
@@ -138,9 +166,9 @@ terbaca. Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap te
   Jejak kursor juga tidak dipasang sama sekali kalau `(hover: hover) and (pointer: fine)`
   tidak terpenuhi, jadi layar sentuh tidak menanggung biayanya.
 
-## Enam bagian wajib
+## Enam bagian wajib (ppl.html)
 
-Urutan tetap, satu `<section id="…">` masing-masing, judul persis seperti tugas:
+Urutan tetap, satu `<section id="…">` masing-masing di `ppl.html`, judul persis seperti tugas:
 
 1. `#rancangan` — Analisis produk rancangan/perencanaan pembelajaran
 2. `#materi` — Analisis materi pembelajaran yang disusun dan diterapkan
@@ -154,63 +182,74 @@ Setiap bagian memuat tiga hal, dalam urutan ini: **deskripsi produk** → **anal
 lebih pendek dari deskripsinya.
 
 Setelah keenam bagian ada bagian ketujuh, `#tugas` "Rangkaian Tugas PPL Mandiri": kartu
-LK 3 (halaman ini) plus dua kartu placeholder UTS dan UAS bertanda `<!-- TODO -->`. Nav
-punya tujuh tautan; bunga di nav tetap enam kelopak untuk enam analisis.
+LK 3 (halaman ini) plus dua kartu placeholder UTS dan UAS bertanda `<!-- TODO -->`.
+`.navlinks` ppl.html punya tujuh tautan; bunga di nav tetap enam kelopak untuk enam
+analisis.
 
 ## Empat unsur penilaian
 
-- **Profil guru** — hero dengan foto, nama, dan alasan memilih jadi Guru BK, disusul
-  strip identitas (NIM, prodi, kampus, sekolah, kelas) tepat di bawahnya.
+- **Profil guru** — hero beranda (index.html, alamat yang dikirim ke penilai) dengan
+  foto, nama, dan alasan memilih jadi Guru BK, disusul strip identitas dan tombol ke
+  profil.html. Profil lengkap di profil.html; kartu riwayat, pengalaman, organisasi,
+  keterampilan, prestasi, dan kontak masih placeholder `<!-- TODO -->` karena datanya
+  belum diberikan. Jangan diisi karangan.
 - **Kedalaman analisis** — lihat aturan tiga bagian di atas.
 - **Refleksi diri** — kotak `.refleksi` di tiap bagian, plus satu refleksi penutup yang
   menarik benang merah keenamnya.
-- **Navigasi & tampilan** — nav sticky satu baris dengan penanda bagian aktif, skip link,
+- **Navigasi & tampilan** — nav sticky dengan saklar halaman dan penanda bagian aktif, skip link,
   `scroll-padding-top`, `:focus-visible` terlihat, rapi sampai lebar 375px.
 
 ## Bahan yang tersedia
 
-**Dua RPL, keduanya di kelas XI J.** Sumber yang sahih adalah berkas `.docx` di dalam
-`assets/`, bukan PDF di akar folder.
+**Dua RPL, dua kelas.** Sumber yang sahih adalah berkas `.docx` di dalam `assets/`
+(versi yang diekstrak dari zip pada 26 September 2026), bukan PDF di akar folder.
+Layanan **Self Awareness** (Reflective Learning, XI J) **sudah diganti** oleh layanan
+Penyesuaian Diri atas keputusan pemilik portofolio pada 26 September 2026, beserta foto,
+LKPD "Kesadaran Diri", dan keempat klip lamanya. Jangan dikembalikan.
 
-**`assets/RPL self awareness (Pribadi)/RPL Pribadi.docx`**
+**`assets/RPL Penyesuaian diri (Pribadi) SIKLUS 1/RPL Strategi Adaptasi dan Penyesuaian Diri di Lingkungan SMA.docx`**
 
 | | |
 |---|---|
-| Komponen | Layanan Dasar · Bidang **Pribadi** |
-| Topik | Mengenal Diri Sendiri (Self Awareness): Kunci Memahami Kekuatan dan Kelemahan Diri |
-| Sasaran | Kelas **XI J** · 1 × 45 menit · dilaksanakan **20 Agustus 2026** |
-| Model | **Reflective Learning** (Pengalaman Konkret → Observasi Reflektif → Konseptualisasi → Penerapan Aktif) |
-| Metode | Ceramah interaktif, jurnal refleksi singkat "Siapa Aku?", diskusi kelompok, LKPD |
-| Media | PPT, LCD proyektor, laptop, lembar jurnal refleksi, LKPD |
-| Sumber | Goleman (2007); Santrock (2011); POP BK (2016) |
-| Evaluasi | Proses (4 butir skala 1–5, diisi Guru BK) + Hasil (9 butir SS–STS) + Kepuasan murid (6 aspek) |
-| Lampiran | 1 Materi · 2 LKPD · 3 Evaluasi Proses · 4 Evaluasi Hasil · 5 Kepuasan |
+| Komponen | Layanan Dasar · Bidang **Pribadi** · Fungsi Pemahaman dan Pengembangan |
+| Topik | Navigasi Transisi: Strategi Adaptasi dan Penyesuaian Diri di Lingkungan SMA |
+| Sasaran | Kelas **X I** · 1 × 45 menit · dilaksanakan **13 Agustus 2026** (dari nama folder dokumentasi) |
+| Model | **Experiential Learning** |
+| Metode | Storytelling, ceramah interaktif, tanya jawab, diskusi kelas, penugasan LKPD |
+| Media | PPT, LCD proyektor, laptop, lembar studi kasus, LKPD |
+| Sumber | Prayitno & Amti (2004); POP BK (2016); Hurlock (1980) |
+| Evaluasi | Proses (4 butir skala 1–5, skor/20 × 100) + Hasil (10 butir SS–STS, skor/50 × 100) + Kepuasan murid (6 aspek, skor 6–18) |
+| Kategori | 81–100 Sangat Baik · 66–80 Baik · 51–65 Cukup Baik · 36–50 Kurang Baik · ≤35 Sangat Kurang Baik |
+| PPT | `PPT_PenyesuaianDiri.pptx`, 8 slide; slide 7 berisi afirmasi "Aku memberi diriku waktu untuk beradaptasi…" |
 
-**`assets/RPL menghargai guru dan teman (Sosial)/RPL Sosial.docx`**
+**`assets/RPL menghargai guru dan teman (Sosial)/RPL Sosial Menghargai Guru dan Teman.docx`**
 
 | | |
 |---|---|
 | Komponen | Layanan Dasar · Bidang **Sosial** |
 | Topik | Membangun Sikap Menghargai Guru dan Teman di Lingkungan Sekolah |
-| Sasaran | Kelas **XI J** · 1 × 45 menit · dilaksanakan **13 Agustus 2026** |
-| Model | **Cooperative Learning** (Penyajian Materi → Kerja Kelompok/Roleplay → Presentasi → Refleksi Bersama) |
-| Metode | Ceramah interaktif, roleplay dua skenario, diskusi kelompok, LKPD |
-| Media | PPT, skenario roleplay, LKPD, laptop, LCD proyektor |
+| Sasaran | Kelas **XI J** · 1 × 45 menit · dilaksanakan **20 Agustus 2026** (dari nama folder dokumentasi) |
+| Model | **Cooperative Learning** (Penyajian Materi → Presentasi → Refleksi Bersama) |
+| Metode | Ceramah interaktif, diskusi kelompok, penugasan LKPD, pertanyaan pemantik |
 | Sumber | Lickona (2012); POP BK (2016) |
-| Evaluasi | Struktur sama dengan RPL Pribadi |
-| Lampiran | 1 Materi · 2 LKPD · 3 Evaluasi Proses · 4 Evaluasi Hasil · 5 Kepuasan Murid |
+| Evaluasi | Butir proses sama persis dengan RPL Pribadi; hasil 10 butir; rumus dan kategori sama |
+| PPT | `PPT_Klasikal_Sosial_MenghargaiGuruTeman.pptx`, 7 slide (tidak berubah) |
+
+**Roleplay tidak ditulis di situs.** Pemilik portofolio memilih versi RPL Sosial baru
+yang menghapus roleplay dari model, metode, dan kegiatan murid. Dokumennya masih
+menyisakan kata roleplay di beberapa tempat (daftar media, satu kegiatan, slide
+aktivitas PPT, bagian pertama LKPD), tetapi situs mengikuti keputusan itu. Bagian
+pertama LKPD Sosial ditulis sebagai "mengamati dua skenario sikap menghargai".
 
 Dua PDF di akar folder (`RPL kepercayaan diri (Pribadi).pdf`, `RPL Sosial.pdf`) adalah
-**draft lama**. PDF kepercayaan diri untuk kelas XI I dengan model Experiential Learning
-tidak pernah dilaksanakan dan tidak boleh dipakai sebagai sumber.
+**draft lama** dan tidak boleh dipakai sebagai sumber.
 
-**LKPD yang benar-benar dipakai berbeda dari lampiran RPL.** Lampiran Pribadi menulis
-tabel "Peta Diriku", sedangkan yang dicetak adalah LKPD "Kesadaran Diri" berisi enam
-bagian (Siapa Aku, Kekuatanku, Kelemahanku, Emosiku, Nilai-nilaiku, Pelajaran untuk
-Diriku). LKPD Sosial berisi empat bagian, termasuk rencana tiga aksi nyata selama
-sepekan lengkap dengan kepada siapa dan kapan. Keduanya ada sebagai gambar di
-`assets/lkpd/`. Di bagian media, LKPD "Kesadaran Diri" ditulis sebagai
-**pengembangan** dari rancangan lampiran, bukan sebagai kekeliruan.
+**LKPD** ada sebagai gambar di `assets/lkpd/`. LKPD Pribadi "Aku Siap Beradaptasi"
+berisi enam bagian (Tantangan yang Kamu Alami, Kenali Diri dan Lingkungan, Apa yang
+Menjadi Tantangan, Strategi Penyesuaian Diri, Manfaat Penyesuaian Diri, Komitmenku);
+urutannya dibaca sebagai siklus Experiential Learning. LKPD Sosial berisi empat
+bagian, termasuk rencana tiga aksi nyata selama sepekan lengkap dengan kepada siapa
+dan kapan.
 
 **Kegiatan nonmengajar** (foto di `assets/nonmengajar/`). Peran yang dinyatakan pemilik
 portofolio: **bertugas bersama Guru BK**. Tanggal tiap kegiatan tidak diketahui, jangan
@@ -223,11 +262,17 @@ disebutkan.
 | Upacara Senin | Ikut mengatur barisan murid saat upacara bendera |
 | Selasa Sehat (SASESA, Salasa Sehat Sarerea) | Ikut senam bersama warga sekolah. Fotonya potongan dari unggahan Instagram sekolah, keterangannya menyebut sumber itu |
 
-Berkas media lain: `assets/dokumentasi/` (seluruh foto pelaksanaan dua layanan yang sudah
-diperkecil: `sosial-01..06`, `pribadi-01..07`, dipakai di slider kartu RPL),
-`assets/video/klip-1..4.mp4` (empat cuplikan 3 sampai 5 detik, 1024×576), dan
-`assets/video/home.mp4` (15,6 detik, potret, diputar otomatis tanpa suara di hero di atas
-kotak "Kenapa saya memilih menjadi Guru BK"). Rekaman utuh praktik belum ada.
+Berkas media lain: `assets/dokumentasi/` (foto pelaksanaan yang sudah diperkecil:
+`pribadi-01..03` dari kelas X I, `sosial-01..06` dari kelas XI J, dipakai di slider kartu
+RPL), dan `assets/video/home.mp4` (15,6 detik, potret, diputar otomatis tanpa suara di
+hero beranda; **pertahankan**, pemilik portofolio memintanya secara khusus).
+
+**Video praktik** memakai kotak YouTube `.yt[data-yt]` di `#video` ppl.html, satu per
+layanan. Isi `data-yt` dengan ID video 11 karakter; `script.js` memasang sampul dari
+`i.ytimg.com` dan tombol putar, dan klik mengganti sampul dengan iframe
+`youtube-nocookie.com` yang langsung berputar. Dari `file://` tautannya membuka YouTube
+di tab baru karena pemutar sematan ditolak di sana. Selama `data-yt` kosong, yang tampil
+kotak bergaris putus-putus dengan teks placeholder.
 
 **Slider** memakai satu komponen `[data-slider]` (lintasan scroll-snap, tombol sebelum
 dan berikut, penghitung "n / total"), dipakai di kedua kartu RPL dan di bagian
@@ -268,10 +313,11 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
 
 ## Yang masih kurang
 
-- [ ] **Tautan rekaman utuh** praktik mengajar mandiri (YouTube/Drive tak-terdaftar).
-      Empat butir di kotak "belum bisa dinilai" pada `#video` menunggu ini.
-- [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas`.
+- [ ] **ID video YouTube** rekaman kedua layanan: isi `data-yt` di `#video` ppl.html.
+      Empat butir di kotak "belum bisa dinilai" dan paragraf analisis `#video` (sekarang
+      disusun dari foto dokumentasi) perlu dilengkapi setelah rekamannya bisa ditonton.
+- [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
+- [ ] **Profil**: riwayat pendidikan, pengalaman, organisasi, keterampilan, prestasi,
+      serta kontak dan CV di profil.html (enam kartu placeholder).
 - [ ] Hasil pengisian instrumen, bila mau menampilkan angka nyata, bukan hanya
       rancangannya.
-- [ ] Memastikan keempat klip berasal dari layanan yang mana, agar keterangannya bisa
-      lebih spesifik.
