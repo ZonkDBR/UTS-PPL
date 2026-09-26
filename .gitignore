@@ -18,3 +18,7 @@ assets/RPL*/~$*
 # Bahan mentah baru; versi terbitnya ada di assets/nonmengajar dan assets/video/home.mp4.
 assets/Home.mp4
 assets/Non Mengajar/
+
+# Arsip zip RPL dan LKPD mentah; versi terbitnya ada di assets/dokumentasi dan assets/lkpd.
+assets/*.zip
+assets/RPL*/LKPD*.jpeg

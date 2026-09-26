@@ -235,3 +235,40 @@
     v.pause();
   });
 })();
+
+
+/* Kotak YouTube. Cukup isi data-yt dengan ID video; di sini dipasang sampul dan
+   tombol putar yang menaut ke YouTube. Klik memutar video di tempat lewat iframe.
+   Dari file:// YouTube menolak pemutar sematan, jadi di sana tautan dibiarkan
+   membuka YouTube di tab baru. */
+
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('.yt[data-yt]'), function (kotak) {
+    var id = kotak.getAttribute('data-yt').trim();
+    if (!/^[\w-]{11}$/.test(id)) return;   // kosong atau keliru: placeholder tetap tampil
+
+    var judul = kotak.getAttribute('data-judul') || 'Video YouTube';
+    var muka = document.createElement('a');
+    muka.className = 'yt__muka';
+    muka.href = 'https://www.youtube.com/watch?v=' + id;
+    muka.target = '_blank';
+    muka.rel = 'noopener';
+    muka.setAttribute('aria-label', 'Putar ' + judul);
+    muka.innerHTML =
+      '<img src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" alt="" loading="lazy">' +
+      '<span class="yt__putar" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
+
+    muka.addEventListener('click', function (e) {
+      if (location.protocol === 'file:') return;
+      e.preventDefault();
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      f.title = judul;
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      kotak.replaceChildren(f);
+    });
+
+    kotak.replaceChildren(muka);
+  });
+})();

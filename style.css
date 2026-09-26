@@ -533,26 +533,53 @@ img, video { max-width: 100%; }
 .tile--tint p, .tile--butter p,
 .tile--tint .kind, .tile--butter .kind { color: var(--on-block); }
 
-/* ---------- 4. video: baris klip scroll-snap ---------- */
+/* ---------- 4. video: kotak YouTube ----------
+   Sampul dan tombol putar dipasang script.js dari data-yt. Iframe baru dimuat
+   saat diklik, jadi halaman tidak menanggung pemutar YouTube sejak awal. */
 
-.clips {
-  display: grid; grid-auto-flow: column; grid-auto-columns: min(88%, 420px);
-  gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: .25rem .25rem 1rem;
-  scrollbar-color: var(--blossom) var(--pink);
-}
+.yt-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 52rem) { .yt-grid { grid-template-columns: 1fr 1fr; } }
 
-.clip { scroll-snap-align: start; margin: 0; }
+.yt-kartu { margin: 0; }
+.yt-kartu figcaption { font-size: .82rem; font-weight: 600; color: var(--muted); margin-top: .7rem; }
 
-.clip video {
-  display: block; width: 100%; aspect-ratio: 16 / 9;
+.yt {
+  position: relative;
+  aspect-ratio: 16 / 9;
   background: var(--pink);
   border: 3px solid var(--edge);
-  border-radius: var(--r-sm);
-  box-shadow: var(--hard);
+  border-radius: var(--r);
+  box-shadow: var(--hard-lg);
+  overflow: hidden;
 }
 
-.clip figcaption { font-size: .82rem; color: var(--muted); margin-top: .7rem; }
+.yt[data-yt=""] { border-style: dashed; box-shadow: none; background: var(--wash-blush); }
+
+.yt__kosong {
+  position: absolute; inset: 0; margin: 0;
+  display: grid; place-items: center;
+  padding: 1rem; text-align: center;
+  font-family: var(--display); font-weight: 600; color: var(--on-block);
+}
+
+.yt__muka, .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.yt__muka { display: block; }
+.yt__muka img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.yt__putar {
+  position: absolute; left: 50%; top: 50%;
+  width: 4.2rem; height: 4.2rem; margin: -2.1rem 0 0 -2.1rem;
+  display: grid; place-items: center;
+  background: var(--rose); color: #FFFFFF;
+  border: 3px solid var(--edge); border-radius: 50%;
+  box-shadow: var(--hard);
+  padding-left: .2rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .yt__putar { transition: transform .3s var(--pegas), box-shadow .3s var(--pegas); }
+  .yt__muka:hover .yt__putar { transform: translate(-2px, -2px) scale(1.06); box-shadow: var(--hard-lg); }
+}
 
 .observed { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
 @media (min-width: 52rem) { .observed { grid-template-columns: 1fr 1fr; } }
@@ -1228,7 +1255,6 @@ a.doc-card:hover .doc-title { color: var(--rose); }
   .hero { padding-top: 2.5rem; }
   .rpl-card__body, .tile__body, .refleksi, .why { padding-inline: 1.15rem; }
   .facts dt { flex-basis: 5.4rem; }
-  .clips { grid-auto-columns: 86%; }
   .photo-stack .inset { right: -6px; }
 }
 
