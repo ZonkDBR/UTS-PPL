@@ -70,7 +70,14 @@
     <ul class="saklar">
       <li><a href="index.html">Beranda</a></li>
       <li><a href="profil.html">Profil</a></li>
-      <li><a href="ppg-1.html" aria-current="page">PPG</a></li>
+      <li>
+        <button type="button" class="saklar__ppg" data-aktif popovertarget="menu-ppg">PPG</button>
+        <div id="menu-ppg" class="menu-ppg" popover>
+          <p class="menu-ppg__judul">Pilih semester PPG</p>
+          <a href="ppg-1.html"><strong>Semester I</strong><span>6 mata kuliah, termasuk PPL Terbimbing</span></a>
+          <a href="ppg-2.html"><strong>Semester II</strong><span>5 mata kuliah, termasuk PPL Mandiri</span></a>
+        </div>
+      </li>
       <li><a href="ppl.html">PPL</a></li>
     </ul>
 
@@ -970,7 +977,7 @@
 
     <h2>Terima Kasih</h2>
     <p>
-      Terima kasih kepada dosen pengampu, Dosen Pembimbing Lapangan, dan Guru
+      Terima kasih kepada Dosen Pengampu Mata Kuliah, Dosen Pembimbing Lapangan, dan Guru
       Pamong di SMA Negeri 1 Cisarua atas bimbingan sepanjang perkuliahan dan
       praktik lapangan.
     </p>

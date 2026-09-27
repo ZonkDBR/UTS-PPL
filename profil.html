@@ -59,7 +59,14 @@
     <ul class="saklar">
       <li><a href="index.html">Beranda</a></li>
       <li><a href="profil.html" aria-current="page">Profil</a></li>
-      <li><a href="ppg-1.html">PPG</a></li>
+      <li>
+        <button type="button" class="saklar__ppg" popovertarget="menu-ppg">PPG</button>
+        <div id="menu-ppg" class="menu-ppg" popover>
+          <p class="menu-ppg__judul">Pilih semester PPG</p>
+          <a href="ppg-1.html"><strong>Semester I</strong><span>6 mata kuliah, termasuk PPL Terbimbing</span></a>
+          <a href="ppg-2.html"><strong>Semester II</strong><span>5 mata kuliah, termasuk PPL Mandiri</span></a>
+        </div>
+      </li>
       <li><a href="ppl.html">PPL</a></li>
     </ul>
 
@@ -99,7 +106,6 @@
         <div><dt>Bidang studi</dt><dd>Bimbingan dan Konseling</dd></div>
         <div><dt>Kampus</dt><dd>IKIP Siliwangi</dd></div>
         <div><dt>Sekolah PPL</dt><dd>SMA Negeri 1 Cisarua</dd></div>
-        <div><dt>Kelas layanan</dt><dd>X I dan XI J (PPL Mandiri)</dd></div>
       </dl>
     </div>
   </div>
@@ -136,6 +142,21 @@
         </figcaption>
       </figure>
     </div>
+
+    <div class="part orangtua reveal">
+      <!-- TODO: foto kedua orang tua, simpan di assets/ lalu ganti kotak ini dengan
+           <img src="assets/orangtua.jpg" width="..." height="..." alt="Kedua orang tua saya">. -->
+      <div class="orangtua__foto kosong">Foto kedua orang tua</div>
+      <div class="why">
+        <h2>Orang tua saya, pendidik pertama saya</h2>
+        <p>
+          Kedua orang tua saya berprofesi sebagai pendidik. Dari rumah saya melihat
+          sendiri bahwa mendidik bukan hanya mengajar, tetapi juga menemani dan
+          memahami anak didik. Karena itulah saya termotivasi untuk mengikuti jejak
+          mereka dan memilih menjadi guru, khususnya Guru BK.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -171,8 +192,8 @@
         <p class="lini__waktu">Mulai 27 Juli 2026</p>
         <h3>PPL Mandiri di SMA Negeri 1 Cisarua</h3>
         <p>
-          Orientasi sekolah, dua layanan bimbingan klasikal di kelas X I dan XI J, dan
-          kegiatan nonmengajar bersama Guru BK.
+          Orientasi sekolah, layanan bimbingan klasikal per siklus, dan kegiatan
+          nonmengajar bersama Guru BK.
         </p>
         <a href="ppl.html">Buka PPL Mandiri</a>
       </li>

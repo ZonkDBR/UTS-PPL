@@ -8,9 +8,12 @@ Situs terbagi dua pintu, mengikuti pola halaman Refleksi di situs rujukan:
 - **PPG (Modul Akademik)**: refleksi 4C, analisis artefak, dan kaitan praktis dari mata
   kuliah semester I (6) dan semester II (5). Isinya dipindah apa adanya dari dua situs
   lama (Seminar-PPG-UTS-Porto dan UAS-Seminar-PPG).
-- **PPL (Praktik Lapangan)**: tugas **LK 3**, enam analisis atas dua layanan bimbingan
-  klasikal (Pribadi di X I, 13 Agustus 2026; Sosial di XI J, 20 Agustus 2026), plus tempat
-  tugas UTS dan UAS yang menyusul.
+- **PPL (Praktik Lapangan)**: tugas **LK 3**, disusun sebagai tab per siklus. Siklus 1:
+  Penyesuaian Diri (10 Agustus 2026), Regulasi Emosi (13 Agustus), Menghargai Guru dan
+  Teman (20 Agustus). Siklus 2: Manajemen Waktu (20 Agustus). Siklus 3 dan 4 menyusul.
+  Tab lain: Nonmengajar, Penilaian Guru Pamong (placeholder), Tugas (UTS dan UAS menyusul).
+
+Tombol PPG di nav membuka pop-up pilihan Semester I atau II (Popover API bawaan).
 
 Beberapa halaman statis. Tanpa build step, tanpa framework, tanpa dependensi. Buka
 `index.html` langsung dari berkas dan halaman tampil utuh.
@@ -18,15 +21,15 @@ Beberapa halaman statis. Tanpa build step, tanpa framework, tanpa dependensi. Bu
 ```
 index.html          beranda: profil singkat, video Home, dua pintu PPG dan PPL
 profil.html         profil lengkap (bagian riwayat masih placeholder)
-ppl.html            PPL Mandiri, tugas LK 3 (enam analisis + rangkaian tugas)
+ppl.html            PPL Mandiri, tugas LK 3 (tab Siklus 1-4, Nonmengajar, Penilaian, Tugas)
 ppg-1.html          PPG semester I, enam mata kuliah
 ppg-2.html          PPG semester II, lima mata kuliah
 style.css           token warna, tata letak, animasi (dipakai semua halaman)
-script.js           reveal dan penanda nav, jejak kursor, slider foto, video hero, kotak YouTube
+script.js           reveal dan penanda nav, tab PPL, jejak kursor, slider foto, video hero, kotak YouTube
 assets/profile.jpeg foto profil
-assets/dokumentasi/ foto pelaksanaan dua layanan (slider kartu RPL)
+assets/dokumentasi/ foto pelaksanaan, tiga per layanan (slider kartu RPL)
 assets/nonmengajar/ foto empat kegiatan nonmengajar (slider)
-assets/lkpd/        dua LKPD yang dipakai di kelas
+assets/lkpd/        LKPD yang dipakai di kelas
 assets/video/       home.mp4 di hero beranda
 assets/RPL .../     RPL dan PPT yang ditautkan sebagai unduhan dari ppl.html
 ```
@@ -66,8 +69,9 @@ gelap. Sekarang semua orang melihat merah muda yang sama, apa pun setelan perang
 
 Kelopak sakura berjatuhan, stiker bergaris mengambang di hero, kepala tiap bagian, dan
 footer, kartu memantul saat disinggahi, dan kursor meninggalkan jejak kelopak yang
-memercik saat diklik. Bunga di nav punya satu kelopak per bagian halaman (6 di PPL dan
-PPG semester I, 5 di PPG semester II) dan mekar mengikuti bagian yang terbaca.
+memercik saat diklik. Bunga di nav punya satu kelopak per bagian halaman (6 di PPG
+semester I, 5 di PPG semester II) dan mekar mengikuti bagian yang terbaca. ppl.html tidak
+memakai bunga karena isinya berupa tab.
 
 Halaman mengikuti `prefers-reduced-motion`. Di mode hemat gerak semua animasi mati, jejak
 kursornya tidak dipasang sama sekali, dan garis serta bayangannya tetap ada sehingga
@@ -78,9 +82,11 @@ Acuan bahasa visualnya: <https://ppganthonioakbar.vercel.app/>.
 ## Yang masih kosong
 
 - Kartu **UTS** dan **UAS** di bagian "Rangkaian Tugas" (ppl.html) masih placeholder.
-- **Video Praktik** (ppl.html#video): dua kotak YouTube menunggu ID video. Isi atribut
+- **Video Siklus 2** (ppl.html#s2-video): kotak YouTube menunggu ID video. Isi atribut
   `data-yt` dengan ID-nya (mis. `data-yt="AbCdEfGhIjK"`); sampul dan tombol putar
   dipasang otomatis, dan klik memutar video di tempat.
+- **Siklus 3, Siklus 4, Penilaian Guru Pamong** di ppl.html, dan foto kedua orang tua di
+  profil.html, masih placeholder.
 - **Riwayat dan pengalaman** di profil.html: enam kartu placeholder.
 
 ## Catatan privasi

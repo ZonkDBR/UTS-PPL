@@ -28,6 +28,9 @@
 
   sections.forEach(function (section) { observer.observe(section); });
 
+  // Halaman bertab (PPL) menandai navnya dari tab yang terbuka, bukan dari gulir.
+  if (document.querySelector('[data-panel]')) return;
+
   // Penanda nav dipegang observer kedua dengan rootMargin yang menyisakan satu pita
   // tipis di bawah nav. Bagian yang menyentuh pita itulah yang sedang dibaca, jadi
   // penandanya selalu tepat tanpa perlu satu pun pendengar scroll.
@@ -81,6 +84,33 @@
     clearTimeout(tundaUkur);
     tundaUkur = setTimeout(pasangPita, 150);
   });
+})();
+
+
+/* Tab halaman PPL. Panel yang tampil dipilih dari hash URL, jadi tautan nav,
+   tombol kembali, dan tautan dari halaman lain (ppl.html#nonmengajar) bekerja
+   tanpa pendengar klik. Tanpa JS semua panel tampil berurutan. */
+
+(function () {
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[data-panel]'));
+  if (!panels.length) return;
+  var links = Array.prototype.slice.call(document.querySelectorAll('.navlinks a, .semester a[href^="#"]'));
+
+  function tampilkan() {
+    var sasaran = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var panel = (sasaran && sasaran.closest('[data-panel]')) || panels[0];
+    panels.forEach(function (p) { p.hidden = p !== panel; });
+    links.forEach(function (a) {
+      var aktif = a.getAttribute('href') === '#' + panel.id;
+      a.classList.toggle('active', aktif);
+      if (aktif) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+    // lompatan bawaan browser terjadi saat panelnya masih tersembunyi
+    if (sasaran) sasaran.scrollIntoView();
+  }
+
+  window.addEventListener('hashchange', tampilkan);
+  tampilkan();
 })();
 
 

@@ -232,7 +232,7 @@ img, video { max-width: 100%; }
 }
 
 @media (min-width: 40rem) { .idstrip dl { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 64rem) { .idstrip dl { grid-template-columns: repeat(5, 1fr); } }
+@media (min-width: 64rem) { .idstrip dl { grid-template-columns: repeat(4, 1fr); } }
 
 .idstrip div { padding: .9rem 1.1rem; border-top: 3px solid var(--edge); }
 .idstrip div:first-child { border-top: 0; }
@@ -330,6 +330,56 @@ img, video { max-width: 100%; }
 .saklar a:hover { background: var(--pink); color: var(--on-block); }
 .saklar a[aria-current="page"] { background: var(--rose); color: #FFFFFF; }
 
+/* PPG membuka pop-up pilihan semester (Popover API bawaan, tanpa JS). */
+.saklar__ppg {
+  display: block; padding: .32rem .75rem;
+  font: 700 .8rem/1.7 var(--body);
+  color: var(--ink); background: var(--card);
+  border: 0; cursor: pointer;
+}
+.saklar__ppg:hover { background: var(--pink); color: var(--on-block); }
+.saklar__ppg[data-aktif] { background: var(--rose); color: #FFFFFF; }
+
+.menu-ppg {
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 1.3rem;
+  background: var(--card); color: var(--ink);
+  border: 3px solid var(--edge);
+  border-radius: var(--r);
+  box-shadow: var(--hard-lg);
+}
+.menu-ppg::backdrop { background: rgba(255, 143, 179, .45); }
+.menu-ppg__judul { font: 700 1.15rem/1.2 var(--display); margin: 0 0 1rem; }
+.menu-ppg a {
+  display: block; margin-top: .7rem; padding: .8rem 1rem;
+  background: var(--butter); color: var(--on-block); text-decoration: none;
+  border: 3px solid var(--edge); border-radius: var(--r-sm);
+  box-shadow: var(--hard-sm);
+}
+.menu-ppg a + a { background: var(--blush); }
+.menu-ppg strong { display: block; font: 700 1.05rem/1.2 var(--display); }
+.menu-ppg span { display: block; font-size: .82rem; font-weight: 600; }
+.menu-ppg a:hover { transform: translate(-2px, -2px); box-shadow: var(--hard); }
+.menu-ppg a:active { transform: translate(2px, 2px); box-shadow: none; }
+
+/* Tab halaman PPL: satu panel tampil, dipilih dari hash URL oleh script.js. */
+.panel[hidden] { display: none; }
+
+.kosong {
+  border: 3px dashed var(--edge);
+  border-radius: var(--r);
+  background: var(--wash-blush);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+.orangtua { display: grid; gap: 1.5rem; align-items: center; }
+@media (min-width: 48rem) { .orangtua { grid-template-columns: 16rem 1fr; } }
+.orangtua__foto { aspect-ratio: 4 / 5; display: grid; place-items: center; }
+
+.kosong h3 { font-size: 1.2rem; font-weight: 700; color: var(--ink); margin: 0 0 .4rem; }
+
 /* ---------- kepala halaman dalam (PPL, PPG) ---------- */
 
 .kepala { position: relative; z-index: 1; padding: 2.5rem 0 2.75rem; }
@@ -358,7 +408,7 @@ img, video { max-width: 100%; }
   font-weight: 700; font-size: .85rem; text-decoration: none;
 }
 
-.semester a[aria-current="page"] { background: var(--butter); color: var(--on-block); }
+.semester a[aria-current] { background: var(--butter); color: var(--on-block); }
 .semester a:active { transform: translate(2px, 2px); box-shadow: none; }
 
 /* ---------- kerangka bagian ---------- */
@@ -426,6 +476,9 @@ img, video { max-width: 100%; }
 
 .compare { display: grid; gap: 1.5rem; }
 @media (min-width: 54rem) { .compare { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 68rem) { .compare--tiga { grid-template-columns: repeat(3, 1fr); } }
+.compare--satu { max-width: 34rem; }
+@media (min-width: 54rem) { .compare--satu { grid-template-columns: 1fr; } }
 
 .rpl-card {
   display: flex; flex-direction: column;
@@ -468,6 +521,8 @@ img, video { max-width: 100%; }
 }
 
 .quote figcaption { font-size: .82rem; color: var(--on-block); }
+.quote h3 { font-size: 1.14rem; font-weight: 700; margin: 0 0 .8rem; color: var(--on-block); }
+.quote p, .quote strong, .quote em { color: var(--on-block); font-size: .95rem; }
 
 /* height: auto WAJIB. Tanpa itu atribut height pada <img> menang dan foto
    potret ini ditarik memanjang sampai ribuan piksel, merusak dua kolomnya. */
@@ -537,8 +592,7 @@ img, video { max-width: 100%; }
    Sampul dan tombol putar dipasang script.js dari data-yt. Iframe baru dimuat
    saat diklik, jadi halaman tidak menanggung pemutar YouTube sejak awal. */
 
-.yt-grid { display: grid; gap: 1.5rem; }
-@media (min-width: 52rem) { .yt-grid { grid-template-columns: 1fr 1fr; } }
+.yt-grid { display: grid; gap: 1.5rem; max-width: 46rem; }
 
 .yt-kartu { margin: 0; }
 .yt-kartu figcaption { font-size: .82rem; font-weight: 600; color: var(--muted); margin-top: .7rem; }
@@ -635,6 +689,7 @@ img, video { max-width: 100%; }
 }
 
 .rumus .formula { font-family: var(--mono); font-size: 1.08rem; font-weight: 700; margin: 0; }
+.rumus .formula span { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; }
 .rumus p { font-size: .88rem; color: var(--on-block); margin: 0; flex: 1 1 20rem; }
 
 /* ---------- slider foto ----------

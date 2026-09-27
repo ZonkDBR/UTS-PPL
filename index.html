@@ -59,7 +59,14 @@
     <ul class="saklar">
       <li><a href="index.html" aria-current="page">Beranda</a></li>
       <li><a href="profil.html">Profil</a></li>
-      <li><a href="ppg-1.html">PPG</a></li>
+      <li>
+        <button type="button" class="saklar__ppg" popovertarget="menu-ppg">PPG</button>
+        <div id="menu-ppg" class="menu-ppg" popover>
+          <p class="menu-ppg__judul">Pilih semester PPG</p>
+          <a href="ppg-1.html"><strong>Semester I</strong><span>6 mata kuliah, termasuk PPL Terbimbing</span></a>
+          <a href="ppg-2.html"><strong>Semester II</strong><span>5 mata kuliah, termasuk PPL Mandiri</span></a>
+        </div>
+      </li>
       <li><a href="ppl.html">PPL</a></li>
     </ul>
   </div>
@@ -90,7 +97,7 @@
           </p>
           <ul class="ubin">
             <li><a href="ppg-1.html"><strong>11</strong><span>mata kuliah PPG</span></a></li>
-            <li><a href="ppl.html#rancangan"><strong>2</strong><span>layanan klasikal</span></a></li>
+            <li><a href="ppl.html#siklus-1"><strong>4</strong><span>layanan klasikal</span></a></li>
             <li><a href="ppl.html#nonmengajar"><strong>4</strong><span>kegiatan nonmengajar</span></a></li>
             <li><a href="ppl.html#tugas"><strong>3</strong><span>tugas PPL</span></a></li>
           </ul>
@@ -123,7 +130,6 @@
     <div><dt>Program Studi</dt><dd>Bimbingan dan Konseling</dd></div>
     <div><dt>Kampus</dt><dd>IKIP Siliwangi</dd></div>
     <div><dt>Sekolah PPL</dt><dd>SMA Negeri 1 Cisarua</dd></div>
-    <div><dt>Kelas Layanan</dt><dd>X I dan XI J</dd></div>
   </dl>
   <p class="lanjut"><a href="profil.html">Profil lengkap</a></p>
 </div>
@@ -169,14 +175,15 @@
         <p class="pintu__tag">PPL</p>
         <h3>Praktik Lapangan</h3>
         <p>
-          PPL Mandiri di SMA Negeri 1 Cisarua: enam analisis LK 3, dari rancangan
-          layanan klasikal sampai instrumen penilaian, ditambah tempat tugas UTS dan UAS.
+          PPL Mandiri di SMA Negeri 1 Cisarua per siklus: analisis LK 3, dari rancangan
+          layanan klasikal sampai instrumen penilaian, ditambah kegiatan nonmengajar,
+          penilaian Guru Pamong, dan tempat tugas UTS dan UAS.
         </p>
         <ul class="pintu__daftar">
           <li>
             <a href="ppl.html">
               <strong>PPL Mandiri</strong>
-              <span>LK 3, dua layanan klasikal, kegiatan nonmengajar</span>
+              <span>LK 3, Siklus 1 sampai 4, kegiatan nonmengajar</span>
             </a>
           </li>
           <li>
@@ -209,7 +216,7 @@
 
     <h2>Terima Kasih</h2>
     <p>
-      Terima kasih kepada dosen pengampu, Dosen Pembimbing Lapangan, dan Guru
+      Terima kasih kepada Dosen Pengampu Mata Kuliah, Dosen Pembimbing Lapangan, dan Guru
       Pamong di SMA Negeri 1 Cisarua atas bimbingan sepanjang perkuliahan dan
       praktik lapangan.
     </p>

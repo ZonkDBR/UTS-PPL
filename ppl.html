@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<a class="skip" href="#rancangan">Lompat ke isi</a>
+<a class="skip" href="#siklus-1">Lompat ke isi</a>
 
 <!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
@@ -56,31 +56,28 @@
 
 <nav class="sitenav" aria-label="Navigasi situs">
   <div class="wrap">
-    <!-- Enam kelopak, enam bagian. Mekar saat bagiannya terbaca. -->
-    <svg class="blossom" viewBox="0 0 100 100" role="img" aria-label="Penanda kemajuan membaca: enam kelopak, satu untuk tiap bagian analisis">
-      <g transform="rotate(0 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
-      <g transform="rotate(60 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
-      <g transform="rotate(120 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
-      <g transform="rotate(180 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
-      <g transform="rotate(240 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
-      <g transform="rotate(300 50 50)"><path class="kelopak" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
-      <circle class="inti" cx="50" cy="50" r="7"/>
-    </svg>
-
     <ul class="saklar">
       <li><a href="index.html">Beranda</a></li>
       <li><a href="profil.html">Profil</a></li>
-      <li><a href="ppg-1.html">PPG</a></li>
+      <li>
+        <button type="button" class="saklar__ppg" popovertarget="menu-ppg">PPG</button>
+        <div id="menu-ppg" class="menu-ppg" popover>
+          <p class="menu-ppg__judul">Pilih semester PPG</p>
+          <a href="ppg-1.html"><strong>Semester I</strong><span>6 mata kuliah, termasuk PPL Terbimbing</span></a>
+          <a href="ppg-2.html"><strong>Semester II</strong><span>5 mata kuliah, termasuk PPL Mandiri</span></a>
+        </div>
+      </li>
       <li><a href="ppl.html" aria-current="page">PPL</a></li>
     </ul>
 
+    <!-- Tab halaman ini. script.js menampilkan satu panel sesuai hash URL. -->
     <ul class="navlinks">
-      <li><a href="#rancangan">Rancangan</a></li>
-      <li><a href="#materi">Materi</a></li>
-      <li><a href="#media">Media</a></li>
-      <li><a href="#video">Video Praktik</a></li>
+      <li><a href="#siklus-1">Siklus 1</a></li>
+      <li><a href="#siklus-2">Siklus 2</a></li>
+      <li><a href="#siklus-3">Siklus 3</a></li>
+      <li><a href="#siklus-4">Siklus 4</a></li>
       <li><a href="#nonmengajar">Nonmengajar</a></li>
-      <li><a href="#instrumen">Instrumen</a></li>
+      <li><a href="#penilaian">Penilaian Guru Pamong</a></li>
       <li><a href="#tugas">Tugas</a></li>
     </ul>
   </div>
@@ -91,35 +88,47 @@
     <p class="kepala__jejak"><a href="index.html">Beranda</a> / Praktik Lapangan</p>
     <h1><span class="sorot">PPL Mandiri</span></h1>
     <p class="lede">
-      Enam analisis atas PPL Mandiri saya di SMA Negeri 1 Cisarua: dua layanan
-      bimbingan klasikal, apa yang saya rancang, dan bagaimana layanan itu berjalan.
-      Halaman ini adalah tugas LK 3.
+      PPL Mandiri saya di SMA Negeri 1 Cisarua, disusun per siklus. Tiap siklus memuat
+      analisis rancangan layanan, materi, media, video praktik, dan instrumen penilaian.
+      Kegiatan nonmengajar dan penilaian dari Guru Pamong ada di tab tersendiri.
     </p>
+    <ul class="semester">
+      <li><a href="#siklus-1">Siklus 1</a></li>
+      <li><a href="#siklus-2">Siklus 2</a></li>
+      <li><a href="#siklus-3">Siklus 3</a></li>
+      <li><a href="#siklus-4">Siklus 4</a></li>
+      <li><a href="#nonmengajar">Nonmengajar</a></li>
+      <li><a href="#penilaian">Penilaian Guru Pamong</a></li>
+    </ul>
   </div>
 </header>
 
 <main>
 
-<!-- ============ 1. RANCANGAN ============ -->
-<section class="sec sec--card" id="rancangan">
+<!-- ================================================================
+     SIKLUS 1: Penyesuaian Diri, Regulasi Emosi, Menghargai Guru dan Teman
+     ================================================================ -->
+<div class="panel" id="siklus-1" data-panel>
+
+<section class="sec sec--card" id="s1-rancangan">
   <div class="wrap">
     <div class="sec__head reveal">
       <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 8deg; --tunda: -1s"><use href="#st-sakura"></use></svg>
-      <h2>Analisis Produk Rancangan Layanan</h2>
+      <h2>Siklus 1: Analisis Produk Rancangan Layanan</h2>
       <p>
-        Dua Rencana Pelaksanaan Layanan bimbingan klasikal yang saya susun dan
-        laksanakan sendiri di kelas X I dan XI J, berjarak tujuh hari satu sama lain.
+        Tiga Rencana Pelaksanaan Layanan bimbingan klasikal yang saya susun dan
+        laksanakan sendiri pada Siklus 1, antara 10 dan 20 Agustus 2026.
       </p>
     </div>
 
     <p class="lbl">Deskripsi produk</p>
-    <div class="compare reveal">
+    <div class="compare compare--tiga reveal">
       <article class="rpl-card">
         <div class="slider" data-slider>
-          <div class="slider__track" tabindex="0" aria-label="Dokumentasi layanan Pribadi, geser untuk melihat foto lainnya">
-            <figure class="slide"><img src="assets/dokumentasi/pribadi-01.jpg" width="1290" height="700" alt="Saya menyampaikan materi penyesuaian diri di depan kelas X I, slide ditayangkan di papan tulis"></figure>
-            <figure class="slide"><img src="assets/dokumentasi/pribadi-02.jpg" width="1290" height="717" loading="lazy" alt="Saya berdiri di antara meja murid kelas X I saat layanan Pribadi berlangsung"></figure>
-            <figure class="slide"><img src="assets/dokumentasi/pribadi-03.jpg" width="1290" height="731" loading="lazy" alt="Kelas X I menghadap slide materi penyesuaian diri, saya berdiri di dekat layar"></figure>
+          <div class="slider__track" tabindex="0" aria-label="Dokumentasi layanan Penyesuaian Diri, geser untuk melihat foto lainnya">
+            <figure class="slide"><img src="assets/dokumentasi/pribadi-01.jpg" width="1290" height="700" alt="Saya menyampaikan materi penyesuaian diri di depan kelas, slide ditayangkan di papan tulis"></figure>
+            <figure class="slide"><img src="assets/dokumentasi/pribadi-02.jpg" width="1290" height="717" loading="lazy" alt="Saya berdiri di antara meja murid saat layanan Penyesuaian Diri berlangsung"></figure>
+            <figure class="slide"><img src="assets/dokumentasi/pribadi-03.jpg" width="1290" height="731" loading="lazy" alt="Murid menghadap slide materi penyesuaian diri, saya berdiri di dekat layar"></figure>
           </div>
           <button class="slider__btn prev" type="button" aria-label="Foto sebelumnya">&#8249;</button>
           <button class="slider__btn next" type="button" aria-label="Foto berikutnya">&#8250;</button>
@@ -129,7 +138,7 @@
           <h3>Navigasi Transisi: Strategi Adaptasi dan Penyesuaian Diri di Lingkungan SMA</h3>
           <dl class="facts">
             <div><dt>Bidang</dt><dd>Pribadi, Layanan Dasar</dd></div>
-            <div><dt>Pelaksanaan</dt><dd>13 Agustus 2026, X I, 1 x 45 menit</dd></div>
+            <div><dt>Pelaksanaan</dt><dd>10 Agustus 2026, 1 x 45 menit</dd></div>
             <div><dt>Model</dt><dd>Experiential Learning</dd></div>
             <div><dt>Metode</dt><dd>Storytelling, ceramah interaktif, tanya jawab, diskusi kelas, LKPD</dd></div>
             <div><dt>Sumber</dt><dd>Prayitno &amp; Amti (2004), Hurlock (1980), POP BK (2016)</dd></div>
@@ -139,23 +148,43 @@
 
       <article class="rpl-card">
         <div class="slider" data-slider>
-          <div class="slider__track" tabindex="0" aria-label="Dokumentasi layanan Sosial, geser untuk melihat foto lainnya">
-            <figure class="slide"><img src="assets/dokumentasi/sosial-03.jpg" width="1000" height="1778" style="object-position: center 22%" alt="Saya menyampaikan materi menghargai guru dan teman di depan kelas XI J"></figure>
-            <figure class="slide"><img src="assets/dokumentasi/sosial-04.jpg" width="1000" height="1778" loading="lazy" alt="Slide materi tampil di laptop saat layanan Sosial berlangsung"></figure>
-            <figure class="slide"><img src="assets/dokumentasi/sosial-01.jpg" width="1000" height="1778" loading="lazy" alt="Dokumentasi layanan Sosial di kelas XI J, foto 3"></figure>
-            <figure class="slide"><img src="assets/dokumentasi/sosial-02.jpg" width="1000" height="1778" loading="lazy" alt="Dokumentasi layanan Sosial di kelas XI J, foto 4"></figure>
-            <figure class="slide"><img src="assets/dokumentasi/sosial-05.jpg" width="1000" height="1778" loading="lazy" alt="Dokumentasi layanan Sosial di kelas XI J, foto 5"></figure>
-            <figure class="slide"><img src="assets/dokumentasi/sosial-06.jpg" width="1000" height="1778" loading="lazy" alt="Dokumentasi layanan Sosial di kelas XI J, foto 6"></figure>
+          <div class="slider__track" tabindex="0" aria-label="Dokumentasi layanan Regulasi Emosi, geser untuk melihat foto lainnya">
+            <figure class="slide"><img src="assets/dokumentasi/regulasi-01.jpg" width="1400" height="788" alt="Saya berdiri di depan papan tulis membuka layanan Regulasi Emosi, murid duduk menghadap ke depan"></figure>
+            <figure class="slide"><img src="assets/dokumentasi/regulasi-02.jpg" width="1400" height="788" loading="lazy" alt="Saya memegang LKPD Singer Menghadapi Badai di antara meja murid yang sedang mengisinya"></figure>
+            <figure class="slide"><img src="assets/dokumentasi/regulasi-03.jpg" width="1400" height="788" loading="lazy" alt="Murid mengerjakan LKPD Regulasi Emosi di meja masing-masing"></figure>
           </div>
           <button class="slider__btn prev" type="button" aria-label="Foto sebelumnya">&#8249;</button>
           <button class="slider__btn next" type="button" aria-label="Foto berikutnya">&#8250;</button>
-          <p class="slider__count" aria-live="polite">1 / 6</p>
+          <p class="slider__count" aria-live="polite">1 / 3</p>
+        </div>
+        <div class="rpl-card__body">
+          <h3>Regulasi Emosi Remaja: Singer Menghadapi Badai</h3>
+          <dl class="facts">
+            <div><dt>Bidang</dt><dd>Pribadi, Layanan Dasar</dd></div>
+            <div><dt>Pelaksanaan</dt><dd>13 Agustus 2026, 1 x 45 menit</dd></div>
+            <div><dt>Model</dt><dd>Experiential Learning</dd></div>
+            <div><dt>Metode</dt><dd>Curah pendapat, ceramah interaktif, tanya jawab, LKPD</dd></div>
+            <div><dt>Sumber</dt><dd>Linehan (2014), CASEL, POP BK (2016)</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="rpl-card">
+        <div class="slider" data-slider>
+          <div class="slider__track" tabindex="0" aria-label="Dokumentasi layanan Menghargai Guru dan Teman, geser untuk melihat foto lainnya">
+            <figure class="slide"><img src="assets/dokumentasi/sosial-03.jpg" width="1000" height="1778" style="object-position: center 22%" alt="Saya menyampaikan materi menghargai guru dan teman di depan kelas"></figure>
+            <figure class="slide"><img src="assets/dokumentasi/sosial-04.jpg" width="1000" height="1778" loading="lazy" alt="Slide materi tampil di laptop saat layanan Menghargai Guru dan Teman berlangsung"></figure>
+            <figure class="slide"><img src="assets/dokumentasi/sosial-01.jpg" width="1000" height="1778" loading="lazy" alt="Dokumentasi layanan Menghargai Guru dan Teman, foto 3"></figure>
+          </div>
+          <button class="slider__btn prev" type="button" aria-label="Foto sebelumnya">&#8249;</button>
+          <button class="slider__btn next" type="button" aria-label="Foto berikutnya">&#8250;</button>
+          <p class="slider__count" aria-live="polite">1 / 3</p>
         </div>
         <div class="rpl-card__body">
           <h3>Membangun Sikap Menghargai Guru dan Teman di Lingkungan Sekolah</h3>
           <dl class="facts">
             <div><dt>Bidang</dt><dd>Sosial, Layanan Dasar</dd></div>
-            <div><dt>Pelaksanaan</dt><dd>20 Agustus 2026, XI J, 1 x 45 menit</dd></div>
+            <div><dt>Pelaksanaan</dt><dd>20 Agustus 2026, 1 x 45 menit</dd></div>
             <div><dt>Model</dt><dd>Cooperative Learning</dd></div>
             <div><dt>Tahapan</dt><dd>Penyajian materi, presentasi, refleksi bersama</dd></div>
             <div><dt>Sumber</dt><dd>Lickona (2012), POP BK (2016)</dd></div>
@@ -168,80 +197,80 @@
       <p class="lbl">Analisis</p>
       <h3>Rancangan yang lengkap dan saling terhubung</h3>
       <p>
-        Kedua RPL saya susun dengan komponen yang lengkap: komponen dan bidang layanan,
-        fungsi, tujuan umum, empat tujuan khusus, sasaran, materi, waktu, sumber, metode,
-        media, tahap pelaksanaan awal, inti, dan penutup, evaluasi proses dan hasil, serta
-        lima lampiran. Karena susunannya sama, kedua layanan mudah dibaca berdampingan,
-        dan setiap langkah di kelas punya pegangan yang jelas di dalam dokumen.
+        Ketiga RPL saya susun dengan komponen yang lengkap: komponen dan bidang layanan,
+        fungsi, tujuan umum, tujuan khusus, sasaran, materi, waktu, sumber, metode, media,
+        tahap pelaksanaan awal, inti, dan penutup, evaluasi proses dan hasil, serta lima
+        lampiran. Karena susunannya sama, ketiga layanan mudah dibaca berdampingan, dan
+        setiap langkah di kelas punya pegangan yang jelas di dalam dokumen.
       </p>
       <p>
         Model layanan saya pilih mengikuti sifat kompetensi yang ingin dibangun.
-        Penyesuaian diri paling mudah dipahami dari pengalaman murid sendiri, karena itu
-        layanan Pribadi memakai <strong>Experiential Learning</strong>. Layanan dibuka
-        dengan apersepsi tentang pengalaman pertama kali berada di lingkungan baru,
-        dilanjutkan pemaparan materi, diskusi terbuka dengan pertanyaan pemantik dan studi
-        kasus ringan, lalu ditutup dengan LKPD "Aku Siap Beradaptasi" berisi refleksi diri
-        dan surat komitmen. Sikap menghargai adalah perilaku yang tampak dalam hubungan
-        dengan orang lain, karena itu layanan Sosial memakai <strong>Cooperative
-        Learning</strong> dengan tiga tahap: penyajian materi, presentasi, dan refleksi
-        bersama. Hasil kerja bersamanya adalah LKPD "Aksi Menghargai" yang dikerjakan
-        berkelompok dan kesepakatan "Aturan Kelas Saling Menghargai".
+        Penyesuaian diri dan regulasi emosi paling mudah dipahami dari pengalaman murid
+        sendiri, karena itu kedua layanan Pribadi memakai <strong>Experiential
+        Learning</strong>. Layanan Penyesuaian Diri dibuka dengan apersepsi tentang
+        pengalaman pertama kali berada di lingkungan baru, dilanjutkan pemaparan materi,
+        diskusi terbuka dengan pertanyaan pemantik, lalu ditutup dengan LKPD "Aku Siap
+        Beradaptasi" berisi refleksi diri dan surat komitmen. Layanan Regulasi Emosi dibuka
+        dengan ilustrasi remaja yang mengalami "badai emosi", lalu murid diajak mengenali
+        badai emosinya sendiri dan mempraktikkan teknik STOP pada LKPD. Sikap menghargai
+        adalah perilaku yang tampak dalam hubungan dengan orang lain, karena itu layanan
+        Sosial memakai <strong>Cooperative Learning</strong> dengan tiga tahap: penyajian
+        materi, presentasi, dan refleksi bersama.
       </p>
       <p>
-        Tujuan, kegiatan, dan evaluasi di tiap RPL saling mengunci. Empat tujuan khusus
-        disusun bertingkat. Pada layanan Pribadi: menjelaskan pengertian penyesuaian diri,
-        mengidentifikasi tantangannya, menganalisis strategi yang efektif, lalu menyusun
-        rencana pribadi. Pada layanan Sosial: menjelaskan, menganalisis manfaat, meyakini
-        pentingnya, lalu mempraktikkan sikap menghargai. Tujuan terakhir itu dijawab
-        langsung oleh kegiatannya, yaitu surat komitmen pada LKPD Pribadi serta rencana
-        aksi dan aturan kelas pada layanan Sosial, lalu diukur oleh evaluasi hasil seperti
-        menyebutkan minimal dua strategi penyesuaian diri atau minimal dua bentuk sikap
-        menghargai.
+        Tujuan, kegiatan, dan evaluasi di tiap RPL saling mengunci. Tujuan khusus disusun
+        bertingkat, dari memahami sampai menerapkan. Pada layanan Penyesuaian Diri,
+        tujuannya bergerak dari menjelaskan pengertian sampai menyusun rencana pribadi. Pada
+        layanan Regulasi Emosi, dari menjelaskan pengertian emosi sampai memilih respons
+        yang lebih sehat. Pada layanan Sosial, dari menjelaskan sampai mempraktikkan sikap
+        menghargai. Tujuan terakhir itu dijawab langsung oleh kegiatannya, yaitu surat
+        komitmen, surat kekuatan diri, dan rencana tiga aksi nyata, lalu diukur oleh
+        evaluasi hasil.
       </p>
       <p>
-        Kedua topik juga saya sesuaikan dengan jenjang kelasnya. Layanan Pribadi ditujukan
-        untuk kelas X, murid yang baru memasuki SMA dan sedang menjalani masa transisi dari
-        jenjang sebelumnya, dengan Hurlock (1980) sebagai rujukan perkembangannya. Layanan
-        Sosial ditujukan untuk kelas XI, yang hubungannya dengan guru dan teman sudah
-        terbentuk dan perlu dijaga. Layanan Pribadi berlangsung 13 Agustus di X I, dan
-        seminggu kemudian, 20 Agustus, layanan Sosial berlangsung di XI J.
+        Topiknya juga saya sesuaikan dengan jenjang kelas. Penyesuaian Diri dan Regulasi
+        Emosi ditujukan untuk kelas X, murid yang baru memasuki SMA dan sedang menjalani
+        masa transisi, sehingga kedua layanan itu saling menyambung. Layanan Menghargai
+        Guru dan Teman ditujukan untuk kelas XI, yang hubungannya dengan guru dan teman
+        sudah terbentuk dan perlu dijaga. Alasan pemilihan topiknya saya uraikan di bagian
+        materi.
       </p>
       <p>
-        Kendala utama yang saya hadapi adalah waktu. Alokasi 1 x 45 menit belum cukup untuk
-        menjalankan seluruh langkah kegiatan inti dengan leluasa, sehingga sebagian isi RPL,
-        terutama bagian berbagi hasil di depan kelas, belum tersampaikan sepenuhnya.
+        Alokasi 1 x 45 menit terbatas, sehingga sebagian isi RPL, terutama bagian berbagi
+        hasil di depan kelas, belum tersampaikan sepenuhnya.
       </p>
 
       <div class="refleksi">
         <h3>Refleksi diri</h3>
         <p>
-          Menyusun dua RPL ini mengajarkan saya bahwa model layanan dipilih dengan
-          bertanya lebih dulu, kompetensi ini tumbuh lewat apa. Ke depan saya ingin
-          membagi waktu tiap langkah kegiatan dengan lebih rinci sejak tahap perencanaan,
-          supaya seluruh isi RPL, sampai refleksi dan berbagi hasil, bisa berjalan utuh di
-          dalam satu pertemuan.
+          Secara keseluruhan, kekurangan terbesar rancangan saya ada pada pembagian waktu.
+          Langkah kegiatan di RPL sudah lengkap, tetapi belum saya beri alokasi menit yang
+          rinci, sehingga di kelas tahap inti memakan waktu lebih banyak dan tahap berbagi
+          hasil jadi terpotong. Ke depan saya perlu menuliskan durasi tiap langkah sejak
+          perencanaan dan menyiapkan cadangan kegiatan yang lebih singkat, supaya seluruh
+          isi RPL bisa berjalan utuh dalam satu pertemuan.
         </p>
       </div>
     </div>
 
     <div class="bukti reveal">
-      <p>Dokumen RPL lengkap beserta lima lampirannya, untuk kedua layanan.</p>
-      <a href="assets/RPL%20Penyesuaian%20diri%20(Pribadi)%20SIKLUS%201/RPL%20Strategi%20Adaptasi%20dan%20Penyesuaian%20Diri%20di%20Lingkungan%20SMA.docx">Unduh RPL Pribadi</a>
-      <a class="ghost" href="assets/RPL%20menghargai%20guru%20dan%20teman%20(Sosial)/RPL%20Sosial%20Menghargai%20Guru%20dan%20Teman.docx">Unduh RPL Sosial</a>
+      <p>Dokumen RPL lengkap beserta lima lampirannya, untuk ketiga layanan Siklus 1.</p>
+      <a href="assets/RPL%20Penyesuaian%20diri%20(Pribadi)%20SIKLUS%201/RPL%20Strategi%20Adaptasi%20dan%20Penyesuaian%20Diri%20di%20Lingkungan%20SMA.docx">Unduh RPL Penyesuaian Diri</a>
+      <a class="ghost" href="assets/RPL%20regulasi%20emosi%20(Pribadi)%20Soshum%20(2B)%20M-2/RPL%20REGULASI%20EMOSI.docx">Unduh RPL Regulasi Emosi</a>
+      <a class="ghost" href="assets/RPL%20menghargai%20guru%20dan%20teman%20(Sosial)/RPL%20Sosial%20Menghargai%20Guru%20dan%20Teman.docx">Unduh RPL Menghargai</a>
     </div>
   </div>
 </section>
 
-<!-- ============ 2. MATERI ============ -->
-<section class="sec sec--pink" id="materi">
+<section class="sec sec--pink" id="s1-materi">
   <div class="wrap">
     <div class="sec__head reveal">
       <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -10deg; --tunda: -2s"><use href="#st-kilau"></use></svg>
-      <h2>Analisis Materi Layanan yang Disusun dan Diterapkan</h2>
+      <h2>Siklus 1: Analisis Materi Layanan yang Disusun dan Diterapkan</h2>
       <p>
-        Materi pada Lampiran 1 kedua RPL, yang saya ringkas sendiri menjadi dua paket
-        slide untuk dipakai di kelas: delapan halaman untuk layanan Pribadi dan tujuh
-        halaman untuk layanan Sosial.
+        Materi pada Lampiran 1 ketiga RPL, yang saya ringkas sendiri menjadi tiga paket
+        slide: delapan halaman untuk Penyesuaian Diri, tiga belas halaman untuk Regulasi
+        Emosi, dan tujuh halaman untuk Menghargai Guru dan Teman.
       </p>
     </div>
 
@@ -255,6 +284,17 @@
           <li>Faktor internal dan eksternal yang memengaruhi penyesuaian diri</li>
           <li>Lima strategi, dari aktif berkenalan sampai berani meminta bantuan Guru BK</li>
           <li>Manfaat: nyaman belajar, relasi sehat, percaya diri, prestasi</li>
+        </ol>
+      </section>
+      <section>
+        <h4>Menghadapi Badai Emosi: Regulasi Emosi pada Remaja</h4>
+        <ol>
+          <li>Pengertian emosi sebagai sinyal, bukan hal yang baik atau buruk</li>
+          <li>Masa remaja dan pemicu gejolak emosi</li>
+          <li>Pengertian regulasi emosi dan manfaatnya bagi remaja</li>
+          <li>Lima unsur badai emosi: pemicu, pikiran, perasaan, respons tubuh, perilaku</li>
+          <li>Teknik STOP, satu slide per langkah beserta contohnya</li>
+          <li>Kaitan dengan self-awareness dan self-management dalam PSE</li>
         </ol>
       </section>
       <section>
@@ -273,84 +313,85 @@
         <p class="lbl">Analisis</p>
         <h3>Dari memahami konsep menuju menerapkannya</h3>
         <p>
-          Kedua materi saya susun dengan alur yang bergerak dari memahami menuju
-          menerapkan. Materi Pribadi berjalan dari pengertian, tantangan, faktor, strategi,
-          sampai manfaat. Materi Sosial berjalan dari pengertian, bentuk sikap menghargai,
-          manfaat, sampai cara menumbuhkannya. Keduanya berakhir pada hal yang bisa langsung
-          dilakukan murid, sejalan dengan tujuan khusus RPL yang juga berakhir pada menyusun
-          rencana pribadi dan mempraktikkan sikap menghargai.
+          Ketiga materi saya susun dengan alur yang bergerak dari memahami menuju
+          menerapkan. Materi Penyesuaian Diri berjalan dari pengertian, tantangan, faktor,
+          strategi, sampai manfaat. Materi Regulasi Emosi berjalan dari mengenal emosi,
+          memahami badai emosi, sampai teknik STOP untuk memilih respons. Materi Sosial
+          berjalan dari pengertian, bentuk sikap menghargai, manfaat, sampai cara
+          menumbuhkannya. Ketiganya berakhir pada hal yang bisa langsung dilakukan murid.
         </p>
         <p>
-          Materi Pribadi berlandaskan Prayitno dan Amti (2004) serta Hurlock (1980). Isinya
-          menempatkan penyesuaian diri sebagai proses yang butuh waktu, sehingga rasa
-          canggung di awal dianggap wajar. Pembagian faktor internal (kepercayaan diri,
-          keterampilan sosial, sikap terbuka) dan eksternal (dukungan keluarga, teman
-          sebaya, iklim sekolah) membantu murid melihat bagian mana yang bisa mereka
-          upayakan sendiri, dan strateginya ditutup dengan ajakan untuk meminta bantuan
-          guru, wali kelas, atau Guru BK. Materi Sosial berlandaskan Lickona (2012), yang
-          memandang sikap menghargai sebagai salah satu nilai inti pendidikan karakter.
-          Materinya membedakan bentuk menghargai guru dan menghargai teman, dan menyebut
-          perundungan sebagai lawan dari sikap menghargai, sehingga dekat dengan
-          keseharian murid di sekolah.
+          Materi Penyesuaian Diri berlandaskan Prayitno dan Amti (2004) serta Hurlock
+          (1980). Isinya menempatkan penyesuaian diri sebagai proses yang butuh waktu,
+          sehingga rasa canggung di awal dianggap wajar, dan pembagian faktor internal dan
+          eksternal membantu murid melihat bagian mana yang bisa mereka upayakan sendiri.
+          Materi Regulasi Emosi berlandaskan Gross dan Linehan. Teknik STOP dari Dialectical
+          Behavior Therapy saya pecah menjadi satu slide per langkah, masing-masing dengan
+          contoh dari keseharian remaja, seperti tidak langsung membalas pesan saat marah.
+          Materi Sosial berlandaskan Lickona (2012), yang memandang sikap menghargai sebagai
+          salah satu nilai inti pendidikan karakter, dan menyebut perundungan sebagai lawan
+          dari sikap menghargai.
         </p>
         <p>
-          Di kelas, slide Pribadi terdiri atas pembuka, lima halaman konsep, satu halaman
-          afirmasi, dan satu halaman aktivitas yang mengarahkan murid ke studi kasus, LKPD,
-          dan surat komitmen. Slide Sosial terdiri atas pembuka, tujuan, bentuk, manfaat,
-          cara, aktivitas, dan penutup. Halaman aktivitas di tiap paket membuat penyajian
-          konsep langsung tersambung ke kegiatan murid. Kedua materi juga saling
-          melengkapi: menyesuaikan diri di lingkungan baru dan menghargai guru serta teman
-          sama-sama tentang cara murid membangun hubungan yang sehat dengan warga sekolah.
+          Di kelas, slide Penyesuaian Diri terdiri atas pembuka, lima halaman konsep, satu
+          halaman penyemangat, dan satu halaman aktivitas yang mengarahkan murid ke LKPD dan
+          surat komitmen. Slide Regulasi Emosi ditutup dengan pesan bahwa emosi bukan musuh,
+          melainkan sinyal yang perlu dikenali. Slide Sosial terdiri atas pembuka, tujuan,
+          bentuk, manfaat, cara, aktivitas, dan penutup. Halaman aktivitas di tiap paket
+          membuat penyajian konsep langsung tersambung ke kegiatan murid.
         </p>
         <p>
-          Karena waktu satu pertemuan terbatas, bagian strategi penyesuaian diri dan cara
-          menumbuhkan sikap menghargai baru bisa saya sampaikan secara singkat, belum
-          sampai dibahas bersama dengan contoh yang lebih banyak.
+          Karena waktu satu pertemuan terbatas, bagian strategi dan cara mengembangkan diri
+          di tiap materi baru bisa saya sampaikan secara singkat.
         </p>
       </div>
 
       <figure class="quote reveal">
-        <blockquote>
-          "Aku memberi diriku waktu untuk beradaptasi, dan aku percaya aku bisa merasa
-          betah di sini."
-        </blockquote>
-        <figcaption>
-          Afirmasi pada slide ketujuh PPT layanan Pribadi, sebelum murid beralih ke
-          kegiatan. Ditulis dengan kata "aku" agar menjadi kalimat yang bisa murid ucapkan
-          untuk dirinya sendiri.
-        </figcaption>
-        <img src="assets/dokumentasi/pribadi-01.jpg" width="1290" height="700" loading="lazy" alt="Slide materi penyesuaian diri ditayangkan di depan kelas X I">
+        <h3>Alasan saya memilih topik</h3>
+        <p>
+          <strong>Siap beradaptasi, kelas X.</strong> Murid kelas X berada di masa remaja
+          yang masih dalam tahap transisi, sehingga perlu beradaptasi dari jenjang
+          sebelumnya (SMP) ke jenjang berikutnya (SMA). Karena itu saya rasa topik
+          penyesuaian diri paling cocok untuk mereka, dan regulasi emosi, yang juga untuk
+          kelas X, menyambung dengan masa transisi yang sama.
+        </p>
+        <p>
+          <strong>Sikap menghargai, kelas XI.</strong> Berdasarkan observasi sebelumnya
+          bersama Guru BK dan guru mata pelajaran, murid di kelas tersebut sering kali
+          kurang menghargai satu sama lain, misalnya
+          <!-- TODO: contoh perilaku kurang menghargai dari hasil observasi bersama Guru BK dan guru mapel. -->
+          <em>[contoh perilaku dari hasil observasi akan dilengkapi]</em>.
+        </p>
       </figure>
     </div>
 
     <div class="refleksi reveal">
       <h3>Refleksi diri</h3>
       <p>
-        Menyusun materi mengajarkan saya memilih yang paling penting dari buku rujukan
-        dan menyajikannya dengan bahasa yang dekat dengan murid. Ke depan saya ingin
-        menambah contoh dari keseharian murid di tiap bagian materi, dan menyiapkan
-        waktu yang cukup agar bagian strategi dan cara mengembangkan diri bisa dibahas
-        bersama, bukan hanya disampaikan.
+        Kekurangan materi saya secara keseluruhan adalah isinya cukup padat untuk satu
+        pertemuan, sehingga bagian strategi lebih banyak saya sampaikan daripada saya bahas
+        bersama murid. Ke depan saya perlu memangkas materi ke hal yang paling penting,
+        menambah contoh dari keseharian murid, dan menyisakan waktu agar murid bisa ikut
+        menemukan strateginya sendiri.
       </p>
     </div>
 
     <div class="bukti reveal">
-      <p>Paket slide yang saya pakai di kelas untuk tiap layanan.</p>
-      <a href="assets/RPL%20Penyesuaian%20diri%20(Pribadi)%20SIKLUS%201/PPT_PenyesuaianDiri.pptx">Unduh PPT Pribadi</a>
-      <a class="ghost" href="assets/RPL%20menghargai%20guru%20dan%20teman%20(Sosial)/PPT_Klasikal_Sosial_MenghargaiGuruTeman.pptx">Unduh PPT Sosial</a>
+      <p>Paket slide yang saya pakai untuk tiap layanan Siklus 1.</p>
+      <a href="assets/RPL%20Penyesuaian%20diri%20(Pribadi)%20SIKLUS%201/PPT_PenyesuaianDiri.pptx">Unduh PPT Penyesuaian Diri</a>
+      <a class="ghost" href="assets/RPL%20regulasi%20emosi%20(Pribadi)%20Soshum%20(2B)%20M-2/Regulasi_Emosi_Remaja_Menghadapi_Badai.pptx">Unduh PPT Regulasi Emosi</a>
+      <a class="ghost" href="assets/RPL%20menghargai%20guru%20dan%20teman%20(Sosial)/PPT_Klasikal_Sosial_MenghargaiGuruTeman.pptx">Unduh PPT Menghargai</a>
     </div>
   </div>
 </section>
 
-<!-- ============ 3. MEDIA ============ -->
-<section class="sec" id="media">
+<section class="sec" id="s1-media">
   <div class="wrap">
     <div class="sec__head reveal">
       <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom); --rot: 12deg; --tunda: -3s"><use href="#st-hati"></use></svg>
-      <h2>Analisis Media Layanan yang Dipergunakan</h2>
+      <h2>Siklus 1: Analisis Media Layanan yang Dipergunakan</h2>
       <p>
-        Enam media untuk dua layanan. Hanya satu di antaranya berupa slide, sisanya
-        menuntut murid mengerjakan sesuatu.
+        Tiga LKPD, tiga paket PPT, dan rencana aksi yang ditulis murid di akhir tiap layanan.
       </p>
     </div>
 
@@ -359,16 +400,25 @@
       <article class="tile">
         <img src="assets/lkpd/lkpd-siap-beradaptasi.jpg" width="1024" height="1536" loading="lazy" alt="Lembar kerja Aku Siap Beradaptasi dengan enam bagian, dari Tantangan yang Kamu Alami sampai Komitmenku">
         <div class="tile__body">
-          <p class="kind">LKPD layanan Pribadi</p>
+          <p class="kind">LKPD Penyesuaian Diri</p>
           <h4>Aku Siap Beradaptasi</h4>
           <p>Enam bagian: Tantangan yang Kamu Alami, Kenali Diri dan Lingkungan, Apa yang Menjadi Tantangan, Strategi Penyesuaian Diri, Manfaat Penyesuaian Diri, dan Komitmenku.</p>
         </div>
       </article>
 
       <article class="tile">
+        <img src="assets/lkpd/lkpd-regulasi-emosi.jpg" width="1024" height="1536" loading="lazy" alt="Lembar kerja Singer Menghadapi Badai dengan lima bagian, dari Kenali Badai Emosiku sampai Surat Kekuatan Diri">
+        <div class="tile__body">
+          <p class="kind">LKPD Regulasi Emosi</p>
+          <h4>Singer Menghadapi Badai</h4>
+          <p>Lima bagian: Kenali Badai Emosiku, Coba Teknik STOP, Kalau Aku di Posisi Ini, Pilih Respons yang Lebih Sehat, dan Surat Kekuatan Diri.</p>
+        </div>
+      </article>
+
+      <article class="tile">
         <img src="assets/lkpd/lkpd-aksi-menghargai.jpg" width="1054" height="1492" loading="lazy" alt="Lembar kerja Membangun Sikap Menghargai dengan bagian skenario, refleksi diri, aksi menghargai, dan aturan kelas">
         <div class="tile__body">
-          <p class="kind">LKPD layanan Sosial</p>
+          <p class="kind">LKPD Menghargai Guru dan Teman</p>
           <h4>Membangun Sikap Menghargai</h4>
           <p>Empat bagian: mengamati dua skenario sikap menghargai, refleksi diri, rencana tiga aksi nyata selama sepekan, dan aturan kelas.</p>
         </div>
@@ -376,9 +426,25 @@
 
       <article class="tile tile--tint">
         <div class="tile__body">
-          <p class="kind">Diskusi kelompok</p>
-          <h4>Studi kasus ringan</h4>
-          <p>Kasus murid yang baru pindah sekolah, disimak dan didiskusikan bersama kelompok sebelum murid mengerjakan LKPD Pribadi.</p>
+          <p class="kind">PPT layanan Pribadi</p>
+          <h4>Aku Siap Beradaptasi</h4>
+          <p>Delapan slide: pembuka, lima halaman konsep penyesuaian diri, halaman penyemangat, dan halaman aktivitas menuju LKPD dan surat komitmen.</p>
+        </div>
+      </article>
+
+      <article class="tile tile--butter">
+        <div class="tile__body">
+          <p class="kind">PPT layanan Pribadi</p>
+          <h4>Menghadapi Badai Emosi</h4>
+          <p>Tiga belas slide, dengan empat slide khusus untuk tiap langkah teknik STOP beserta contohnya.</p>
+        </div>
+      </article>
+
+      <article class="tile tile--tint">
+        <div class="tile__body">
+          <p class="kind">PPT layanan Sosial</p>
+          <h4>Sikap Menghargai Guru dan Teman</h4>
+          <p>Tujuh slide: pembuka, tujuan, bentuk sikap menghargai, manfaat, cara menumbuhkan, aktivitas, dan penutup.</p>
         </div>
       </article>
 
@@ -386,23 +452,23 @@
         <div class="tile__body">
           <p class="kind">Rencana aksi</p>
           <h4>Surat komitmen</h4>
-          <p>Bagian penutup layanan Pribadi, tempat murid menuliskan rencana dan komitmennya untuk beradaptasi di sekolah baru.</p>
+          <p>Bagian penutup layanan Penyesuaian Diri, tempat murid menuliskan rencana dan komitmennya untuk beradaptasi di sekolah baru.</p>
         </div>
       </article>
 
       <article class="tile tile--tint">
         <div class="tile__body">
-          <p class="kind">Produk kelas</p>
-          <h4>Aturan Kelas Saling Menghargai</h4>
-          <p>Kesepakatan yang dirumuskan bersama murid di akhir layanan Sosial.</p>
+          <p class="kind">Rencana aksi</p>
+          <h4>Surat kekuatan diri</h4>
+          <p>Bagian terakhir LKPD Regulasi Emosi, surat untuk diri sendiri tentang cara menghadapi emosi yang mulai tidak terkendali.</p>
         </div>
       </article>
 
-      <article class="tile">
+      <article class="tile tile--butter">
         <div class="tile__body">
-          <p class="kind">Proyeksi</p>
-          <h4>Dua paket slide dan LCD proyektor</h4>
-          <p>Delapan dan tujuh halaman, dipakai pada tahap penyajian materi, dibantu laptop dan proyektor kelas.</p>
+          <p class="kind">Rencana aksi</p>
+          <h4>Aturan Kelas Saling Menghargai</h4>
+          <p>Kesepakatan yang dirumuskan bersama murid di akhir layanan Sosial, melengkapi tiga aksi nyata pada LKPD.</p>
         </div>
       </article>
     </div>
@@ -411,71 +477,65 @@
       <p class="lbl">Analisis</p>
       <h3>Setiap media memegang satu tahap</h3>
       <p>
-        Media di sini bukan pelengkap slide, melainkan alat yang memegang satu tahap
-        model masing-masing. Pada layanan Pribadi, slide mengurus pemaparan konsep,
-        sedangkan pengalaman murid diolah lewat studi kasus dan lembar kerja. Urutan enam
-        bagian LKPD "Aku Siap Beradaptasi" mengikuti siklus Experiential Learning: dimulai
-        dari tantangan yang murid alami sendiri, lalu mengenali diri dan lingkungan,
-        memetakan tantangan yang umum muncul, memilih strategi dan melihat manfaatnya,
-        sampai menuliskan komitmen. Tampilannya bergambar dan berwarna, dengan kalimat
-        penyemangat di bagian akhir, supaya murid merasa lembar ini ditulis untuk mereka.
+        Media di sini bukan pelengkap slide, melainkan alat yang memegang satu tahap model
+        masing-masing. PPT mengurus pemaparan konsep, sedangkan pengalaman murid diolah
+        lewat lembar kerja. Urutan enam bagian LKPD "Aku Siap Beradaptasi" mengikuti siklus
+        Experiential Learning: dimulai dari tantangan yang murid alami sendiri, lalu
+        mengenali diri dan lingkungan, memetakan tantangan, memilih strategi dan melihat
+        manfaatnya, sampai menuliskan komitmen.
       </p>
       <p>
-        Pada layanan Sosial, pertanyaan pemantik dan diskusi menjadi jembatan dari materi
-        ke lembar kerja. Lembar kerjanya membawa pemahaman itu ke tindakan: bagian ketiga
+        LKPD "Singer Menghadapi Badai" menyusun latihan regulasi emosi secara bertahap.
+        Murid lebih dulu mencatat lima unsur badai emosi dari pengalamannya sendiri, lalu
+        mengenal teknik STOP, menerapkannya pada satu situasi kerja kelompok, memilih satu
+        dari lima respons beserta alasannya, dan menutupnya dengan surat kekuatan diri.
+        Setiap bagian mengulang satu slide materi, jadi apa yang dijelaskan langsung
+        dipraktikkan.
+      </p>
+      <p>
+        Pada layanan Sosial, lembar kerjanya membawa pemahaman ke tindakan: bagian ketiga
         meminta tiga aksi nyata lengkap dengan <em>kepada siapa</em> dan <em>kapan</em>
-        akan dilakukan selama sepekan ke depan. Layanan ini juga menghasilkan media
-        bersama, yaitu kesepakatan "Aturan Kelas Saling Menghargai" yang dirumuskan oleh
-        kelas sendiri.
+        akan dilakukan selama sepekan ke depan, dan kelas merumuskan sendiri "Aturan Kelas
+        Saling Menghargai". Pada layanan ini proyektor kelas rusak, sehingga PPT tidak bisa
+        ditayangkan di layar dan lembar kerja menjadi pegangan utama murid.
       </p>
       <p>
         Karena waktu terbatas, beberapa bagian lembar kerja belum sempat dibahas bersama
-        seluruhnya di kelas, sehingga sebagian isinya diselesaikan murid secara mandiri.
+        seluruhnya, sehingga sebagian isinya diselesaikan murid secara mandiri.
       </p>
 
       <div class="refleksi">
         <h3>Refleksi diri</h3>
         <p>
-          Saya jadi paham bahwa media yang baik bukan yang paling canggih, melainkan yang
-          mengajak murid berbuat sesuatu. Slide membantu murid memahami, sedangkan studi
-          kasus, LKPD, dan surat komitmen membuat mereka ikut bergerak. Ke depan saya ingin
-          menyiapkan waktu khusus untuk membahas hasil lembar kerja bersama, supaya apa yang
-          murid tulis juga bisa dipelajari oleh teman sekelasnya.
+          Kekurangan media saya adalah ketergantungannya pada proyektor. Ketika proyektor
+          rusak di layanan Menghargai Guru dan Teman, saya belum punya cadangan yang
+          disiapkan sejak awal. Ke depan saya perlu memeriksa alat sebelum layanan dan
+          menyiapkan cadangan, misalnya ringkasan materi cetak atau poster, supaya materi
+          tetap tersampaikan ketika alat tidak bisa dipakai. Saya juga perlu menyediakan
+          waktu untuk membahas hasil lembar kerja bersama.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 4. VIDEO ============ -->
-<section class="sec sec--card" id="video">
+<section class="sec sec--card" id="s1-video">
   <div class="wrap">
     <div class="sec__head reveal">
       <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -7deg; --tunda: -4s"><use href="#st-bintang"></use></svg>
-      <h2>Analisis Video Pelaksanaan Praktik Mengajar Mandiri</h2>
+      <h2>Siklus 1: Analisis Video Pelaksanaan Praktik Mengajar Mandiri</h2>
       <p>
-        Rekaman pelaksanaan layanan klasikal, diputar langsung dari YouTube di halaman ini.
+        Satu rekaman untuk Siklus 1, diputar langsung dari YouTube di halaman ini.
       </p>
     </div>
 
     <p class="lbl">Deskripsi produk</p>
-    <!-- Isi data-yt dengan ID video YouTube (bagian setelah "v=" atau setelah
-         "youtu.be/"), misalnya data-yt="AbCdEfGhIjK". script.js memasang sampul dan
-         tombol putarnya sendiri; klik sampul memutar video di tempat. -->
     <div class="yt-grid reveal">
       <figure class="yt-kartu">
-        <!-- TODO: ID video YouTube rekaman layanan Pribadi (X I, 13 Agustus 2026). -->
-        <div class="yt" data-yt="" data-judul="Rekaman layanan Pribadi, kelas X I">
-          <p class="yt__kosong">Video YouTube layanan Pribadi akan tampil di sini.</p>
+        <div class="yt" data-yt="CEGttnItg2I" data-judul="Rekaman layanan Penyesuaian Diri, Siklus 1">
+          <p class="yt__kosong">Video YouTube layanan Penyesuaian Diri akan tampil di sini.</p>
         </div>
-        <figcaption>Layanan Pribadi, kelas X I, 13 Agustus 2026</figcaption>
-      </figure>
-      <figure class="yt-kartu">
-        <!-- TODO: ID video YouTube rekaman layanan Sosial (XI J, 20 Agustus 2026). -->
-        <div class="yt" data-yt="" data-judul="Rekaman layanan Sosial, kelas XI J">
-          <p class="yt__kosong">Video YouTube layanan Sosial akan tampil di sini.</p>
-        </div>
-        <figcaption>Layanan Sosial, kelas XI J, 20 Agustus 2026</figcaption>
+        <figcaption>Layanan Penyesuaian Diri, 10 Agustus 2026</figcaption>
       </figure>
     </div>
 
@@ -483,39 +543,35 @@
       <p class="lbl">Analisis</p>
       <h3>Layanan berjalan sesuai tahapan RPL</h3>
       <p>
-        Sambil menunggu rekaman utuh ditautkan, foto dokumentasi kedua layanan sudah
-        memperlihatkan urutan yang saya rancang di RPL. Pada layanan Pribadi di X I, materi
-        penyesuaian diri ditayangkan di depan kelas, dan saya juga menghampiri murid di
-        antara meja mereka. Pada layanan Sosial di XI J, saya menyampaikan materi di depan kelas
-        dengan slide dari laptop, dan lembar kerja sudah berada di meja murid.
+        Rekaman dan foto dokumentasi memperlihatkan urutan yang saya rancang di RPL. Materi
+        penyesuaian diri ditayangkan di depan kelas, dan saya tidak hanya berdiri di depan,
+        tetapi juga menghampiri murid di antara meja mereka. Murid diberi kesempatan
+        mengemukakan pendapat tentang pengalaman mereka di lingkungan baru, sesuai tahap
+        diskusi terbuka pada RPL.
       </p>
       <p>
-        Suasana kedua kelas tampak tertib, dengan murid duduk menghadap materi selama
-        penyajian. Rekaman utuh nantinya akan melengkapi gambaran ini, terutama untuk
-        perpindahan dari tahap penyajian ke tahap kegiatan murid.
-      </p>
-      <p>
-        Waktu 1 x 45 menit membuat beberapa langkah harus saya jalankan lebih ringkas
-        dari rencana, sehingga tidak semua bagian RPL tersampaikan sepenuhnya dalam
-        pertemuan ini.
+        Kendala yang terlihat pada rekaman adalah suara. Saya lupa memakai mikrofon,
+        sehingga suara murid yang mengemukakan pendapat tidak terlalu terdengar di video.
+        Waktu 1 x 45 menit juga membuat beberapa langkah harus saya jalankan lebih ringkas
+        dari rencana.
       </p>
 
       <div class="observed">
         <div>
-          <h4>Terlihat dari dokumentasi yang ada</h4>
+          <h4>Terlihat dari rekaman dan dokumentasi</h4>
           <ul>
-            <li>Tahap penyajian materi lewat slide terlaksana di kedua kelas.</li>
+            <li>Tahap penyajian materi lewat slide terlaksana.</li>
             <li>Saya menghampiri murid di antara meja, tidak hanya berdiri di depan.</li>
-            <li>Kelas tertib dan murid menghadap materi selama penyajian.</li>
+            <li>Murid mengemukakan pendapat, tetapi suaranya kurang terekam karena tanpa mikrofon.</li>
           </ul>
         </div>
         <div class="todo">
-          <!-- TODO: lengkapi setelah tautan rekaman YouTube dipasang di atas. -->
-          <h4>Belum bisa dinilai, menunggu rekaman utuh</h4>
+          <!-- TODO: lengkapi setelah menonton ulang rekaman YouTube di atas. -->
+          <h4>Dilengkapi setelah menonton ulang rekaman</h4>
           <ul>
             <li>Ketepatan waktu tiap tahap terhadap alokasi 1 x 45 menit.</li>
             <li>Kualitas instruksi dan pertanyaan pemantik yang saya ucapkan.</li>
-            <li>Isi jawaban murid saat berbagi hasil di depan kelas.</li>
+            <li>Isi jawaban murid saat berbagi pendapat.</li>
             <li>Cara saya menangani situasi yang tidak terduga.</li>
           </ul>
         </div>
@@ -524,18 +580,443 @@
       <div class="refleksi">
         <h3>Refleksi diri</h3>
         <p>
-          Dokumentasi membantu saya melihat layanan dari sudut pandang murid yang duduk di
-          belakang kelas. Pada praktik berikutnya saya ingin merekam layanan secara utuh
-          dengan satu sudut kamera dari depan, agar ekspresi dan respons murid ikut terekam
-          dan rekaman bisa menjadi bahan refleksi yang lebih lengkap.
+          Saya merasa kelas memang sangat interaktif, tetapi saya perlu menjaga kondisi
+          tersebut, karena terkadang murid juga mengalihkan fokusnya karena distraksi pada
+          hal lain. Karena itu saya perlu memperbaiki dan berusaha menjaga kondisi serta
+          suasana kelas supaya lebih nyaman dan interaktif dari awal sampai akhir. Untuk
+          rekaman berikutnya, saya akan memastikan memakai mikrofon agar suara murid yang
+          berpendapat ikut terdengar jelas.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 5. NONMENGAJAR ============ -->
-<section class="sec sec--blush" id="nonmengajar">
+<section class="sec" id="s1-instrumen">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -12deg; --tunda: -6s"><use href="#st-sakura"></use></svg>
+      <h2>Siklus 1: Instrumen Penilaian yang Dirancang beserta Analisisnya</h2>
+      <p>
+        Tiga instrumen untuk tiap layanan: evaluasi proses yang diisi Guru BK sebagai
+        pengamat, evaluasi hasil yang diisi murid, dan instrumen kepuasan murid.
+      </p>
+    </div>
+
+    <p class="lbl">Deskripsi produk</p>
+    <div class="klaster reveal">
+      <article>
+        <p class="n">1</p>
+        <h4>Evaluasi proses</h4>
+        <p>
+          Empat butir pengamatan berskala 1 sampai 5, diisi Guru BK. Pada Penyesuaian Diri
+          dan Menghargai: perhatian saat pemaparan materi, keberanian berpendapat, kerja sama
+          mengerjakan LKPD, dan kesungguhan merumuskan refleksi. Pada Regulasi Emosi:
+          keaktifan, tabel "Kenali Badai Emosiku", teknik STOP, dan surat kekuatan diri.
+        </p>
+      </article>
+      <article>
+        <p class="n">2</p>
+        <h4>Evaluasi hasil</h4>
+        <p>
+          Sepuluh butir skala SS sampai STS, dikelompokkan menjadi tiga: Pemahaman Baru,
+          Perasaan Positif, dan Rencana Kegiatan Setelah Layanan.
+        </p>
+      </article>
+      <article>
+        <p class="n">3</p>
+        <h4>Kepuasan murid</h4>
+        <p>
+          Enam aspek dengan skala 3 sampai 1, dari penerimaan Guru BK sampai kenyamanan
+          suasana. Skor 6 sampai 18, kategori Sangat Baik pada 13 ke atas.
+        </p>
+      </article>
+    </div>
+
+    <div class="rumus reveal">
+      <p class="formula"><span>Evaluasi proses</span>Nilai akhir = (jumlah skor / 20) x 100</p>
+      <p class="formula"><span>Evaluasi hasil</span>Nilai akhir = (jumlah skor / 50) x 100</p>
+      <p>
+        Kedua rumus memakai lima kategori yang sama: 81-100 Sangat Baik, 66-80 Baik,
+        51-65 Cukup Baik, 36-50 Kurang Baik, 35 ke bawah Sangat Kurang Baik.
+      </p>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <p class="lbl">Analisis</p>
+      <h3>Menilai proses dan hasil dari tiga sisi</h3>
+      <p>
+        Setiap RPL saya lengkapi tiga instrumen yang saling melengkapi. Evaluasi proses
+        menilai jalannya layanan dari pengamatan Guru BK, evaluasi hasil menilai apa yang
+        murid dapatkan, dan instrumen kepuasan menilai bagaimana murid merasakan layanan
+        itu. Dengan begitu penilaian tidak bergantung pada satu jenis data saja.
+      </p>
+      <p>
+        Evaluasi proses disusun mengikuti urutan kegiatan di kelas, sehingga setiap tahap
+        punya satu butir pengamatan. Layanan Penyesuaian Diri dan Menghargai memakai empat
+        butir yang sama: menyimak materi, berdiskusi, mengerjakan LKPD, lalu merumuskan
+        refleksi. Layanan Regulasi Emosi memakai butir yang mengikuti bagian LKPD-nya
+        sendiri, dari tabel "Kenali Badai Emosiku", penerapan teknik STOP, sampai surat
+        kekuatan diri.
+      </p>
+      <p>
+        Evaluasi hasil dikelompokkan ke dalam tiga ranah: Pemahaman Baru, Perasaan Positif,
+        dan Rencana Kegiatan Setelah Layanan. Pengelompokan ini membuat penilaian tidak
+        berhenti pada hafalan, tetapi juga menyentuh sikap dan niat murid untuk bertindak.
+        Butirnya mencerminkan langsung tujuan khusus RPL, misalnya "saya memahami langkah-
+        langkah teknik STOP dalam menghadapi emosi" pada Regulasi Emosi dan "saya akan
+        menghargai pendapat teman meskipun berbeda dengan saya" pada layanan Sosial.
+      </p>
+      <p>
+        Karena waktu layanan terbatas, pengisian instrumen dilakukan di akhir pertemuan
+        dengan waktu yang singkat.
+      </p>
+
+      <div class="refleksi">
+        <h3>Refleksi diri</h3>
+        <p>
+          Kekurangan saya pada instrumen ada di pelaksanaannya: waktu pengisian di akhir
+          pertemuan terlalu singkat, dan hasilnya belum saya bahas bersama murid. Ke depan
+          saya perlu menyediakan waktu khusus untuk pengisian instrumen, lalu
+          menindaklanjuti rencana aksi murid, seperti surat komitmen, surat kekuatan diri,
+          dan tiga aksi nyata, satu minggu setelah layanan.
+        </p>
+      </div>
+    </div>
+
+    <div class="bukti reveal">
+      <p>Instrumen evaluasi proses, evaluasi hasil, dan kepuasan murid ada pada Lampiran 3 sampai 5 tiap RPL.</p>
+      <a class="ghost" href="https://drive.google.com/drive/folders/1f6OI1ew-oAQnCOpEwD8c2o-DnD_b0FEz" target="_blank" rel="noopener">Folder bukti di Google Drive</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ================================================================
+     SIKLUS 2: Manajemen Waktu
+     ================================================================ -->
+<div class="panel" id="siklus-2" data-panel>
+
+<section class="sec sec--card" id="s2-rancangan">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 8deg; --tunda: -1s"><use href="#st-sakura"></use></svg>
+      <h2>Siklus 2: Analisis Produk Rancangan Layanan</h2>
+      <p>Satu Rencana Pelaksanaan Layanan bimbingan klasikal bidang Pribadi.</p>
+    </div>
+
+    <p class="lbl">Deskripsi produk</p>
+    <div class="compare compare--satu reveal">
+      <article class="rpl-card">
+        <div class="slider" data-slider>
+          <div class="slider__track" tabindex="0" aria-label="Dokumentasi layanan Manajemen Waktu, geser untuk melihat foto lainnya">
+            <figure class="slide"><img src="assets/dokumentasi/waktu-01.jpg" width="1400" height="788" alt="Saya berbicara di depan kelas saat layanan Manajemen Waktu, murid duduk menghadap saya"></figure>
+            <figure class="slide"><img src="assets/dokumentasi/waktu-02.jpg" width="1400" height="788" loading="lazy" alt="Saya berdiri di depan papan tulis, murid mendengarkan dari meja masing-masing"></figure>
+            <figure class="slide"><img src="assets/dokumentasi/waktu-03.jpg" width="1400" height="788" loading="lazy" alt="Saya menghadap murid di kelas saat layanan Manajemen Waktu berlangsung"></figure>
+          </div>
+          <button class="slider__btn prev" type="button" aria-label="Foto sebelumnya">&#8249;</button>
+          <button class="slider__btn next" type="button" aria-label="Foto berikutnya">&#8250;</button>
+          <p class="slider__count" aria-live="polite">1 / 3</p>
+        </div>
+        <div class="rpl-card__body">
+          <h3>Singer Terhadap Target: Manajemen Waktu Menjelang Kelulusan</h3>
+          <dl class="facts">
+            <div><dt>Bidang</dt><dd>Pribadi, Layanan Dasar</dd></div>
+            <div><dt>Pelaksanaan</dt><dd>20 Agustus 2026, 1 x 45 menit</dd></div>
+            <div><dt>Model</dt><dd>Experiential Learning</dd></div>
+            <div><dt>Metode</dt><dd>Curah pendapat, ceramah interaktif, tanya jawab, LKPD</dd></div>
+            <div><dt>Sumber</dt><dd>Covey (1994), POP BK (2016)</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <p class="lbl">Analisis</p>
+      <h3>Dari kebiasaan sehari-hari menuju rencana</h3>
+      <p>
+        RPL ini memakai susunan komponen yang sama dengan RPL Siklus 1, dengan lima tujuan
+        khusus: memahami pentingnya manajemen waktu, mengidentifikasi kegiatan prioritas,
+        menyusun jadwal yang realistis, mengurangi kebiasaan menunda, dan bertanggung jawab
+        atas target belajar. Urutannya bergerak dari memahami, memilah, menyusun, sampai
+        membiasakan.
+      </p>
+      <p>
+        Model <strong>Experiential Learning</strong> saya pilih karena manajemen waktu
+        paling mudah disadari dari kebiasaan murid sendiri. Layanan dibuka dengan ilustrasi
+        murid yang mampu dan tidak mampu mengatur waktu, lalu murid diajak merefleksikan
+        cara mereka memakai waktu sehari-hari. Pada tahap inti murid mewarnai diagram 24 jam
+        dan mengisi Matriks Kuadran Prioritas, lalu menyusun rencana manajemen waktu. Layanan
+        ditutup dengan refleksi dan komitmen pribadi. Layanan ini juga dikaitkan dengan
+        Pilar Pancawaluya "Singer", yaitu terampil mengelola waktu dan menyelesaikan tugas.
+      </p>
+      <p>
+        Tujuan dan evaluasinya saling mengunci: tujuan menyusun jadwal dijawab oleh rencana
+        pada LKPD, dan diukur oleh butir evaluasi hasil "saya akan menyusun jadwal kegiatan
+        harian/mingguan secara realistis". Alokasi 1 x 45 menit terbatas, sehingga sebagian
+        isi RPL belum tersampaikan sepenuhnya.
+      </p>
+
+      <div class="refleksi">
+        <h3>Refleksi diri</h3>
+        <p>
+          Kekurangan rancangan ini sama dengan Siklus 1: kegiatannya banyak untuk satu
+          pertemuan, dari diagram 24 jam, matriks, rencana, sampai presentasi. Ke depan saya
+          perlu memilih satu kegiatan inti yang benar-benar dikerjakan tuntas di kelas, dan
+          menjadikan sisanya tindak lanjut.
+        </p>
+      </div>
+    </div>
+
+    <div class="bukti reveal">
+      <p>Dokumen RPL lengkap beserta lima lampirannya.</p>
+      <a href="assets/RPL%20manageman%20waktu%20(Pribadi)%20Soshum%20(2A)%20M-1/RPL%20MANAJEMEN%20WAKTU.docx">Unduh RPL Manajemen Waktu</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--pink" id="s2-materi">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -10deg; --tunda: -2s"><use href="#st-kilau"></use></svg>
+      <h2>Siklus 2: Analisis Materi Layanan yang Disusun dan Diterapkan</h2>
+      <p>Materi pada Lampiran 1 RPL Manajemen Waktu.</p>
+    </div>
+
+    <p class="lbl">Deskripsi produk</p>
+    <div class="outline reveal">
+      <section>
+        <h4>Manajemen Waktu Menjelang Kelulusan</h4>
+        <ol>
+          <li>Pengertian dan pentingnya manajemen waktu</li>
+          <li>Empat hambatan: prokrastinasi, sulit menentukan prioritas, gangguan media sosial dan game, tidak ada jadwal</li>
+          <li>Matriks Kuadran Prioritas: lakukan segera, jadwalkan, batasi, pangkas</li>
+          <li>Kaitan manajemen waktu dengan keberhasilan menjelang kelulusan</li>
+        </ol>
+      </section>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <p class="lbl">Analisis</p>
+      <h3>Satu alat yang bisa langsung dipakai</h3>
+      <p>
+        Materi berjalan dari pengertian, hambatan, strategi, sampai kaitannya dengan masa
+        depan murid. Pusatnya adalah Matriks Kuadran Prioritas dari Covey (1994), yang
+        membagi kegiatan menurut penting dan mendesak. Alat ini sederhana dan langsung bisa
+        dipakai murid untuk memilah kegiatannya sendiri, dengan pesan penutup "kurangi K4,
+        tambah K2".
+      </p>
+      <p>
+        Hambatan yang dibahas dekat dengan keseharian murid, seperti menunda tugas, media
+        sosial, dan game. Bagian kaitan dengan kelulusan menunjukkan bahwa manajemen waktu
+        bukan hanya soal jadwal, tetapi juga mengurangi stres dan menumbuhkan rasa percaya
+        diri. Karena waktu terbatas, bagian kaitan ini baru bisa saya sampaikan secara singkat.
+      </p>
+
+      <div class="refleksi">
+        <h3>Refleksi diri</h3>
+        <p>
+          Materi ini masih banyak memakai contoh menjelang kelulusan, padahal murid yang
+          saya layani masih di awal jenjang SMA. Ke depan saya perlu menyesuaikan contoh
+          dengan kegiatan yang benar-benar dialami murid saat ini, seperti tugas harian,
+          ekstrakurikuler, dan waktu di rumah.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="s2-media">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom); --rot: 12deg; --tunda: -3s"><use href="#st-hati"></use></svg>
+      <h2>Siklus 2: Analisis Media Layanan yang Dipergunakan</h2>
+      <p>LKPD Matriks Prioritas Hidup, PPT materi, dan rencana yang ditulis murid.</p>
+    </div>
+
+    <p class="lbl">Deskripsi produk</p>
+    <div class="bento reveal">
+      <article class="tile">
+        <img src="assets/lkpd/lkpd-manajemen-waktu.jpg" width="1280" height="853" loading="lazy" alt="Lembar kerja Bener Melangkah dengan diagram lingkaran 24 jam, matriks kuadran prioritas, dan kolom refleksi diri">
+        <div class="tile__body">
+          <p class="kind">LKPD Manajemen Waktu</p>
+          <h4>Bener Melangkah: Menguasai Matriks Prioritas Hidup</h4>
+          <p>Tiga bagian: diagram lingkaran 24 jam, Matriks Kuadran Prioritas K1 sampai K4, dan refleksi diri.</p>
+        </div>
+      </article>
+
+      <article class="tile tile--tint">
+        <div class="tile__body">
+          <p class="kind">Proyeksi</p>
+          <h4>PPT materi dan LCD proyektor</h4>
+          <p>Dipakai pada tahap penyajian materi, dibantu laptop dan proyektor kelas.</p>
+        </div>
+      </article>
+
+      <article class="tile tile--butter">
+        <div class="tile__body">
+          <p class="kind">Rencana aksi</p>
+          <h4>Rencana manajemen waktu</h4>
+          <p>Disusun murid dari hasil LKPD, lalu dipresentasikan oleh perwakilan murid.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <p class="lbl">Analisis</p>
+      <h3>Membuat waktu terlihat</h3>
+      <p>
+        LKPD ini mengubah waktu yang abstrak menjadi sesuatu yang terlihat. Diagram 24 jam
+        diwarnai hijau untuk kegiatan bermakna dan merah untuk kegiatan sia-sia, sehingga
+        murid melihat sendiri berapa banyak waktunya yang terbuang. Matriks di sebelahnya
+        lalu mengajak murid memindahkan kegiatan dari K4 ke K2. Urutan ini mengikuti
+        Experiential Learning: mengalami lewat diagram, merenungkan, memahami lewat matriks,
+        lalu merencanakan.
+      </p>
+      <p>
+        Tampilan LKPD berwarna dengan ikon dan kotak "Ingat!", supaya murid merasa lembar
+        ini ditulis untuk mereka. Karena waktu terbatas, tidak semua murid sempat
+        mempresentasikan rencananya.
+      </p>
+
+      <div class="refleksi">
+        <h3>Refleksi diri</h3>
+        <p>
+          Kekurangan media ini adalah isinya cukup banyak untuk dikerjakan dalam sisa waktu
+          layanan. Ke depan saya perlu memberi contoh pengisian di slide lebih dulu, supaya
+          murid lebih cepat memahami cara mengisi matriks.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--card" id="s2-video">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -7deg; --tunda: -4s"><use href="#st-bintang"></use></svg>
+      <h2>Siklus 2: Analisis Video Pelaksanaan Praktik Mengajar Mandiri</h2>
+      <p>Satu rekaman untuk Siklus 2.</p>
+    </div>
+
+    <p class="lbl">Deskripsi produk</p>
+    <div class="yt-grid reveal">
+      <figure class="yt-kartu">
+        <!-- TODO: ID video YouTube rekaman Siklus 2 (Manajemen Waktu). -->
+        <div class="yt" data-yt="" data-judul="Rekaman layanan Manajemen Waktu, Siklus 2">
+          <p class="yt__kosong">Video YouTube Siklus 2 akan tampil di sini.</p>
+        </div>
+        <figcaption>Layanan Manajemen Waktu, 20 Agustus 2026</figcaption>
+      </figure>
+    </div>
+
+    <!-- TODO: analisis dan refleksi video Siklus 2 setelah rekamannya ditautkan. -->
+    <div class="part kosong reveal">
+      <h3>Analisis video Siklus 2</h3>
+      <p>Analisis dan refleksi akan ditulis setelah rekaman Siklus 2 ditautkan.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="s2-instrumen">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -12deg; --tunda: -6s"><use href="#st-sakura"></use></svg>
+      <h2>Siklus 2: Instrumen Penilaian yang Dirancang beserta Analisisnya</h2>
+      <p>Tiga instrumen pada Lampiran 3 sampai 5 RPL Manajemen Waktu.</p>
+    </div>
+
+    <p class="lbl">Deskripsi produk</p>
+    <div class="klaster reveal">
+      <article>
+        <p class="n">1</p>
+        <h4>Evaluasi proses</h4>
+        <p>
+          Empat butir pengamatan berskala 1 sampai 5: keaktifan saat penjelasan materi,
+          kesungguhan mengisi diagram 24 jam, keterlibatan mengisi matriks, dan kesungguhan
+          menyusun rencana.
+        </p>
+      </article>
+      <article>
+        <p class="n">2</p>
+        <h4>Evaluasi hasil</h4>
+        <p>Sepuluh butir skala SS sampai STS dalam tiga ranah: Pemahaman Baru, Perasaan Positif, dan Rencana Kegiatan.</p>
+      </article>
+      <article>
+        <p class="n">3</p>
+        <h4>Kepuasan murid</h4>
+        <p>Enam aspek dengan skala 3 sampai 1, termasuk manfaat LKPD Matriks Prioritas Hidup. Skor 6 sampai 18.</p>
+      </article>
+    </div>
+
+    <div class="rumus reveal">
+      <p class="formula"><span>Evaluasi proses</span>Nilai akhir = (jumlah skor / 20) x 100</p>
+      <p class="formula"><span>Evaluasi hasil</span>Nilai akhir = (jumlah skor / 50) x 100</p>
+      <p>Kategori sama dengan Siklus 1: 81-100 Sangat Baik sampai 35 ke bawah Sangat Kurang Baik.</p>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <p class="lbl">Analisis</p>
+      <h3>Butir yang mengikuti LKPD</h3>
+      <p>
+        Butir evaluasi proses mengikuti urutan LKPD, dari diagram 24 jam, matriks, sampai
+        rencana, sehingga setiap kegiatan punya satu butir pengamatan. Evaluasi hasil
+        menanyakan pemahaman, perasaan, dan niat murid, misalnya "saya memahami cara
+        membedakan kegiatan mendesak dan penting menggunakan matriks prioritas" dan "saya
+        akan berusaha mengurangi kebiasaan menunda pekerjaan". Instrumen kepuasan
+        menanyakan langsung manfaat LKPD bagi murid, jadi medianya ikut dinilai.
+      </p>
+
+      <div class="refleksi">
+        <h3>Refleksi diri</h3>
+        <p>
+          Kekurangannya, rencana yang ditulis murid belum saya tindak lanjuti setelah
+          layanan. Ke depan saya perlu memeriksa kembali rencana itu satu atau dua minggu
+          kemudian, supaya terlihat apakah murid benar-benar mulai mengelola waktunya.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============ SIKLUS 3 ============ -->
+<!-- TODO: isi Siklus 3 (rancangan, materi, media, video, instrumen) setelah layanannya dilaksanakan. -->
+<div class="panel" id="siklus-3" data-panel>
+<section class="sec sec--card">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <h2>Siklus 3</h2>
+    </div>
+    <div class="kosong reveal">
+      <h3>Segera dilengkapi</h3>
+      <p>Rancangan, materi, media, video, dan instrumen Siklus 3 akan ditampilkan di sini.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ SIKLUS 4 ============ -->
+<!-- TODO: isi Siklus 4 (rancangan, materi, media, video, instrumen) setelah layanannya dilaksanakan. -->
+<div class="panel" id="siklus-4" data-panel>
+<section class="sec sec--card">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <h2>Siklus 4</h2>
+    </div>
+    <div class="kosong reveal">
+      <h3>Segera dilengkapi</h3>
+      <p>Rancangan, materi, media, video, dan instrumen Siklus 4 akan ditampilkan di sini.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ NONMENGAJAR ============ -->
+<div class="panel" id="nonmengajar" data-panel>
+<section class="sec sec--blush">
   <div class="wrap">
     <div class="sec__head reveal">
       <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 14deg; --tunda: -5s"><use href="#st-kilau"></use></svg>
@@ -624,122 +1105,38 @@
         <h3>Refleksi diri</h3>
         <p>
           Kegiatan nonmengajar mengajarkan saya bahwa kepercayaan murid kepada Guru BK
-          dibangun dari kehadiran sehari-hari: di gerbang, di barisan upacara, dan di
-          lapangan senam. Kedekatan itulah yang membuat layanan di kelas lebih mudah
-          diterima. Ke depan saya ingin memanfaatkan momen-momen ini untuk lebih mengenal
-          murid satu per satu dan mencatat hal-hal yang perlu ditindaklanjuti.
+          dibangun dari kehadiran sehari-hari. Kekurangan saya, momen-momen ini belum saya
+          manfaatkan untuk mencatat hal yang perlu ditindaklanjuti, misalnya murid yang
+          berulang kali terlambat. Ke depan saya ingin membuat catatan singkat setelah
+          setiap kegiatan, supaya kedekatan di luar kelas juga menjadi data untuk layanan.
         </p>
       </div>
     </div>
   </div>
 </section>
+</div>
 
-<!-- ============ 6. INSTRUMEN ============ -->
-<section class="sec" id="instrumen">
+<!-- ============ PENILAIAN GURU PAMONG ============ -->
+<!-- TODO: penilaian dari Guru Pamong (lembar penilaian, nilai, atau catatan) setelah diberikan. -->
+<div class="panel" id="penilaian" data-panel>
+<section class="sec sec--pink">
   <div class="wrap">
     <div class="sec__head reveal">
-      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -12deg; --tunda: -6s"><use href="#st-sakura"></use></svg>
-      <h2>Instrumen Penilaian yang Dirancang beserta Analisisnya</h2>
-      <p>
-        Tiga instrumen untuk tiap layanan: evaluasi proses yang saya isi sebagai pengamat,
-        evaluasi hasil yang diisi murid, dan instrumen kepuasan murid.
-      </p>
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -9deg; --tunda: -3s"><use href="#st-bintang"></use></svg>
+      <h2>Penilaian dari Guru Pamong</h2>
+      <p>Penilaian Guru Pamong SMA Negeri 1 Cisarua atas praktik PPL Mandiri saya.</p>
     </div>
-
-    <p class="lbl">Deskripsi produk</p>
-    <div class="klaster reveal">
-      <article>
-        <p class="n">1</p>
-        <h4>Evaluasi proses</h4>
-        <p>
-          Empat butir pengamatan berskala 1 sampai 5, diisi Guru BK: perhatian saat
-          pemaparan materi, keberanian bertanya dan berpendapat, kerja sama mengerjakan
-          LKPD, dan kesungguhan merumuskan refleksi. Nilai akhir = skor / 20 x 100.
-        </p>
-      </article>
-      <article>
-        <p class="n">2</p>
-        <h4>Evaluasi hasil</h4>
-        <p>
-          Sepuluh butir skala SS sampai STS, dikelompokkan menjadi tiga: Pemahaman Baru,
-          Perasaan Positif, dan Rencana Kegiatan Setelah Layanan.
-        </p>
-      </article>
-      <article>
-        <p class="n">3</p>
-        <h4>Kepuasan murid</h4>
-        <p>
-          Enam aspek dengan skala 3 sampai 1, dari penerimaan Guru BK sampai kenyamanan
-          suasana. Skor 6 sampai 18, kategori Sangat Baik pada 13 ke atas.
-        </p>
-      </article>
-    </div>
-
-    <div class="rumus reveal">
-      <p class="formula">Nilai akhir = (jumlah skor / 50) x 100</p>
-      <p>
-        Rumus evaluasi hasil pada kedua RPL, dengan lima kategori yang juga dipakai
-        evaluasi proses: 81-100 Sangat Baik, 66-80 Baik, 51-65 Cukup Baik, 36-50 Kurang
-        Baik, 35 ke bawah Sangat Kurang Baik.
-      </p>
-    </div>
-
-    <div class="part prose narrow reveal">
-      <p class="lbl">Analisis</p>
-      <h3>Menilai proses dan hasil dari tiga sisi</h3>
-      <p>
-        Setiap RPL saya lengkapi tiga instrumen yang saling melengkapi. Evaluasi proses
-        menilai jalannya layanan dari pengamatan saya sebagai Guru BK, evaluasi hasil
-        menilai apa yang murid dapatkan, dan instrumen kepuasan menilai bagaimana murid
-        merasakan layanan itu. Dengan begitu penilaian tidak bergantung pada satu jenis
-        data saja.
-      </p>
-      <p>
-        Evaluasi hasil dikelompokkan ke dalam tiga ranah: Pemahaman Baru, Perasaan
-        Positif, dan Rencana Kegiatan Setelah Layanan. Pengelompokan ini membuat
-        penilaian tidak berhenti pada hafalan, tetapi juga menyentuh sikap dan niat murid
-        untuk bertindak. Butir-butirnya mencerminkan langsung tujuan khusus RPL, misalnya
-        "saya memahami strategi yang efektif untuk beradaptasi di lingkungan baru" untuk
-        tujuan menganalisis strategi pada layanan Pribadi, dan "saya akan menghargai
-        pendapat teman meskipun berbeda dengan saya" untuk tujuan mempraktikkan sikap
-        menghargai pada layanan Sosial.
-      </p>
-      <p>
-        Evaluasi proses memakai empat butir yang sama untuk kedua layanan. Butirnya
-        mengikuti urutan kegiatan di kelas: menyimak materi, berdiskusi, mengerjakan LKPD,
-        lalu merumuskan refleksi, sehingga setiap tahap punya satu butir pengamatan.
-        Karena butir, rumus, dan kategorinya sama, hasil kedua layanan bisa dibandingkan
-        langsung, dan kategori yang seragam dengan evaluasi hasil membuat pengolahan
-        datanya lebih mudah.
-      </p>
-      <p>
-        Karena waktu layanan terbatas, pengisian instrumen dilakukan di akhir pertemuan
-        dengan waktu yang singkat, sehingga pembahasan hasilnya bersama murid belum bisa
-        dilakukan pada pertemuan yang sama.
-      </p>
-
-      <div class="refleksi">
-        <h3>Refleksi diri</h3>
-        <p>
-          Merancang instrumen membuat saya sadar bahwa penilaian layanan bimbingan dan
-          konseling bukan sekadar lampiran, melainkan cara mengetahui apakah layanan saya
-          bermanfaat bagi murid. Ke depan saya ingin menyediakan waktu khusus untuk
-          pengisian instrumen, dan menindaklanjuti rencana aksi murid, seperti tiga aksi
-          nyata pada lembar kerja layanan Sosial dan surat komitmen pada layanan Pribadi, satu
-          minggu setelah layanan.
-        </p>
-      </div>
-    </div>
-
-    <div class="bukti reveal">
-      <p>Instrumen evaluasi proses, evaluasi hasil, dan kepuasan murid ada pada Lampiran 3 sampai 5 kedua RPL.</p>
-      <a class="ghost" href="https://drive.google.com/drive/folders/1f6OI1ew-oAQnCOpEwD8c2o-DnD_b0FEz" target="_blank" rel="noopener">Folder bukti di Google Drive</a>
+    <div class="kosong reveal">
+      <h3>Menunggu diunggah</h3>
+      <p>Lembar penilaian dari Guru Pamong akan ditampilkan di sini.</p>
     </div>
   </div>
 </section>
+</div>
 
-<!-- ============ 7. TUGAS ============ -->
-<section class="sec sec--pink" id="tugas">
+<!-- ============ TUGAS ============ -->
+<div class="panel" id="tugas" data-panel>
+<section class="sec sec--pink">
   <div class="wrap">
     <div class="sec__head reveal">
       <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom); --rot: -9deg; --tunda: -6s"><use href="#st-hati"></use></svg>
@@ -754,8 +1151,8 @@
       <article class="tugas__kartu tugas__kartu--selesai">
         <p class="tugas__status">Halaman ini</p>
         <h3>LK 3</h3>
-        <p>Enam analisis PPL Mandiri: rancangan, materi, media, video, kegiatan nonmengajar, dan instrumen penilaian.</p>
-        <a href="#rancangan">Baca dari awal</a>
+        <p>Analisis PPL Mandiri per siklus: rancangan, materi, media, video, dan instrumen penilaian, ditambah kegiatan nonmengajar.</p>
+        <a href="#siklus-1">Baca dari Siklus 1</a>
       </article>
 
       <!-- TODO: isi dengan tugas UTS setelah selesai dikerjakan (judul, ringkasan, tautan atau berkas). -->
@@ -774,6 +1171,7 @@
     </div>
   </div>
 </section>
+</div>
 
 </main>
 
@@ -791,21 +1189,18 @@
       <circle class="inti" cx="50" cy="50" r="7"/>
     </svg>
 
-    <h2>Benang merah dari enam analisis</h2>
+    <h2>Benang merah PPL Mandiri</h2>
     <p>
-      Menyusun keenam bagian ini membuat satu hal terang: rancangan, materi, media,
-      rekaman, dan instrumen bukan dokumen terpisah yang kebetulan dikumpulkan bersama,
-      melainkan satu rantai. Ketika saya memilih Experiential Learning untuk layanan
-      Pribadi, pilihan itu langsung menentukan bahwa kegiatannya berangkat dari pengalaman
-      murid sendiri, bahwa LKPD-nya dimulai dari tantangan yang mereka alami dan ditutup
-      dengan komitmen, dan bahwa instrumennya menanyakan rencana, bukan hanya pemahaman. Kegiatan nonmengajar melengkapi rantai itu:
-      kedekatan yang dibangun di gerbang, di upacara, dan di lapangan senam membuat
-      layanan di kelas lebih mudah diterima murid.
+      Rancangan, materi, media, rekaman, dan instrumen di tiap siklus bukan dokumen
+      terpisah, melainkan satu rantai. Ketika saya memilih Experiential Learning, pilihan
+      itu langsung menentukan bahwa kegiatannya berangkat dari pengalaman murid, bahwa
+      LKPD-nya dimulai dari apa yang mereka alami dan ditutup dengan rencana aksi, dan
+      bahwa instrumennya menanyakan rencana, bukan hanya pemahaman.
     </p>
     <p>
-      Hal yang paling ingin saya kembangkan setelah PPL Mandiri ini adalah pengaturan
-      waktu, supaya seluruh isi RPL yang sudah saya rancang dapat tersampaikan utuh dalam
-      satu pertemuan.
+      Dari keseluruhan siklus, hal yang paling perlu saya perbaiki adalah pengaturan waktu,
+      kesiapan alat seperti mikrofon dan proyektor, dan cara menjaga fokus murid dari awal
+      sampai akhir layanan.
     </p>
     <p class="sign">Fahira Firzha Wianda, NIM 26960002, IKIP Siliwangi</p>
   </div>

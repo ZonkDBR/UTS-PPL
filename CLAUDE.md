@@ -19,20 +19,23 @@ sama; tempatnya sudah disiapkan sebagai kartu placeholder di bagian `#tugas`.
 | Kampus | IKIP Siliwangi |
 | Program | PPG Prajabatan |
 | Sekolah PPL Mandiri | SMA Negeri 1 Cisarua |
-| Kelas layanan | X I (Pribadi) dan XI J (Sosial) |
 
 Sumber: header LK.1 dan LK.2 di folder ini. `<html lang="id">`.
+
+**Kelas layanan tidak disebut di situs** (keputusan 28 September 2026): kelasnya banyak
+dan akan bertambah. Jangan menulis "X I", "XI J", dan sejenisnya di facts, alt, caption,
+maupun strip identitas. Jenjang ("kelas X", "kelas XI") boleh, misalnya sebagai alasan topik.
 
 ## Bentuk teknis
 
 ```
 index.html   beranda: hero profil + video Home + strip identitas + dua pintu (PPG, PPL)
 profil.html  profil lengkap: tentang, alasan dan nilai, jejak langkah, riwayat (placeholder)
-ppl.html     PPL Mandiri = tugas LK 3: enam analisis + #tugas
+ppl.html     PPL Mandiri = tugas LK 3: tab Siklus 1-4, Nonmengajar, Penilaian, Tugas
 ppg-1.html   PPG semester I, enam mata kuliah (refleksi 4C, artefak, kaitan praktis)
 ppg-2.html   PPG semester II, lima mata kuliah
 style.css    satu berkas untuk semua halaman
-script.js    reveal + kelopak + nav aktif, jejak kursor, slider, video hero, kotak YouTube
+script.js    reveal + kelopak + nav aktif, tab PPL, jejak kursor, slider, video hero, kotak YouTube
 assets/      foto profil, dokumentasi, LKPD, video Home, RPL dan PPT yang ditautkan
 ```
 
@@ -40,12 +43,23 @@ Tiap halaman menyalin sendiri `<head>`, set `<symbol>` stiker, lapisan kelopak, 
 footer (tanpa build step, jadi tidak ada include). Kalau mengubah salah satunya, ubah di
 kelima berkas.
 
-**Nav bersama**: di awal `<body>` semua halaman. Isinya bunga penanda (hanya di halaman
-yang punya bagian bernomor), `.saklar` pil Beranda/Profil/PPG/PPL dengan
-`aria-current="page"` pada halaman aktif (latar `--rose`, teks putih), lalu `.navlinks`
-bagian halaman itu. Bunga punya satu kelopak per `main .sec` (6 di ppl dan ppg-1, 5 di
-ppg-2, diputar per 72 derajat). `script.js` memasangkan kelopak dan tautan ke bagian
-menurut urutan, jadi jumlahnya harus sama.
+**Nav bersama**: di awal `<body>` semua halaman. Isinya bunga penanda (hanya di ppg-1
+dan ppg-2), `.saklar` pil Beranda/Profil/PPG/PPL dengan `aria-current="page"` pada
+halaman aktif (latar `--rose`, teks putih), lalu `.navlinks` bagian halaman itu. Bunga
+punya satu kelopak per `main .sec` (6 di ppg-1, 5 di ppg-2). `script.js` memasangkan
+kelopak dan tautan ke bagian menurut urutan, jadi jumlahnya harus sama.
+
+**PPG di nav adalah tombol pop-up**, bukan tautan: `<button class="saklar__ppg"
+popovertarget="menu-ppg">` plus `<div id="menu-ppg" popover>` berisi Semester I dan II
+(Popover API bawaan, tanpa JS). Di ppg-1/ppg-2 tombolnya diberi `data-aktif` (latar
+`--rose`). Salin utuh ke kelima berkas bila diubah.
+
+**ppl.html bertab.** Tiap tab adalah `<div class="panel" id="..." data-panel>`:
+`siklus-1` sampai `siklus-4`, `nonmengajar`, `penilaian`, `tugas`. `script.js`
+menampilkan panel yang cocok dengan hash URL (atau panel pemilik anchor di hash, mis.
+`#s1-media`), default Siklus 1, dan menandai tautan di `.navlinks` serta baris
+`.semester` di kepala halaman. Tanpa JS semua panel tampil. Penanda gulir dilewati
+di halaman bertab, dan ppl.html tidak memakai bunga nav.
 
 **Halaman PPG** dipindah apa adanya dari dua situs lama, kata-katanya tidak diubah (suara
 "aku" di semester II dibiarkan). Yang diubah hanya: emoji dan label "Mata Kuliah 01"
@@ -166,25 +180,28 @@ terbaca. Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap te
   Jejak kursor juga tidak dipasang sama sekali kalau `(hover: hover) and (pointer: fine)`
   tidak terpenuhi, jadi layar sentuh tidak menanggung biayanya.
 
-## Enam bagian wajib (ppl.html)
+## Susunan ppl.html (per siklus, sejak 28 September 2026)
 
-Urutan tetap, satu `<section id="…">` masing-masing di `ppl.html`, judul persis seperti tugas:
+Tiap panel siklus memuat lima bagian berurutan, id diberi awalan siklus
+(`s1-rancangan`, `s1-materi`, `s1-media`, `s1-video`, `s1-instrumen`; `s2-...`):
+rancangan, materi, media, video, instrumen. **Materi, media, dan video berbeda per siklus,
+dan satu siklus hanya punya satu video.** Analisis kegiatan nonmengajar pindah ke tab
+`#nonmengajar`; penilaian Guru Pamong di tab `#penilaian` (placeholder, belum diberikan).
 
-1. `#rancangan` — Analisis produk rancangan/perencanaan pembelajaran
-2. `#materi` — Analisis materi pembelajaran yang disusun dan diterapkan
-3. `#media` — Analisis media pembelajaran yang dipergunakan
-4. `#video` — Analisis video pelaksanaan praktik mengajar mandiri
-5. `#nonmengajar` — Analisis kegiatan nonmengajar
-6. `#instrumen` — Instrumen penilaian yang dirancang beserta analisisnya
+| Siklus | Layanan (tanggal dari pemilik portofolio, bukan nama folder) |
+|---|---|
+| 1 | Penyesuaian Diri (Pribadi) 10 Agu 2026 · Regulasi Emosi (Pribadi) 13 Agu · Menghargai Guru dan Teman (Sosial) 20 Agu |
+| 2 | Manajemen Waktu (Pribadi) 20 Agu |
+| 3, 4 | placeholder `<!-- TODO -->` |
+
+Video Siklus 1: YouTube `CEGttnItg2I`, layanan Penyesuaian Diri. Kendala yang
+dinyatakan pemilik: di video itu lupa memakai mikrofon sehingga suara murid yang
+berpendapat kurang terdengar; di layanan Menghargai proyektor rusak sehingga PPT tidak
+bisa ditayangkan.
 
 Setiap bagian memuat tiga hal, dalam urutan ini: **deskripsi produk** → **analisis** →
-**refleksi diri**. Analisis adalah yang dinilai paling dalam, jangan biarkan bagian ini
-lebih pendek dari deskripsinya.
-
-Setelah keenam bagian ada bagian ketujuh, `#tugas` "Rangkaian Tugas PPL Mandiri": kartu
-LK 3 (halaman ini) plus dua kartu placeholder UTS dan UAS bertanda `<!-- TODO -->`.
-`.navlinks` ppl.html punya tujuh tautan; bunga di nav tetap enam kelopak untuk enam
-analisis.
+**refleksi diri**. Analisis jangan lebih pendek dari deskripsinya. Evaluasi proses selalu
+ditulis sebelum evaluasi hasil (ikut urutan RPL), termasuk di blok rumus.
 
 ## Empat unsur penilaian
 
@@ -201,7 +218,15 @@ analisis.
 
 ## Bahan yang tersedia
 
-**Dua RPL, dua kelas.** Sumber yang sahih adalah berkas `.docx` di dalam `assets/`
+**RPL baru (28 September 2026)**: `assets/RPL regulasi emosi (Pribadi) Soshum (2B) M-2/`
+(RPL, PPT 13 slide "Menghadapi Badai Emosi", LKPD "Singer Menghadapi Badai" lima bagian)
+dan `assets/RPL manageman waktu (Pribadi) Soshum (2A) M-1/` (RPL dan LKPD "Bener
+Melangkah: Menguasai Matriks Prioritas Hidup"; **tidak ada PPT** di zipnya). Keduanya
+Experiential Learning, evaluasi proses /20, hasil /50, kepuasan 6-18. **Foto: selalu tiga
+per layanan** dari folder dokumentasinya, diperkecil ke `assets/dokumentasi/regulasi-0N`,
+`waktu-0N`; Menghargai memakai sosial-03, 04, 01.
+
+**RPL lama.** Sumber yang sahih adalah berkas `.docx` di dalam `assets/`
 (versi yang diekstrak dari zip pada 26 September 2026), bukan PDF di akar folder.
 Layanan **Self Awareness** (Reflective Learning, XI J) **sudah diganti** oleh layanan
 Penyesuaian Diri atas keputusan pemilik portofolio pada 26 September 2026, beserta foto,
@@ -294,11 +319,15 @@ menceritakan reaksi murid atau kejadian kelas** yang tidak terdokumentasi (versi
 pernah menulis "kelas sudah mengenali polanya" dan "materi yang paling berhasil", dan
 pemilik portofolio menilainya salah).
 
-**Kekurangan jangan ditonjolkan**, karena menurunkan nilai. Di tiap bagian cukup satu
-kalimat bernada wajar: waktu 1 x 45 menit terbatas sehingga sebagian isi RPL belum
-tersampaikan sepenuhnya. Jangan membuat daftar kesalahan diri, kartu "temuan"
-kekeliruan, atau kritik terhadap dokumen sendiri. Refleksi ditulis sebagai hal yang
-dipelajari dan rencana ke depan.
+**Refleksi diri berisi kekurangan secara keseluruhan dan apa yang perlu diperbaiki**
+(permintaan pemilik 28 September 2026, menggantikan aturan lama "kekurangan jangan
+ditonjolkan"). Tetap satu paragraf per kotak, nada wajar, bukan daftar kesalahan. Contoh
+nada dari pemilik: kelas interaktif, tetapi murid kadang terdistraksi, jadi perlu menjaga
+suasana kelas nyaman dan interaktif dari awal sampai akhir.
+
+**Tanpa studi kasus.** Pemilik portofolio menyatakan layanannya tidak memakai studi
+kasus. RPL Penyesuaian Diri (daftar media, satu kegiatan) dan slide 8 PPT-nya masih
+menyebutnya, tetapi situs tidak menulisnya sama sekali, sama seperti roleplay.
 
 ## Privasi
 
@@ -313,9 +342,11 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
 
 ## Yang masih kurang
 
-- [ ] **ID video YouTube** rekaman kedua layanan: isi `data-yt` di `#video` ppl.html.
-      Empat butir di kotak "belum bisa dinilai" dan paragraf analisis `#video` (sekarang
-      disusun dari foto dokumentasi) perlu dilengkapi setelah rekamannya bisa ditonton.
+- [ ] **Video Siklus 2**: isi `data-yt` di `#s2-video`, lalu tulis analisisnya.
+- [ ] Kotak "Dilengkapi setelah menonton ulang rekaman" di `#s1-video` (empat butir).
+- [ ] **Contoh perilaku kurang menghargai** hasil observasi (kotak alasan topik di
+      `#s1-materi`), **Siklus 3 dan 4**, **penilaian Guru Pamong**, dan **foto kedua
+      orang tua** di profil.html `#alasan`.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
 - [ ] **Profil**: riwayat pendidikan, pengalaman, organisasi, keterampilan, prestasi,
       serta kontak dan CV di profil.html (enam kartu placeholder).
