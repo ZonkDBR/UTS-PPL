@@ -22,3 +22,11 @@ assets/Non Mengajar/
 # Arsip zip RPL dan LKPD mentah; versi terbitnya ada di assets/dokumentasi dan assets/lkpd.
 assets/*.zip
 assets/RPL*/LKPD*.jpeg
+
+# Modul Siklus 1 (28 September 2026): RPL dan PPT ditautkan, bahan mentah tidak.
+assets/SIKLUS 1 PPLM/*/Dokumentasi*/
+assets/SIKLUS 1 PPLM/*/LKPD*
+# Salinan lama ketiga RPL itu, digantikan versi di SIKLUS 1 PPLM.
+assets/RPL Penyesuaian diri (Pribadi) SIKLUS 1/
+assets/RPL manageman waktu (Pribadi) Soshum (2A) M-1/
+assets/RPL regulasi emosi (Pribadi) Soshum (2B) M-2/

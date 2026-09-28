@@ -476,7 +476,7 @@ img, video { max-width: 100%; }
 
 .compare { display: grid; gap: 1.5rem; }
 @media (min-width: 54rem) { .compare { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 68rem) { .compare--tiga { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 54rem) { .compare--tiga { grid-template-columns: repeat(3, 1fr); } }
 .compare--satu { max-width: 34rem; }
 @media (min-width: 54rem) { .compare--satu { grid-template-columns: 1fr; } }
 
@@ -536,7 +536,7 @@ img, video { max-width: 100%; }
 }
 
 .outline { display: grid; gap: 1.5rem; }
-@media (min-width: 48rem) { .outline { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 48rem) { .outline { grid-auto-flow: column; grid-auto-columns: 1fr; } }
 
 .outline section {
   background: var(--card);

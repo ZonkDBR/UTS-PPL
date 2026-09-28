@@ -22,9 +22,9 @@ sama; tempatnya sudah disiapkan sebagai kartu placeholder di bagian `#tugas`.
 
 Sumber: header LK.1 dan LK.2 di folder ini. `<html lang="id">`.
 
-**Kelas layanan tidak disebut di situs** (keputusan 28 September 2026): kelasnya banyak
-dan akan bertambah. Jangan menulis "X I", "XI J", dan sejenisnya di facts, alt, caption,
-maupun strip identitas. Jenjang ("kelas X", "kelas XI") boleh, misalnya sebagai alasan topik.
+**Kelas layanan hanya disebut di baris `Kelas` tabel `.facts` kartu RPL** (permintaan pemilik
+28 September 2026, menggantikan larangan sebelumnya): X I, X J, X D di Siklus 1, XI J di Siklus 2.
+Jangan menulis rombel di alt, caption, maupun strip identitas. Jenjang ("kelas X") boleh di teks.
 
 ## Bentuk teknis
 
@@ -190,13 +190,13 @@ dan satu siklus hanya punya satu video.** Analisis kegiatan nonmengajar pindah k
 
 | Siklus | Layanan (tanggal dari pemilik portofolio, bukan nama folder) |
 |---|---|
-| 1 | Penyesuaian Diri (Pribadi) 10 Agu 2026 · Regulasi Emosi (Pribadi) 13 Agu · Menghargai Guru dan Teman (Sosial) 20 Agu |
-| 2 | Manajemen Waktu (Pribadi) 20 Agu |
+| 1 | Penyesuaian Diri (X I) 10 Agu 2026 · Regulasi Emosi (X J) 13 Agu · Manajemen Waktu (X D) 20 Agu. Semua Pribadi, Experiential Learning, kelas X |
+| 2 | Menghargai Guru dan Teman (Sosial, XI J) 20 Agu. Video belum ada |
 | 3, 4 | placeholder `<!-- TODO -->` |
 
 Video Siklus 1: YouTube `CEGttnItg2I`, layanan Penyesuaian Diri. Kendala yang
 dinyatakan pemilik: di video itu lupa memakai mikrofon sehingga suara murid yang
-berpendapat kurang terdengar; di layanan Menghargai proyektor rusak sehingga PPT tidak
+berpendapat kurang terdengar; di layanan Menghargai (Siklus 2) proyektor rusak sehingga PPT tidak
 bisa ditayangkan.
 
 Setiap bagian memuat tiga hal, dalam urutan ini: **deskripsi produk** → **analisis** →
@@ -218,10 +218,12 @@ ditulis sebelum evaluasi hasil (ikut urutan RPL), termasuk di blok rumus.
 
 ## Bahan yang tersedia
 
-**RPL baru (28 September 2026)**: `assets/RPL regulasi emosi (Pribadi) Soshum (2B) M-2/`
-(RPL, PPT 13 slide "Menghadapi Badai Emosi", LKPD "Singer Menghadapi Badai" lima bagian)
-dan `assets/RPL manageman waktu (Pribadi) Soshum (2A) M-1/` (RPL dan LKPD "Bener
-Melangkah: Menguasai Matriks Prioritas Hidup"; **tidak ada PPT** di zipnya). Keduanya
+**Sumber Siklus 1 adalah `assets/SIKLUS 1 PPLM/`** (28 September 2026): RPL Penyesuaian Diri,
+Regulasi Emosi, dan Manajemen Waktu versi bertanda tangan, beserta PPT-nya. Situs menaut ke
+sana; salinan lama di `assets/RPL Penyesuaian…`, `RPL regulasi…`, `RPL manageman…` diabaikan
+git. Regulasi: PPT 13 slide "Menghadapi Badai Emosi", LKPD "Singer Menghadapi Badai" lima
+bagian. Manajemen Waktu: LKPD "Bener Melangkah: Menguasai Matriks Prioritas Hidup" dan
+`PPT Manajemen Waktu.pptx` 8 slide. Keduanya
 Experiential Learning, evaluasi proses /20, hasil /50, kepuasan 6-18. **Foto: selalu tiga
 per layanan** dari folder dokumentasinya, diperkecil ke `assets/dokumentasi/regulasi-0N`,
 `waktu-0N`; Menghargai memakai sosial-03, 04, 01.
