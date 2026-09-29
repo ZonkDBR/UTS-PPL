@@ -289,6 +289,14 @@ disebutkan.
 | Upacara Senin | Ikut mengatur barisan murid saat upacara bendera |
 | Selasa Sehat (SASESA, Salasa Sehat Sarerea) | Ikut senam bersama warga sekolah. Fotonya potongan dari unggahan Instagram sekolah, keterangannya menyebut sumber itu |
 
+Sejak 29 September 2026 ada 20 kegiatan lagi (24 foto total). Keterangannya diambil dari nama
+berkas mentah pemilik (`assets/nonmengajar/*.jpeg`, diabaikan git), versi terbit `.jpg` bernama
+rapi, maks 1400px. Daftar di situs dikelompokkan jadi empat kartu: pembiasaan dan ketertiban,
+asesmen dan pendataan, layanan dan pendampingan murid, tugas sekolah dan administrasi BK.
+Tiga nama berkas mentah tampak tertukar dengan isinya dan dirotasi: foto empat mata jadi
+`konseling-individu`, foto berlatar layar "Sosialisasi Kokurikuler" jadi `panitia-kokurikuler`,
+foto barisan pramuka jadi `pendampingan-kokurikuler`. Papan nama murid di foto pramuka dipikselkan.
+
 Berkas media lain: `assets/dokumentasi/` (foto pelaksanaan yang sudah diperkecil:
 `pribadi-01..03` dari kelas X I, `sosial-01..06` dari kelas XI J, dipakai di slider kartu
 RPL), dan `assets/video/home.mp4` (15,6 detik, potret, diputar otomatis tanpa suara di
