@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Thinking - PPG Semester I - Fahira Firzha Wianda</title>
+<meta name="description" content="Refleksi 4C, artefak terpilih, dan kaitan praktis mata kuliah Design Thinking, PPG Prajabatan Bimbingan dan Konseling IKIP Siliwangi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🌸%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#isi">Lompat ke isi</a>
+
+<!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="st-sakura" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(72 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(144 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(216 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#FFE68C"/>
+  </symbol>
+  <symbol id="st-hati" viewBox="0 0 100 100">
+    <path d="M50,84 C22,64 12,48 12,36 C12,24 22,16 32,16 C40,16 46,21 50,28 C54,21 60,16 68,16 C78,16 88,24 88,36 C88,48 78,64 50,84 Z"/>
+  </symbol>
+  <symbol id="st-kilau" viewBox="0 0 100 100">
+    <path d="M50,8 C54,34 66,46 92,50 C66,54 54,66 50,92 C46,66 34,54 8,50 C34,46 46,34 50,8 Z"/>
+  </symbol>
+  <symbol id="st-bintang" viewBox="0 0 100 100">
+    <path d="M50,10 L61,38 L91,40 L68,59 L76,88 L50,72 L24,88 L32,59 L9,40 L39,38 Z"/>
+  </symbol>
+</svg>
+
+<!-- Kelopak berjatuhan: bentuk CSS murni bergaris hitam, seperti stiker tempel. -->
+<div class="petals" aria-hidden="true">
+  <div class="petal" style="--i:0;  left:5%;  --s:16px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:1;  left:16%; --s:20px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:2;  left:27%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:3;  left:38%; --s:18px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:4;  left:49%; --s:15px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:5;  left:60%; --s:19px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:6;  left:71%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:7;  left:82%; --s:17px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:8;  left:93%; --s:15px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:9;  left:22%; --s:18px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:10; left:55%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:11; left:88%; --s:19px; --p:var(--blossom)"></div>
+</div>
+
+<nav class="sitenav" aria-label="Navigasi situs">
+  <div class="wrap">
+
+    <ul class="saklar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li>
+        <button type="button" class="saklar__ppg" data-aktif popovertarget="menu-ppg">PPG</button>
+        <div id="menu-ppg" class="menu-ppg" popover>
+          <p class="menu-ppg__judul">Pilih semester PPG</p>
+          <a href="ppg-1.html"><strong>Semester I</strong><span>6 mata kuliah, termasuk PPL Terbimbing</span></a>
+          <a href="ppg-2.html"><strong>Semester II</strong><span>5 mata kuliah, termasuk PPL Mandiri</span></a>
+        </div>
+      </li>
+      <li><a href="ppl.html">PPL</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="kepala kepala--mk">
+  <div class="wrap">
+    <div class="jejak-baris">
+      <p class="kepala__jejak"><a href="index.html">Beranda</a> / <a href="ppg-1.html">PPG Semester I</a> / Design Thinking</p>
+      <a class="kembali" href="ppg-1.html">Kembali ke Semester I</a>
+    </div>
+
+    <div class="mk-hero">
+      <ul class="chip-baris">
+        <li class="chip chip--gelap">Semester I</li>
+        <li class="chip">4 Alur Refleksi 4C</li>
+        <li class="chip">3 Artefak Terpilih</li>
+      </ul>
+      <h1>Design Thinking</h1>
+      <p class="mk-inti"><strong>Inti refleksi saya:</strong> Memetakan pengalaman seorang murid berinisial DB di kelas XI-L, dan membaca perilaku bermain HP di kelas sebagai data kebutuhan, bukan catatan kenakalan.</p>
+    </div>
+
+    <div class="peta4c">
+      <div class="peta4c__kepala">
+        <div><p class="eyebrow">Peta refleksi</p><h2>Alur Pemikiran 4C</h2></div>
+        <span class="chip">Pilih tahap untuk menuju bagiannya</span>
+      </div>
+      <ol class="peta4c__daftar">
+        <li><a href="#connection">
+          <span class="step" aria-hidden="true">1</span>
+          <span class="peta4c__label">Connection</span>
+          <strong>Keterkaitan</strong>
+          <span class="peta4c__ket">Menghubungkan pengalaman dengan pengetahuan sebelumnya</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+        <li><a href="#challenge">
+          <span class="step" aria-hidden="true">2</span>
+          <span class="peta4c__label">Challenge</span>
+          <strong>Tantangan</strong>
+          <span class="peta4c__ket">Mengidentifikasi tantangan dan kesulitan</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+        <li><a href="#concept">
+          <span class="step" aria-hidden="true">3</span>
+          <span class="peta4c__label">Concept</span>
+          <strong>Konsep</strong>
+          <span class="peta4c__ket">Memahami konsep dan teori yang relevan</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+        <li><a href="#change">
+          <span class="step" aria-hidden="true">4</span>
+          <span class="peta4c__label">Change</span>
+          <strong>Perubahan</strong>
+          <span class="peta4c__ket">Merencanakan perubahan dan perbaikan untuk pembelajaran selanjutnya</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+      </ol>
+    </div>
+  </div>
+</header>
+
+<main id="isi">
+  <div class="wrap mk-tata">
+
+    <aside class="toc" aria-label="Daftar isi">
+      <div class="toc__kepala">
+        <strong>Daftar Isi</strong>
+        <span class="toc__persen" aria-hidden="true">0% dibaca</span>
+      </div>
+      <p class="toc__judul">Design Thinking</p>
+      <div class="toc__bar" aria-hidden="true"><span></span></div>
+      <ul>
+        <li><a href="#connection">Keterkaitan <span class="chip">Connection</span></a></li>
+        <li><a href="#challenge">Tantangan <span class="chip">Challenge</span></a></li>
+        <li><a href="#concept">Konsep <span class="chip">Concept</span></a></li>
+        <li><a href="#change">Perubahan <span class="chip">Change</span></a></li>
+        <li><a href="#artefak">Analisis Artefak <span class="chip">Artefak</span></a></li>
+        <li><a href="#kaitan">Kaitan Praktis <span class="chip">Aksi</span></a></li>
+      </ul>
+      <a class="toc__semua" href="ppg-1.html">Semua mata kuliah Semester I</a>
+    </aside>
+
+    <div class="bab-daftar">
+
+      <section class="sec bab" id="connection">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">1</span>
+          <div><p class="eyebrow">Keterkaitan</p><h2>Connection</h2></div>
+        </div>
+        <p class="bab__sub">Menghubungkan pengalaman dengan pengetahuan sebelumnya</p>
+        <div class="cerita">
+          <p>
+            Peran calon guru bukan sekadar penyampai materi, melainkan perancang
+            pengalaman belajar yang berangkat dari empati. Melalui User Journey saya
+            memetakan pengalaman DB secara kronologis dan memperoleh empat insight:
+            pemetaan pengalaman dari awal hingga akhir, pain points yang tersembunyi,
+            perbedaan pengalaman antarpersona, dan <em>moments that matter</em> -
+            momen ketika seorang guru menyelingi pembelajaran dengan candaan yang
+            dikaitkan dengan sepak bola.
+          </p>
+        </div>
+      </section>
+
+      <section class="sec bab" id="challenge">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">2</span>
+          <div><p class="eyebrow">Tantangan</p><h2>Challenge</h2></div>
+        </div>
+        <p class="bab__sub">Mengidentifikasi tantangan dan kesulitan</p>
+        <div class="cerita">
+          <p>
+            Empati yang diidealkan dalam teori jauh lebih sulit dijalankan di kelas
+            nyata: guru menghadapi banyak murid sekaligus dengan waktu terbatas,
+            sehingga membangun rapport yang cukup untuk keterbukaan yang jujur jauh
+            lebih sulit daripada gambaran panduan. Tantangan lain ada pada kebiasaan
+            saya sendiri - kecenderungan langsung menyimpulkan penyebab masalah dari
+            kesan pertama, padahal Design Thinking menuntut saya menahan diri pada
+            fase Discover sebelum menyempit ke Define.
+          </p>
+        </div>
+      </section>
+
+      <section class="sec bab" id="concept">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">3</span>
+          <div><p class="eyebrow">Konsep</p><h2>Concept</h2></div>
+        </div>
+        <p class="bab__sub">Memahami konsep dan teori yang relevan</p>
+        <div class="cerita">
+          <p>Konsep yang kini menjadi pegangan saya:</p>
+          <ul>
+            <li><strong>Lima fase Design Thinking:</strong> siklus yang iteratif, bersama metodologi Double Diamond.</li>
+            <li><strong>Empati yang terstruktur:</strong> User Journey Mapping, In-Depth Interview, dan Sampling Extremes.</li>
+            <li><strong>Penilaian tiga pilar:</strong> melalui LK 4.D kelompok kami menilai media “Roda Kendali” pada desirability 85%, feasibility 80%, dan viability 85%.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec bab" id="change">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">4</span>
+          <div><p class="eyebrow">Perubahan</p><h2>Change</h2></div>
+        </div>
+        <p class="bab__sub">Merencanakan perubahan dan perbaikan untuk pembelajaran selanjutnya</p>
+        <div class="cerita">
+          <p>Komitmen yang akan saya terapkan:</p>
+          <ul>
+            <li>Saya akan selalu melakukan observasi awal sebelum menyusun program BK atau RPL, tidak lagi mengandalkan kesan pertama.</li>
+            <li>Saya akan menjadikan User Journey sederhana sebagai kebiasaan di awal semester.</li>
+          </ul>
+          <p>
+            Proyek “Kartu Ucapan untuk Kawan” menjadi pengingat konkret: desain awal
+            berbasis asumsi hanya berupa gambar generik, dan baru setelah wawancara
+            empati desainnya berubah menjadi personal dan bermakna.
+          </p>
+        </div>
+      </section>
+
+      <section class="sec bab" id="artefak">
+        <div class="bab__kepala">
+          <svg class="stiker" aria-hidden="true" style="--isi: var(--butter)"><use href="#st-kilau"></use></svg>
+          <div><p class="eyebrow">Bukti belajar</p><h2>Analisis Artefak</h2></div>
+        </div>
+        <div class="cerita cerita--polos">
+          <h4>Artefak yang saya pilih</h4>
+          <ul class="doc-grid">
+            <li class="doc-card">
+              <div class="doc-cover" aria-hidden="true"><span class="code">Observasi</span></div>
+              <div class="doc-body"><h4 class="doc-title">LK 2.B 2.1</h4><p>Catatan observasi kelas berisi empat kategori insight User Journey terhadap murid DB.</p></div>
+            </li>
+            <li class="doc-card">
+              <div class="doc-cover" aria-hidden="true"><span class="code">Proyek</span></div>
+              <div class="doc-body"><h4 class="doc-title">Kartu Ucapan untuk Kawan</h4><p>Beserta dokumentasi perubahan desain dari Fase 0 hingga final.</p></div>
+            </li>
+            <li class="doc-card">
+              <div class="doc-cover" aria-hidden="true"><span class="code">Prototipe</span></div>
+              <div class="doc-body"><h4 class="doc-title">LK 4.D</h4><p>Penilaian desirability, feasibility, dan viability media “Roda Kendali”.</p></div>
+            </li>
+          </ul>
+
+          <h4>Mengapa artefak ini</h4>
+          <p>
+            Tiga artefak yang mengikuti alur Design Thinking dari awal sampai akhir.
+            Catatan observasi dipilih justru karena isinya belum berupa solusi,
+            melainkan pengamatan - di sanalah terlihat saya berlatih menahan diri pada
+            fase Discover. Kartu Ucapan memperlihatkan perubahan desain setelah empati,
+            dan LK 4.D memuat data hasil pengujian, bukan sekadar klaim keberhasilan.
+          </p>
+
+          <h4>Bagian yang mendukung refleksi</h4>
+          <p>
+            Pada LK 2.B 2.1, empat butir insight beserta kolom “Relevansi BK” paling
+            mendukung tahap <em>connection</em>, karena di sanalah saya menerjemahkan
+            pengamatan menjadi implikasi layanan - membaca perilaku bermain HP dan tidur
+            di kelas sebagai penanda kesulitan belajar, bukan pelanggaran semata.
+            Perbandingan dua versi desain “Kartu Ucapan untuk Kawan” adalah bukti visual
+            paling ringkas bahwa empati mengubah hasil kerja saya.
+          </p>
+          <div class="bukti">
+            <p><strong>Bukti artefak:</strong> LK 2.B 2.1 · Kartu Ucapan untuk Kawan · LK 4.D</p>
+            <a class="ghost" href="https://drive.google.com/drive/folders/1atpna6WaqYhcGs6PTnndLSKncmagGcxW" target="_blank" rel="noopener">Buka folder Google Drive</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec bab bab--pink" id="kaitan">
+        <div class="bab__kepala">
+          <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom)"><use href="#st-hati"></use></svg>
+          <div><p class="eyebrow">Aksi</p><h2>Kaitan Praktis</h2></div>
+        </div>
+        <div class="cerita cerita--polos">
+          <h4>Konsep utama yang saya bawa ke praktik</h4>
+          <p>
+            Sebuah solusi tidak cukup hanya disukai; ia juga harus mungkin dijalankan
+            dan benar-benar berguna. Prinsip empati di sini sejalan dengan filosofi Ki
+            Hadjar Dewantara dan psikologi humanistik Carl Rogers, sehingga mata kuliah
+            ini terhubung langsung dengan Filosofi Pendidikan dan dengan keterampilan
+            mendengarkan pada Praktikum Konseling Individu.
+          </p>
+          <h4>Perubahan dalam praktik saya</h4>
+          <p>
+            Saya akan merancang media layanan yang sederhana dan dapat diproduksi ulang,
+            karena dari analisis ruang implementasi saya belajar bahwa yang memudahkan
+            penerapan justru kesederhanaannya. Saya juga akan mengajak rekan sejawat dan
+            guru BK, agar perubahan yang saya rancang didukung ekosistem sekolah dan
+            tidak berjalan sendirian.
+          </p>
+        </div>
+      </section>
+
+      <nav class="mk-pindah" aria-label="Mata kuliah lain">
+        <a class="mk-pindah__ke" href="ppg-1-pola-pikir.html"><span>Sebelumnya</span><strong>Pola Pikir Bertumbuh (Growth Mindset)</strong></a>
+        <a class="mk-pindah__ke mk-pindah__ke--lanjut" href="ppg-1-konseling.html"><span>Berikutnya</span><strong>Praktikum Konseling Individu</strong></a>
+      </nav>
+    </div>
+
+  </div>
+</main>
+
+<footer class="thanks">
+  <svg class="stiker s-kiri" aria-hidden="true"><use href="#st-bintang"></use></svg>
+  <svg class="stiker s-kanan" aria-hidden="true"><use href="#st-kilau"></use></svg>
+  <div class="wrap">
+    <svg class="blossom" viewBox="0 0 100 100" aria-hidden="true">
+      <g transform="rotate(0 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(60 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(120 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(180 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(240 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(300 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <circle class="inti" cx="50" cy="50" r="7"/>
+    </svg>
+
+    <h2>Terima Kasih</h2>
+    <p>
+      Terima kasih kepada Dosen Pengampu Mata Kuliah, Dosen Pembimbing Lapangan, dan Guru
+      Pamong di SMA Negeri 1 Cisarua atas bimbingan sepanjang perkuliahan dan
+      praktik lapangan.
+    </p>
+    <p class="sign">Fahira Firzha Wianda, PPG Prajabatan Bimbingan dan Konseling, IKIP Siliwangi</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

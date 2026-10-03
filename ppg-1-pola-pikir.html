@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pola Pikir Bertumbuh (Growth Mindset) - PPG Semester I - Fahira Firzha Wianda</title>
+<meta name="description" content="Refleksi 4C, artefak terpilih, dan kaitan praktis mata kuliah Pola Pikir Bertumbuh (Growth Mindset), PPG Prajabatan Bimbingan dan Konseling IKIP Siliwangi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🌸%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#isi">Lompat ke isi</a>
+
+<!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="st-sakura" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(72 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(144 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(216 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#FFE68C"/>
+  </symbol>
+  <symbol id="st-hati" viewBox="0 0 100 100">
+    <path d="M50,84 C22,64 12,48 12,36 C12,24 22,16 32,16 C40,16 46,21 50,28 C54,21 60,16 68,16 C78,16 88,24 88,36 C88,48 78,64 50,84 Z"/>
+  </symbol>
+  <symbol id="st-kilau" viewBox="0 0 100 100">
+    <path d="M50,8 C54,34 66,46 92,50 C66,54 54,66 50,92 C46,66 34,54 8,50 C34,46 46,34 50,8 Z"/>
+  </symbol>
+  <symbol id="st-bintang" viewBox="0 0 100 100">
+    <path d="M50,10 L61,38 L91,40 L68,59 L76,88 L50,72 L24,88 L32,59 L9,40 L39,38 Z"/>
+  </symbol>
+</svg>
+
+<!-- Kelopak berjatuhan: bentuk CSS murni bergaris hitam, seperti stiker tempel. -->
+<div class="petals" aria-hidden="true">
+  <div class="petal" style="--i:0;  left:5%;  --s:16px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:1;  left:16%; --s:20px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:2;  left:27%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:3;  left:38%; --s:18px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:4;  left:49%; --s:15px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:5;  left:60%; --s:19px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:6;  left:71%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:7;  left:82%; --s:17px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:8;  left:93%; --s:15px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:9;  left:22%; --s:18px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:10; left:55%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:11; left:88%; --s:19px; --p:var(--blossom)"></div>
+</div>
+
+<nav class="sitenav" aria-label="Navigasi situs">
+  <div class="wrap">
+
+    <ul class="saklar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li>
+        <button type="button" class="saklar__ppg" data-aktif popovertarget="menu-ppg">PPG</button>
+        <div id="menu-ppg" class="menu-ppg" popover>
+          <p class="menu-ppg__judul">Pilih semester PPG</p>
+          <a href="ppg-1.html"><strong>Semester I</strong><span>6 mata kuliah, termasuk PPL Terbimbing</span></a>
+          <a href="ppg-2.html"><strong>Semester II</strong><span>5 mata kuliah, termasuk PPL Mandiri</span></a>
+        </div>
+      </li>
+      <li><a href="ppl.html">PPL</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="kepala kepala--mk">
+  <div class="wrap">
+    <div class="jejak-baris">
+      <p class="kepala__jejak"><a href="index.html">Beranda</a> / <a href="ppg-1.html">PPG Semester I</a> / Pola Pikir Bertumbuh (Growth Mindset)</p>
+      <a class="kembali" href="ppg-1.html">Kembali ke Semester I</a>
+    </div>
+
+    <div class="mk-hero">
+      <ul class="chip-baris">
+        <li class="chip chip--gelap">Semester I</li>
+        <li class="chip">4 Alur Refleksi 4C</li>
+        <li class="chip">3 Artefak Terpilih</li>
+      </ul>
+      <h1>Pola Pikir Bertumbuh (Growth Mindset)</h1>
+      <p class="mk-inti"><strong>Inti refleksi saya:</strong> Suara pola pikir tetap paling sering muncul dari dalam diri saya sendiri, bukan dari murid. Menumbuhkannya harus dimulai dari guru.</p>
+    </div>
+
+    <div class="peta4c">
+      <div class="peta4c__kepala">
+        <div><p class="eyebrow">Peta refleksi</p><h2>Alur Pemikiran 4C</h2></div>
+        <span class="chip">Pilih tahap untuk menuju bagiannya</span>
+      </div>
+      <ol class="peta4c__daftar">
+        <li><a href="#connection">
+          <span class="step" aria-hidden="true">1</span>
+          <span class="peta4c__label">Connection</span>
+          <strong>Keterkaitan</strong>
+          <span class="peta4c__ket">Menghubungkan pengalaman dengan pengetahuan sebelumnya</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+        <li><a href="#challenge">
+          <span class="step" aria-hidden="true">2</span>
+          <span class="peta4c__label">Challenge</span>
+          <strong>Tantangan</strong>
+          <span class="peta4c__ket">Mengidentifikasi tantangan dan kesulitan</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+        <li><a href="#concept">
+          <span class="step" aria-hidden="true">3</span>
+          <span class="peta4c__label">Concept</span>
+          <strong>Konsep</strong>
+          <span class="peta4c__ket">Memahami konsep dan teori yang relevan</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+        <li><a href="#change">
+          <span class="step" aria-hidden="true">4</span>
+          <span class="peta4c__label">Change</span>
+          <strong>Perubahan</strong>
+          <span class="peta4c__ket">Merencanakan perubahan dan perbaikan untuk pembelajaran selanjutnya</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+      </ol>
+    </div>
+  </div>
+</header>
+
+<main id="isi">
+  <div class="wrap mk-tata">
+
+    <aside class="toc" aria-label="Daftar isi">
+      <div class="toc__kepala">
+        <strong>Daftar Isi</strong>
+        <span class="toc__persen" aria-hidden="true">0% dibaca</span>
+      </div>
+      <p class="toc__judul">Pola Pikir Bertumbuh (Growth Mindset)</p>
+      <div class="toc__bar" aria-hidden="true"><span></span></div>
+      <ul>
+        <li><a href="#connection">Keterkaitan <span class="chip">Connection</span></a></li>
+        <li><a href="#challenge">Tantangan <span class="chip">Challenge</span></a></li>
+        <li><a href="#concept">Konsep <span class="chip">Concept</span></a></li>
+        <li><a href="#change">Perubahan <span class="chip">Change</span></a></li>
+        <li><a href="#artefak">Analisis Artefak <span class="chip">Artefak</span></a></li>
+        <li><a href="#kaitan">Kaitan Praktis <span class="chip">Aksi</span></a></li>
+      </ul>
+      <a class="toc__semua" href="ppg-1.html">Semua mata kuliah Semester I</a>
+    </aside>
+
+    <div class="bab-daftar">
+
+      <section class="sec bab" id="connection">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">1</span>
+          <div><p class="eyebrow">Keterkaitan</p><h2>Connection</h2></div>
+        </div>
+        <p class="bab__sub">Menghubungkan pengalaman dengan pengetahuan sebelumnya</p>
+        <div class="cerita">
+          <p>
+            Growth mindset harus lebih dulu saya miliki sendiri sebagai pendidik,
+            karena cara pandang guru terhadap kemampuan murid menentukan bagaimana ia
+            merespons kegagalan dan memberi umpan balik. Pada LK 1.3 saya mencermati
+            data lintas negara: Indonesia 39% murid bergrowth mindset dengan skor PISA
+            2018 sebesar 371-396, sementara Finlandia dengan 72% mencatat 507-522.
+            Data itu memindahkan growth mindset dari wilayah motivasi personal ke
+            wilayah kebijakan pembelajaran.
+          </p>
+        </div>
+      </section>
+
+      <section class="sec bab" id="challenge">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">2</span>
+          <div><p class="eyebrow">Tantangan</p><h2>Challenge</h2></div>
+        </div>
+        <p class="bab__sub">Mengidentifikasi tantangan dan kesulitan</p>
+        <div class="cerita">
+          <p>
+            Beberapa kebiasaan saya ternyata berbeda dari materi. Saya terbiasa memuji
+            berdasarkan hasil - “kamu memang pintar” - padahal penelitian Carol Dweck
+            menunjukkan pujian atas proses jauh lebih efektif membangun ketahanan.
+            Saya juga kerap melabeli murid yang kesulitan, padahal materi menekankan
+            kata “belum”. Analisis kasus Bu Rina pada LK 4.C menyadarkan saya bahwa
+            banyak praktik mengajar yang tampak wajar justru memelihara pola pikir
+            tetap.
+          </p>
+        </div>
+      </section>
+
+      <section class="sec bab" id="concept">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">3</span>
+          <div><p class="eyebrow">Konsep</p><h2>Concept</h2></div>
+        </div>
+        <p class="bab__sub">Memahami konsep dan teori yang relevan</p>
+        <div class="cerita">
+          <p>Kemampuan dapat berkembang melalui usaha, strategi, dan umpan balik. Konsep yang menopangnya:</p>
+          <ul>
+            <li><strong>Neuroplastisitas:</strong> latihan berulang menebalkan jalur sinaps, sehingga kemampuan benar-benar berubah secara fisik.</li>
+            <li><strong>Mindset Assessment Profile:</strong> kategori FF, FG, GF, GG yang mengajarkan membaca profil per aspek.</li>
+            <li><strong><em>Power of Yet</em>:</strong> kata “belum” sebagai pembingkaian ulang kemampuan.</li>
+            <li><strong>Empat strategi intervensi:</strong> Cognitive Framing, Scaffolding, Opportunity-Based Thinking, dan Formative Assessment.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec bab" id="change">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">4</span>
+          <div><p class="eyebrow">Perubahan</p><h2>Change</h2></div>
+        </div>
+        <p class="bab__sub">Merencanakan perubahan dan perbaikan untuk pembelajaran selanjutnya</p>
+        <div class="cerita">
+          <p>Komitmen yang akan saya terapkan:</p>
+          <ul>
+            <li>Saya akan membiasakan diri mereframe suara pola pikir tetap dalam diri sendiri sebelum menuntut hal yang sama dari murid.</li>
+            <li>Saya akan membuat pujian spesifik pada usaha, strategi, dan ketekunan, disertai penjelasan langkah perbaikan berikutnya.</li>
+            <li>Saya akan mengintegrasikan keempat strategi intervensi secara sengaja dalam rancangan layanan.</li>
+            <li>Saya akan membaca pola pikir murid dari data MAP, bukan sekadar kesan.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec bab" id="artefak">
+        <div class="bab__kepala">
+          <svg class="stiker" aria-hidden="true" style="--isi: var(--butter)"><use href="#st-kilau"></use></svg>
+          <div><p class="eyebrow">Bukti belajar</p><h2>Analisis Artefak</h2></div>
+        </div>
+        <div class="cerita cerita--polos">
+          <h4>Artefak yang saya pilih</h4>
+          <ul class="doc-grid">
+            <li class="doc-card">
+              <div class="doc-cover" aria-hidden="true"><span class="code">Topik 1</span></div>
+              <div class="doc-body"><h4 class="doc-title">LK 1.3</h4><p>“Di Balik Angka dan Pola Pikir”: analisis korelasi growth mindset dengan skor PISA 2018.</p></div>
+            </li>
+            <li class="doc-card">
+              <div class="doc-cover" aria-hidden="true"><span class="code">Topik 2</span></div>
+              <div class="doc-body"><h4 class="doc-title">LK 2.2</h4><p>Tabel dampak neuroplastisitas beserta implikasi praktisnya.</p></div>
+            </li>
+            <li class="doc-card">
+              <div class="doc-cover" aria-hidden="true"><span class="code">Topik 4</span></div>
+              <div class="doc-body"><h4 class="doc-title">LK 4.E</h4><p>Jurnal refleksi pribadi.</p></div>
+            </li>
+          </ul>
+
+          <h4>Mengapa artefak ini</h4>
+          <p>
+            Tiga lembar kerja yang menggambarkan perjalanan berjenjang: menguji
+            keyakinan pada data, memahami dasar neurologisnya, lalu mengakui kebiasaan
+            diri sendiri. LK 1.3 khususnya dipilih karena di sanalah keyakinan tentang
+            growth mindset diuji dengan data lintas negara, sehingga saya tidak
+            menerimanya sebagai jargon motivasi melainkan sebagai temuan yang dapat
+            diperiksa.
+          </p>
+
+          <h4>Bagian yang mendukung refleksi</h4>
+          <p>
+            Pada LK 2.2, kolom “Dampak Neuroplastisitas” dan “Implikasi Praktis”
+            mendukung tahap <em>concept</em> karena menerjemahkan cara kerja otak
+            menjadi tindakan guru yang spesifik, sampai ke contoh kalimat yang dapat
+            diucapkan di kelas. Jurnal Refleksi pada LK 4.E menjadi bukti paling
+            personal, karena di sana saya mengakui kebiasaan mengajar yang tanpa sadar
+            masih menumbuhkan pola pikir tetap.
+          </p>
+          <div class="bukti">
+            <p><strong>Bukti artefak:</strong> LK 1.3 · LK 2.2 · LK 4.E</p>
+            <a class="ghost" href="https://drive.google.com/drive/folders/1vlRlpZYyS9WubIDapz-29HzStw0a01Z-" target="_blank" rel="noopener">Buka folder Google Drive</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec bab bab--pink" id="kaitan">
+        <div class="bab__kepala">
+          <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom)"><use href="#st-hati"></use></svg>
+          <div><p class="eyebrow">Aksi</p><h2>Kaitan Praktis</h2></div>
+        </div>
+        <div class="cerita cerita--polos">
+          <h4>Konsep utama yang saya bawa ke praktik</h4>
+          <p>
+            Bahasa membentuk keyakinan. Mengganti “tidak bisa” menjadi “belum bisa”
+            bukan penghalusan, melainkan pembingkaian ulang yang membuka ruang
+            perkembangan. Pola pikir juga bukan label hitam-putih: MAP mengajarkan
+            membacanya per aspek, sehingga intervensi bisa disesuaikan.
+          </p>
+          <h4>Perubahan dalam praktik saya</h4>
+          <p>
+            Umpan balik saya arahkan pada proses, bukan pada bakat bawaan, dengan
+            penjelasan bagian mana yang sudah tepat dan apa langkah berikutnya. Saya
+            juga ingin meluangkan lebih banyak waktu bagi murid yang paling jarang
+            diperhatikan - merekalah yang paling membutuhkan pembingkaian ulang atas
+            kemampuannya.
+          </p>
+        </div>
+      </section>
+
+      <nav class="mk-pindah" aria-label="Mata kuliah lain">
+        <a class="mk-pindah__ke" href="ppg-1-ppl.html"><span>Sebelumnya</span><strong>Praktik Pengalaman Lapangan (PPL) Terbimbing</strong></a>
+        <a class="mk-pindah__ke mk-pindah__ke--lanjut" href="ppg-1-design-thinking.html"><span>Berikutnya</span><strong>Design Thinking</strong></a>
+      </nav>
+    </div>
+
+  </div>
+</main>
+
+<footer class="thanks">
+  <svg class="stiker s-kiri" aria-hidden="true"><use href="#st-bintang"></use></svg>
+  <svg class="stiker s-kanan" aria-hidden="true"><use href="#st-kilau"></use></svg>
+  <div class="wrap">
+    <svg class="blossom" viewBox="0 0 100 100" aria-hidden="true">
+      <g transform="rotate(0 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(60 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(120 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(180 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(240 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(300 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <circle class="inti" cx="50" cy="50" r="7"/>
+    </svg>
+
+    <h2>Terima Kasih</h2>
+    <p>
+      Terima kasih kepada Dosen Pengampu Mata Kuliah, Dosen Pembimbing Lapangan, dan Guru
+      Pamong di SMA Negeri 1 Cisarua atas bimbingan sepanjang perkuliahan dan
+      praktik lapangan.
+    </p>
+    <p class="sign">Fahira Firzha Wianda, PPG Prajabatan Bimbingan dan Konseling, IKIP Siliwangi</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

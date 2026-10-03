@@ -4,7 +4,8 @@
 (function () {
   var sections = Array.prototype.slice.call(document.querySelectorAll('main .sec'));
   var petals   = Array.prototype.slice.call(document.querySelectorAll('.sitenav .kelopak'));
-  var links    = Array.prototype.slice.call(document.querySelectorAll('.navlinks a'));
+  // halaman mata kuliah PPG memakai daftar isi di samping, bukan .navlinks di nav
+  var links    = Array.prototype.slice.call(document.querySelectorAll('.navlinks a, .toc ul a'));
 
   if (!sections.length) return;
 
@@ -59,7 +60,7 @@
     if (active !== terakhir && links[active]) {
       terakhir = active;
       var baris = links[active].closest('.navlinks');
-      if (baris.scrollWidth > baris.clientWidth) {
+      if (baris && baris.scrollWidth > baris.clientWidth) {
         baris.scrollTo({ left: links[active].offsetLeft - baris.offsetLeft - 8 });
       }
     }
@@ -84,6 +85,30 @@
     clearTimeout(tundaUkur);
     tundaUkur = setTimeout(pasangPita, 150);
   });
+})();
+
+
+/* Penghitung "n% dibaca" di daftar isi halaman mata kuliah PPG. */
+
+(function () {
+  var isi = document.querySelector('.bab-daftar');
+  var bar = document.querySelector('.toc__bar span');
+  var angka = document.querySelector('.toc__persen');
+  if (!isi || !bar) return;
+  var antre = false;
+
+  function ukur() {
+    antre = false;
+    var r = isi.getBoundingClientRect();
+    var p = Math.min(1, Math.max(0, (window.innerHeight - r.top) / r.height));
+    bar.style.width = (p * 100) + '%';
+    angka.textContent = Math.round(p * 100) + '% dibaca';
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!antre) { antre = true; requestAnimationFrame(ukur); }
+  }, { passive: true });
+  ukur();
 })();
 
 

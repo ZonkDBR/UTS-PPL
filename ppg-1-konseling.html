@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praktikum Konseling Individu - PPG Semester I - Fahira Firzha Wianda</title>
+<meta name="description" content="Refleksi 4C, artefak terpilih, dan kaitan praktis mata kuliah Praktikum Konseling Individu, PPG Prajabatan Bimbingan dan Konseling IKIP Siliwangi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🌸%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#isi">Lompat ke isi</a>
+
+<!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="st-sakura" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(72 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(144 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(216 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#FFE68C"/>
+  </symbol>
+  <symbol id="st-hati" viewBox="0 0 100 100">
+    <path d="M50,84 C22,64 12,48 12,36 C12,24 22,16 32,16 C40,16 46,21 50,28 C54,21 60,16 68,16 C78,16 88,24 88,36 C88,48 78,64 50,84 Z"/>
+  </symbol>
+  <symbol id="st-kilau" viewBox="0 0 100 100">
+    <path d="M50,8 C54,34 66,46 92,50 C66,54 54,66 50,92 C46,66 34,54 8,50 C34,46 46,34 50,8 Z"/>
+  </symbol>
+  <symbol id="st-bintang" viewBox="0 0 100 100">
+    <path d="M50,10 L61,38 L91,40 L68,59 L76,88 L50,72 L24,88 L32,59 L9,40 L39,38 Z"/>
+  </symbol>
+</svg>
+
+<!-- Kelopak berjatuhan: bentuk CSS murni bergaris hitam, seperti stiker tempel. -->
+<div class="petals" aria-hidden="true">
+  <div class="petal" style="--i:0;  left:5%;  --s:16px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:1;  left:16%; --s:20px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:2;  left:27%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:3;  left:38%; --s:18px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:4;  left:49%; --s:15px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:5;  left:60%; --s:19px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:6;  left:71%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:7;  left:82%; --s:17px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:8;  left:93%; --s:15px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:9;  left:22%; --s:18px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:10; left:55%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:11; left:88%; --s:19px; --p:var(--blossom)"></div>
+</div>
+
+<nav class="sitenav" aria-label="Navigasi situs">
+  <div class="wrap">
+
+    <ul class="saklar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li>
+        <button type="button" class="saklar__ppg" data-aktif popovertarget="menu-ppg">PPG</button>
+        <div id="menu-ppg" class="menu-ppg" popover>
+          <p class="menu-ppg__judul">Pilih semester PPG</p>
+          <a href="ppg-1.html"><strong>Semester I</strong><span>6 mata kuliah, termasuk PPL Terbimbing</span></a>
+          <a href="ppg-2.html"><strong>Semester II</strong><span>5 mata kuliah, termasuk PPL Mandiri</span></a>
+        </div>
+      </li>
+      <li><a href="ppl.html">PPL</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="kepala kepala--mk">
+  <div class="wrap">
+    <div class="jejak-baris">
+      <p class="kepala__jejak"><a href="index.html">Beranda</a> / <a href="ppg-1.html">PPG Semester I</a> / Praktikum Konseling Individu</p>
+      <a class="kembali" href="ppg-1.html">Kembali ke Semester I</a>
+    </div>
+
+    <div class="mk-hero">
+      <ul class="chip-baris">
+        <li class="chip chip--gelap">Semester I</li>
+        <li class="chip">4 Alur Refleksi 4C</li>
+        <li class="chip">2 Artefak Terpilih</li>
+      </ul>
+      <h1>Praktikum Konseling Individu</h1>
+      <p class="mk-inti"><strong>Inti refleksi saya:</strong> Lima sesi duduk berhadapan dengan konseli sebagai konselor, bukan sebagai mahasiswa yang menghafal teori. Konseling ternyata relasi, bukan teknik.</p>
+    </div>
+
+    <div class="peta4c">
+      <div class="peta4c__kepala">
+        <div><p class="eyebrow">Peta refleksi</p><h2>Alur Pemikiran 4C</h2></div>
+        <span class="chip">Pilih tahap untuk menuju bagiannya</span>
+      </div>
+      <ol class="peta4c__daftar">
+        <li><a href="#connection">
+          <span class="step" aria-hidden="true">1</span>
+          <span class="peta4c__label">Connection</span>
+          <strong>Keterkaitan</strong>
+          <span class="peta4c__ket">Menghubungkan pengalaman dengan pengetahuan sebelumnya</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+        <li><a href="#challenge">
+          <span class="step" aria-hidden="true">2</span>
+          <span class="peta4c__label">Challenge</span>
+          <strong>Tantangan</strong>
+          <span class="peta4c__ket">Mengidentifikasi tantangan dan kesulitan</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+        <li><a href="#concept">
+          <span class="step" aria-hidden="true">3</span>
+          <span class="peta4c__label">Concept</span>
+          <strong>Konsep</strong>
+          <span class="peta4c__ket">Memahami konsep dan teori yang relevan</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+        <li><a href="#change">
+          <span class="step" aria-hidden="true">4</span>
+          <span class="peta4c__label">Change</span>
+          <strong>Perubahan</strong>
+          <span class="peta4c__ket">Merencanakan perubahan dan perbaikan untuk pembelajaran selanjutnya</span>
+          <span class="peta4c__buka">Buka bagian</span>
+        </a></li>
+      </ol>
+    </div>
+  </div>
+</header>
+
+<main id="isi">
+  <div class="wrap mk-tata">
+
+    <aside class="toc" aria-label="Daftar isi">
+      <div class="toc__kepala">
+        <strong>Daftar Isi</strong>
+        <span class="toc__persen" aria-hidden="true">0% dibaca</span>
+      </div>
+      <p class="toc__judul">Praktikum Konseling Individu</p>
+      <div class="toc__bar" aria-hidden="true"><span></span></div>
+      <ul>
+        <li><a href="#connection">Keterkaitan <span class="chip">Connection</span></a></li>
+        <li><a href="#challenge">Tantangan <span class="chip">Challenge</span></a></li>
+        <li><a href="#concept">Konsep <span class="chip">Concept</span></a></li>
+        <li><a href="#change">Perubahan <span class="chip">Change</span></a></li>
+        <li><a href="#artefak">Analisis Artefak <span class="chip">Artefak</span></a></li>
+        <li><a href="#kaitan">Kaitan Praktis <span class="chip">Aksi</span></a></li>
+      </ul>
+      <a class="toc__semua" href="ppg-1.html">Semua mata kuliah Semester I</a>
+    </aside>
+
+    <div class="bab-daftar">
+
+      <section class="sec bab" id="connection">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">1</span>
+          <div><p class="eyebrow">Keterkaitan</p><h2>Connection</h2></div>
+        </div>
+        <p class="bab__sub">Menghubungkan pengalaman dengan pengetahuan sebelumnya</p>
+        <div class="cerita">
+          <p>
+            Inilah mata kuliah yang paling langsung membentuk identitas saya sebagai
+            calon guru BK. Di awal praktikum saya sangat cemas; seiring waktu saya
+            menyadari kecemasan itu bukan tanda saya lemah, melainkan bagian wajar
+            dari proses. Di akhir praktikum rasa percaya diri saya meningkat, bukan
+            karena merasa sempurna, melainkan karena saya tidak lagi terjebak dalam
+            ketakutan berbuat salah dan bisa fokus hadir memahami perasaan konseli.
+          </p>
+        </div>
+      </section>
+
+      <section class="sec bab" id="challenge">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">2</span>
+          <div><p class="eyebrow">Tantangan</p><h2>Challenge</h2></div>
+        </div>
+        <p class="bab__sub">Mengidentifikasi tantangan dan kesulitan</p>
+        <div class="cerita">
+          <p>
+            Tantangan terbesar adalah ketergantungan saya pada teknik dan “rumus”
+            konseling, sehingga interaksi terasa kaku. Ketika cemas, saya cenderung
+            berlindung di balik teknik agar merasa aman dari rasa salah. Tantangan
+            lain: waktu sering habis pada tahap eksplorasi tanpa sempat merumuskan
+            tujuan, kecenderungan terlalu cepat memberi saran, dan - yang terberat -
+            mengelola emosi diri ketika konseli menceritakan masalah yang berat.
+          </p>
+        </div>
+      </section>
+
+      <section class="sec bab" id="concept">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">3</span>
+          <div><p class="eyebrow">Konsep</p><h2>Concept</h2></div>
+        </div>
+        <p class="bab__sub">Memahami konsep dan teori yang relevan</p>
+        <div class="cerita">
+          <p>Konsep yang kini menjadi pegangan saya:</p>
+          <ul>
+            <li><strong>Keterampilan mikro:</strong> active listening, attending, refleksi perasaan, dan pertanyaan terbuka menjadi penentu keberhasilan konseling.</li>
+            <li><strong>Rapport dan aliansi kerja:</strong> dibangun bertahap, bukan instan.</li>
+            <li><strong>Pendekatan teoretis:</strong> setiap pendekatan punya cara pandang berbeda sehingga harus disesuaikan dengan konseli, bukan diseragamkan.</li>
+            <li><strong>Integrative Developmental Model:</strong> memberi saya bahasa untuk membaca perkembangan diri dari Level 1 menuju Level 2.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec bab" id="change">
+        <div class="bab__kepala">
+          <span class="step" aria-hidden="true">4</span>
+          <div><p class="eyebrow">Perubahan</p><h2>Change</h2></div>
+        </div>
+        <p class="bab__sub">Merencanakan perubahan dan perbaikan untuk pembelajaran selanjutnya</p>
+        <div class="cerita">
+          <p>Rencana tindak lanjut saya, dengan target waktu dan indikator:</p>
+          <ul>
+            <li>Saya akan berlatih refleksi perasaan lewat role-play dua kali seminggu selama satu bulan.</li>
+            <li>Saya akan membaca satu artikel jurnal pendekatan konseling setiap minggu.</li>
+            <li>Saya akan menulis jurnal reflektif setelah setiap sesi.</li>
+            <li>Saya akan melatih diri menahan dorongan memberi saran terlalu cepat, dengan sengaja memberi jeda dan mengembalikan pertanyaan kepada konseli.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec bab" id="artefak">
+        <div class="bab__kepala">
+          <svg class="stiker" aria-hidden="true" style="--isi: var(--butter)"><use href="#st-kilau"></use></svg>
+          <div><p class="eyebrow">Bukti belajar</p><h2>Analisis Artefak</h2></div>
+        </div>
+        <div class="cerita cerita--polos">
+          <h4>Artefak yang saya pilih</h4>
+          <ul class="doc-grid">
+            <li class="doc-card">
+              <div class="doc-cover" aria-hidden="true"><span class="code">Refleksi</span></div>
+              <div class="doc-body"><h4 class="doc-title">LK-5.1 Refleksi Akhir</h4><p>Lima bagian: Refleksi Personal, Refleksi Profesional, Apresiasi Diri, Identifikasi Kendala, dan Rencana Tindak Lanjut, ditutup dengan kontrak diri.</p></div>
+            </li>
+            <li class="doc-card">
+              <div class="doc-cover" aria-hidden="true"><span class="code">Observasi</span></div>
+              <div class="doc-body"><h4 class="doc-title">Lembar Observasi Keterampilan Konseling</h4><p>Catatan pihak ketiga atas penampilan saya di setiap sesi.</p></div>
+            </li>
+          </ul>
+
+          <h4>Mengapa artefak ini</h4>
+          <p>
+            LK-5.1 saya letakkan sebagai pusat karena strukturnya memaksa saya jujur
+            pada diri sendiri, termasuk menuliskan hal yang tidak nyaman diakui. Lembar
+            observasi menjadi pasangannya karena memberi sudut pandang dari luar diri
+            saya, sehingga klaim perkembangan yang saya tulis dapat diperiksa
+            kebenarannya.
+          </p>
+
+          <h4>Bagian yang mendukung refleksi</h4>
+          <p>
+            Bagian D “Identifikasi Kendala” pada LK-5.1 paling mendukung tahap
+            <em>challenge</em> karena tidak berhenti pada menyebut kesulitan, melainkan
+            menelusuri sebabnya. Bagian C “Apresiasi Diri” mencatat kemampuan saya untuk
+            tidak panik menghadapi keheningan panjang konseli: di awal praktikum
+            keheningan selalu membuat saya terburu-buru mengisinya, sekarang saya
+            memahami konseli mungkin sedang merangkai kata. Perubahan cara membaca satu
+            situasi yang sama itulah bukti pertumbuhan keterampilan mikro saya.
+          </p>
+          <div class="bukti">
+            <p><strong>Bukti artefak:</strong> LK-5.1 Refleksi Akhir · Lembar Observasi</p>
+            <a class="ghost" href="https://drive.google.com/drive/folders/1JwwRZbbE2t-G0zNfSo16tEYWNesfkTkA" target="_blank" rel="noopener">Buka folder Google Drive</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec bab bab--pink" id="kaitan">
+        <div class="bab__kepala">
+          <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom)"><use href="#st-hati"></use></svg>
+          <div><p class="eyebrow">Aksi</p><h2>Kaitan Praktis</h2></div>
+        </div>
+        <div class="cerita cerita--polos">
+          <h4>Konsep utama yang saya bawa ke praktik</h4>
+          <p>
+            Fleksibilitas dan keaslian jauh lebih penting daripada menghafal teknik,
+            karena teknik bukan untuk dihafalkan melainkan dipahami dan diterapkan
+            sesuai kebutuhan konseli. Kendala yang saya alami bukan akhir dari proses,
+            melainkan penanda bahwa saya sedang berada di titik pertumbuhan - kerangka
+            yang bertemu langsung dengan mata kuliah Pola Pikir Bertumbuh.
+          </p>
+          <h4>Perubahan dalam praktik saya</h4>
+          <p>
+            Struktur sesi saya rencanakan sebelum konseling dimulai, karena dari
+            identifikasi kendala saya tahu akar masalahnya bukan pada kecepatan
+            berbicara melainkan pada ketiadaan rancangan tahapan. Saya juga
+            mempertahankan kebiasaan yang terbukti membantu: meninjau catatan teori
+            sebelum sesi dan aktif meminta umpan balik setelahnya.
+          </p>
+        </div>
+      </section>
+
+      <nav class="mk-pindah" aria-label="Mata kuliah lain">
+        <a class="mk-pindah__ke" href="ppg-1-design-thinking.html"><span>Sebelumnya</span><strong>Design Thinking</strong></a>
+        <a class="mk-pindah__ke mk-pindah__ke--lanjut" href="ppg-1.html"><span>Selesai</span><strong>Ringkasan Semester I</strong></a>
+      </nav>
+    </div>
+
+  </div>
+</main>
+
+<footer class="thanks">
+  <svg class="stiker s-kiri" aria-hidden="true"><use href="#st-bintang"></use></svg>
+  <svg class="stiker s-kanan" aria-hidden="true"><use href="#st-kilau"></use></svg>
+  <div class="wrap">
+    <svg class="blossom" viewBox="0 0 100 100" aria-hidden="true">
+      <g transform="rotate(0 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(60 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(120 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(180 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(240 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(300 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <circle class="inti" cx="50" cy="50" r="7"/>
+    </svg>
+
+    <h2>Terima Kasih</h2>
+    <p>
+      Terima kasih kepada Dosen Pengampu Mata Kuliah, Dosen Pembimbing Lapangan, dan Guru
+      Pamong di SMA Negeri 1 Cisarua atas bimbingan sepanjang perkuliahan dan
+      praktik lapangan.
+    </p>
+    <p class="sign">Fahira Firzha Wianda, PPG Prajabatan Bimbingan dan Konseling, IKIP Siliwangi</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

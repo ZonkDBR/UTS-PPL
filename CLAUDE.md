@@ -32,8 +32,11 @@ Jangan menulis rombel di alt, caption, maupun strip identitas. Jenjang ("kelas X
 index.html   beranda: hero profil + video Home + strip identitas + dua pintu (PPG, PPL)
 profil.html  profil lengkap: tentang, alasan dan nilai, jejak langkah, riwayat (placeholder)
 ppl.html     PPL Mandiri = tugas LK 3: tab Siklus 1-4, Nonmengajar, Penilaian, Tugas
-ppg-1.html   PPG semester I, enam mata kuliah (refleksi 4C, artefak, kaitan praktis)
-ppg-2.html   PPG semester II, lima mata kuliah
+ppg-1.html   ringkasan PPG semester I: alur 4C + enam kartu mata kuliah
+ppg-1-*.html satu halaman per mata kuliah semester I (filosofi, asesmen, ppl, pola-pikir,
+             design-thinking, konseling)
+ppg-2.html   ringkasan PPG semester II, lima kartu mata kuliah
+ppg-2-*.html intervensi, pse, ppl, konseling, projek
 style.css    satu berkas untuk semua halaman
 script.js    reveal + kelopak + nav aktif, tab PPL, jejak kursor, slider, video hero, kotak YouTube
 assets/      foto profil, dokumentasi, LKPD, video Home, RPL dan PPT yang ditautkan
@@ -41,18 +44,17 @@ assets/      foto profil, dokumentasi, LKPD, video Home, RPL dan PPT yang ditaut
 
 Tiap halaman menyalin sendiri `<head>`, set `<symbol>` stiker, lapisan kelopak, nav, dan
 footer (tanpa build step, jadi tidak ada include). Kalau mengubah salah satunya, ubah di
-kelima berkas.
+semua 16 berkas HTML.
 
-**Nav bersama**: di awal `<body>` semua halaman. Isinya bunga penanda (hanya di ppg-1
-dan ppg-2), `.saklar` pil Beranda/Profil/PPG/PPL dengan `aria-current="page"` pada
-halaman aktif (latar `--rose`, teks putih), lalu `.navlinks` bagian halaman itu. Bunga
-punya satu kelopak per `main .sec` (6 di ppg-1, 5 di ppg-2). `script.js` memasangkan
-kelopak dan tautan ke bagian menurut urutan, jadi jumlahnya harus sama.
+**Nav bersama**: di awal `<body>` semua halaman. Isinya `.saklar` pil Beranda/Profil/PPG/PPL dengan `aria-current="page"` pada
+halaman aktif (latar `--rose`, teks putih), lalu `.navlinks` bagian halaman itu (halaman PPG tidak punya `.navlinks` maupun bunga
+nav). `script.js` memasangkan tautan `.navlinks` atau `.toc` ke `main .sec` menurut
+urutan, jadi jumlahnya harus sama.
 
 **PPG di nav adalah tombol pop-up**, bukan tautan: `<button class="saklar__ppg"
 popovertarget="menu-ppg">` plus `<div id="menu-ppg" popover>` berisi Semester I dan II
-(Popover API bawaan, tanpa JS). Di ppg-1/ppg-2 tombolnya diberi `data-aktif` (latar
-`--rose`). Salin utuh ke kelima berkas bila diubah.
+(Popover API bawaan, tanpa JS). Di semua halaman PPG tombolnya diberi `data-aktif` (latar
+`--rose`). Salin utuh ke semua berkas bila diubah.
 
 **ppl.html bertab.** Tiap tab adalah `<div class="panel" id="..." data-panel>`:
 `siklus-1` sampai `siklus-4`, `nonmengajar`, `penilaian`, `tugas`. `script.js`
@@ -61,16 +63,26 @@ menampilkan panel yang cocok dengan hash URL (atau panel pemilik anchor di hash,
 `.semester` di kepala halaman. Tanpa JS semua panel tampil. Penanda gulir dilewati
 di halaman bertab, dan ppl.html tidak memakai bunga nav.
 
-**Halaman PPG** direvisi 4 Oktober 2026 mengikuti `assets/Refleksi Pengalaman Belajar ara.docx`
-(sumber sahih 4C Filosofi, dipakai apa adanya; jadi pola untuk mata kuliah lain): tiap kartu 4C
-diberi `.stage-sub` (Keterkaitan/Tantangan/Konsep/Perubahan), Concept berupa daftar
+**Halaman PPG meniru halaman Refleksi situs rujukan** (4 Oktober 2026,
+<https://ppganthonioakbar.vercel.app/refleksi/semester-1>). ppg-1/ppg-2 jadi ringkasan:
+`.metode` alur 4C lalu `.mk-grid` kartu mata kuliah (inti = lede, jumlah artefak, tombol
+"Buka Cerita Lengkap"). Tiap mata kuliah punya halaman sendiri: jejak + `.kembali`,
+`.mk-hero` dengan `.mk-inti`, `.peta4c` yang menaut ke bagian, lalu `.mk-tata`: `.toc`
+lengket (penanda aktif + "n% dibaca" dari script.js) dan `.bab-daftar` berisi enam
+`section.sec.bab` (connection, challenge, concept, change, artefak, kaitan) plus
+`.mk-pindah` sebelum/berikutnya. Paragraf `.cerita` dinomori CSS; `em` dan istilah
+daftar diberi sorot butter. Halaman-halaman ini dibuat sekali dengan skrip pemecah dari
+isi lama; tidak ada build step, jadi ubah langsung berkasnya.
+
+Isi refleksinya direvisi 4 Oktober 2026 mengikuti `assets/Refleksi Pengalaman Belajar ara.docx`
+(sumber sahih 4C Filosofi, dipakai apa adanya; jadi pola untuk mata kuliah lain): tiap bagian 4C
+diberi subjudul (Keterkaitan/Tantangan/Konsep/Perubahan), Concept berupa daftar
 `<strong>Istilah:</strong>`, Change berupa daftar komitmen "Saya akan…", suara "saya" di kedua
 semester. Isi mata kuliah lain hanya disusun ulang, tidak ditambah. Artefak dipangkas jadi satu
 per topik (16 di semester I, 13 di semester II); jangan kembalikan sisanya. Asalnya dipindah
 dari dua situs lama. Yang diubah saat pemindahan: emoji dan label "Mata Kuliah 01"
 dibuang, em/en dash jadi tanda hubung, rona per mata kuliah (termasuk lavender) dibuang,
-dan kelasnya disesuaikan (`.refleksi-4c` > `.stage`, `.block.artefak` dengan `.doc-grid`,
-`.block.kaitan-praktis`). Artefak berupa kartu kode, bukan berkas; bukti semester I
+dan kelasnya disesuaikan. Artefak berupa kartu kode, bukan berkas; bukti semester I
 menaut ke folder Google Drive. Jangan menambah `class="intro"` di halaman mana pun:
 `.intro` adalah wadah video hero dan lebarnya dikunci 220px.
 

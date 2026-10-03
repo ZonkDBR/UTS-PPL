@@ -985,30 +985,10 @@ img.orangtua__foto {
 
 .pintu__daftar a:active, .lanjut a:active, .lini a:active { transform: translate(2px, 2px); box-shadow: none; }
 
-/* ---------- PPG: empat tahap refleksi 4C ---------- */
-
-.refleksi-4c { display: grid; gap: 1.5rem; }
-@media (min-width: 52rem) { .refleksi-4c { grid-template-columns: 1fr 1fr; } }
-
-.stage {
-  background: var(--card);
-  border: 3px solid var(--edge);
-  border-radius: var(--r);
-  box-shadow: var(--hard);
-  padding: 1.3rem 1.4rem 1.4rem;
-  color: var(--muted);
-  font-size: .94rem;
-}
-
-.stage em { font-style: normal; font-weight: 700; color: var(--ink); }
-.stage strong { color: var(--ink); }
-.stage-sub { margin: -.3rem 0 .8rem; font-size: .8rem; font-weight: 700; color: var(--muted); }
-.stage ul { margin: .6rem 0 0; padding-left: 1.2rem; }
-.stage li + li { margin-top: .45rem; }
-.manifesto { font: 600 1.05rem/1.4 var(--display); color: var(--ink); }
-
-.stage-label { display: flex; align-items: center; gap: .7rem; margin-bottom: .8rem; }
-.stage-label h3 { font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--ink); }
+/* ---------- PPG: ringkasan semester dan halaman mata kuliah ----------
+   Pola dari halaman Refleksi situs rujukan: ringkasan semester berisi alur 4C
+   dan kartu mata kuliah; tiap mata kuliah punya halamannya sendiri dengan peta
+   4C, daftar isi lengket, dan satu kartu per bagian. */
 
 .step {
   display: grid; place-items: center; flex: none;
@@ -1018,25 +998,221 @@ img.orangtua__foto {
   font: 700 1rem/1 var(--display);
 }
 
-/* ---------- PPG: blok artefak dan kaitan praktis ---------- */
-
-.block {
-  background: var(--card);
-  border: 3px solid var(--edge);
-  border-radius: var(--r);
-  box-shadow: var(--hard-lg);
-  padding: 1.5rem 1.6rem 1.7rem;
-  margin-top: 2rem;
-  color: var(--muted);
+.eyebrow {
+  font: 700 .72rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .35rem;
 }
 
-.block h3 { font-size: 1.3rem; font-weight: 700; margin: 0 0 .8rem; color: var(--ink); }
-.block h4 { font-size: 1.02rem; font-weight: 700; margin: 1.4rem 0 .5rem; color: var(--ink); }
-.block h3 + h4 { margin-top: 0; }
-.block em { font-style: normal; font-weight: 700; color: var(--ink); }
-.block strong { color: var(--ink); }
+.chip-baris { display: flex; flex-wrap: wrap; gap: .45rem; list-style: none; margin: 0; padding: 0; }
 
-.kaitan-praktis { background: var(--pink); }
+.chip {
+  display: inline-block;
+  background: var(--card); color: var(--ink);
+  border: 2px solid var(--edge); border-radius: var(--pill);
+  padding: .12rem .65rem;
+  font: 700 .72rem/1.5 var(--body);
+  white-space: nowrap;
+}
+.chip--gelap { background: var(--ink); color: #FFFFFF; font-family: var(--mono); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* kartu besar bergaris: metode 4C, hero mata kuliah, peta 4C */
+.metode, .mk-hero, .peta4c {
+  background: var(--card);
+  border: 3px solid var(--edge);
+  border-radius: var(--r-lg);
+  box-shadow: var(--hard-lg);
+  padding: clamp(1.3rem, 3vw, 2.2rem);
+}
+
+.peta4c__kepala {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: .8rem 1.5rem;
+  border-bottom: 2px solid var(--edge);
+  padding-bottom: 1.1rem; margin-bottom: 1.4rem;
+}
+.peta4c__kepala h2 { font-size: clamp(1.35rem, 2.6vw, 1.8rem); font-weight: 700; margin: 0; }
+.peta4c__kepala p:not(.eyebrow) { color: var(--muted); max-width: 40rem; margin: .5rem 0 0; }
+
+.peta4c__daftar {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+.peta4c__daftar > li > a, .peta4c__daftar > li > div {
+  display: flex; flex-direction: column; gap: .2rem; height: 100%;
+  border: 3px solid var(--edge); border-radius: var(--r);
+  box-shadow: var(--hard);
+  padding: 1rem 1.1rem 1.1rem;
+  color: var(--on-block); text-decoration: none;
+}
+.peta4c__daftar > li:nth-child(1) > * { background: var(--blush); }
+.peta4c__daftar > li:nth-child(2) > * { background: var(--butter); }
+.peta4c__daftar > li:nth-child(3) > * { background: var(--pink); }
+.peta4c__daftar > li:nth-child(4) > * { background: var(--wash-blush); }
+.peta4c__daftar .step { background: var(--card); margin-bottom: .5rem; }
+.peta4c__daftar strong { font: 700 1.1rem/1.2 var(--display); }
+.peta4c__label { font: 700 .7rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.peta4c__ket { font-size: .86rem; line-height: 1.5; }
+.peta4c__buka {
+  margin-top: auto; padding-top: .7rem;
+  border-top: 2px solid var(--edge);
+  font-size: .8rem; font-weight: 700;
+}
+.peta4c__buka::after { content: " \2192"; }
+
+/* ringkasan semester: kartu mata kuliah */
+.mk-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+}
+
+.mk-kartu {
+  display: flex; flex-direction: column; gap: .9rem;
+  background: var(--card); color: var(--ink);
+  border: 3px solid var(--edge); border-radius: var(--r);
+  box-shadow: var(--hard);
+  padding: 1.3rem 1.3rem 1.4rem;
+}
+.mk-kartu:nth-child(3n+1) { background: var(--blush); }
+.mk-kartu:nth-child(3n+2) { background: var(--card); }
+.mk-kartu:nth-child(3n)   { background: var(--butter); }
+.mk-kartu h3 { font-size: 1.3rem; font-weight: 700; margin: 0; text-wrap: balance; }
+.mk-kartu__inti { font-size: .9rem; color: var(--muted); margin: 0; }
+.mk-kartu__inti::before { content: "\201C"; }
+.mk-kartu__inti::after  { content: "\201D"; }
+/* teks di atas blok terang selalu --on-block; ditulis sesudah aturan umumnya */
+.mk-kartu:nth-child(3n+1) .mk-kartu__inti, .mk-kartu:nth-child(3n) .mk-kartu__inti { color: var(--on-block); }
+
+.mk-kartu__buka, .kembali {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  background: var(--rose); color: #FFFFFF;
+  border: 3px solid var(--edge); border-radius: var(--pill);
+  box-shadow: var(--hard-sm);
+  font-weight: 700; font-size: .88rem; text-decoration: none;
+  padding: .55rem 1.1rem;
+}
+.mk-kartu__buka { margin-top: auto; }
+.mk-kartu__buka::after { content: "\2192"; }
+.kembali { background: var(--card); color: var(--ink); font-size: .8rem; padding: .4rem .95rem; }
+.kembali::before { content: "\2190"; }
+
+/* halaman mata kuliah */
+.kepala--mk { padding-bottom: 2rem; }
+.kepala--mk .wrap > * + * { margin-top: 1.6rem; }
+
+.jejak-baris { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem; }
+.jejak-baris .kepala__jejak { margin: 0; }
+
+.mk-hero h1 { font-size: clamp(1.9rem, 5vw, 3.1rem); font-weight: 700; letter-spacing: -.02em; margin: 1rem 0 1.2rem; text-wrap: balance; }
+
+.mk-inti {
+  background: var(--butter); color: var(--on-block);
+  border: 3px solid var(--edge); border-radius: var(--r-sm);
+  box-shadow: var(--hard-sm);
+  padding: 1rem 1.2rem; margin: 0;
+}
+.mk-inti strong, .mk-inti em { color: var(--on-block); }
+
+.mk-tata { display: grid; gap: 2rem; align-items: start; padding-bottom: 4rem; position: relative; z-index: 1; }
+@media (min-width: 62rem) { .mk-tata { grid-template-columns: 17rem 1fr; } }
+
+.toc {
+  background: var(--card);
+  border: 3px solid var(--edge); border-radius: var(--r);
+  box-shadow: var(--hard);
+  padding: 1.2rem;
+}
+@media (min-width: 62rem) { .toc { position: sticky; top: 6.5rem; } }
+
+.toc__kepala { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.toc__kepala strong { font: 700 1rem/1.2 var(--display); }
+.toc__persen {
+  background: var(--butter); color: var(--on-block);
+  border: 2px solid var(--edge); border-radius: 8px;
+  font: 700 .7rem/1.5 var(--mono); padding: .05rem .45rem;
+}
+.toc__judul { font-size: .8rem; color: var(--muted); margin: .8rem 0 .5rem; }
+.toc__bar { height: 10px; border: 2px solid var(--edge); border-radius: var(--pill); background: var(--blush); overflow: hidden; }
+.toc__bar span { display: block; height: 100%; width: 0; background: var(--rose); }
+.toc ul { list-style: none; margin: 1rem 0; padding: 0; display: grid; gap: .3rem; }
+.toc ul a {
+  display: flex; justify-content: space-between; align-items: center; gap: .5rem;
+  padding: .4rem .6rem;
+  border: 2px solid transparent; border-radius: 12px;
+  font-size: .86rem; font-weight: 600; color: var(--ink); text-decoration: none;
+}
+.toc ul a:hover { background: var(--pink); color: var(--on-block); }
+.toc ul a.active {
+  background: var(--butter); color: var(--on-block);
+  border-color: var(--edge); box-shadow: var(--hard-sm); font-weight: 700;
+}
+.toc .chip { font-size: .64rem; padding: 0 .45rem; }
+.toc__semua {
+  display: block; border-top: 2px solid var(--edge); padding-top: .8rem;
+  font-size: .82rem; font-weight: 700; color: var(--rose);
+}
+
+.bab-daftar { display: grid; gap: 1.6rem; min-width: 0; }
+
+/* tiap bagian adalah .sec supaya script.js tetap mengamatinya; bentuknya kartu */
+.sec.bab {
+  padding: clamp(1.3rem, 3vw, 2rem);
+  background: var(--card);
+  border: 3px solid var(--edge); border-radius: var(--r-lg);
+  box-shadow: var(--hard-lg);
+}
+.sec.bab--pink { background: var(--pink); }
+
+.bab__kepala { display: flex; align-items: center; gap: .9rem; }
+.bab__kepala h2 { font-size: clamp(1.35rem, 2.6vw, 1.75rem); font-weight: 700; margin: 0; }
+.bab__kepala .stiker { position: static; flex: none; width: 2.6rem; height: 2.6rem; }
+.bab__sub {
+  color: var(--muted); font-size: .9rem; font-weight: 600;
+  border-bottom: 2px solid var(--edge);
+  padding-bottom: 1rem; margin: .8rem 0 1.4rem;
+}
+.bab__kepala + .cerita { border-top: 2px solid var(--edge); padding-top: 1.3rem; margin-top: 1rem; }
+
+/* paragraf bernomor dengan garis penghubung, seperti rujukan */
+.cerita { counter-reset: par; color: var(--ink); }
+.cerita:not(.cerita--polos) > p {
+  counter-increment: par;
+  position: relative;
+  padding-left: 2.4rem;
+  text-align: justify; hyphens: auto;
+}
+.cerita:not(.cerita--polos) > p::before {
+  content: counter(par);
+  position: absolute; left: 0; top: .2rem;
+  display: grid; place-items: center;
+  width: 1.5rem; height: 1.5rem;
+  background: var(--card); color: var(--ink);
+  border: 2px solid var(--edge); border-radius: 50%;
+  font: 700 .72rem/1 var(--mono);
+}
+.cerita:not(.cerita--polos) > p:not(:last-child)::after {
+  content: ""; position: absolute; left: .7rem; top: 2rem; bottom: -1rem;
+  border-left: 2px solid var(--blossom);
+}
+.cerita > ul:not(.doc-grid) { margin: .4rem 0 1rem 2.4rem; padding-left: 1.1rem; }
+.cerita > ul:not(.doc-grid) li + li { margin-top: .5rem; }
+.cerita em, .cerita > ul:not(.doc-grid) strong {
+  font-style: normal; font-weight: 700;
+  background: var(--butter); color: var(--on-block);
+  border-radius: 6px; padding: 0 .25rem;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+.cerita h4 { font-size: 1.05rem; font-weight: 700; margin: 1.6rem 0 .5rem; }
+.cerita h4:first-child { margin-top: 0; }
+.cerita .bukti { margin-top: 1.6rem; }
+.manifesto { font: 600 1.15rem/1.4 var(--display); }
+.bab--pink .cerita, .bab--pink h2, .bab--pink h4, .bab--pink .eyebrow { color: var(--on-block); }
 
 .doc-grid {
   list-style: none; margin: 1rem 0 0; padding: 0;
@@ -1066,14 +1242,43 @@ img.orangtua__foto {
 .code { font: 700 .74rem/1.25 var(--mono); color: var(--on-block); overflow-wrap: anywhere; }
 
 .doc-body { padding: .8rem .95rem .9rem; }
-.block .doc-title { font-size: .96rem; font-weight: 700; margin: 0 0 .3rem; color: var(--ink); }
-.doc-body p { font-size: .84rem; color: var(--muted); margin: 0; }
+.doc-title { font-size: .98rem; font-weight: 700; margin: 0 0 .3rem; color: var(--ink); }
+.doc-body p { font-size: .85rem; color: var(--muted); margin: 0; }
 
 a.doc-card:hover .doc-title { color: var(--rose); }
 
-/* Blok kaitan praktis berlatar pink: seluruh teksnya --on-block. Harus sesudah .block. */
-.kaitan-praktis, .kaitan-praktis h3, .kaitan-praktis h4,
-.kaitan-praktis p, .kaitan-praktis em, .kaitan-praktis strong { color: var(--on-block); }
+.mk-pindah { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.mk-pindah__ke {
+  display: flex; flex-direction: column; gap: .2rem;
+  background: var(--card); color: var(--ink);
+  border: 3px solid var(--edge); border-radius: var(--r);
+  box-shadow: var(--hard);
+  padding: 1rem 1.2rem; text-decoration: none;
+}
+.mk-pindah__ke span { font: 700 .7rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.mk-pindah__ke span::before { content: "\2190  "; }
+.mk-pindah__ke--lanjut { text-align: right; }
+.mk-pindah__ke--lanjut span::before { content: ""; }
+.mk-pindah__ke--lanjut span::after { content: "  \2192"; }
+.mk-pindah__ke strong { font: 700 1rem/1.3 var(--display); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .peta4c__daftar a, .mk-kartu, .mk-kartu__buka, .kembali, .mk-pindah__ke {
+    transition: transform .3s var(--pegas), box-shadow .3s var(--pegas);
+  }
+  .peta4c__daftar a:hover, .mk-kartu:hover, .mk-pindah__ke:hover {
+    transform: translate(-2px, -2px); box-shadow: var(--hard-lg);
+  }
+  .mk-kartu__buka:hover, .kembali:hover { transform: translate(-2px, -2px); box-shadow: var(--hard); }
+}
+.peta4c__daftar a:active, .mk-kartu__buka:active, .kembali:active, .mk-pindah__ke:active {
+  transform: translate(2px, 2px); box-shadow: none;
+}
+
+@media (max-width: 34rem) {
+  .cerita:not(.cerita--polos) > p { padding-left: 2rem; text-align: left; }
+  .cerita > ul:not(.doc-grid) { margin-left: .4rem; }
+}
 
 /* ---------- profil ---------- */
 
@@ -1151,11 +1356,11 @@ a.doc-card:hover .doc-title { color: var(--rose); }
 /* ---------- kartu yang terangkat saat disentuh ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
-  .rpl-card, .tile, .outline section, .klaster article, .tugas__kartu, .stage {
+  .rpl-card, .tile, .outline section, .klaster article, .tugas__kartu {
     transition: transform .3s var(--pegas), box-shadow .3s var(--pegas);
   }
   .rpl-card:hover, .tile:hover, .outline section:hover,
-  .klaster article:hover, .tugas__kartu:hover, .stage:hover {
+  .klaster article:hover, .tugas__kartu:hover {
     transform: translate(-3px, -3px) rotate(-.4deg);
     box-shadow: var(--hard-lg);
   }
