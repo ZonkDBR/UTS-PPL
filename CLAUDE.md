@@ -355,8 +355,7 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
 - [ ] **Video Siklus 2**: isi `data-yt` di `#s2-video`, lalu tulis analisisnya.
 - [ ] Kotak "Dilengkapi setelah menonton ulang rekaman" di `#s1-video` (empat butir).
 - [ ] **Contoh perilaku kurang menghargai** hasil observasi (kotak alasan topik di
-      `#s1-materi`), **Siklus 3 dan 4**, **penilaian Guru Pamong**, dan **foto kedua
-      orang tua** di profil.html `#alasan`.
+      `#s1-materi`), **Siklus 3 dan 4**, dan **penilaian Guru Pamong**.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
 - [ ] **Profil**: riwayat pendidikan, pengalaman, organisasi, keterampilan, prestasi,
       serta kontak dan CV di profil.html (enam kartu placeholder).
