@@ -61,8 +61,13 @@ menampilkan panel yang cocok dengan hash URL (atau panel pemilik anchor di hash,
 `.semester` di kepala halaman. Tanpa JS semua panel tampil. Penanda gulir dilewati
 di halaman bertab, dan ppl.html tidak memakai bunga nav.
 
-**Halaman PPG** dipindah apa adanya dari dua situs lama, kata-katanya tidak diubah (suara
-"aku" di semester II dibiarkan). Yang diubah hanya: emoji dan label "Mata Kuliah 01"
+**Halaman PPG** direvisi 4 Oktober 2026 mengikuti `assets/Refleksi Pengalaman Belajar ara.docx`
+(sumber sahih 4C Filosofi, dipakai apa adanya; jadi pola untuk mata kuliah lain): tiap kartu 4C
+diberi `.stage-sub` (Keterkaitan/Tantangan/Konsep/Perubahan), Concept berupa daftar
+`<strong>Istilah:</strong>`, Change berupa daftar komitmen "Saya akan…", suara "saya" di kedua
+semester. Isi mata kuliah lain hanya disusun ulang, tidak ditambah. Artefak dipangkas jadi satu
+per topik (16 di semester I, 13 di semester II); jangan kembalikan sisanya. Asalnya dipindah
+dari dua situs lama. Yang diubah saat pemindahan: emoji dan label "Mata Kuliah 01"
 dibuang, em/en dash jadi tanda hubung, rona per mata kuliah (termasuk lavender) dibuang,
 dan kelasnya disesuaikan (`.refleksi-4c` > `.stage`, `.block.artefak` dengan `.doc-grid`,
 `.block.kaitan-praktis`). Artefak berupa kartu kode, bukan berkas; bukti semester I

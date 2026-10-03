@@ -1001,6 +1001,11 @@ img.orangtua__foto {
 }
 
 .stage em { font-style: normal; font-weight: 700; color: var(--ink); }
+.stage strong { color: var(--ink); }
+.stage-sub { margin: -.3rem 0 .8rem; font-size: .8rem; font-weight: 700; color: var(--muted); }
+.stage ul { margin: .6rem 0 0; padding-left: 1.2rem; }
+.stage li + li { margin-top: .45rem; }
+.manifesto { font: 600 1.05rem/1.4 var(--display); color: var(--ink); }
 
 .stage-label { display: flex; align-items: center; gap: .7rem; margin-bottom: .8rem; }
 .stage-label h3 { font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--ink); }
