@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karya Inovasi - Fahira Firzha Wianda</title>
+<meta name="description" content="Dua karya inovasi yang lahir dari mata kuliah Projek Kepemimpinan: Jenga Against Bullying untuk jenjang SMP dan EduPop Karir untuk jenjang SMA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🌸%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#alur">Lompat ke isi</a>
+
+<!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="st-sakura" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(72 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(144 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(216 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#FFE68C"/>
+  </symbol>
+  <symbol id="st-hati" viewBox="0 0 100 100">
+    <path d="M50,84 C22,64 12,48 12,36 C12,24 22,16 32,16 C40,16 46,21 50,28 C54,21 60,16 68,16 C78,16 88,24 88,36 C88,48 78,64 50,84 Z"/>
+  </symbol>
+  <symbol id="st-kilau" viewBox="0 0 100 100">
+    <path d="M50,8 C54,34 66,46 92,50 C66,54 54,66 50,92 C46,66 34,54 8,50 C34,46 46,34 50,8 Z"/>
+  </symbol>
+  <symbol id="st-bintang" viewBox="0 0 100 100">
+    <path d="M50,10 L61,38 L91,40 L68,59 L76,88 L50,72 L24,88 L32,59 L9,40 L39,38 Z"/>
+  </symbol>
+</svg>
+
+<!-- Kelopak berjatuhan: bentuk CSS murni bergaris hitam, seperti stiker tempel. -->
+<div class="petals" aria-hidden="true">
+  <div class="petal" style="--i:0;  left:5%;  --s:16px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:1;  left:16%; --s:20px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:2;  left:27%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:3;  left:38%; --s:18px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:4;  left:49%; --s:15px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:5;  left:60%; --s:19px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:6;  left:71%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:7;  left:82%; --s:17px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:8;  left:93%; --s:15px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:9;  left:22%; --s:18px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:10; left:55%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:11; left:88%; --s:19px; --p:var(--blossom)"></div>
+</div>
+
+<nav class="sitenav" aria-label="Navigasi situs">
+  <div class="wrap">
+
+    <ul class="saklar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li>
+        <button type="button" class="saklar__ppg" data-aktif popovertarget="menu-ppg">PPG</button>
+        <div id="menu-ppg" class="menu-ppg" popover>
+          <p class="menu-ppg__judul">Pilih halaman PPG</p>
+          <a href="ppg-1.html"><strong>Semester I</strong><span>6 mata kuliah, termasuk PPL Terbimbing</span></a>
+          <a href="ppg-2.html"><strong>Semester II</strong><span>5 mata kuliah, termasuk PPL Mandiri</span></a>
+          <a href="ppg-intisari.html"><strong>Intisari PPG</strong><span>Benang merah seluruh refleksi mata kuliah</span></a>
+          <a href="karya-inovasi.html"><strong>Karya Inovasi</strong><span>Dua proposal dari Projek Kepemimpinan</span></a>
+        </div>
+      </li>
+      <li><a href="ppl.html">PPL</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="kepala">
+  <div class="wrap">
+    <p class="kepala__jejak"><a href="index.html">Beranda</a> / Modul Akademik PPG / Karya Inovasi</p>
+    <h1><span class="sorot">Karya Inovasi</span></h1>
+    <ul class="semester">
+      <li><a href="ppg-intisari.html">Intisari PPG</a></li>
+      <li><a href="karya-inovasi.html" aria-current="page">Karya Inovasi</a></li>
+    </ul>
+    <p class="lede">
+      Dua karya inovasi yang saya susun bersama kelompok pada mata kuliah Projek
+      Kepemimpinan. Keduanya berangkat dari kebutuhan yang berbeda di dua jenjang
+      sekolah, dan keduanya sampai saat ini masih berstatus proposal.
+    </p>
+
+    <ul class="ubin ubin--empat">
+      <li><span class="kotak"><strong>2</strong><span>Karya Inovasi</span></span></li>
+      <li><span class="kotak"><strong>2</strong><span>Jenjang Sekolah</span></span></li>
+      <li><span class="kotak"><strong>4</strong><span>Sekolah Sumber</span></span></li>
+      <li><span class="kotak"><strong>II</strong><span>Semester</span></span></li>
+    </ul>
+  </div>
+</header>
+
+<main id="isi">
+
+<section class="sec sec--card" id="alur">
+  <div class="wrap">
+    <div class="metode reveal">
+      <div class="peta4c__kepala">
+        <div>
+          <p class="eyebrow">Cara kerja</p>
+          <h2>Dari Kebutuhan Menuju Proposal</h2>
+          <p>Kedua karya ini melewati urutan kerja yang sama. Medianya baru dipilih pada langkah ketiga, setelah kebutuhan dan alasannya selesai dirumuskan.</p>
+        </div>
+      </div>
+      <ol class="peta4c__daftar">
+        <li><div>
+          <span class="step" aria-hidden="true">1</span>
+          <span class="peta4c__label">Identifikasi</span>
+          <strong>Mendengarkan lebih dahulu</strong>
+          <span class="peta4c__ket">Wawancara guru BK, observasi, dan asesmen kebutuhan di sekolah tempat kami bertugas</span>
+        </div></li>
+        <li><div>
+          <span class="step" aria-hidden="true">2</span>
+          <span class="peta4c__label">Alasan</span>
+          <strong>WHY sebelum WHAT</strong>
+          <span class="peta4c__ket">Merumuskan alasan karya ini dibutuhkan, sebelum menentukan bentuk kegiatan maupun medianya</span>
+        </div></li>
+        <li><div>
+          <span class="step" aria-hidden="true">3</span>
+          <span class="peta4c__label">Target</span>
+          <strong>SMART Goals</strong>
+          <span class="peta4c__ket">Menerjemahkan niat menjadi target yang terukur, lengkap dengan persentase dan tenggat waktunya</span>
+        </div></li>
+        <li><div>
+          <span class="step" aria-hidden="true">4</span>
+          <span class="peta4c__label">Keberlanjutan</span>
+          <strong>Dapat dipakai ulang</strong>
+          <span class="peta4c__ket">Media beserta panduannya dirancang agar tetap dapat digunakan guru BK tanpa kehadiran kami</span>
+        </div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--pink" id="karya">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -8deg; --tunda: -2s"><use href="#st-kilau"></use></svg>
+      <p class="eyebrow">Produk projek</p>
+      <h2>Dua Karya, Dua Kebutuhan yang Berbeda</h2>
+      <p>
+        Dua sekolah yang berbeda menghasilkan dua karya yang tidak mirip. Justru
+        perbedaan itulah yang meyakinkan saya bahwa satu program yang disiapkan dari
+        kampus tidak akan cocok untuk keduanya.
+      </p>
+    </div>
+
+    <ul class="mk-grid">
+      <li class="mk-kartu reveal">
+        <ul class="chip-baris">
+          <li class="chip chip--gelap">Jenjang SMP</li>
+          <li class="chip">Proposal</li>
+        </ul>
+        <h3>Jenga Against Bullying</h3>
+        <p class="mk-kartu__inti">Media berbasis balok Jenga untuk membantu murid membedakan candaan dengan perundungan. Disusun bersama Kelompok 2, berangkat dari temuan bahwa perundungan verbal di sekolah kerap dibungkus sebagai candaan.</p>
+        <dl class="facts">
+          <div><dt>Asal kebutuhan</dt><dd>Wawancara guru BK SMP Negeri 3 dan SMP Negeri 9 Cimahi</dd></div>
+          <div><dt>Bentuk</dt><dd>Media permainan balok Jenga beserta panduan penggunaannya</dd></div>
+          <div><dt>Target</dt><dd>80 persen murid mampu membedakan candaan dengan perundungan, dan 100 persen menyusun satu komitmen dalam empat minggu</dd></div>
+          <div><dt>Peran saya</dt><dd>Wakil Ketua dan Acara</dd></div>
+          <div><dt>Artefak</dt><dd>Proposal P.1 pada mata kuliah Projek Kepemimpinan</dd></div>
+          <div><dt>Status</dt><dd>Proposal, belum dilaksanakan di sekolah</dd></div>
+        </dl>
+        <a class="mk-kartu__buka" href="ppg-2-projek.html#artefak">Lihat artefaknya<span class="visually-hidden">: Jenga Against Bullying</span></a>
+      </li>
+
+      <li class="mk-kartu reveal">
+        <ul class="chip-baris">
+          <li class="chip chip--gelap">Jenjang SMA</li>
+          <li class="chip">Proposal</li>
+        </ul>
+        <h3>EduPop Karir</h3>
+        <p class="mk-kartu__inti">Komik interaktif pop-up tiga dimensi untuk membantu murid mengenali minat dan potensinya. Berangkat dari temuan bahwa murid belum mengetahui langkah apa yang perlu disiapkan untuk pilihan karirnya.</p>
+        <dl class="facts">
+          <div><dt>Asal kebutuhan</dt><dd>Observasi, asesmen kebutuhan, dan konsultasi guru BK SMA Negeri 1 Cisarua dan SMA Negeri 3 Cimahi</dd></div>
+          <div><dt>Bentuk</dt><dd>Komik interaktif pop-up tiga dimensi beserta panduan penggunaannya</dd></div>
+          <div><dt>Target</dt><dd>Peningkatan pemahaman karir minimal 20 persen, dan 75 persen murid menghasilkan rencana sederhana</dd></div>
+          <div><dt>Peran saya</dt><dd>Wakil Ketua dan Acara</dd></div>
+          <div><dt>Artefak</dt><dd>Proposal P.2 pada mata kuliah Projek Kepemimpinan</dd></div>
+          <div><dt>Status</dt><dd>Proposal, belum dilaksanakan di sekolah</dd></div>
+        </dl>
+        <a class="mk-kartu__buka" href="ppg-2-projek.html#artefak">Lihat artefaknya<span class="visually-hidden">: EduPop Karir</span></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="kaitan">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom); --rot: 10deg; --tunda: -4s"><use href="#st-hati"></use></svg>
+      <p class="eyebrow">Kaitan praktis</p>
+      <h2>Yang Terbawa ke Praktik Saya</h2>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <p>
+        Menyusun kedua proposal ini mengubah tiga hal pada cara saya bekerja. Pertama,
+        urutan berpikir saya: pertanyaan pembuka bukan lagi program apa yang ingin saya
+        buat, melainkan kebutuhan siapa yang sedang saya jawab. Kedua, cara saya menulis
+        tujuan: meningkatkan kesadaran murid tidak lagi saya anggap sebagai tujuan, karena
+        tujuan harus memuat angka dan tenggat. Ketiga, keberanian saya mengambil peran
+        koordinasi, yang sebelumnya saya hindari karena takut dianggap mengatur.
+      </p>
+      <p>
+        Ketiganya sudah terbawa ke layanan klasikal yang saya laksanakan pada PPL Mandiri.
+        Rancangan layanan saya kini dimulai dari asesmen kebutuhan, tujuan khususnya
+        disusun bertingkat sampai pada produk yang dapat diperiksa, dan evaluasi prosesnya
+        dinilai sebelum hasilnya. Media pun saya pilih setelah kebutuhan jelas, bukan
+        sebaliknya.
+      </p>
+
+      <div class="refleksi">
+        <h3>Refleksi diri</h3>
+        <p>
+          Kekurangan terbesar dari kedua karya ini adalah keduanya berhenti pada tahap
+          proposal. Saya belum melihat dampaknya pada murid secara langsung, sehingga
+          klaim keberhasilan apa pun belum dapat saya ajukan. Ke depan saya ingin
+          menuntaskannya, dimulai dari menawarkan salah satu media kepada guru BK di
+          sekolah tempat saya bertugas, menguji coba pada satu kelas, lalu mengukur
+          hasilnya dengan instrumen awal dan akhir sebagaimana yang sudah saya rancang.
+        </p>
+      </div>
+
+      <p class="lbl">Sumber refleksi</p>
+      <p>
+        Uraian lengkap mengenai proses penyusunan kedua karya ini ada pada halaman
+        refleksi mata kuliahnya.
+      </p>
+      <a class="ghost" href="ppg-2-projek.html">Buka refleksi Projek Kepemimpinan</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="thanks">
+  <svg class="stiker s-kiri" aria-hidden="true"><use href="#st-bintang"></use></svg>
+  <svg class="stiker s-kanan" aria-hidden="true"><use href="#st-kilau"></use></svg>
+  <div class="wrap">
+    <svg class="blossom" viewBox="0 0 100 100" aria-hidden="true">
+      <g transform="rotate(0 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(72 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(144 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(216 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(288 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <circle class="inti" cx="50" cy="50" r="7"/>
+    </svg>
+
+    <h2>Terima Kasih</h2>
+    <p>
+      Dua karya, dua kebutuhan, satu cara kerja yang sama: mendengarkan lebih dahulu,
+      merancang kemudian. Terima kasih sudah membaca sampai sini.
+    </p>
+    <p class="sign">Fahira Firzha Wianda, PPG Prajabatan Bimbingan dan Konseling, IKIP Siliwangi</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

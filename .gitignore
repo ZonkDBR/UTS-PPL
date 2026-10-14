@@ -34,3 +34,9 @@ assets/RPL regulasi emosi (Pribadi) Soshum (2B) M-2/
 # Foto mentah nonmengajar (29 September 2026); versi terbit diperkecil jadi .jpg bernama rapi.
 assets/nonmengajar/*.jpeg
 assets/KeduaOrangTua.jpeg
+
+# Modul Siklus 2 (14 Oktober 2026): RPL dan PPT ditautkan, bahan mentah tidak.
+# LKPD Kejujuran tidak berawalan "LKPD", jadi polanya diperluas ke *.png dan *.jpeg.
+assets/SIKLUS 2 PPLM/*/Dokumentasi*/
+assets/SIKLUS 2 PPLM/*/*.png
+assets/SIKLUS 2 PPLM/*/*.jpeg

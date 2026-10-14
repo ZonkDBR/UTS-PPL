@@ -37,6 +37,10 @@ ppg-1-*.html satu halaman per mata kuliah semester I (filosofi, asesmen, ppl, po
              design-thinking, konseling)
 ppg-2.html   ringkasan PPG semester II, lima kartu mata kuliah
 ppg-2-*.html intervensi, pse, ppl, konseling, projek
+ppg-intisari.html  intisari PPG: identifikasi temuan per mata kuliah, benang merah,
+             karya inovasi, Seminar PPG, penutup (lima bagian, tanpa .navlinks)
+karya-inovasi.html dua karya inovasi dari Projek Kepemimpinan (Jenga Against Bullying,
+             EduPop Karir), keduanya masih berstatus proposal
 style.css    satu berkas untuk semua halaman
 script.js    reveal + kelopak + nav aktif, tab PPL, jejak kursor, slider, video hero, kotak YouTube
 assets/      foto profil, dokumentasi, LKPD, video Home, RPL dan PPT yang ditautkan
@@ -44,7 +48,7 @@ assets/      foto profil, dokumentasi, LKPD, video Home, RPL dan PPT yang ditaut
 
 Tiap halaman menyalin sendiri `<head>`, set `<symbol>` stiker, lapisan kelopak, nav, dan
 footer (tanpa build step, jadi tidak ada include). Kalau mengubah salah satunya, ubah di
-semua 16 berkas HTML.
+semua 18 berkas HTML.
 
 **Nav bersama**: di awal `<body>` semua halaman. Isinya `.saklar` pil Beranda/Profil/PPG/PPL dengan `aria-current="page"` pada
 halaman aktif (latar `--rose`, teks putih), lalu `.navlinks` bagian halaman itu (halaman PPG tidak punya `.navlinks` maupun bunga
@@ -52,9 +56,11 @@ nav). `script.js` memasangkan tautan `.navlinks` atau `.toc` ke `main .sec` menu
 urutan, jadi jumlahnya harus sama.
 
 **PPG di nav adalah tombol pop-up**, bukan tautan: `<button class="saklar__ppg"
-popovertarget="menu-ppg">` plus `<div id="menu-ppg" popover>` berisi Semester I dan II
-(Popover API bawaan, tanpa JS). Di semua halaman PPG tombolnya diberi `data-aktif` (latar
-`--rose`). Salin utuh ke semua berkas bila diubah.
+popovertarget="menu-ppg">` plus `<div id="menu-ppg" popover>` berisi empat tautan:
+Semester I, Semester II, Intisari PPG, dan Karya Inovasi (Popover API bawaan, tanpa JS).
+Di semua halaman PPG tombolnya diberi `data-aktif` (latar `--rose`). Salin utuh ke semua
+berkas bila diubah. Daftar yang sama juga muncul di `ul.pintu__daftar` kartu pintu PPG
+pada index.html, jadi keduanya harus ikut berubah.
 
 **ppl.html bertab.** Tiap tab adalah `<div class="panel" id="..." data-panel>`:
 `siklus-1` sampai `siklus-4`, `nonmengajar`, `penilaian`, `tugas`. `script.js`
@@ -74,6 +80,23 @@ lengket (penanda aktif + "n% dibaca" dari script.js) dan `.bab-daftar` berisi en
 daftar diberi sorot butter. Halaman-halaman ini dibuat sekali dengan skrip pemecah dari
 isi lama; tidak ada build step, jadi ubah langsung berkasnya.
 
+**Bentuk "Analisis Artefak" seragam di kesebelas halaman** (14 Oktober 2026, mengikuti
+`ppg-2-projek.html`): `div.cerita.cerita--polos` berisi **satu paragraf pengantar** lalu
+`ul.doc-grid` saja. Tidak ada lagi subjudul `<h4>` ("Artefak yang saya pilih", "Mengapa
+artefak ini", "Bagian yang mendukung refleksi"), tidak ada blok `.bukti`, dan **tautan
+folder Google Drive di semester I sudah dihapus seluruhnya** atas permintaan pemilik.
+Karena itu ubin `ppg-1.html` tidak lagi berbunyi "5 Folder Bukti". Keterangan tiap
+`doc-card` diawali penanda peran ("Artefak inti Connection.", "Bukti dukung Challenge.")
+di sepuluh halaman; kartu `ppg-2-projek.html` sendiri dibiarkan tanpa penanda itu.
+
+**Bahasa halaman PPG memakai ragam formal** (14 Oktober 2026): hindari ungkapan
+percakapan ("buat saya", "dulu saya ... sekarang saya", "tahu betul", "jadi berani"),
+pakai padanan baku ("bagi saya", "sebelumnya ... kini"), dan tulis istilah Indonesia bila
+ada ("perundungan" bukan "bullying", "telepon genggam" bukan "HP", "membingkai ulang"
+bukan "mereframe"). `index.html`, `profil.html`, dan `ppl.html` **tidak ikut**; keduanya
+mempertahankan nada hangat. Yang tidak berubah: sudut pandang "saya", struktur 4C beserta
+subjudulnya, larangan em/en dash, dan larangan emoji.
+
 Isi refleksinya direvisi 4 Oktober 2026 mengikuti `assets/Refleksi Pengalaman Belajar ara.docx`
 (sumber sahih 4C Filosofi, dipakai apa adanya; jadi pola untuk mata kuliah lain): tiap bagian 4C
 diberi subjudul (Keterkaitan/Tantangan/Konsep/Perubahan), Concept berupa daftar
@@ -82,8 +105,8 @@ semester. Isi mata kuliah lain hanya disusun ulang, tidak ditambah. Artefak dipa
 per topik (16 di semester I, 13 di semester II); jangan kembalikan sisanya. Asalnya dipindah
 dari dua situs lama. Yang diubah saat pemindahan: emoji dan label "Mata Kuliah 01"
 dibuang, em/en dash jadi tanda hubung, rona per mata kuliah (termasuk lavender) dibuang,
-dan kelasnya disesuaikan. Artefak berupa kartu kode, bukan berkas; bukti semester I
-menaut ke folder Google Drive. Jangan menambah `class="intro"` di halaman mana pun:
+dan kelasnya disesuaikan. Artefak berupa kartu kode, bukan berkas. Jangan menambah
+`class="intro"` di halaman mana pun:
 `.intro` adalah wadah video hero dan lebarnya dikunci 220px.
 
 Tanpa framework, tanpa build step, tanpa dependensi npm. Buka `index.html` langsung dari
@@ -208,13 +231,22 @@ dan satu siklus hanya punya satu video.** Analisis kegiatan nonmengajar pindah k
 | Siklus | Layanan (tanggal dari pemilik portofolio, bukan nama folder) |
 |---|---|
 | 1 | Penyesuaian Diri (X I) 10 Agu 2026 · Regulasi Emosi (X J) 13 Agu · Manajemen Waktu (X D) 20 Agu. Semua Pribadi, Experiential Learning, kelas X |
-| 2 | Menghargai Guru dan Teman (Sosial, XI J) 20 Agu. Video belum ada |
-| 3, 4 | placeholder `<!-- TODO -->` |
+| 2 | Kejujuran Akademik (Belajar, XI J) 27 Agu · Membangun Resiliensi (Pribadi, XI I) 31 Agu · Visi Masa Depan / Target SMART (Karier, X I) 3 Sep. Semua Experiential Learning |
+| 3 | Menghargai Guru dan Teman (Sosial, XI J) 20 Agu. Video belum ada |
+| 4 | placeholder `<!-- TODO -->` |
+
+Catatan urutan (14 Oktober 2026): layanan Menghargai dipindah dari Siklus 2 ke Siklus 3
+atas keputusan pemilik, jadi **tanggalnya lebih awal daripada Siklus 2**. Urutan siklus
+mengikuti keputusan itu, bukan kronologi.
 
 Video Siklus 1: YouTube `CEGttnItg2I`, layanan Penyesuaian Diri. Kendala yang
 dinyatakan pemilik: di video itu lupa memakai mikrofon sehingga suara murid yang
-berpendapat kurang terdengar; di layanan Menghargai (Siklus 2) proyektor rusak sehingga PPT tidak
-bisa ditayangkan.
+berpendapat kurang terdengar; di layanan Menghargai (kini Siklus 3) proyektor rusak
+sehingga PPT tidak bisa ditayangkan.
+
+Video Siklus 2: YouTube `cByApNz-sJA`, layanan Visi Masa Depan (3 September 2026).
+Pemilik belum menyatakan kendala apa pun pada rekaman ini, jadi kotak `.observed .todo`
+di `#s2-video` masih menunggu hasil menonton ulang. Jangan mengarang isinya.
 
 Setiap bagian memuat tiga hal, dalam urutan ini: **deskripsi produk** → **analisis** →
 **refleksi diri**. Analisis jangan lebih pendek dari deskripsinya. Evaluasi proses selalu
@@ -235,6 +267,33 @@ ditulis sebelum evaluasi hasil (ikut urutan RPL), termasuk di blok rumus.
 
 ## Bahan yang tersedia
 
+**Sumber Siklus 2 adalah `assets/SIKLUS 2 PPLM/`** (14 Oktober 2026), diekstrak dari
+`SIKLUS 2 PPLM baru.zip`. Arsipnya **tidak ada di repo ini**, melainkan di
+`C:\Users\ZonkDBR\Documents\Araa\Seminar PPG\Topik 3\website\assets\` bersama
+`SIKLUS 1 PPLM baru.zip`. Hati-hati, kedua proyek sama-sama bernama `Topik 3`.
+
+Tiga folder yang dilacak git, masing-masing hanya berisi `.docx` + `.pptx`:
+`RPL Kejujuran Akademik (Belajar)`, `RPL Membangun Resiliensi (Pribadi)`,
+`RPL Merancang target SMART (Karier)`. Ejaan folder sudah **dirapikan dari zip**, yang
+menulis "Keujujuran" dan melabeli SMART sebagai "(Pribadi)" padahal dokumennya bidang
+Karier. Situs mengikuti isi dokumen, bukan nama folder. Ketiga PPT masing-masing 7 slide
+dengan susunan sama: pembuka, lima tujuan, konsep inti, kerangka alat, contoh penerapan,
+panduan pengerjaan LKPD berikut alokasi waktu, penutup. LKPD terbit sebagai gambar di
+`assets/lkpd/lkpd-jujur-itu-keren.jpg`, `lkpd-bangkit-lebih-kuat.jpg`, `lkpd-visi-smart.jpg`;
+isinya mengikuti lembar cetak, yang pada LKPD Kejujuran **berbeda dari Lampiran 2 docx**
+(lembar cetak tidak memuat tabel "Dilema Rafi"). Ketiga Lampiran 4 docx masih memakai judul
+topik salin-tempel "Regulasi Emosi Remaja"; situs tidak mengulang kekeliruan itu, tetapi
+menyebutnya sebagai temuan di analisis instrumen.
+
+Foto Siklus 2: `assets/dokumentasi/jujur-01..03` (layanan Kejujuran Akademik) dan
+`siklus2-01..03`. Yang kedua **dipakai bersama oleh layanan Resiliensi dan Visi Masa
+Depan** atas keterangan pemilik (14 Oktober 2026), karena kedua folder mentahnya berisi
+foto yang identik. Karena itu namanya netral dan keterangannya tidak menyebut tanggal.
+
+Metode "studi kasus" yang tercantum di RPL Resiliensi **tidak ditulis di situs**, mengikuti
+aturan "Tanpa studi kasus" di bawah. Perlu dikonfirmasi ulang ke pemilik apakah aturan itu
+masih berlaku untuk layanan baru.
+
 **Sumber Siklus 1 adalah `assets/SIKLUS 1 PPLM/`** (28 September 2026): RPL Penyesuaian Diri,
 Regulasi Emosi, dan Manajemen Waktu versi bertanda tangan, beserta PPT-nya. Situs menaut ke
 sana; salinan lama di `assets/RPL Penyesuaian…`, `RPL regulasi…`, `RPL manageman…` diabaikan
@@ -244,6 +303,11 @@ bagian. Manajemen Waktu: LKPD "Bener Melangkah: Menguasai Matriks Prioritas Hidu
 Experiential Learning, evaluasi proses /20, hasil /50, kepuasan 6-18. **Foto: selalu tiga
 per layanan** dari folder dokumentasinya, diperkecil ke `assets/dokumentasi/regulasi-0N`,
 `waktu-0N`; Menghargai memakai sosial-03, 04, 01.
+
+Ketiga `.docx` Siklus 1 disegarkan dari `SIKLUS 1 PPLM baru.zip` pada 14 Oktober 2026.
+Satu-satunya perubahan isinya adalah label semester pada kepala dokumen, dari "GENAP"
+menjadi "SEMESTER 1 (GANJIL)"; seluruh foto dan PPT identik byte-per-byte. Teks Siklus 1
+di situs karena itu **tidak diubah**, dan tautannya tetap sahih karena nama berkas sama.
 
 **RPL lama.** Sumber yang sahih adalah berkas `.docx` di dalam `assets/`
 (versi yang diekstrak dari zip pada 26 September 2026), bukan PDF di akar folder.
@@ -369,10 +433,14 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
 
 ## Yang masih kurang
 
-- [ ] **Video Siklus 2**: isi `data-yt` di `#s2-video`, lalu tulis analisisnya.
-- [ ] Kotak "Dilengkapi setelah menonton ulang rekaman" di `#s1-video` (empat butir).
+- [ ] Kotak "Dilengkapi setelah menonton ulang rekaman" di `#s1-video` dan `#s2-video`
+      (empat butir masing-masing).
+- [ ] **Video Siklus 3** (layanan Menghargai): `data-yt` di `#s3-video` masih kosong,
+      analisis dan refleksinya juga belum ditulis.
 - [ ] **Contoh perilaku kurang menghargai** hasil observasi (kotak alasan topik di
-      `#s1-materi`), **Siklus 3 dan 4**, dan **penilaian Guru Pamong**.
+      `#s3-materi`), **Siklus 4**, dan **penilaian Guru Pamong**.
+- [ ] **Seminar PPG**: luaran, umpan balik penguji, dan tindak lanjut di `#seminar`
+      ppg-intisari.html masih placeholder.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
 - [ ] **Profil**: riwayat pendidikan, pengalaman, organisasi, keterampilan, prestasi,
       serta kontak dan CV di profil.html (enam kartu placeholder).

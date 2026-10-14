@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intisari PPG - Fahira Firzha Wianda</title>
+<meta name="description" content="Benang merah seluruh refleksi mata kuliah PPG Prajabatan Bimbingan dan Konseling: identifikasi temuan tiap mata kuliah, karya inovasi yang lahir darinya, dan kedudukan Seminar PPG.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🌸%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#identifikasi">Lompat ke isi</a>
+
+<!-- Bentuk stiker, didefinisikan sekali lalu dipakai ulang lewat <use>. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="st-sakura" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(72 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(144 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(216 50 50)"/>
+      <path d="M50,54 C40,45 38,28 50,18 C62,28 60,45 50,54 Z" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="9" fill="#FFE68C"/>
+  </symbol>
+  <symbol id="st-hati" viewBox="0 0 100 100">
+    <path d="M50,84 C22,64 12,48 12,36 C12,24 22,16 32,16 C40,16 46,21 50,28 C54,21 60,16 68,16 C78,16 88,24 88,36 C88,48 78,64 50,84 Z"/>
+  </symbol>
+  <symbol id="st-kilau" viewBox="0 0 100 100">
+    <path d="M50,8 C54,34 66,46 92,50 C66,54 54,66 50,92 C46,66 34,54 8,50 C34,46 46,34 50,8 Z"/>
+  </symbol>
+  <symbol id="st-bintang" viewBox="0 0 100 100">
+    <path d="M50,10 L61,38 L91,40 L68,59 L76,88 L50,72 L24,88 L32,59 L9,40 L39,38 Z"/>
+  </symbol>
+</svg>
+
+<!-- Kelopak berjatuhan: bentuk CSS murni bergaris hitam, seperti stiker tempel. -->
+<div class="petals" aria-hidden="true">
+  <div class="petal" style="--i:0;  left:5%;  --s:16px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:1;  left:16%; --s:20px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:2;  left:27%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:3;  left:38%; --s:18px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:4;  left:49%; --s:15px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:5;  left:60%; --s:19px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:6;  left:71%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:7;  left:82%; --s:17px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:8;  left:93%; --s:15px; --p:var(--blossom)"></div>
+  <div class="petal" style="--i:9;  left:22%; --s:18px; --p:var(--pink)"></div>
+  <div class="petal" style="--i:10; left:55%; --s:14px; --p:var(--butter)"></div>
+  <div class="petal" style="--i:11; left:88%; --s:19px; --p:var(--blossom)"></div>
+</div>
+
+<nav class="sitenav" aria-label="Navigasi situs">
+  <div class="wrap">
+
+    <ul class="saklar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li>
+        <button type="button" class="saklar__ppg" data-aktif popovertarget="menu-ppg">PPG</button>
+        <div id="menu-ppg" class="menu-ppg" popover>
+          <p class="menu-ppg__judul">Pilih halaman PPG</p>
+          <a href="ppg-1.html"><strong>Semester I</strong><span>6 mata kuliah, termasuk PPL Terbimbing</span></a>
+          <a href="ppg-2.html"><strong>Semester II</strong><span>5 mata kuliah, termasuk PPL Mandiri</span></a>
+          <a href="ppg-intisari.html"><strong>Intisari PPG</strong><span>Benang merah seluruh refleksi mata kuliah</span></a>
+          <a href="karya-inovasi.html"><strong>Karya Inovasi</strong><span>Dua proposal dari Projek Kepemimpinan</span></a>
+        </div>
+      </li>
+      <li><a href="ppl.html">PPL</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="kepala">
+  <div class="wrap">
+    <p class="kepala__jejak"><a href="index.html">Beranda</a> / Modul Akademik PPG / Intisari PPG</p>
+    <h1><span class="sorot">Intisari PPG</span></h1>
+    <ul class="semester">
+      <li><a href="ppg-intisari.html" aria-current="page">Intisari PPG</a></li>
+      <li><a href="karya-inovasi.html">Karya Inovasi</a></li>
+    </ul>
+    <p class="lede">
+      Sebelas mata kuliah selama dua semester menghasilkan sebelas refleksi yang berdiri
+      sendiri. Halaman ini membaca kesebelasnya sebagai satu rangkaian: temuan apa yang
+      saya identifikasi, dari mata kuliah mana asalnya, ke mana temuan itu bermuara, dan
+      bagaimana Seminar PPG mempertemukan semuanya.
+    </p>
+
+    <ul class="ubin ubin--empat">
+      <li><span class="kotak"><strong>2</strong><span>Semester</span></span></li>
+      <li><span class="kotak"><strong>11</strong><span>Mata Kuliah</span></span></li>
+      <li><span class="kotak"><strong>29</strong><span>Artefak</span></span></li>
+      <li><span class="kotak"><strong>2</strong><span>Karya Inovasi</span></span></li>
+    </ul>
+  </div>
+</header>
+
+<main id="isi">
+
+<section class="sec sec--card" id="identifikasi">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: 8deg; --tunda: -1s"><use href="#st-sakura"></use></svg>
+      <p class="eyebrow">Langkah pertama</p>
+      <h2>Identifikasi: Temuan dan Asalnya</h2>
+      <p>
+        Setiap mata kuliah meninggalkan satu temuan yang mengubah cara saya bekerja.
+        Berikut temuan tersebut beserta mata kuliah yang menjadi sumbernya.
+      </p>
+    </div>
+
+    <ul class="doc-grid reveal">
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem I</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Pendidikan adalah pemberdayaan, bukan penyeragaman</h4>
+          <p>Dari Filosofi Pendidikan dan Pendidikan Nilai. Pokok pikiran Ki Hadjar Dewantara dan kasus Sokola Rimba menunjukkan bahwa menghargai identitas murid adalah syarat, bukan pelengkap.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem I</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Asesmen mendahului tindakan</h4>
+          <p>Dari Asesmen dan Layanan BK. Persentase hasil AKPD dan sosiometri diterjemahkan menjadi empat rencana layanan, sehingga program berangkat dari data, bukan dari dugaan.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem I</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Media yang menarik belum menjamin keterlibatan</h4>
+          <p>Dari PPL Terbimbing. Tiga siklus layanan memperlihatkan bahwa yang menentukan keterlibatan murid adalah teknik bertanya, bukan ragam medianya.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem I</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Pola pikir tetap paling sering datang dari diri sendiri</h4>
+          <p>Dari Pola Pikir Bertumbuh. Suara yang membatasi ternyata lebih sering muncul dari saya sebagai guru daripada dari murid, sehingga penumbuhannya harus dimulai dari diri saya.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem I</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Perilaku murid adalah data kebutuhan</h4>
+          <p>Dari Design Thinking. Pemetaan pengalaman seorang murid mengajarkan saya membaca perilaku di kelas sebagai penanda kesulitan belajar, bukan sebagai catatan kenakalan.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem I</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Konseling adalah relasi, bukan teknik</h4>
+          <p>Dari Praktikum Konseling Individu. Lima sesi berhadapan dengan konseli menunjukkan bahwa kualitas hubungan mendahului ketepatan penggunaan teknik.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem II</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Intervensi dimulai dari diagnosis yang tepat</h4>
+          <p>Dari Intervensi Guru dalam Penelitian Universal. Rendahnya kesadaran diri murid terhadap tata tertib didiagnosis lebih dahulu, baru kemudian media TOUCH dirancang sebagai jawabannya.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem II</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Guru mengelola emosinya sendiri lebih dahulu</h4>
+          <p>Dari Pembelajaran Sosial Emosional. Lima kompetensi CASEL hanya dapat diajarkan oleh guru yang terlebih dahulu mempraktikkannya pada dirinya sendiri.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem II</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Sekolah adalah sistem, bukan sekadar tempat bertugas</h4>
+          <p>Dari PPL Mandiri. Orientasi manajemen sekolah dan observasi lingkungan belajar menempatkan layanan BK sebagai bagian dari sistem yang lebih besar.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem II</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Rancangan berangkat dari akar masalah, bukan gejalanya</h4>
+          <p>Dari Praktikum Konseling Kelompok. Pendekatan Gestalt untuk kasus perundungan dan Terapi Realitas untuk kasus bolos sekolah dipilih setelah akar masalahnya ditelusuri.</p>
+        </div>
+      </li>
+      <li class="doc-card">
+        <div class="doc-cover" aria-hidden="true"><span class="code">Sem II</span></div>
+        <div class="doc-body">
+          <h4 class="doc-title">Kebutuhan yang berbeda melahirkan karya yang berbeda</h4>
+          <p>Dari Projek Kepemimpinan. Dua jenjang sekolah dengan kebutuhan yang tidak sama menghasilkan dua karya inovasi yang sama sekali tidak mirip.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec--pink" id="benang-merah">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -10deg; --tunda: -2s"><use href="#st-kilau"></use></svg>
+      <p class="eyebrow">Langkah kedua</p>
+      <h2>Benang Merah Sebelas Refleksi</h2>
+      <p>
+        Dibaca berurutan, kesebelas temuan itu bukan sebelas pelajaran yang terpisah,
+        melainkan empat prinsip yang terus berulang dengan wajah yang berbeda.
+      </p>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <ul>
+        <li><strong>Mendengarkan mendahului merancang.</strong> Asesmen dan Layanan BK mengajarkannya lewat angka, Design Thinking lewat observasi, dan Projek Kepemimpinan lewat wawancara. Ketiganya berujung sama: rancangan yang disusun sebelum kebutuhan diketahui hampir pasti meleset.</li>
+        <li><strong>Murid adalah subjek, bukan sasaran.</strong> Filosofi Pendidikan menyebutnya menghargai identitas, Design Thinking menyebutnya membaca perilaku sebagai data, dan Praktikum Konseling menyebutnya membangun relasi. Ketiganya menolak memperlakukan murid sebagai penerima program yang pasif.</li>
+        <li><strong>Perubahan dimulai dari diri guru.</strong> Pola Pikir Bertumbuh dan Pembelajaran Sosial Emosional menunjuk ke arah yang sama, yaitu bahwa saya tidak dapat mengajarkan kemampuan yang belum saya praktikkan sendiri.</li>
+        <li><strong>Proses dinilai sebelum hasil.</strong> PPL Terbimbing memperlihatkannya ketika media yang bagus ternyata tidak cukup, dan Projek Kepemimpinan menegaskannya lewat tuntutan target yang terukur serta media yang tetap dapat dipakai setelah kegiatan selesai.</li>
+      </ul>
+      <p>
+        Keempat prinsip inilah yang saya bawa ke seluruh rancangan layanan di PPL Mandiri,
+        dan yang membuat enam layanan klasikal saya memiliki susunan yang sama: asesmen,
+        rancangan, media, pelaksanaan, lalu evaluasi proses sebelum evaluasi hasil.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="karya">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--blossom); --rot: 12deg; --tunda: -3s"><use href="#st-hati"></use></svg>
+      <p class="eyebrow">Langkah ketiga</p>
+      <h2>Dari Refleksi Menuju Karya Inovasi</h2>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <p>
+        Temuan yang paling cepat berubah menjadi produk adalah temuan dari Projek
+        Kepemimpinan. Dua kebutuhan yang terpisah, yaitu perundungan verbal yang dibungkus
+        sebagai candaan di jenjang SMP dan murid yang belum mengenali minatnya di jenjang
+        SMA, menghasilkan dua karya inovasi dengan bentuk yang sama sekali berbeda.
+      </p>
+      <p>
+        Kedua karya itu menerapkan seluruh benang merah di atas sekaligus: keduanya
+        dimulai dari mendengarkan, menempatkan murid sebagai pihak yang memilih, menuntut
+        saya bekerja bersama guru BK dan bukan sendirian, serta mengukur keberhasilan dari
+        perubahan pada murid, bukan dari kelancaran kegiatan. Keduanya sampai saat ini
+        masih berstatus proposal.
+      </p>
+      <a class="ghost" href="karya-inovasi.html">Buka halaman Karya Inovasi</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--card" id="seminar">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--butter); --rot: -7deg; --tunda: -4s"><use href="#st-bintang"></use></svg>
+      <p class="eyebrow">Langkah keempat</p>
+      <h2>Seminar PPG: Tempat Semuanya Dipertemukan</h2>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <p>
+        Seminar PPG adalah tempat ketiga langkah sebelumnya dipertemukan. Identifikasi
+        temuan dari sebelas mata kuliah, karya inovasi yang lahir darinya, dan praktik
+        layanan di PPL Mandiri tidak lagi berdiri sebagai tugas yang terpisah, melainkan
+        disusun menjadi satu alur yang dapat dipertanggungjawabkan: apa yang saya temukan,
+        apa yang saya kerjakan karenanya, dan apa buktinya.
+      </p>
+      <p>
+        Portofolio ini sendiri merupakan bagian dari alur tersebut. Halaman PPG memuat
+        refleksi tiap mata kuliah beserta artefaknya, halaman Karya Inovasi memuat dua
+        produk yang lahir dari refleksi itu, dan halaman PPL memuat praktik layanan yang
+        menerapkan keduanya di kelas nyata.
+      </p>
+    </div>
+
+    <!-- TODO: lengkapi setelah Seminar PPG berlangsung (luaran, umpan balik penguji, dan tindak lanjutnya). -->
+    <div class="kosong reveal">
+      <h3>Dilengkapi setelah seminar berlangsung</h3>
+      <p>
+        Luaran Seminar PPG, umpan balik dari dosen dan penguji, serta rencana tindak lanjut
+        yang saya susun sesudahnya akan ditambahkan pada bagian ini.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--pink" id="penutup">
+  <div class="wrap">
+    <div class="sec__head reveal">
+      <svg class="stiker" aria-hidden="true" style="--isi: var(--pink); --rot: -12deg; --tunda: -6s"><use href="#st-sakura"></use></svg>
+      <p class="eyebrow">Penutup</p>
+      <h2>Yang Berubah pada Diri Saya</h2>
+    </div>
+
+    <div class="part prose narrow reveal">
+      <p>
+        Jika seluruh refleksi ini diringkas menjadi satu kalimat, perubahannya terletak
+        pada pertanyaan yang saya ajukan di awal pekerjaan. Dahulu pertanyaan saya adalah
+        program apa yang ingin saya buat; sekarang pertanyaannya adalah kebutuhan siapa
+        yang sedang saya jawab. Perubahan pertanyaan itu tampak kecil, tetapi berakibat
+        pada seluruh urutan kerja sesudahnya, mulai dari pemilihan topik layanan, bentuk
+        media, sampai cara saya menilai keberhasilan.
+      </p>
+
+      <div class="refleksi">
+        <h3>Refleksi diri</h3>
+        <p>
+          Kekurangan saya yang paling berulang di sepanjang dua semester ini adalah jarak
+          antara rancangan dan pelaksanaan. Rancangan saya cenderung lengkap dan ambisius,
+          sedangkan waktu di kelas terbatas, sehingga bagian penerapan sering kali menjadi
+          yang paling terdesak. Hal yang sama terlihat pada dua karya inovasi yang berhenti
+          pada tahap proposal. Ke depan saya akan menilai rancangan bukan dari
+          kelengkapannya, melainkan dari kemungkinannya untuk benar-benar tuntas
+          dilaksanakan, dan menuntaskan apa yang sudah saya mulai sebelum menyusun yang
+          baru.
+        </p>
+      </div>
+
+      <p class="lbl">Baca lebih lanjut</p>
+      <a class="ghost" href="ppg-1.html">Refleksi Semester I</a>
+      <a class="ghost" href="ppg-2.html">Refleksi Semester II</a>
+      <a class="ghost" href="ppl.html">Praktik di PPL Mandiri</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="thanks">
+  <svg class="stiker s-kiri" aria-hidden="true"><use href="#st-bintang"></use></svg>
+  <svg class="stiker s-kanan" aria-hidden="true"><use href="#st-kilau"></use></svg>
+  <div class="wrap">
+    <svg class="blossom" viewBox="0 0 100 100" aria-hidden="true">
+      <g transform="rotate(0 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(72 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(144 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(216 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <g transform="rotate(288 50 50)"><path class="kelopak mekar" d="M50,52 C39,42 36,24 50,12 C64,24 61,42 50,52 Z"/></g>
+      <circle class="inti" cx="50" cy="50" r="7"/>
+    </svg>
+
+    <h2>Terima Kasih</h2>
+    <p>
+      Sebelas mata kuliah, empat prinsip, satu pertanyaan yang berubah. Terima kasih sudah
+      membaca sampai sini.
+    </p>
+    <p class="sign">Fahira Firzha Wianda, PPG Prajabatan Bimbingan dan Konseling, IKIP Siliwangi</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
