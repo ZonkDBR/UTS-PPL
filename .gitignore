@@ -40,3 +40,17 @@ assets/KeduaOrangTua.jpeg
 assets/SIKLUS 2 PPLM/*/Dokumentasi*/
 assets/SIKLUS 2 PPLM/*/*.png
 assets/SIKLUS 2 PPLM/*/*.jpeg
+
+# Modul Siklus 3 dan 4 (16 Oktober 2026): RPL dan PPT ditautkan, bahan mentah tidak.
+assets/SIKLUS 3 PPLM/*/Dokumentasi*/
+assets/SIKLUS 3 PPLM/*/Media*/
+assets/SIKLUS 3 PPLM/*/*.png
+assets/SIKLUS 4 PPLM/*/Dokumentasi*/
+assets/SIKLUS 4 PPLM/*/*.png
+assets/SIKLUS*/*/~$*
+
+# Sumber refleksi PPG, dipakai sebagai rujukan isi tetapi tidak diterbitkan.
+assets/Refleksi Pengalaman Belajar ara.docx
+
+# PPT Media Sosial terbit sebagai PDF dan ditautkan dari situs, jadi dikecualikan.
+!assets/SIKLUS 3 PPLM/*/PPT*.pdf

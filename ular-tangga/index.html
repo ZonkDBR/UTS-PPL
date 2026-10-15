@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ular Tangga Motivasi - Fahira Firzha Wianda</title>
+<meta name="description" content="Permainan papan digital berisi kartu pertanyaan refleksi tentang kebiasaan belajar, prototipe media layanan bimbingan klasikal bidang Belajar.">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--yellow:#FFD600;--dark:#1A2332;--cell:64px;--teal:#007A87;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow-x:hidden;}
+body{font-family:'Nunito',sans-serif;min-height:100vh;
+  background:linear-gradient(150deg,#003F4F 0%,#005F6B 45%,#007A87 100%);
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px 10px 48px;color:var(--dark);}
+
+/* ── SCREENS ── */
+.screen{display:none;width:100%;max-width:480px;}
+.screen.active{display:flex;flex-direction:column;align-items:center;}
+#game-screen.active{max-width:600px;}
+
+/* ── CARD ── */
+.card{background:rgba(255,255,255,.96);border-radius:26px;
+  padding:30px 24px;width:100%;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+  animation:popIn .4s cubic-bezier(.34,1.56,.64,1);}
+.card .emoji{font-size:3rem;line-height:1;}
+.card h1{font-family:'Fredoka One',cursive;font-size:1rem;color:#666;
+  letter-spacing:2px;text-transform:uppercase;margin:4px 0 2px;}
+.card h2{font-family:'Fredoka One',cursive;font-size:1.9rem;color:var(--teal);margin-bottom:20px;}
+@keyframes popIn{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* ── BUTTONS ── */
+.btn{width:100%;padding:13px;font-family:'Fredoka One',cursive;font-size:1.05rem;
+  border:none;border-radius:13px;cursor:pointer;transition:all .12s;
+  box-shadow:0 5px 0 rgba(0,0,0,.18);}
+.btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 rgba(0,0,0,.18);}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.18);}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;}
+.btn-primary{background:linear-gradient(135deg,var(--yellow),#FFA000);color:var(--dark);}
+.btn-teal{background:linear-gradient(135deg,#26C6DA,#006064);color:white;}
+.btn-red{background:linear-gradient(135deg,#EF5350,#B71C1C);color:white;}
+.btn-ghost{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:white;box-shadow:none;}
+.btn-ghost:hover{background:rgba(255,255,255,.25);}
+.btn-sm{padding:9px 18px;font-size:.88rem;width:auto;}
+
+/* ── INPUT ── */
+.inp{width:100%;padding:11px 14px;border:2.5px solid #ddd;border-radius:12px;
+  font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;outline:none;
+  transition:border .15s;background:white;}
+.inp:focus{border-color:var(--teal);}
+.inp-code{font-family:'Fredoka One',cursive;font-size:1.2rem;letter-spacing:4px;
+  text-transform:uppercase;text-align:center;}
+label.lbl{font-size:.8rem;font-weight:800;color:#555;display:block;
+  margin-bottom:5px;text-align:left;letter-spacing:.3px;}
+
+/* ── HOME SCREEN ── */
+#home-screen .card{gap:0;}
+.home-logo{font-size:4rem;margin-bottom:4px;}
+.home-btns{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+.or-div{display:flex;align-items:center;gap:8px;color:#bbb;font-size:.8rem;font-weight:700;margin:4px 0;}
+.or-div::before,.or-div::after{content:'';flex:1;height:1px;background:#e0e0e0;}
+.join-row{display:flex;gap:8px;}
+.join-row .inp{flex:1;}
+.join-row .btn{width:auto;padding:11px 16px;font-size:.9rem;}
+
+/* ── HOST ROLE SCREEN ── */
+.role-cards{display:flex;gap:10px;margin:16px 0;}
+.role-card{flex:1;border:2.5px solid #e0e0e0;border-radius:16px;padding:16px 10px;
+  cursor:pointer;transition:all .2s;text-align:center;background:white;}
+.role-card:hover{border-color:var(--teal);background:#f0fdfe;}
+.role-card.selected{border-color:var(--teal);background:#e0f7fa;box-shadow:0 0 0 3px rgba(0,122,135,.2);}
+.role-card .rc-icon{font-size:2.2rem;display:block;margin-bottom:6px;}
+.role-card .rc-title{font-family:'Fredoka One',cursive;font-size:1rem;color:var(--dark);}
+.role-card .rc-desc{font-size:.72rem;color:#777;margin-top:3px;line-height:1.4;}
+.name-field{margin-bottom:16px;text-align:left;}
+
+/* ── LOBBY SCREEN ── */
+#lobby-screen{min-height:70vh;justify-content:center;}
+.lobby-header{color:white;text-align:center;margin-bottom:14px;}
+.lobby-header h2{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--yellow);}
+.lobby-header p{font-size:.82rem;opacity:.8;margin-top:3px;}
+.room-badge{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);
+  border:1.5px solid rgba(255,255,255,.25);border-radius:16px;
+  padding:12px 18px;margin-bottom:14px;width:100%;max-width:480px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.room-badge .rc-label{font-size:.75rem;font-weight:800;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.5px;}
+.room-badge .rc-code{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--yellow);letter-spacing:4px;}
+.room-badge .rc-count{font-size:.75rem;color:rgba(255,255,255,.7);text-align:right;}
+.lobby-players{display:flex;flex-direction:column;gap:8px;width:100%;max-width:480px;margin-bottom:12px;}
+.lp-card{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);
+  border:1.5px solid rgba(255,255,255,.22);border-radius:14px;
+  padding:10px 14px;display:flex;align-items:center;gap:10px;}
+.lp-dot{width:22px;height:22px;border-radius:50%;border:2.5px solid rgba(255,255,255,.7);flex-shrink:0;}
+.lp-name{font-family:'Fredoka One',cursive;color:white;font-size:.95rem;flex:1;}
+.lp-edit{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  border-radius:8px;padding:4px 10px;font-family:'Nunito',sans-serif;
+  font-size:.78rem;font-weight:700;color:white;cursor:pointer;transition:all .15s;}
+.lp-edit:hover{background:rgba(255,255,255,.25);}
+.lp-tag{font-size:.65rem;color:rgba(255,255,255,.6);background:rgba(0,0,0,.2);
+  border-radius:5px;padding:2px 7px;font-weight:700;}
+.lobby-observer{background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.2);
+  border-radius:12px;padding:8px 14px;color:rgba(255,255,255,.65);
+  font-size:.75rem;text-align:center;margin-bottom:8px;width:100%;max-width:480px;}
+.lobby-actions{display:flex;flex-direction:column;gap:8px;width:100%;max-width:480px;}
+.waiting-spin{display:inline-block;animation:spin 1.2s linear infinite;font-size:1.2rem;margin-right:6px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── WAITING SCREEN (player joined, waiting for start) ── */
+#waiting-screen{min-height:70vh;justify-content:center;}
+.wait-card{background:rgba(255,255,255,.96);border-radius:26px;
+  padding:36px 24px;width:100%;max-width:400px;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);animation:popIn .4s cubic-bezier(.34,1.56,.64,1);}
+.wait-card .big-emoji{font-size:3.5rem;display:block;margin-bottom:12px;
+  animation:bnc .9s ease infinite alternate;}
+@keyframes bnc{from{transform:translateY(0)}to{transform:translateY(-10px)}}
+.wait-card h3{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--teal);margin-bottom:8px;}
+.wait-card p{color:#666;font-size:.9rem;line-height:1.6;margin-bottom:16px;}
+.wait-name-box{background:#f0fdfe;border:2px solid #b2ebf2;border-radius:12px;
+  padding:12px 16px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.wait-dot{width:26px;height:26px;border-radius:50%;flex-shrink:0;}
+.player-list-wait{display:flex;flex-direction:column;gap:6px;
+  background:#f5f5f5;border-radius:12px;padding:10px 14px;margin-top:12px;text-align:left;}
+.player-list-wait .pw-item{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;color:#444;}
+.player-list-wait .pw-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;}
+
+/* ── GAME SCREEN ── */
+.ghead{text-align:center;margin-bottom:8px;color:white;}
+.ghead h1{font-family:'Fredoka One',cursive;font-size:clamp(.95rem,3vw,1.3rem);
+  letter-spacing:3px;opacity:.8;text-transform:uppercase;}
+.ghead h2{font-family:'Fredoka One',cursive;font-size:clamp(1.4rem,5vw,2rem);
+  color:var(--yellow);text-shadow:2px 3px 0 rgba(0,0,0,.4);line-height:1;}
+
+.bwrap{position:relative;width:calc(var(--cell)*8);height:calc(var(--cell)*6);
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 0 0 4px var(--yellow),0 0 0 7px rgba(255,255,255,.15),0 14px 40px rgba(0,0,0,.5);
+  margin:0 auto 12px;flex-shrink:0;}
+.bgrid{display:grid;grid-template-columns:repeat(8,var(--cell));
+  grid-template-rows:repeat(6,var(--cell));width:100%;height:100%;}
+.cell{width:var(--cell);height:var(--cell);position:relative;border:1px solid rgba(0,0,0,.1);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3px 2px 2px;}
+.cell.tl{background:#26C6DA;}.cell.cr{background:#FFF9C4;}
+.cell .nm{font-family:'Fredoka One',cursive;font-size:10px;color:rgba(0,0,0,.45);
+  position:absolute;top:2px;left:4px;line-height:1;}
+.cell .lb{font-size:6px;text-align:center;font-weight:700;color:rgba(0,0,0,.7);
+  line-height:1.2;max-width:92%;margin-top:10px;word-break:break-word;}
+.cs{background:linear-gradient(135deg,#4CAF50,#8BC34A)!important;}
+.cf{background:linear-gradient(135deg,#FFD600,#FF8F00)!important;}
+.ck{background:linear-gradient(135deg,#FF7043,#D84315)!important;}.ck .nm,.ck .lb{color:#fff;}
+.cla{background:linear-gradient(135deg,#66BB6A,#2E7D32)!important;}.cla .nm,.cla .lb{color:#fff;}
+.cb{background:linear-gradient(135deg,#FFCA28,#F57F17)!important;}.cb .nm,.cb .lb{color:#fff;}
+.cp{background:linear-gradient(135deg,#AB47BC,#4A148C)!important;}.cp .nm,.cp .lb{color:#fff;}
+.cq{background:linear-gradient(135deg,#42A5F5,#1565C0)!important;}.cq .nm,.cq .lb{color:#fff;}
+.bov{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;}
+.tlayer{position:absolute;inset:0;pointer-events:none;z-index:10;}
+.tok{position:absolute;width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fredoka One',cursive;font-size:11px;color:white;
+  border:2.5px solid rgba(255,255,255,.9);box-shadow:0 2px 8px rgba(0,0,0,.45);
+  transition:left .5s cubic-bezier(.34,1.56,.64,1),top .5s cubic-bezier(.34,1.56,.64,1);
+  transform:translate(-50%,-50%);}
+
+/* controls */
+.gcontrols{display:flex;gap:8px;align-items:stretch;margin-bottom:10px;width:100%;}
+.dwrap{background:rgba(255,255,255,.12);backdrop-filter:blur(12px);
+  border:1.5px solid rgba(255,255,255,.25);border-radius:14px;padding:12px;text-align:center;flex:1;}
+.dice{width:56px;height:56px;background:white;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:2rem;
+  margin:0 auto 8px;box-shadow:0 5px 0 rgba(0,0,0,.2),0 7px 18px rgba(0,0,0,.18);}
+.dice.spin{animation:da .6s ease-in-out;}
+@keyframes da{0%{transform:rotateX(0) rotateY(0) scale(1)}25%{transform:rotateX(180deg) rotateY(90deg) scale(1.15)}
+  50%{transform:rotateX(360deg) rotateY(180deg) scale(.9)}75%{transform:rotateX(540deg) rotateY(270deg) scale(1.1)}
+  100%{transform:rotateX(720deg) rotateY(360deg) scale(1)}}
+.tlbl{font-size:.72rem;font-weight:800;color:rgba(255,255,255,.9);margin-bottom:7px;}
+.turn-msg{font-size:.68rem;color:rgba(255,255,255,.65);margin-top:5px;font-weight:700;font-style:italic;}
+
+/* observer banner */
+.obs-banner{background:rgba(255,255,255,.1);border:1px dashed rgba(255,255,255,.3);
+  border-radius:12px;padding:8px 14px;color:rgba(255,255,255,.8);
+  font-size:.75rem;text-align:center;margin-bottom:10px;width:100%;font-weight:700;}
+
+.pcards{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;width:100%;}
+.pcard{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.22);
+  border-radius:11px;padding:7px 10px;transition:all .25s;
+  display:flex;align-items:center;gap:7px;flex:1;min-width:120px;}
+.pcard.on{background:rgba(255,255,255,.93);border-color:var(--yellow);box-shadow:0 2px 14px rgba(255,214,0,.4);}
+.pcard.me{border-color:rgba(255,255,255,.5);}
+.pcard.me.on{border-color:var(--yellow);}
+.pdot{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,.8);flex-shrink:0;}
+.pinfo{flex:1;min-width:0;}
+.pname{font-family:'Fredoka One',cursive;font-size:.78rem;color:white;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pcard.on .pname{color:var(--dark);}
+.ppos{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.75);}
+.pcard.on .ppos{color:#555;}
+.me-badge{font-size:.55rem;background:var(--yellow);color:var(--dark);
+  border-radius:4px;padding:1px 4px;font-weight:800;margin-left:3px;}
+
+.lbox{background:rgba(0,0,0,.32);border-radius:11px;padding:8px 10px;
+  max-height:110px;overflow-y:auto;scrollbar-width:thin;margin-bottom:8px;width:100%;}
+.le{font-size:.67rem;color:rgba(255,255,255,.88);padding:2px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);line-height:1.4;}
+.le:last-child{border:none;}
+
+.leg{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.2);border-radius:11px;
+  padding:10px 12px;width:100%;}
+.leg h3{font-family:'Fredoka One',cursive;color:var(--yellow);font-size:.75rem;
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.li{display:flex;align-items:center;gap:6px;font-size:.65rem;color:rgba(255,255,255,.9);margin-bottom:3px;}
+.ld{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+
+/* ── MODAL ── */
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:100;
+  align-items:center;justify-content:center;padding:16px;}
+.ov.show{display:flex;}
+.mb{background:white;border-radius:22px;padding:26px 20px;
+  max-width:440px;width:100%;text-align:center;
+  animation:popIn .35s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 20px 60px rgba(0,0,0,.45);max-height:88vh;overflow-y:auto;}
+.mi{font-size:2.6rem;line-height:1;margin-bottom:6px;}
+.mt{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--dark);margin-bottom:6px;}
+.mx{font-size:.88rem;color:#444;line-height:1.7;margin-bottom:12px;white-space:pre-line;}
+.md{display:none;background:#e3f2fd;border-radius:9px;padding:6px 14px;
+  font-size:.82rem;font-weight:800;color:#1565C0;margin-bottom:14px;}
+.obs-note{background:#fff3e0;border-radius:9px;padding:7px 14px;
+  font-size:.78rem;font-weight:700;color:#E65100;margin-bottom:14px;display:none;}
+
+/* ── WIN ── */
+#wo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;
+  align-items:center;justify-content:center;padding:16px;}
+#wo.show{display:flex;}
+.wb{background:linear-gradient(135deg,#FFF176,#FFD600 50%,#FFA000);
+  border-radius:24px;padding:40px 26px;text-align:center;
+  max-width:380px;width:100%;
+  animation:popIn .5s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 25px 70px rgba(0,0,0,.55);}
+.we{font-size:4rem;animation:bnc .8s ease infinite alternate;display:block;}
+.wb h2{font-family:'Fredoka One',cursive;font-size:1.8rem;color:var(--dark);margin:8px 0 5px;}
+.wb p{font-size:.88rem;color:#555;margin-bottom:20px;line-height:1.5;}
+.wbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.w1,.w2{padding:11px 22px;font-family:'Fredoka One',cursive;font-size:.92rem;
+  border:none;border-radius:13px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.2);transition:all .12s;}
+.w1{background:#26C6DA;color:white;}.w2{background:white;color:var(--dark);}
+.w1:hover,.w2:hover{transform:translateY(-2px);}
+
+.cf2{position:fixed;width:10px;height:10px;border-radius:2px;
+  animation:cfall 3s ease-in forwards;pointer-events:none;z-index:210;}
+@keyframes cfall{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+/* ── WS BAR ── */
+#ws-bar{position:fixed;top:0;left:0;right:0;z-index:300;padding:6px 14px;
+  font-size:.72rem;font-weight:700;display:none;align-items:center;justify-content:center;gap:6px;}
+#ws-bar.conn{background:#43A047;color:white;display:flex;}
+#ws-bar.disc{background:#E53935;color:white;display:flex;}
+#ws-bar.wait{background:#FB8C00;color:white;display:flex;}
+
+/* ── EDIT NAME MODAL ── */
+#edit-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:150;
+  align-items:center;justify-content:center;padding:20px;}
+#edit-modal.show{display:flex;}
+.edit-box{background:white;border-radius:20px;padding:24px 20px;max-width:360px;width:100%;
+  animation:popIn .3s cubic-bezier(.34,1.56,.64,1);}
+.edit-box h3{font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--dark);margin-bottom:14px;}
+.edit-btns{display:flex;gap:8px;margin-top:12px;}
+
+/* error toast */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);
+  background:#E53935;color:white;padding:10px 22px;border-radius:12px;
+  font-weight:700;font-size:.85rem;z-index:400;transition:transform .3s;white-space:nowrap;}
+#toast.show{transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<div id="ws-bar"></div>
+<div id="toast"></div>
+
+<!-- ════ HOME ════ -->
+<div id="home-screen" class="screen active">
+  <div class="card">
+    <div class="home-logo">🐍🪜</div>
+    <h1>Ular Tangga</h1>
+    <h2>Motivasi Belajar</h2>
+    <div class="home-btns">
+      <button class="btn btn-primary" onclick="goCreateRoom()">✨ Buat Ruangan Baru</button>
+      <div class="or-div">atau gabung ruangan</div>
+      <div class="join-row">
+        <input class="inp inp-code" id="join-code" type="text" maxlength="6"
+          placeholder="KODE RUANGAN" autocomplete="off" autocapitalize="characters"
+          onkeydown="if(event.key==='Enter')goJoinPrompt()">
+        <button class="btn btn-teal btn-sm" onclick="goJoinPrompt()">Cari</button>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px;text-align:center;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.75)">
+    <a href="../karya-inovasi.html" style="color:#FFD600">&#8249; Kembali ke halaman Karya Inovasi</a>
+  </p>
+</div>
+
+<!-- ════ HOST ROLE ════ -->
+<div id="host-role-screen" class="screen">
+  <div class="card">
+    <div class="emoji">👋</div>
+    <h1>Kamu adalah</h1>
+    <h2>Host / Guru</h2>
+    <p style="color:#666;font-size:.85rem;margin-bottom:16px;">Pilih peranmu dalam permainan ini:</p>
+    <div class="role-cards">
+      <div class="role-card" id="rc-play" onclick="selectRole('play')">
+        <span class="rc-icon">🎮</span>
+        <div class="rc-title">Ikut Bermain</div>
+        <div class="rc-desc">Kamu turut bermain bersama siswa</div>
+      </div>
+      <div class="role-card" id="rc-obs" onclick="selectRole('observe')">
+        <span class="rc-icon">👁️</span>
+        <div class="rc-title">Mengawasi</div>
+        <div class="rc-desc">Hanya memantau & melihat semua pertanyaan</div>
+      </div>
+    </div>
+    <div class="name-field" id="host-name-field" style="display:none;">
+      <label class="lbl">Namamu:</label>
+      <input class="inp" id="host-name-input" type="text" placeholder="Nama Guru / Host">
+    </div>
+    <button class="btn btn-primary" id="host-role-btn" onclick="submitHostRole()" disabled>
+      Lanjut →
+    </button>
+  </div>
+</div>
+
+<!-- ════ JOIN PROMPT ════ -->
+<div id="join-prompt-screen" class="screen">
+  <div class="card">
+    <div class="emoji">🚀</div>
+    <h1>Bergabung ke</h1>
+    <h2 id="join-room-display">—</h2>
+    <div style="margin-bottom:14px;">
+      <label class="lbl">Namamu:</label>
+      <input class="inp" id="join-name-input" type="text" placeholder="Masukkan namamu" maxlength="20">
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button class="btn btn-ghost" onclick="showScreen('home-screen')" style="flex:0 0 auto;width:auto;padding:12px 16px;">←</button>
+      <button class="btn btn-primary" onclick="submitJoin()">Gabung! 🎉</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════ LOBBY ════ -->
+<div id="lobby-screen" class="screen">
+  <div class="lobby-header">
+    <h2>🐍 Ruang Tunggu 🪜</h2>
+    <p>Bagikan kode ini kepada siswa</p>
+  </div>
+  <div class="room-badge">
+    <div>
+      <div class="rc-label">Kode Ruangan</div>
+      <div class="rc-code" id="lobby-code">—</div>
+    </div>
+    <div class="rc-count" id="lobby-count">0 pemain</div>
+  </div>
+  <div class="lobby-players" id="lobby-player-list"></div>
+  <div class="lobby-observer" id="lobby-obs-note" style="display:none">
+    👁️ Kamu mengawasi sebagai observer
+  </div>
+  <div class="lobby-actions">
+    <button class="btn btn-primary" id="lobby-start-btn" style="display:none" onclick="sendStart()">
+      🚀 Mulai Permainan!
+    </button>
+    <div style="text-align:center;color:rgba(255,255,255,.6);font-size:.78rem;font-weight:700;" id="lobby-wait-msg">
+      <span class="waiting-spin">⏳</span>Menunggu host memulai...
+    </div>
+  </div>
+</div>
+
+<!-- ════ WAITING (player joined, not host) ════ -->
+<div id="waiting-screen" class="screen">
+  <div class="wait-card">
+    <span class="big-emoji">⏳</span>
+    <h3>Kamu sudah masuk!</h3>
+    <p>Menunggu guru memulai permainan...<br>Semua pemain dalam ruangan:</p>
+    <div class="player-list-wait" id="wait-player-list"></div>
+    <div class="wait-name-box" id="my-name-box" style="margin-top:14px;">
+      <div class="wait-dot" id="my-wait-dot"></div>
+      <div style="flex:1;font-weight:700;font-size:.9rem;color:#333;" id="my-wait-name">—</div>
+      <button class="lp-edit" onclick="openEditModal()">✏️ Ganti</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════ GAME ════ -->
+<div id="game-screen" class="screen">
+  <div class="ghead">
+    <h1>🐍 Ular Tangga 🪜</h1>
+    <h2>Motivasi Belajar</h2>
+  </div>
+
+  <div class="bwrap">
+    <div class="bgrid" id="board"></div>
+    <svg class="bov" id="ov" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="tlayer" id="tlayer"></div>
+  </div>
+
+  <div id="obs-banner" class="obs-banner" style="display:none">
+    👁️ Mode Observer — Kamu memantau permainan & melihat semua pertanyaan
+  </div>
+
+  <div class="gcontrols">
+    <div class="dwrap">
+      <div class="dice" id="dice">🎲</div>
+      <div class="tlbl" id="tlbl">Menunggu...</div>
+      <button class="btn btn-primary" id="rbtn" onclick="sendRoll()" disabled>🎲 Lempar Dadu!</button>
+      <div class="turn-msg" id="turn-msg" style="display:none"></div>
+    </div>
+  </div>
+
+  <div class="pcards" id="pcards"></div>
+  <div class="lbox" id="lbox"><div class="le">🎮 Game dimulai!</div></div>
+
+  <div class="leg">
+    <h3>📖 Legenda</h3>
+    <div class="li"><div class="ld" style="background:linear-gradient(135deg,#FF7043,#D84315)"></div>Ular 🐍 (turun + refleksi)</div>
+    <div class="li"><div class="ld" style="background:linear-gradient(135deg,#66BB6A,#2E7D32)"></div>Tangga 🪜 (naik + refleksi)</div>
+    <div class="li"><div class="ld" style="background:linear-gradient(135deg,#FFCA28,#F57F17)"></div>Maju ⭐ (bonus + refleksi)</div>
+    <div class="li"><div class="ld" style="background:linear-gradient(135deg,#AB47BC,#4A148C)"></div>Mundur 😬 (penalti + refleksi)</div>
+    <div class="li"><div class="ld" style="background:linear-gradient(135deg,#42A5F5,#1565C0)"></div>Pertanyaan ❓ (diskusi)</div>
+  </div>
+</div>
+
+<!-- ════ MODAL ════ -->
+<div class="ov" id="modal">
+  <div class="mb">
+    <div class="mi" id="mi">❓</div>
+    <div class="mt" id="mt">Judul</div>
+    <div class="mx" id="mx">Teks</div>
+    <div class="md" id="md"></div>
+    <div class="obs-note" id="obs-note">👁️ Observer — pertanyaan ini untuk pemain aktif</div>
+    <button class="btn btn-teal btn-sm" id="mok-btn" onclick="ackModal()" style="width:auto;padding:11px 32px;">Lanjutkan ▶</button>
+    <button class="btn btn-sm" id="obs-close-btn" onclick="closeObsModal()" style="display:none;width:auto;padding:11px 32px;background:linear-gradient(135deg,#90A4AE,#546E7A);color:white;">✕ Tutup</button>
+  </div>
+</div>
+
+<!-- ════ WIN ════ -->
+<div id="wo">
+  <div class="wb">
+    <span class="we">🏆</span>
+    <h2 id="wt">Pemain Menang!</h2>
+    <p id="ws">Selamat! Terus semangat belajar! 🎉</p>
+    <div class="wbtns">
+      <button class="w1" id="restart-btn" onclick="sendRestart()" style="display:none">🔄 Main Lagi</button>
+      <button class="w2" onclick="location.reload()">🏠 Keluar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════ EDIT NAME MODAL ════ -->
+<div id="edit-modal">
+  <div class="edit-box">
+    <h3>✏️ Ganti Nama</h3>
+    <input class="inp" id="edit-name-input" type="text" placeholder="Nama baru" maxlength="20">
+    <div class="edit-btns">
+      <button class="btn btn-ghost" onclick="closeEditModal()" style="background:#eee;color:#333;flex:1;">Batal</button>
+      <button class="btn btn-primary" onclick="submitEditName()" style="flex:2;">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ════ GAME DATA ════ */
+const TOTAL=48,COLS=8,ROWS=6;
+const WS_PORT=3001;
+const SNAKES  ={14:2,20:8,25:5,29:17,34:11,38:4,40:26,46:15};
+const LADDERS ={3:18,7:23,16:32,21:39,33:44,35:47};
+const SPECIAL={
+  6:{move:+1,type:'b',title:'Maju Satu Langkah! ⭐',text:'Kamu membantu teman yang kesulitan memahami pelajaran!\n\nBagaimana rasanya ketika berhasil membantu orang lain belajar? Apa yang kamu pelajari dari pengalaman itu? Ceritakan!'},
+  18:{move:+1,type:'b',title:'Maju Satu Langkah! ⭐',text:'Kamu menyelesaikan semua tugas tepat waktu hari ini!\n\nApa strategi terbaikmu agar selalu bisa menyelesaikan tugas tepat waktu dan tidak menumpuk? Bagikan tipsmu!'},
+  24:{move:+1,type:'b',title:'Maju Satu Langkah! ⭐',text:'Kamu aktif dan berani menjawab pertanyaan guru di depan kelas!\n\nApa tantangan akademik terberat yang pernah berhasil kamu pecahkan? Bagaimana proses dan perjuanganmu?'},
+  31:{move:-1,type:'p',title:'Mundur Satu Langkah! 😬',text:'Kamu lupa mengulang pelajaran yang dipelajari kemarin!\n\nSeberapa penting konsistensi mengulang pelajaran setiap hari? Apa yang paling sering menghalangimu untuk konsisten?'},
+  37:{move:-1,type:'p',title:'Mundur Satu Langkah! 😬',text:'Kamu tidak fokus dan mudah terganggu saat belajar hari ini!\n\nApa hal yang paling sering menggangu konsentrasimu saat belajar? Apa langkah konkret yang akan kamu ambil untuk mengatasinya?'},
+  43:{move:-1,type:'p',title:'Mundur Satu Langkah! 😬',text:'Kamu tidak mempersiapkan perlengkapan belajar dengan baik!\n\nBagaimana cara idealmu mempersiapkan diri setiap malam agar esok hari belajar berjalan lancar dan menyenangkan?'}
+};
+const SNAKE_Q={
+  14:'Kamu sering menunda-nunda mengerjakan tugas!\n\nApa yang selama ini membuatmu sulit untuk langsung memulai mengerjakan tugas begitu mendapatkannya? Bagaimana cara mengatasinya?',
+  20:'Kamu ketahuan menyontek pekerjaan teman!\n\nMengapa menyontek justru sangat merugikan dirimu sendiri dalam jangka panjang? Apa kerugian nyata yang kamu rasakan?',
+  25:'Kamu malas belajar hari ini!\n\nApa yang paling sering membuatmu kehilangan semangat untuk belajar? Apa strategi yang kamu gunakan untuk bangkit dan termotivasi kembali?',
+  29:'Kamu ribut dan mengganggu teman di kelas!\n\nBagaimana seharusnya sikap idealmu saat proses pembelajaran berlangsung? Apa dampak positif yang kamu rasakan jika kamu tertib di kelas?',
+  34:'Kamu tidak mengerjakan pekerjaan rumah!\n\nApa konsekuensi nyata yang kamu rasakan ketika tidak mengerjakan PR secara rutin? Bagaimana cara kamu memastikan PR selalu selesai tepat waktu?',
+  38:'Kamu tidur sangat larut malam karena bermain gadget!\n\nBagaimana kebiasaan tidur larut malam memengaruhi semangat, konsentrasi, dan kualitas belajarmu keesokan harinya?',
+  40:'Kamu tidak mau bertanya meski tidak paham!\n\nMengapa memberanikan diri untuk bertanya adalah tanda kecerdasan dan keberanian sejati, bukan tanda kelemahan?',
+  46:'Kamu membolos dan tidak masuk pelajaran!\n\nApa saja yang kamu rugikan ketika membolos? Bagaimana dampak jangka panjang kebiasaan membolos terhadap masa depanmu?'
+};
+const LADDER_Q={
+  3:'Kamu berani bertanya saat tidak paham! 🌟\n\nApa pertanyaan yang sering ingin kamu tanyakan kepada guru atau teman tetapi selama ini masih ragu-ragu atau malu untuk diungkapkan?',
+  7:'Kamu rajin mencatat setiap materi pelajaran! 🌟\n\nBagaimana sistem dan cara mencatatmu yang paling efektif? Apa yang membuat catatanmu sangat membantumu saat mengulang materi?',
+  16:'Kamu selalu fokus mendengarkan saat guru menjelaskan! 🌟\n\nApa strategi yang kamu gunakan agar bisa tetap fokus dan tidak mudah terganggu selama pembelajaran berlangsung di kelas?',
+  21:'Kamu semangat belajar meski tidak ada ulangan! 🌟\n\nApa motivasi terdalam yang mendorongmu untuk belajar bahkan tanpa adanya tekanan dari ulangan, penilaian, atau orang lain?',
+  33:'Kamu disiplin dan konsisten belajar mandiri di rumah! 🌟\n\nBagaimana jadwal dan rutinitas belajar harianmu di rumah? Apa yang membuatmu bisa konsisten menjalani kebiasaan belajar yang baik ini?',
+  35:'Kamu rajin, tekun, dan pantang menyerah dalam belajar! 🌟\n\nApa pencapaian belajar terbesar atau momen keberhasilan yang paling kamu banggakan? Pelajaran hidup apa yang kamu petik dari proses itu?'
+};
+const Q={
+  2:'Apa kesulitan atau hambatan terbesar yang paling sering kamu alami saat belajar? Bagaimana cara kamu biasanya menghadapinya?',
+  4:'Siapa orang yang paling menginspirasimu untuk rajin belajar? Apa yang membuat orang itu begitu menginspirasimu? Ceritakan!',
+  5:'Apa yang kamu rasakan ketika akhirnya berhasil memahami materi pelajaran yang tadinya terasa sangat sulit dan membingungkan?',
+  8:'Hal apa yang paling membuat kamu semangat dan termotivasi untuk terus belajar setiap harinya? Jelaskan dengan detail!',
+  9:'Bagaimana cara belajar yang paling efektif menurutmu? Ceritakan metode belajarmu yang paling berhasil meningkatkan pemahamanmu!',
+  10:'Apa yang kamu lakukan ketika merasa bosan, mengantuk, atau kehilangan fokus di tengah sesi belajar yang panjang?',
+  11:'Seberapa penting nilai rapor bagimu dibandingkan dengan pemahaman ilmu yang sesungguhnya? Mana yang lebih kamu prioritaskan?',
+  12:'Apa pelajaran yang paling menantang dan sulit bagimu? Bagaimana kamu menghadapi dan akhirnya mengatasi kesulitan tersebut?',
+  13:'Kalau bisa memilih, kamu lebih suka belajar sendiri atau belajar berkelompok? Apa keunggulan dan kelemahan dari pilihanmu itu?',
+  15:'Apa yang kamu lakukan pertama kali ketika tidak mengerti penjelasan guru di kelas? Langkah apa yang segera kamu ambil?',
+  17:'Ceritakan pengalaman belajarmu yang paling berkesan dan tidak terlupakan! Mengapa pengalaman tersebut begitu bermakna bagimu?',
+  19:'Apa cita-cita terbesarmu? Bagaimana belajar dengan sungguh-sungguh hari ini secara langsung membantu mewujudkan cita-cita itu?',
+  22:'Mengapa sangat penting untuk selalu mengulang dan meninjau kembali pelajaran di rumah setiap hari setelah pulang sekolah?',
+  23:'Apa hal baru yang paling menarik, mengejutkan, atau menginspirasi yang kamu pelajari minggu ini? Mengapa hal itu berkesan bagimu?',
+  26:'Ceritakan target belajar terpentingmu dalam satu bulan ke depan! Apa langkah-langkah konkret yang akan kamu ambil untuk mencapainya?',
+  27:'Bagaimana cara kamu mengatur dan menyeimbangkan waktu antara belajar, bermain, istirahat, dan kegiatan lain setiap harinya?',
+  28:'Apa mata pelajaran yang paling kamu sukai? Apa yang membuat pelajaran itu begitu menarik, menyenangkan, atau bermakna bagimu?',
+  30:'Bagaimana perasaanmu ketika mendapatkan nilai bagus atau mendapat pujian dari guru setelah kamu berusaha dan belajar keras?',
+  32:'Apakah kamu hanya belajar ketika ada ulangan atau ujian? Bagaimana pendapatmu tentang kebiasaan belajar SKS (Sistem Kebut Semalam)?',
+  36:'Apa satu kebiasaan belajar yang paling ingin kamu ubah, perbaiki, atau tingkatkan mulai dari hari ini? Apa langkah pertamamu?',
+  39:'Bagaimana cara kamu memotivasi dirimu sendiri ketika sedang benar-benar malas, tidak mood, atau tidak semangat untuk belajar?',
+  41:'Apa pencapaian akademik atau prestasi belajar yang paling membanggakanmu? Bagaimana proses perjuanganmu untuk meraih pencapaian itu?',
+  42:'Bagaimana cara kamu biasanya mengatasi rasa jenuh, bosan, atau penat ketika sudah belajar dalam waktu yang cukup lama?',
+  44:'Apa kata-kata motivasi, kutipan, atau prinsip hidup yang selalu menguatkan dan menginspirasimu ketika belajar terasa berat?',
+  45:'Pelajaran apa yang paling kamu kuasai saat ini? Bagaimana perjalanan dan proses belajarmu hingga kamu bisa menguasainya dengan baik?',
+  47:'Apa impian terbesarmu setelah lulus sekolah? Apa langkah pertama dan paling penting yang akan segera kamu ambil untuk menggapainya?'
+};
+const LABELS={
+  2:'Kesulitan belajar?',3:'Berani bertanya!',4:'Siapa inspirasimu?',
+  5:'Rasa saat berhasil?',6:'Maju 1 langkah ⭐',7:'Rajin mencatat!',
+  8:'Apa motivasimu?',9:'Cara belajar efektif?',10:'Atasi bosan belajar?',
+  11:'Nilai vs ilmu?',12:'Pelajaran tersulit?',13:'Sendiri/kelompok?',
+  14:'Menunda tugas 🐍',15:'Tidak paham, lalu?',16:'Fokus di kelas!',
+  17:'Pengalaman berkesan?',18:'Maju 1 langkah ⭐',19:'Cita-citamu?',
+  20:'Menyontek 🐍',21:'Rajin tanpa disuruh!',22:'Ulang pelajaran?',
+  23:'Hal baru minggu ini?',24:'Maju 1 langkah ⭐',25:'Malas belajar 🐍',
+  26:'Target 1 bulan?',27:'Atur waktu belajar?',28:'Pelajaran favorit?',
+  29:'Ribut di kelas 🐍',30:'Rasa dapat nilai bagus?',31:'Mundur 1 langkah 😬',
+  32:'Hanya saat ulangan?',33:'Belajar mandiri!',34:'Tidak kerja PR 🐍',
+  35:'Rajin & tekun!',36:'Kebiasaan yg diubah?',37:'Mundur 1 langkah 😬',
+  38:'Tidur larut malam 🐍',39:'Bangkit dari malas?',40:'Tidak mau tanya 🐍',
+  41:'Prestasi terbaikmu?',42:'Atasi jenuh belajar?',43:'Mundur 1 langkah 😬',
+  44:'Kata motivasimu?',45:'Pelajaran dikuasai?',46:'Bolos sekolah 🐍',
+  47:'Impian setelah lulus?'
+};
+const PC=[
+  {bg:'#E53935',dk:'#B71C1C'},{bg:'#1E88E5',dk:'#0D47A1'},
+  {bg:'#43A047',dk:'#1B5E20'},{bg:'#FB8C00',dk:'#E65100'},
+  {bg:'#8E24AA',dk:'#4A148C'},{bg:'#E91E63',dk:'#880E4F'}
+];
+const OFFS=[[0,0],[-12,0],[12,0],[0,-12],[-12,-12],[12,-12]];
+
+/* ════ CLIENT STATE ════ */
+let ws=null, roomCode=null, myRole=null, myIdx=null, myHostRoleChoice=null;
+let gameState=null, boardBuilt=false, pendingJoinRoom=null;
+
+/* ════ UTIL ════ */
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function setBar(cls,text){
+  const b=document.getElementById('ws-bar');
+  b.className=cls; b.textContent=text;
+  if(cls==='conn') setTimeout(()=>{b.style.display='none';},2500);
+  else b.style.display='flex';
+}
+function showToast(msg){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+function setCellSize(){
+  const sw=Math.min(window.innerWidth-20,600);
+  const cell=Math.floor(sw/8);
+  document.documentElement.style.setProperty('--cell',cell+'px');
+}
+
+/* ════ WS ════ */
+function wsConnect(onOpen){
+  const url=`ws://${location.hostname}:${WS_PORT}`;
+  setBar('wait','🔄 Menghubungkan...');
+  ws=new WebSocket(url);
+  ws.onopen=()=>{setBar('conn','✅ Terhubung');if(onOpen)onOpen();};
+  ws.onmessage=e=>handleMsg(JSON.parse(e.data));
+  ws.onclose=()=>{
+    setBar('disc','❌ Koneksi terputus...');
+    setTimeout(()=>wsConnect(),3500);
+  };
+  ws.onerror=()=>{};
+}
+function send(obj){if(ws&&ws.readyState===1)ws.send(JSON.stringify(obj));}
+
+/* ════ HOME ACTIONS ════ */
+function goCreateRoom(){
+  wsConnect(()=>{
+    send({action:'create'});
+  });
+}
+function goJoinPrompt(){
+  const code=document.getElementById('join-code').value.trim().toUpperCase();
+  if(!code){showToast('Masukkan kode ruangan!');return;}
+  pendingJoinRoom=code;
+  showScreen('join-prompt-screen');
+  document.getElementById('join-name-input').focus();
+}
+function submitJoin(){
+  const name=document.getElementById('join-name-input').value.trim();
+  if(!name){showToast('Masukkan namamu dulu!');return;}
+  wsConnect(()=>{
+    send({action:'join',room:pendingJoinRoom,name});
+  });
+}
+
+/* ════ HOST ROLE ════ */
+let selectedRole=null;
+function selectRole(r){
+  selectedRole=r;
+  document.getElementById('rc-play').classList.toggle('selected',r==='play');
+  document.getElementById('rc-obs').classList.toggle('selected',r==='observe');
+  const nf=document.getElementById('host-name-field');
+  if(r==='play'){nf.style.display='block';document.getElementById('host-name-input').focus();}
+  else nf.style.display='none';
+  document.getElementById('host-role-btn').disabled=false;
+}
+function submitHostRole(){
+  if(!selectedRole)return;
+  const name=selectedRole==='play'?(document.getElementById('host-name-input').value.trim()||'Guru'):'Guru';
+  myHostRoleChoice=selectedRole;
+  send({action:'host_role',role_choice:selectedRole,name});
+}
+
+/* ════ LOBBY ════ */
+function renderLobby(players, hostIsObserver){
+  document.getElementById('lobby-code').textContent=roomCode;
+  document.getElementById('lobby-count').textContent=players.length+' pemain';
+  const list=document.getElementById('lobby-player-list'); list.innerHTML='';
+  players.forEach((p,i)=>{
+    const d=document.createElement('div'); d.className='lp-card';
+    const isMe=myRole==='player'&&myIdx===i;
+    d.innerHTML=`<div class="lp-dot" style="background:radial-gradient(circle at 35% 35%,${p.col.bg},${p.col.dk})"></div>
+      <div class="lp-name">${p.name}${isMe?' <span class="lp-tag">KAMU</span>':''}</div>`;
+    list.appendChild(d);
+  });
+  const obsNote=document.getElementById('lobby-obs-note');
+  const startBtn=document.getElementById('lobby-start-btn');
+  const waitMsg=document.getElementById('lobby-wait-msg');
+  if(myRole==='host'){
+    startBtn.style.display='block';
+    waitMsg.style.display='none';
+    obsNote.style.display=hostIsObserver?'block':'none';
+  } else {
+    startBtn.style.display='none';
+    waitMsg.style.display='block';
+  }
+}
+function renderWaiting(players){
+  const list=document.getElementById('wait-player-list'); list.innerHTML='';
+  players.forEach((p,i)=>{
+    const d=document.createElement('div'); d.className='pw-item';
+    d.innerHTML=`<div class="pw-dot" style="background:${p.col.bg}"></div>${p.name}${myIdx===i?' (kamu)':''}`;
+    list.appendChild(d);
+  });
+  if(myIdx!==null && players[myIdx]){
+    const p=players[myIdx];
+    document.getElementById('my-wait-name').textContent=p.name;
+    document.getElementById('my-wait-dot').style.background=`radial-gradient(circle at 35% 35%,${p.col.bg},${p.col.dk})`;
+  }
+}
+
+/* ════ EDIT NAME ════ */
+function openEditModal(){
+  const name=gameState?gameState.players[myIdx]?.name:(document.getElementById('my-wait-name').textContent||'');
+  document.getElementById('edit-name-input').value=name;
+  document.getElementById('edit-modal').classList.add('show');
+  document.getElementById('edit-name-input').focus();
+}
+function closeEditModal(){document.getElementById('edit-modal').classList.remove('show');}
+function submitEditName(){
+  const name=document.getElementById('edit-name-input').value.trim();
+  if(!name){showToast('Nama tidak boleh kosong!');return;}
+  send({action:'set_name',name});
+  closeEditModal();
+}
+document.getElementById('edit-name-input').addEventListener('keydown',e=>{if(e.key==='Enter')submitEditName();});
+
+/* ════ MESSAGE HANDLER ════ */
+function handleMsg(msg){
+  if(msg.type==='created'){
+    roomCode=msg.room; myRole='host'; myIdx=null;
+    showScreen('host-role-screen');
+    return;
+  }
+  if(msg.type==='joined'){
+    roomCode=msg.room; myRole='player'; myIdx=msg.my_idx;
+    if(msg.state.phase==='lobby'){
+      showScreen('waiting-screen');
+      renderWaiting(msg.state.players);
+    } else {
+      enterGame(msg.state, msg.my_idx, 'player');
+    }
+    return;
+  }
+  if(msg.type==='host_role_set'){
+    myRole='host'; myIdx=msg.my_idx;
+    showScreen('lobby-screen');
+    renderLobby(msg.state.players, msg.state.host_is_observer);
+    return;
+  }
+  if(msg.type==='lobby_update'){
+    if(document.getElementById('lobby-screen').classList.contains('active')){
+      renderLobby(msg.players, msg.host_is_observer);
+    }
+    if(document.getElementById('waiting-screen').classList.contains('active')){
+      renderWaiting(msg.players);
+    }
+    return;
+  }
+  if(msg.type==='error'){
+    showToast('❌ '+msg.msg); return;
+  }
+  if(msg.type==='state'){
+    gameState=msg.state;
+    const idx=msg.my_idx; if(idx!==null)myIdx=idx;
+    if(msg.role)myRole=msg.role;
+    if(msg.state.phase==='finished'){
+      if(!boardBuilt)enterGame(msg.state,myIdx,myRole);
+      else{updateToks();updateCards();}
+      const p=msg.state.players[msg.state.winner];
+      document.getElementById('wt').textContent=`${p.name} Menang! 🎉`;
+      document.getElementById('ws').textContent=`Selamat ${p.name}! Kamu berhasil mencapai FINISH! 🌟`;
+      document.getElementById('restart-btn').style.display=(myRole==='host')?'inline-flex':'none';
+      document.getElementById('wo').classList.add('show');
+      confetti(); return;
+    }
+    if(!boardBuilt) enterGame(msg.state,myIdx,myRole);
+    else applyState(msg.state);
+    return;
+  }
+  if(msg.type==='rolled'){
+    gameState=msg.state;
+    animateDice(msg.value,()=>send({action:'move',value:msg.value}));
+    return;
+  }
+  if(msg.type==='show_modal'){
+    showModalForPending(msg.pendingMove, msg.is_active);
+    return;
+  }
+  if(msg.type==='restart'){
+    boardBuilt=false; gameState=null; myIdx=null; myRole=null; roomCode=null;
+    location.reload();
+  }
+}
+
+/* ════ GAME ENTRY ════ */
+function enterGame(state,idx,role){
+  boardBuilt=true; gameState=state;
+  setCellSize();
+  showScreen('game-screen');
+  buildBoard(); drawOv(); buildToks(); buildCards();
+  applyState(state);
+  window.addEventListener('resize',()=>{setCellSize();drawOv();updateToks();});
+  const isObs=(role==='observer')||(role==='host'&&state.host_is_observer);
+  document.getElementById('obs-banner').style.display=isObs?'block':'none';
+}
+
+/* ════ APPLY STATE ════ */
+function applyState(state){
+  updateToks(); updateCards();
+  // log
+  const lb=document.getElementById('lbox'); lb.innerHTML='';
+  (state.log||[]).forEach(l=>{
+    const e=document.createElement('div'); e.className='le'; e.innerHTML=l; lb.appendChild(e);
+  });
+  // dice control
+  const isObs=(myRole==='observer')||(myRole==='host'&&state.host_is_observer);
+  const isMyTurn=(!isObs)&&(myIdx===state.cur)&&state.phase==='playing';
+  const rbtn=document.getElementById('rbtn');
+  const turnMsg=document.getElementById('turn-msg');
+  rbtn.disabled=!isMyTurn||state.spinning||!!state.pendingMove;
+  if(isObs){
+    rbtn.style.display='none';
+    turnMsg.style.display='none';
+  } else if(isMyTurn){
+    rbtn.style.display='block';
+    turnMsg.style.display='none';
+  } else {
+    rbtn.style.display='block';
+    rbtn.disabled=true;
+    turnMsg.style.display='block';
+    const who=state.players[state.cur]?.name||'';
+    turnMsg.textContent=`Giliran ${who} melempar dadu...`;
+  }
+  document.getElementById('tlbl').textContent='Giliran '+(state.players[state.cur]?.name||'');
+}
+
+/* ════ MODAL ════ */
+function showModalForPending(pm, isActive){
+  const pos=pm.from;
+  let icon='❓',title='',text='',dest=null;
+  if(pm.kind==='snake'){
+    icon='🐍';title='Kena Ular! 😱';
+    text=SNAKE_Q[pos]||`Kena ular di kotak ${pos}!`;
+    dest=`⬇ Turun dari kotak ${pos} → kotak ${pm.to}`;
+  } else if(pm.kind==='ladder'){
+    icon='🪜';title='Naik Tangga! 🎉';
+    text=LADDER_Q[pos]||`Tangga di kotak ${pos}!`;
+    dest=`⬆ Naik dari kotak ${pos} → kotak ${pm.to}`;
+  } else if(pm.kind==='bonus'){
+    icon='⭐';title=SPECIAL[pos]?.title||'Maju! ⭐';
+    text=SPECIAL[pos]?.text||'';
+    dest=`⬆ Maju ke kotak ${pm.to}`;
+  } else if(pm.kind==='penalty'){
+    icon='😬';title=SPECIAL[pos]?.title||'Mundur! 😬';
+    text=SPECIAL[pos]?.text||'';
+    dest=`⬇ Mundur ke kotak ${pm.to}`;
+  } else {
+    icon='❓';title='Pertanyaan Refleksi 💭';
+    text=Q[pos]||''; dest=null;
+  }
+  document.getElementById('mi').textContent=icon;
+  document.getElementById('mt').textContent=title;
+  document.getElementById('mx').textContent=text;
+  const de=document.getElementById('md');
+  if(dest){de.textContent=dest;de.style.display='inline-block';}else{de.style.display='none';}
+  const obsNote=document.getElementById('obs-note');
+  const btn=document.getElementById('mok-btn');
+  const obsCloseBtn=document.getElementById('obs-close-btn');
+  if(!isActive){
+    obsNote.style.display='block';
+    btn.style.display='none';
+    obsCloseBtn.style.display='inline-flex';
+  } else {
+    obsNote.style.display='none';
+    btn.style.display='inline-flex';
+    obsCloseBtn.style.display='none';
+  }
+  document.getElementById('modal').classList.add('show');
+}
+function ackModal(){
+  document.getElementById('modal').classList.remove('show');
+  send({action:'ack_modal'});
+}
+function closeObsModal(){
+  document.getElementById('modal').classList.remove('show');
+}
+
+/* ════ ROLL ════ */
+function sendRoll(){
+  if(!gameState||gameState.spinning)return;
+  send({action:'roll'});
+  document.getElementById('rbtn').disabled=true;
+}
+function animateDice(final,cb){
+  const F=['⚀','⚁','⚂','⚃','⚄','⚅'];
+  const d=document.getElementById('dice');
+  d.classList.add('spin'); let n=0;
+  const iv=setInterval(()=>{
+    d.textContent=F[Math.floor(Math.random()*6)];
+    if(++n>=10){clearInterval(iv);d.textContent=F[final-1];d.classList.remove('spin');setTimeout(cb,350);}
+  },70);
+}
+
+/* ════ START / RESTART ════ */
+function sendStart(){send({action:'start'});}
+function sendRestart(){document.getElementById('wo').classList.remove('show');send({action:'restart'});}
+
+/* ════ BOARD ════ */
+function rc(pos){const i=pos-1,r=Math.floor(i/COLS);return{r,c:(r%2===0)?i%COLS:COLS-1-i%COLS};}
+function ctr(pos){
+  const CELL=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--cell'));
+  const{r,c}=rc(pos);
+  return{x:c*CELL+CELL/2,y:(ROWS-1-r)*CELL+CELL/2};
+}
+function buildBoard(){
+  const b=document.getElementById('board'); b.innerHTML='';
+  for(let dr=0;dr<ROWS;dr++){
+    const gr=ROWS-1-dr;
+    for(let col=0;col<COLS;col++){
+      const ci=(gr%2===0)?col:COLS-1-col;
+      const pos=gr*COLS+ci+1;
+      const el=document.createElement('div');
+      el.className='cell'; el.id=`sq${pos}`;
+      el.classList.add((dr+col)%2===0?'tl':'cr');
+      if(pos===1)el.classList.add('cs');
+      else if(pos===TOTAL)el.classList.add('cf');
+      else if(SNAKES[pos])el.classList.add('ck');
+      else if(LADDERS[pos])el.classList.add('cla');
+      else if(SPECIAL[pos]?.type==='b')el.classList.add('cb');
+      else if(SPECIAL[pos]?.type==='p')el.classList.add('cp');
+      else if(Q[pos])el.classList.add('cq');
+      const nm=document.createElement('div'); nm.className='nm';
+      if(pos!==1&&pos!==TOTAL)nm.textContent=pos; el.appendChild(nm);
+      const lb=document.createElement('div'); lb.className='lb';
+      if(pos===1)lb.innerHTML='<span style="font-size:20px">🚀</span><br><b style="font-size:7px;color:white">START</b>';
+      else if(pos===TOTAL)lb.innerHTML='<span style="font-size:20px">🏁</span><br><b style="font-size:7px;color:#5D4037">FINISH</b>';
+      else if(LABELS[pos])lb.textContent=LABELS[pos];
+      el.appendChild(lb); b.appendChild(el);
+    }
+  }
+}
+function sve(t){return document.createElementNS('http://www.w3.org/2000/svg',t);}
+function sa(el,o){for(const[k,v]of Object.entries(o))el.setAttribute(k,v);return el;}
+function drawOv(){
+  const CELL=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--cell'));
+  const svg=document.getElementById('ov');
+  svg.setAttribute('viewBox',`0 0 ${CELL*8} ${CELL*6}`); svg.innerHTML='';
+  for(const[f,t]of Object.entries(LADDERS)){const a=ctr(+f),b=ctr(+t);drawLad(svg,a.x,a.y,b.x,b.y);}
+  for(const[h,t]of Object.entries(SNAKES)){const a=ctr(+h),b=ctr(+t);drawSnk(svg,a.x,a.y,b.x,b.y);}
+}
+function drawLad(svg,x1,y1,x2,y2){
+  const dx=y1-y2,dy=x2-x1,l=Math.hypot(dx,dy),w=8,nx=dx/l*w,ny=dy/l*w;
+  sa(svg.appendChild(sve('line')),{x1:x1-nx+1,y1:y1-ny+1,x2:x2-nx+1,y2:y2-ny+1,stroke:'rgba(0,0,0,.25)','stroke-width':6,'stroke-linecap':'round'});
+  sa(svg.appendChild(sve('line')),{x1:x1+nx+1,y1:y1+ny+1,x2:x2+nx+1,y2:y2+ny+1,stroke:'rgba(0,0,0,.25)','stroke-width':6,'stroke-linecap':'round'});
+  sa(svg.appendChild(sve('line')),{x1:x1-nx,y1:y1-ny,x2:x2-nx,y2:y2-ny,stroke:'#F9A825','stroke-width':4,'stroke-linecap':'round',opacity:.95});
+  sa(svg.appendChild(sve('line')),{x1:x1+nx,y1:y1+ny,x2:x2+nx,y2:y2+ny,stroke:'#F9A825','stroke-width':4,'stroke-linecap':'round',opacity:.95});
+  for(let i=0;i<=7;i++){const t=i/7,rx=x1+(x2-x1)*t,ry=y1+(y2-y1)*t;
+    sa(svg.appendChild(sve('line')),{x1:rx-nx,y1:ry-ny,x2:rx+nx,y2:ry+ny,stroke:'#FFF176','stroke-width':3,'stroke-linecap':'round',opacity:.9});}
+  sa(svg.appendChild(sve('circle')),{cx:x1,cy:y1,r:6,fill:'#FFC107',opacity:.8});
+  sa(svg.appendChild(sve('circle')),{cx:x2,cy:y2,r:6,fill:'#FFC107',opacity:.8});
+}
+function drawSnk(svg,hx,hy,tx,ty){
+  const dx=tx-hx,dy=ty-hy,l=Math.hypot(dx,dy),nx=-dy/l,ny=dx/l,amp=16,segs=8;
+  let d=`M ${hx} ${hy}`;
+  for(let i=1;i<=segs;i++){const t0=(i-.5)/segs,t1=i/segs,s=(i%2===0)?1:-1;
+    d+=` Q ${(hx+dx*t0+nx*amp*s).toFixed(1)} ${(hy+dy*t0+ny*amp*s).toFixed(1)} ${(hx+dx*t1).toFixed(1)} ${(hy+dy*t1).toFixed(1)}`;}
+  const P=o=>({d,fill:'none',...o});
+  sa(svg.appendChild(sve('path')),P({stroke:'rgba(0,0,0,.25)','stroke-width':11,'stroke-linecap':'round','stroke-linejoin':'round'}));
+  sa(svg.appendChild(sve('path')),P({stroke:'#FF5722','stroke-width':7,'stroke-linecap':'round','stroke-linejoin':'round',opacity:.92}));
+  sa(svg.appendChild(sve('path')),P({stroke:'#FFAB91','stroke-width':2.5,'stroke-linecap':'round','stroke-linejoin':'round','stroke-dasharray':'6 5',opacity:.8}));
+  sa(svg.appendChild(sve('circle')),{cx:hx,cy:hy,r:9,fill:'#B71C1C'});
+  sa(svg.appendChild(sve('circle')),{cx:hx,cy:hy,r:6,fill:'#E53935'});
+  [[-3,-2.5],[3,-2.5]].forEach(([ox,oy])=>{
+    sa(svg.appendChild(sve('circle')),{cx:hx+ox,cy:hy+oy,r:2.2,fill:'white'});
+    sa(svg.appendChild(sve('circle')),{cx:hx+ox,cy:hy+oy,r:1.1,fill:'#111'});});
+  sa(svg.appendChild(sve('line')),{x1:hx,y1:hy+7,x2:hx-3,y2:hy+11,stroke:'#EF9A9A','stroke-width':1.4,'stroke-linecap':'round'});
+  sa(svg.appendChild(sve('line')),{x1:hx,y1:hy+7,x2:hx+3,y2:hy+11,stroke:'#EF9A9A','stroke-width':1.4,'stroke-linecap':'round'});
+  sa(svg.appendChild(sve('circle')),{cx:tx,cy:ty,r:3.5,fill:'#BF360C',opacity:.7});
+}
+
+/* ════ CARDS & TOKENS ════ */
+function buildCards(){
+  const w=document.getElementById('pcards'); w.innerHTML='';
+  (gameState.players||[]).forEach((p,i)=>{
+    const d=document.createElement('div'); d.className='pcard'; d.id=`pc${i}`;
+    const isMe=myIdx===i;
+    if(isMe)d.classList.add('me');
+    d.innerHTML=`<div class="pdot" style="background:radial-gradient(circle at 35% 35%,${p.col.bg},${p.col.dk})"></div>
+      <div class="pinfo">
+        <div class="pname">${p.name}${isMe?'<span class="me-badge">KAMU</span>':''}</div>
+        <div class="ppos" id="pp${i}">START</div>
+      </div>`;
+    w.appendChild(d);
+  });
+}
+function updateCards(){
+  const s=gameState; if(!s||!s.players)return;
+  s.players.forEach((p,i)=>{
+    const pc=document.getElementById(`pc${i}`); if(!pc)return;
+    pc.classList.toggle('on',i===s.cur);
+    document.getElementById(`pp${i}`).textContent=p.pos===0?'START':p.pos===TOTAL?'FINISH 🏁':`Kotak ${p.pos}`;
+  });
+}
+function buildToks(){
+  const l=document.getElementById('tlayer'); l.innerHTML='';
+  (gameState.players||[]).forEach((p,i)=>{
+    const t=document.createElement('div'); t.className='tok'; t.id=`tk${i}`;
+    t.textContent=i+1;
+    t.style.background=`radial-gradient(circle at 35% 35%,${p.col.bg},${p.col.dk})`;
+    l.appendChild(t);
+  });
+  updateToks();
+}
+function updateToks(){
+  const s=gameState; if(!s||!s.players)return;
+  s.players.forEach((p,i)=>{
+    const t=document.getElementById(`tk${i}`); if(!t)return;
+    const c=ctr(p.pos===0?1:p.pos);
+    const[ox,oy]=OFFS[i]||[0,0];
+    const ex=p.pos===0?(i%3-1)*16:0,ey=p.pos===0?16:0;
+    t.style.left=`${c.x+ox+ex}px`; t.style.top=`${c.y+oy+ey}px`;
+  });
+}
+
+/* ════ WIN ════ */
+function confetti(){
+  const cols=['#FFD600','#E53935','#1E88E5','#43A047','#FF6F00','#AB47BC','#26C6DA','#E91E63'];
+  for(let i=0;i<80;i++){
+    const el=document.createElement('div'); el.className='cf2';
+    el.style.cssText=`left:${Math.random()*100}vw;background:${cols[i%cols.length]};animation-delay:${Math.random()*2}s;animation-duration:${2+Math.random()*2}s;transform:rotate(${Math.random()*360}deg);border-radius:${Math.random()>.5?'50%':'2px'}`;
+    document.body.appendChild(el); setTimeout(()=>el.remove(),4500);
+  }
+}
+
+setCellSize();
+</script>
+<script src="satu-perangkat.js"></script>
+</body>
+</html>

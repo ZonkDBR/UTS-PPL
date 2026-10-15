@@ -5,15 +5,19 @@ Bimbingan dan Konseling), praktik lapangan di **SMA Negeri 1 Cisarua**.
 
 Situs terbagi dua pintu, mengikuti pola halaman Refleksi di situs rujukan:
 
-- **PPG (Modul Akademik)**: refleksi 4C, analisis artefak, dan kaitan praktis dari mata
-  kuliah semester I (6) dan semester II (5). Isinya dipindah apa adanya dari dua situs
-  lama (Seminar-PPG-UTS-Porto dan UAS-Seminar-PPG).
-- **PPL (Praktik Lapangan)**: tugas **LK 3**, disusun sebagai tab per siklus. Siklus 1:
-  Penyesuaian Diri (10 Agustus 2026), Regulasi Emosi (13 Agustus), Menghargai Guru dan
-  Teman (20 Agustus). Siklus 2: Manajemen Waktu (20 Agustus). Siklus 3 dan 4 menyusul.
-  Tab lain: Nonmengajar, Penilaian Guru Pamong (placeholder), Tugas (UTS dan UAS menyusul).
+- **PPG (Modul Akademik)**: halaman utamanya **Intisari PPG**, lalu refleksi 4C dan
+  analisis artefak mata kuliah semester I (6) dan semester II (5), ditambah halaman
+  Karya Inovasi.
+- **PPL (Praktik Lapangan)**: tugas **LK 3**, disusun sebagai tab per siklus, tiga
+  layanan per siklus. Siklus 1: Penyesuaian Diri, Regulasi Emosi, Manajemen Waktu
+  (Agustus 2026). Siklus 2: Kejujuran Akademik, Membangun Resiliensi, Visi Masa Depan
+  (27 Agustus sampai 3 September). Siklus 3: Menghargai Guru dan Teman, Penggunaan Media
+  Sosial, Mengenal Diri Sendiri (10 sampai 17 September). Siklus 4: Kepercayaan Diri,
+  Perundungan, Seleksi Masuk Perguruan Tinggi (21 sampai 29 September). Tab lain:
+  Nonmengajar, Penilaian Guru Pamong (placeholder), Tugas (UTS dan UAS menyusul).
 
-Tombol PPG di nav membuka pop-up pilihan Semester I atau II (Popover API bawaan).
+Tombol PPG di nav membuka pop-up berisi empat halaman, dengan Intisari PPG di urutan
+pertama sebagai pintu masuknya (Popover API bawaan).
 
 Beberapa halaman statis. Tanpa build step, tanpa framework, tanpa dependensi. Buka
 `index.html` langsung dari berkas dan halaman tampil utuh.
@@ -22,8 +26,11 @@ Beberapa halaman statis. Tanpa build step, tanpa framework, tanpa dependensi. Bu
 index.html          beranda: profil singkat, video Home, dua pintu PPG dan PPL
 profil.html         profil lengkap (bagian riwayat masih placeholder)
 ppl.html            PPL Mandiri, tugas LK 3 (tab Siklus 1-4, Nonmengajar, Penilaian, Tugas)
+ppg-intisari.html   Intisari PPG, halaman utama bagian PPG
 ppg-1.html          PPG semester I, enam mata kuliah
 ppg-2.html          PPG semester II, lima mata kuliah
+karya-inovasi.html  Karya Inovasi: Ular Tangga Motivasi
+ular-tangga/        permainannya sendiri, versi satu perangkat tanpa server
 style.css           token warna, tata letak, animasi (dipakai semua halaman)
 script.js           reveal dan penanda nav, tab PPL, jejak kursor, slider foto, video hero, kotak YouTube
 assets/profile.jpeg foto profil
@@ -82,11 +89,11 @@ Acuan bahasa visualnya: <https://ppganthonioakbar.vercel.app/>.
 ## Yang masih kosong
 
 - Kartu **UTS** dan **UAS** di bagian "Rangkaian Tugas" (ppl.html) masih placeholder.
-- **Video Siklus 2** (ppl.html#s2-video): kotak YouTube menunggu ID video. Isi atribut
-  `data-yt` dengan ID-nya (mis. `data-yt="AbCdEfGhIjK"`); sampul dan tombol putar
-  dipasang otomatis, dan klik memutar video di tempat.
-- **Siklus 3, Siklus 4, Penilaian Guru Pamong** di ppl.html, dan foto kedua orang tua di
-  profil.html, masih placeholder.
+- Kotak **"Dilengkapi setelah menonton ulang rekaman"** di keempat bagian video.
+- **Penilaian Guru Pamong** di ppl.html, dan **Seminar PPG** di ppg-intisari.html.
+- **Contoh perilaku kurang menghargai** hasil observasi (ppl.html#s3-materi).
+- **Gambar LKPD Aksi Anti-Bullying**: berkas di folder Siklus 4 keliru, isinya lembar
+  kerja Penyesuaian Diri.
 - **Riwayat dan pengalaman** di profil.html: enam kartu placeholder.
 
 ## Catatan privasi
@@ -100,7 +107,14 @@ ditautkan lewat folder Google Drive seperti di situs lama.
 
 ## Menerbitkan
 
-Live di **<https://zonkdbr.github.io/UTS-PPL/>**, dilayani dari akar repo lewat GitHub
-Pages (Settings, Pages, Source: `main`, folder `/ (root)`). Cukup `git push origin main`;
-Pages menyebar ulang sekitar satu menit. Periksa lewat jendela incognito karena cache-nya
-cukup agresif.
+Diterbitkan lewat **Vercel** dari repo `ZonkDBR/UTS-PPL`. Situsnya statis murni, jadi
+tidak perlu `vercel.json`, perintah build, maupun direktori keluaran khusus: akar repo
+langsung dilayani apa adanya. Cukup `git push origin main` dan Vercel menyebar ulang
+sendiri. Periksa lewat jendela incognito karena cache-nya cukup agresif.
+
+Permainan di `ular-tangga/` ikut terbit sebagai halaman statis biasa. Versi aslinya
+(`server.py` dengan WebSocket, supaya tiap murid ikut dari HP masing-masing) tidak bisa
+dijalankan di Vercel, jadi salinan di sini memakai `satu-perangkat.js` yang menjalankan
+seluruh logika permainan di dalam peramban. Protokol pesannya dibuat sama persis dengan
+server aslinya, jadi kalau nanti servernya dipasang di tempat lain, cukup berkas itu yang
+dilepas.

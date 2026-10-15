@@ -39,8 +39,9 @@ ppg-2.html   ringkasan PPG semester II, lima kartu mata kuliah
 ppg-2-*.html intervensi, pse, ppl, konseling, projek
 ppg-intisari.html  intisari PPG: identifikasi temuan per mata kuliah, benang merah,
              karya inovasi, Seminar PPG, penutup (lima bagian, tanpa .navlinks)
-karya-inovasi.html dua karya inovasi dari Projek Kepemimpinan (Jenga Against Bullying,
-             EduPop Karir), keduanya masih berstatus proposal
+karya-inovasi.html karya inovasi: Ular Tangga Motivasi, permainan papan digital berisi
+             46 kartu pertanyaan refleksi; masih prototipe
+ular-tangga/ salinan permainannya yang ikut terbit (index.html + satu-perangkat.js)
 style.css    satu berkas untuk semua halaman
 script.js    reveal + kelopak + nav aktif, tab PPL, jejak kursor, slider, video hero, kotak YouTube
 assets/      foto profil, dokumentasi, LKPD, video Home, RPL dan PPT yang ditautkan
@@ -56,8 +57,10 @@ nav). `script.js` memasangkan tautan `.navlinks` atau `.toc` ke `main .sec` menu
 urutan, jadi jumlahnya harus sama.
 
 **PPG di nav adalah tombol pop-up**, bukan tautan: `<button class="saklar__ppg"
-popovertarget="menu-ppg">` plus `<div id="menu-ppg" popover>` berisi empat tautan:
-Semester I, Semester II, Intisari PPG, dan Karya Inovasi (Popover API bawaan, tanpa JS).
+popovertarget="menu-ppg">` plus `<div id="menu-ppg" popover>` berisi empat tautan
+dengan **Intisari PPG di urutan pertama** sebagai pintu masuk bagian PPG (keputusan
+pemilik 16 Oktober 2026), lalu Semester I, Semester II, dan Karya Inovasi (Popover API
+bawaan, tanpa JS).
 Di semua halaman PPG tombolnya diberi `data-aktif` (latar `--rose`). Salin utuh ke semua
 berkas bila diubah. Daftar yang sama juga muncul di `ul.pintu__daftar` kartu pintu PPG
 pada index.html, jadi keduanya harus ikut berubah.
@@ -113,10 +116,10 @@ Tanpa framework, tanpa build step, tanpa dependensi npm. Buka `index.html` langs
 berkas (`file://`) dan halaman harus tampil utuh — tidak boleh butuh server. Font lewat
 Google Fonts, sisanya inline/lokal.
 
-Publikasi: GitHub Pages dari akar repo (`main`, folder `/`) pada repo
-`ZonkDBR/UTS-PPL`. Alamat yang dikirim sebagai jawaban tugas:
-**<https://zonkdbr.github.io/UTS-PPL/>**. Cukup `git push origin main`, Pages menyebar
-ulang sendiri sekitar satu menit.
+Publikasi: **Vercel**, dari repo `ZonkDBR/UTS-PPL` (keputusan pemilik 16 Oktober 2026,
+menggantikan GitHub Pages). Situsnya statis murni, jadi tidak perlu `vercel.json`,
+perintah build, maupun direktori keluaran: akar repo dilayani apa adanya. Cukup
+`git push origin main`, Vercel menyebar ulang sendiri.
 
 Rujukan pola yang sudah terbukti: `C:\Users\ZonkDBR\Documents\Araa\Seminar PPG\Topik 2\website`
 (live di <https://zonkdbr.github.io/Seminar-PPG-UTS-Porto/>). Rujukan kedua:
@@ -125,11 +128,55 @@ Rujukan pola yang sudah terbukti: `C:\Users\ZonkDBR\Documents\Araa\Seminar PPG\T
 ### Catatan alat
 
 Di mesin ini tidak ada ffmpeg, ImageMagick, pdftotext, maupun Python. Yang tersedia:
-PowerShell dengan `System.Drawing` (dipakai untuk memperkecil foto), Node (dipakai untuk
-server statis sementara saat memeriksa tampilan), dan Playwright MCP. **Playwright
+PowerShell dengan `System.Drawing` (dipakai untuk memperkecil foto; ingat membaca tag
+EXIF 274 supaya foto potret tidak terbalik) dan `System.IO.Compression.ZipFile` (dipakai
+untuk membaca isi `.docx` dan `.pptx`: buka zipnya, ambil `word/document.xml` atau
+`ppt/slides/slideN.xml`, lalu buang tagnya), Node (server statis sementara saat memeriksa
+tampilan), dan Playwright MCP. Teks **PDF hasil ekspor PowerPoint tidak bisa diambil**
+dengan cara sederhana karena fontnya tersubset; yang bisa dibaca hanya jumlah halamannya
+lewat `/Count`. **Playwright
 memblokir `file://` dan Chromium bawaannya tidak punya codec H.264**, jadi untuk
 memeriksa tampilan perlu server lokal sementara, dan isi klip mp4 tidak bisa diputar di
 sana.
+
+### ppg-intisari.html adalah halaman utama PPG
+
+Keputusan pemilik 16 Oktober 2026. Halaman ini wajib memuat tiga hal, selain identifikasi
+temuan dan penutup yang sudah ada:
+
+1. **Kaitan karya inovasi dengan mata kuliah** (bagian `#karya`), enam mata kuliah yang
+   terbaca pada bentuk Ular Tangga Motivasi.
+2. **Kaitan karya inovasi dengan visi dan misi** di `index.html#visi-misi`; empat butir
+   misi yang terpenuhi, dua butir yang justru jadi pekerjaan rumahnya.
+3. **Kesinambungan refleksi semester I dan II** (bagian `#benang-merah`), enam pasangan
+   mata kuliah semester I yang bersambung ke semester II.
+
+Di akhir halaman ada pemilih "Lanjutkan membaca" ke Semester I, Semester II, Karya
+Inovasi, dan PPL, karena pengunjung diarahkan membaca intisari lebih dahulu.
+
+### ular-tangga/ (Karya Inovasi)
+
+`ular-tangga/index.html` adalah salinan `C:UsersZonkDBRDocumentsAraaUlar Tanggagame.html`
+dengan tiga tambahan: judul dan meta, tautan kembali ke karya-inovasi.html, dan
+`<script src="satu-perangkat.js">` sebelum `</body>`. **Jangan mengedit logika permainan
+di dalam index.html**; semuanya ada di `satu-perangkat.js`.
+
+Aslinya permainan ini klien tipis: seluruh logika (dadu, ular, tangga, giliran) ada di
+`server.py` lewat WebSocket port 3001, supaya tiap murid ikut dari HP sendiri. Vercel
+tidak bisa menjalankan server itu. `satu-perangkat.js` menggantikan servernya dengan
+menimpa `window.WebSocket` memakai soket palsu yang menjalankan logika yang sama di
+peramban, jadi permainannya hot seat di satu perangkat: pemain ditambahkan lewat kolom
+"Tambah pemain" yang disuntikkan ke layar lobi, dan tiap pesan `state` melaporkan
+`my_idx: state.cur` supaya tombol dadu aktif untuk siapa pun yang sedang mendapat giliran.
+Konstanta papan (`SNAKES`, `LADDERS`, `SPECIAL`, `Q`, `PC`) dibaca dari index.html,
+tidak disalin ulang.
+
+**Protokolnya sengaja sama persis dengan server.py** (create, join, host_role, set_name,
+start, roll, move, ack_modal, restart). Kalau nanti multiperangkat dibutuhkan, servernya
+dipasang di tempat yang bisa menjalankan proses hidup (Render, Railway, Fly) lalu
+`satu-perangkat.js` dilepas; atau logika yang sama dipindah ke dua rute HTTP di Vercel
+(`GET /api/state` yang di-polling tiap 1,5 detik dan `POST /api/action`) dengan state
+ruangan disimpan di Redis, karena fungsi serverless tidak punya memori bersama.
 
 ## Gaya: neo-brutalism merah muda
 
@@ -232,12 +279,14 @@ dan satu siklus hanya punya satu video.** Analisis kegiatan nonmengajar pindah k
 |---|---|
 | 1 | Penyesuaian Diri (X I) 10 Agu 2026 · Regulasi Emosi (X J) 13 Agu · Manajemen Waktu (X D) 20 Agu. Semua Pribadi, Experiential Learning, kelas X |
 | 2 | Kejujuran Akademik (Belajar, XI J) 27 Agu · Membangun Resiliensi (Pribadi, XI I) 31 Agu · Visi Masa Depan / Target SMART (Karier, X I) 3 Sep. Semua Experiential Learning |
-| 3 | Menghargai Guru dan Teman (Sosial, XI J) 20 Agu. Video belum ada |
-| 4 | placeholder `<!-- TODO -->` |
+| 3 | Menghargai Guru dan Teman (Sosial, XI J) 10 Sep · Penggunaan Media Sosial (Sosial, XI J) 15 Sep · Mengenal Diri Sendiri / Self Awareness (Pribadi, XI J) 17 Sep. Satu kelas yang sama sepanjang siklus, model berbeda tiap layanan |
+| 4 | Kepercayaan Diri (Pribadi, XII I) 21 Sep · Perundungan (Sosial, XII I) 24 Sep · Seleksi Masuk Perguruan Tinggi (Karier, XI J) 29 Sep |
 
-Catatan urutan (14 Oktober 2026): layanan Menghargai dipindah dari Siklus 2 ke Siklus 3
-atas keputusan pemilik, jadi **tanggalnya lebih awal daripada Siklus 2**. Urutan siklus
-mengikuti keputusan itu, bukan kronologi.
+Catatan tanggal (16 Oktober 2026): layanan Menghargai **bertanggal 10 September 2026**,
+bukan 20 Agustus seperti yang pernah ditulis; foto 20 Agustus ternyata milik folder
+Seleksi PT dan ditandai "Belum Dipake" oleh pemilik, tetapi atas keputusan pemilik tiga
+di antaranya tetap dipakai untuk kartu Seleksi PT. RPL Kepercayaan Diri memakai tanggal
+tanda tangan dokumennya (21 September), bukan nama foldernya (13 Agustus).
 
 Video Siklus 1: YouTube `CEGttnItg2I`, layanan Penyesuaian Diri. Kendala yang
 dinyatakan pemilik: di video itu lupa memakai mikrofon sehingga suara murid yang
@@ -245,8 +294,11 @@ berpendapat kurang terdengar; di layanan Menghargai (kini Siklus 3) proyektor ru
 sehingga PPT tidak bisa ditayangkan.
 
 Video Siklus 2: YouTube `cByApNz-sJA`, layanan Visi Masa Depan (3 September 2026).
-Pemilik belum menyatakan kendala apa pun pada rekaman ini, jadi kotak `.observed .todo`
-di `#s2-video` masih menunggu hasil menonton ulang. Jangan mengarang isinya.
+Video Siklus 3: YouTube `sSPtfTE1tbs`, layanan Mengenal Diri Sendiri (17 September).
+Video Siklus 4: YouTube `KjQlbfwuDuw`, layanan Perundungan (24 September).
+Pemilik belum menyatakan kendala apa pun pada ketiga rekaman itu, jadi kotak
+`.observed .todo` di `#s2-video`, `#s3-video`, dan `#s4-video` masih menunggu hasil
+menonton ulang. Jangan mengarang isinya.
 
 Setiap bagian memuat tiga hal, dalam urutan ini: **deskripsi produk** → **analisis** →
 **refleksi diri**. Analisis jangan lebih pendek dari deskripsinya. Evaluasi proses selalu
@@ -266,6 +318,32 @@ ditulis sebelum evaluasi hasil (ikut urutan RPL), termasuk di blok rumus.
   `scroll-padding-top`, `:focus-visible` terlihat, rapi sampai lebar 375px.
 
 ## Bahan yang tersedia
+
+**Sumber Siklus 3 dan 4 adalah `assets/SIKLUS 3 PPLM/` dan `assets/SIKLUS 4 PPLM/`**
+(16 Oktober 2026), masing-masing tiga folder layanan dengan pola penamaan seperti
+Siklus 2. Nama foldernya dibiarkan apa adanya, termasuk yang panjang berisi tanggal,
+supaya tautan unduhan tidak perlu diubah lagi. Yang dilacak git hanya `.docx` dan
+`.pptx`, ditambah satu pengecualian `!assets/SIKLUS 3 PPLM/*/PPT*.pdf` karena PPT Media
+Sosial terbit sebagai PDF 11 halaman, bukan pptx.
+
+Foto terbitnya diperkecil ke `assets/dokumentasi/`: `menghargai-01..03`, `sosmed-01..03`,
+`sadardiri-01..03` (Siklus 3), `percaya-01..03`, `bullying-01..02`, `seleksi-01..03`
+(Siklus 4). **Bullying hanya dua** karena dua dari tiga foto mentahnya identik. Foto lama
+`sosial-01/03/04` sudah dihapus karena layanan Menghargai kini memakai fotonya sendiri.
+LKPD terbit sebagai `assets/lkpd/lkpd-kesadaran-diri.jpg`, `lkpd-confidence-gps.jpg`,
+dan `lkpd-strategi-sukses.jpg`; LKPD Menghargai memakai `lkpd-aksi-menghargai.jpg` yang
+sudah ada. **`LKPD Bullying.png` di folder Siklus 4 keliru**, isinya lembar kerja
+Penyesuaian Diri Siklus 1, jadi kartu LKPD Perundungan diberi keterangan tanpa gambar.
+
+Temuan dokumen yang ditulis sebagai analisis, bukan diam-diam diperbaiki: kolom kegiatan
+murid dan Guru BK tertukar di RPL Perundungan, tiga subjudul lampiran materinya masih
+terbawa dari berkas Regulasi Emosi, RPL Media Sosial tidak punya instrumen kepuasan, dan
+tabel kategori evaluasi hasil RPL Seleksi PT memakai batas yang tidak cocok dengan
+rumusnya (74-100, 68-73, 52-67, 36-51, 14-35).
+
+**Foto Siklus 2 layanan Visi Masa Depan sudah berdiri sendiri** (16 Oktober 2026):
+`smart-01..03`, diambil dari folder dokumentasi SMART yang diperbarui pemilik. Jadi
+`siklus2-01..03` kini hanya dipakai layanan Membangun Resiliensi.
 
 **Sumber Siklus 2 adalah `assets/SIKLUS 2 PPLM/`** (14 Oktober 2026), diekstrak dari
 `SIKLUS 2 PPLM baru.zip`. Arsipnya **tidak ada di repo ini**, melainkan di
@@ -416,9 +494,12 @@ ditonjolkan"). Tetap satu paragraf per kotak, nada wajar, bukan daftar kesalahan
 nada dari pemilik: kelas interaktif, tetapi murid kadang terdistraksi, jadi perlu menjaga
 suasana kelas nyaman dan interaktif dari awal sampai akhir.
 
-**Tanpa studi kasus.** Pemilik portofolio menyatakan layanannya tidak memakai studi
-kasus. RPL Penyesuaian Diri (daftar media, satu kegiatan) dan slide 8 PPT-nya masih
-menyebutnya, tetapi situs tidak menulisnya sama sekali, sama seperti roleplay.
+**Tanpa studi kasus, kecuali layanan Perundungan.** Pemilik portofolio menyatakan
+layanannya tidak memakai studi kasus, jadi RPL Penyesuaian Diri (daftar media, satu
+kegiatan) dan slide 8 PPT-nya yang masih menyebutnya tidak diikuti situs, sama seperti
+roleplay. **Layanan Perundungan Siklus 4 adalah pengecualian** (keputusan pemilik
+16 Oktober 2026): modelnya Problem Based Learning dengan studi kasus sebagai inti
+kegiatan, jadi di situ studi kasusnya ditulis apa adanya.
 
 ## Privasi
 
@@ -433,12 +514,14 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
 
 ## Yang masih kurang
 
-- [ ] Kotak "Dilengkapi setelah menonton ulang rekaman" di `#s1-video` dan `#s2-video`
-      (empat butir masing-masing).
-- [ ] **Video Siklus 3** (layanan Menghargai): `data-yt` di `#s3-video` masih kosong,
-      analisis dan refleksinya juga belum ditulis.
+- [ ] Kotak "Dilengkapi setelah menonton ulang rekaman" di `#s1-video` sampai
+      `#s4-video` (empat butir masing-masing).
 - [ ] **Contoh perilaku kurang menghargai** hasil observasi (kotak alasan topik di
-      `#s3-materi`), **Siklus 4**, dan **penilaian Guru Pamong**.
+      `#s3-materi`) dan **penilaian Guru Pamong**.
+- [ ] **Gambar LKPD Aksi Anti-Bullying** (`#s4-media`): berkas `LKPD Bullying.png` di
+      folder Siklus 4 keliru, isinya lembar kerja Penyesuaian Diri Siklus 1.
+- [ ] **Uji coba Ular Tangga Motivasi** bersama murid beserta instrumen awal dan akhirnya;
+      sampai sekarang statusnya prototipe.
 - [ ] **Seminar PPG**: luaran, umpan balik penguji, dan tindak lanjut di `#seminar`
       ppg-intisari.html masih placeholder.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
