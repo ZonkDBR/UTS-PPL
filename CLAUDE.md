@@ -105,12 +105,63 @@ bukan "mereframe"). `index.html`, `profil.html`, dan `ppl.html` **tidak ikut**; 
 mempertahankan nada hangat. Yang tidak berubah: sudut pandang "saya", struktur 4C beserta
 subjudulnya, larangan em/en dash, dan larangan emoji.
 
+### Refleksi PPG adalah refleksi diri, bukan ringkasan LK (18 Oktober 2026)
+
+Teguran pemilik: "tantangan tuh maksudnya tantangan yang gue rasain ketika mengajar", dan
+"refleksi semester 1 dan 2 fokusnya refleksi diri kita sendiri, bukan mengenai LK nya;
+artefak/LK tuh cuma sebagai penguat aja". Versi sebelumnya salah arah: bagian Challenge
+berisi kasus-kasus yang dibahas di LK (kasus Pak Eko, guru yang menggeledah tas, Anita dan
+Erika), bukan kesulitan yang pemilik alami sendiri. Aturannya sekarang:
+
+- Tiap bagian 4C berbicara tentang **pengalaman dan kebiasaan pemilik sendiri**. Kasus LK
+  boleh muncul, tetapi hanya sebagai cermin di paragraf terakhir, tidak memimpin.
+- Challenge berisi kesulitan nyata saat mengajar atau konseling, bukan tantangan yang
+  tertulis di modul.
+- `.mk-inti` dan `.mk-kartu__inti` juga berbentuk refleksi ("Saya semula ... ternyata ..."),
+  bukan deskripsi kegiatan mata kuliah. Keduanya kembar, ubah berpasangan.
+- Kartu `#identifikasi` di ppg-intisari.html berjudul perubahan pada diri sendiri, bukan
+  temuan tentang materi.
+
+**Sumber sahih refleksi semester I** adalah berkas kiriman pemilik 18 Oktober 2026:
+`assets/Refleksi Filosofi Pendidikan_FahiraFW.docx` dan lima zip
+(`Refleksi Asesmen dan Layanan BK`, `Refleksi Pola Pikir Bertumbuh (Growth Mindset)`,
+`Refleksi Praktikum Konseling Individu`, `Refleksi Design Thinking`,
+`Refleksi PPL Terbimbing`). Tiap zip memuat satu `Refleksi *_FahiraFW.docx` berisi 4C
+lengkap, Kaitan Praktis, serta **artefak pilihan pemilik beserta alasannya**; sisa isi zip
+adalah artefaknya. Zip diabaikan git (`assets/*.zip`). Keenam halaman semester I mengikuti
+dokumen itu, termasuk daftar artefaknya, jadi jumlah artefak semester I kini 13
+(filosofi 4, asesmen 2, PPL 1, pola pikir 2, design thinking 2, konseling 2) dan semester II
+15. Artefak video Konseling Individu memakai tautan publik
+<https://youtu.be/cVnyQwDGlUs>.
+
+**Semester II tidak punya dokumen refleksi dari pemilik**, dan atas perintah pemilik
+(18 Oktober 2026, "lakukan sendiri refleksi semester 2 dengan contoh pada referensi web
+teman dan pada semester 1") kelima halamannya disusun mengikuti bentuk dokumen semester I:
+Connection berpola "Sebelum mengikuti ... Namun, pemikiran saya berubah ... Sebagai calon
+Guru BK ...", Challenge berisi kesulitan pemilik sendiri lalu kasus LK sebagai cermin,
+Concept tiga butir `<strong>Istilah:</strong>`, Change tiga komitmen, Kaitan Praktis dua
+paragraf berjudul "Pemahaman yang saya bawa ke praktik" dan "Perubahan dalam praktik saya"
+(kesebelas halaman memakai pasangan judul ini). Bahannya hanya yang sudah terverifikasi:
+isi LK yang memang sudah tercatat di halaman itu, pernyataan pemilik di dokumen semester I,
+dan keterangan PPL Mandiri di catatan ini (lupa mikrofon di rekaman Siklus 1, proyektor
+rusak di layanan Menghargai, Aturan Kelas Saling Menghargai dirumuskan bersama murid,
+piket penanganan murid terlambat). `ppg-2-projek.html` sudah berbentuk benar sejak awal,
+jadi hanya judul Kaitan Praktisnya yang diseragamkan. Teks ini **tetap perlu dibaca ulang
+pemilik**; kalau nanti ada dokumen refleksi semester II yang asli, pakai itu sebagai
+sumber sahih dan ganti.
+
+Halaman rujukan teman (<https://sites.google.com/ppg.belajar.id/refleksi-amelia-andriani-p/>)
+isinya gambar, jadi teksnya tidak bisa dibaca. Yang dipakai dari sana hanya susunannya:
+4C plus artefak per mata kuliah, dan daftar mata kuliah semester II yang ternyata sama
+dengan yang ada di situs ini.
+
 Isi refleksinya direvisi 4 Oktober 2026 mengikuti `assets/Refleksi Pengalaman Belajar ara.docx`
 (sumber sahih 4C Filosofi, dipakai apa adanya; jadi pola untuk mata kuliah lain): tiap bagian 4C
 diberi subjudul (Keterkaitan/Tantangan/Konsep/Perubahan), Concept berupa daftar
 `<strong>Istilah:</strong>`, Change berupa daftar komitmen "Saya akan…", suara "saya" di kedua
-semester. Isi mata kuliah lain hanya disusun ulang, tidak ditambah. Artefak dipangkas jadi satu
-per topik (16 di semester I, 13 di semester II); jangan kembalikan sisanya. Asalnya dipindah
+semester. Artefak dipangkas jadi satu
+per topik; sejak 18 Oktober 2026 daftarnya mengikuti pilihan pemilik (13 di semester I,
+15 di semester II); jangan kembalikan sisanya. Asalnya dipindah
 dari dua situs lama. Yang diubah saat pemindahan: emoji dan label "Mata Kuliah 01"
 dibuang, em/en dash jadi tanda hubung, rona per mata kuliah (termasuk lavender) dibuang,
 dan kelasnya disesuaikan. Artefak berupa kartu kode, bukan berkas. Jangan menambah

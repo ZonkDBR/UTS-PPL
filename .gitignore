@@ -51,6 +51,7 @@ assets/SIKLUS*/*/~$*
 
 # Sumber refleksi PPG, dipakai sebagai rujukan isi tetapi tidak diterbitkan.
 assets/Refleksi Pengalaman Belajar ara.docx
+assets/Refleksi*.docx
 
 # PPT Media Sosial terbit sebagai PDF dan ditautkan dari situs, jadi dikecualikan.
 !assets/SIKLUS 3 PPLM/*/PPT*.pdf
