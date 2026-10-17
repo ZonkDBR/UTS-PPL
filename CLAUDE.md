@@ -19,6 +19,9 @@ sama; tempatnya sudah disiapkan sebagai kartu placeholder di bagian `#tugas`.
 | Kampus | IKIP Siliwangi |
 | Program | PPG Prajabatan |
 | Sekolah PPL Mandiri | SMA Negeri 1 Cisarua |
+| Pendidikan sebelumnya | S1 Bimbingan dan Konseling, IKIP Siliwangi, angkatan 2021 |
+| Pengalaman mengajar | SD Negeri 1 Girinata |
+| Kontak publik | <https://www.instagram.com/fahirafw/> |
 
 Sumber: header LK.1 dan LK.2 di folder ini. `<html lang="id">`.
 
@@ -37,8 +40,9 @@ ppg-1-*.html satu halaman per mata kuliah semester I (filosofi, asesmen, ppl, po
              design-thinking, konseling)
 ppg-2.html   ringkasan PPG semester II, lima kartu mata kuliah
 ppg-2-*.html intervensi, pse, ppl, konseling, projek
-ppg-intisari.html  intisari PPG: identifikasi temuan per mata kuliah, benang merah,
-             karya inovasi, Seminar PPG, penutup (lima bagian, tanpa .navlinks)
+ppg-intisari.html  Seminar PPG: identifikasi temuan per mata kuliah, benang merah,
+             karya inovasi, luaran dan tindak lanjut, penutup (lima bagian, tanpa
+             .navlinks). Nama berkasnya tetap ppg-intisari.html, hanya judulnya berubah
 karya-inovasi.html karya inovasi: Ular Tangga Motivasi, permainan papan digital berisi
              46 kartu pertanyaan refleksi; disusun mengikuti empat komponen LK 4
              (#identitas, #gagasan, #rancangan, #evaluasi) plus #alur dan #kaitan
@@ -140,10 +144,15 @@ memblokir `file://` dan Chromium bawaannya tidak punya codec H.264**, jadi untuk
 memeriksa tampilan perlu server lokal sementara, dan isi klip mp4 tidak bisa diputar di
 sana.
 
-### ppg-intisari.html adalah halaman utama PPG
+### ppg-intisari.html adalah halaman utama PPG, judulnya Seminar PPG
 
-Keputusan pemilik 16 Oktober 2026. Halaman ini wajib memuat tiga hal, selain identifikasi
-temuan dan penutup yang sudah ada:
+Keputusan pemilik 16 Oktober 2026, diperbarui 17 Oktober 2026: **judul halaman ini
+"Seminar PPG", bukan lagi "Intisari PPG"** ("anggap saja itu seminar PPG"). Nama berkasnya
+sengaja dibiarkan `ppg-intisari.html` supaya tautan di 18 halaman tidak perlu diubah.
+Bagian `#seminar` di dalamnya karena itu berjudul "Luaran dan Tindak Lanjut", bukan
+"Seminar PPG" lagi, supaya tidak mengulang judul halamannya.
+
+Halaman ini wajib memuat tiga hal, selain identifikasi temuan dan penutup yang sudah ada:
 
 1. **Kaitan karya inovasi dengan mata kuliah** (bagian `#karya`), enam mata kuliah yang
    terbaca pada bentuk Ular Tangga Motivasi.
@@ -337,9 +346,12 @@ ditulis sebelum evaluasi hasil (ikut urutan RPL), termasuk di blok rumus.
 
 - **Profil guru** — hero beranda (index.html, alamat yang dikirim ke penilai) dengan
   foto, nama, dan alasan memilih jadi Guru BK, disusul strip identitas dan tombol ke
-  profil.html. Profil lengkap di profil.html; kartu riwayat, pengalaman, organisasi,
-  keterampilan, prestasi, dan kontak masih placeholder `<!-- TODO -->` karena datanya
-  belum diberikan. Jangan diisi karangan.
+  profil.html. Profil lengkap di profil.html; sejak 17 Oktober 2026 keempat kartu
+  Riwayat dan pengalaman sudah terisi (pendidikan, pengalaman, keterampilan, kontak).
+  Kartu Organisasi dan Prestasi dihapus atas permintaan pemilik; jangan dikembalikan.
+  Butir keterampilan selain komunikasi disusun dari pekerjaan yang memang terlihat di
+  portofolio ini (AKPD, sosiometri, RPL, PPT, LKPD, Ular Tangga Motivasi), atas izin
+  pemilik; selain kartu itu, larangan mengarang tetap berlaku penuh.
 - **Kedalaman analisis** — lihat aturan tiga bagian di atas.
 - **Refleksi diri** — kotak `.refleksi` di tiap bagian, plus satu refleksi penutup yang
   menarik benang merah keenamnya.
@@ -552,11 +564,9 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
 - [ ] **Pengukuran Ular Tangga Motivasi**: angka instrumen awal dan akhir serta penilaian
       Guru BK sebagai pemakai (kotak `.kosong` di `#evaluasi`), ditambah dokumentasi
       pelaksanaan 13 April 2026 (kotak `.kosong` di `#rancangan`).
-- [ ] **Seminar PPG**: luaran, umpan balik penguji, dan tindak lanjut di `#seminar`
+- [ ] **Luaran Seminar PPG**: luaran, umpan balik penguji, dan tindak lanjut di `#seminar`
       ppg-intisari.html masih placeholder.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
-- [ ] **Profil**: riwayat pendidikan, pengalaman, keterampilan, serta kontak dan CV di
-      profil.html (empat kartu placeholder). Kartu Organisasi dan Prestasi dihapus atas
-      permintaan pemilik 17 Oktober 2026; jangan dikembalikan.
+- [ ] **Tautan CV** di kartu Kontak profil.html, bila pemilik mau menerbitkannya.
 - [ ] Hasil pengisian instrumen, bila mau menampilkan angka nyata, bukan hanya
       rancangannya.

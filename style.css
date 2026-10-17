@@ -1541,7 +1541,7 @@ a.doc-card:hover .doc-title { color: var(--rose); }
 .cerita > p, .cerita > ul:not(.doc-grid) li,
 .lede, .sec__head p:not(.eyebrow),
 .rpl-card p, .tile p, .quote p, .refleksi p, .doc-body p, .why p,
-.outline li, .observed li, .klaster p, .pintu p {
+.outline li, .observed li, .klaster p, .pintu p, .tugas__kartu p {
   text-align: justify;
   hyphens: auto;
 }
@@ -1598,5 +1598,5 @@ a.doc-card:hover .doc-title { color: var(--rose); }
   .cerita > p, .cerita > ul:not(.doc-grid) li,
   .lede, .sec__head p:not(.eyebrow),
   .rpl-card p, .tile p, .quote p, .refleksi p, .doc-body p, .why p,
-  .outline li, .observed li, .klaster p, .pintu p { text-align: left; }
+  .outline li, .observed li, .klaster p, .pintu p, .tugas__kartu p { text-align: left; }
 }
