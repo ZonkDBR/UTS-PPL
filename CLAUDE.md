@@ -40,7 +40,8 @@ ppg-2-*.html intervensi, pse, ppl, konseling, projek
 ppg-intisari.html  intisari PPG: identifikasi temuan per mata kuliah, benang merah,
              karya inovasi, Seminar PPG, penutup (lima bagian, tanpa .navlinks)
 karya-inovasi.html karya inovasi: Ular Tangga Motivasi, permainan papan digital berisi
-             46 kartu pertanyaan refleksi; masih prototipe
+             46 kartu pertanyaan refleksi; disusun mengikuti empat komponen LK 4
+             (#identitas, #gagasan, #rancangan, #evaluasi) plus #alur dan #kaitan
 ular-tangga/ salinan permainannya yang ikut terbit (index.html + satu-perangkat.js)
 style.css    satu berkas untuk semua halaman
 script.js    reveal + kelopak + nav aktif, tab PPL, jejak kursor, slider, video hero, kotak YouTube
@@ -154,6 +155,25 @@ temuan dan penutup yang sudah ada:
 Di akhir halaman ada pemilih "Lanjutkan membaca" ke Semester I, Semester II, Karya
 Inovasi, dan PPL, karena pengunjung diarahkan membaca intisari lebih dahulu.
 
+### Karya Inovasi: status dan susunan halaman
+
+Keputusan pemilik 17 Oktober 2026: **Ular Tangga Motivasi bukan lagi prototipe.**
+Permainannya sudah dipakai dalam layanan bimbingan klasikal bersama **satu kelas X pada
+13 April 2026** (tanggal dari pemilik; tahunnya disimpulkan dari rentang semester I, perlu
+dikonfirmasi bila meleset). Jangan menulis "masih prototipe" lagi di mana pun, termasuk
+ppg-intisari.html.
+
+`karya-inovasi.html` disusun mengikuti empat komponen LK 4 Penyusunan Desain Karya
+Inovatif: `#alur` (peta empat komponen, menaut ke bawah), `#identitas` (nama karya dan
+sasaran inovasi, satu `.mk-kartu` dengan `.facts`), `#gagasan` (tantangan, gagasan solusi,
+riset sederhana beserta tiga temuannya), `#rancangan` (isi prototipe dan proses
+implementasinya di kelas), `#evaluasi` (lima tahap pengukuran plus kebaruan, kreativitas,
+kebermanfaatan), lalu `#kaitan` yang sudah ada.
+
+Yang belum ada dan **tidak boleh dikarang**: angka instrumen awal dan akhir, penilaian
+Guru BK sebagai pemakai, dan dokumentasi pelaksanaan 13 April 2026. Ketiganya berupa kotak
+`.kosong` yang terlihat.
+
 ### ular-tangga/ (Karya Inovasi)
 
 `ular-tangga/index.html` adalah salinan `C:UsersZonkDBRDocumentsAraaUlar Tanggagame.html`
@@ -226,6 +246,15 @@ orang yang membuka, termasuk penilai. Jangan menambahkannya kembali.
   rasio kontras tiap elemen teks yang terlihat terhadap latar efektifnya (target nol
   elemen di bawah 4.5:1), dan rona tiap warna yang dipakai (target nol warna
   di rentang 255 sampai 320 derajat dengan kejenuhan di atas 0,18, yaitu keluarga ungu).
+
+**Paragraf teks bacaan rata kanan-kiri** (17 Oktober 2026). Aturannya di akhir
+`style.css`: `.prose p/li`, `.cerita > p`, `.lede`, `.sec__head p`, `.rpl-card p`,
+`.tile p`, `.quote p`, `.refleksi p`, `.doc-body p`, `.why p`, `.outline li`,
+`.observed li`, `.klaster p`, `.pintu p`. Wadah yang memang ditengahkan (`.kosong`,
+`.thanks`, `.ubin`, `.step`) tidak diikutkan, dan **di bawah 34rem semuanya kembali rata
+kiri** karena barisnya terlalu pendek untuk justify. Tautan aksi langsung di dalam
+`.prose` (`.prose > a`, varian `.ghost`) berbentuk pil seperti di `.bukti`; sebelumnya
+tampil sebagai teks bergaris bawah saja.
 
 Satu skala radius saja, dan hover memakai `translate(-2px, -2px)` dengan bayangan
 membesar, `:active` memakai `translate(2px, 2px)` tanpa bayangan.
@@ -520,12 +549,14 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
       `#s3-materi`) dan **penilaian Guru Pamong**.
 - [ ] **Gambar LKPD Aksi Anti-Bullying** (`#s4-media`): berkas `LKPD Bullying.png` di
       folder Siklus 4 keliru, isinya lembar kerja Penyesuaian Diri Siklus 1.
-- [ ] **Uji coba Ular Tangga Motivasi** bersama murid beserta instrumen awal dan akhirnya;
-      sampai sekarang statusnya prototipe.
+- [ ] **Pengukuran Ular Tangga Motivasi**: angka instrumen awal dan akhir serta penilaian
+      Guru BK sebagai pemakai (kotak `.kosong` di `#evaluasi`), ditambah dokumentasi
+      pelaksanaan 13 April 2026 (kotak `.kosong` di `#rancangan`).
 - [ ] **Seminar PPG**: luaran, umpan balik penguji, dan tindak lanjut di `#seminar`
       ppg-intisari.html masih placeholder.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
-- [ ] **Profil**: riwayat pendidikan, pengalaman, organisasi, keterampilan, prestasi,
-      serta kontak dan CV di profil.html (enam kartu placeholder).
+- [ ] **Profil**: riwayat pendidikan, pengalaman, keterampilan, serta kontak dan CV di
+      profil.html (empat kartu placeholder). Kartu Organisasi dan Prestasi dihapus atas
+      permintaan pemilik 17 Oktober 2026; jangan dikembalikan.
 - [ ] Hasil pengisian instrumen, bila mau menampilkan angka nyata, bukan hanya
       rancangannya.

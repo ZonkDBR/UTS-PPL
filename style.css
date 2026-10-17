@@ -1532,3 +1532,71 @@ a.doc-card:hover .doc-title { color: var(--rose); }
   body { background: #fff; }
   .sec, .tile, .rpl-card, .refleksi, .quote { box-shadow: none; break-inside: avoid; }
 }
+
+/* ---------- paragraf rata kanan-kiri ----------
+   Hanya wadah teks bacaan. Wadah yang memang ditengahkan (.kosong, .thanks,
+   .ubin, .step) tidak diikutkan, karena justify di sana merusak keseimbangannya. */
+
+.prose p, .prose li,
+.cerita > p, .cerita > ul:not(.doc-grid) li,
+.lede, .sec__head p:not(.eyebrow),
+.rpl-card p, .tile p, .quote p, .refleksi p, .doc-body p, .why p,
+.outline li, .observed li, .klaster p, .pintu p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ---------- tautan aksi di dalam .prose ----------
+   Sebelumnya anchor di .part.prose tampil sebagai teks bergaris bawah saja,
+   karena bentuk tombol hanya ada di .bukti. */
+
+.prose > a {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--rose); color: #FFFFFF;
+  border: 3px solid var(--edge);
+  border-radius: var(--pill);
+  box-shadow: var(--hard);
+  text-decoration: none; font-weight: 700; font-size: .85rem;
+  padding: .6rem 1.25rem;
+  margin: 1.4rem .6rem 0 0;
+  vertical-align: top;
+}
+.prose > a.ghost { background: var(--card); color: var(--ink); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .prose > a { transition: transform .15s ease, box-shadow .15s ease; }
+  .prose > a:hover { transform: translate(-2px, -2px); box-shadow: var(--hard-lg); }
+}
+.prose > a:active { transform: translate(2px, 2px); box-shadow: none; }
+
+/* ---------- daftar di dalam .prose ----------
+   Butir panjang perlu jarak, kalau tidak blok teksnya terbaca sebagai satu rapatan. */
+
+.prose ul, .prose ol { margin: .6rem 0 1.2rem; padding-left: 1.4rem; }
+.prose li + li { margin-top: .7rem; }
+.prose li::marker { color: var(--ink); font-weight: 700; }
+
+/* ---------- kartu tunggal tidak menyisakan kolom kosong ---------- */
+
+.mk-grid--satu { grid-template-columns: minmax(0, 1fr); }
+.mk-grid--satu .mk-kartu__buka { align-self: start; }
+
+/* profil: empat kartu placeholder, bukan tiga, supaya barisnya genap */
+@media (min-width: 52rem) { .tugas--empat { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 66rem) { .tugas--empat { grid-template-columns: repeat(4, 1fr); } }
+
+/* kotak refleksi punya bayangan tebal, jadi apa pun sesudahnya perlu jarak */
+.refleksi + * { margin-top: 2.2rem; }
+
+/* kotak putus-putus mengikuti blok prosa, jadi butuh jarak sendiri */
+.part + .kosong, .prose + .kosong, .bento + .kosong { margin-top: 2.5rem; }
+
+/* Di bawah 34rem barisnya terlalu pendek untuk rata kanan-kiri: jaraknya melebar
+   dan terbaca berlubang. Sama seperti aturan .cerita yang sudah ada. */
+@media (max-width: 34rem) {
+  .prose p, .prose li,
+  .cerita > p, .cerita > ul:not(.doc-grid) li,
+  .lede, .sec__head p:not(.eyebrow),
+  .rpl-card p, .tile p, .quote p, .refleksi p, .doc-body p, .why p,
+  .outline li, .observed li, .klaster p, .pintu p { text-align: left; }
+}
