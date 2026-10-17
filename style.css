@@ -724,6 +724,12 @@ img.orangtua__foto {
   object-fit: cover; object-position: center 35%;
 }
 
+/* Galeri tangkapan layar: gambar harus utuh, bukan dipotong seperti foto kelas. */
+.slider--utuh .slide img {
+  height: 460px; object-fit: contain; background: var(--wash-blush);
+}
+@media (max-width: 34rem) { .slider--utuh .slide img { height: 250px; } }
+
 .slide figcaption {
   position: absolute; left: .7rem; bottom: .7rem;
   max-width: calc(100% - 7rem);
@@ -1245,7 +1251,39 @@ img.orangtua__foto {
 .doc-title { font-size: .98rem; font-weight: 700; margin: 0 0 .3rem; color: var(--ink); }
 .doc-body p { font-size: .85rem; color: var(--muted); margin: 0; }
 
+/* Penunjuk lembar kerja asal temuan, di kaki kartu Identifikasi. */
+.doc-body p.doc-lk {
+  margin: .6rem 0 0; padding-top: .55rem; border-top: 2px dashed var(--edge);
+  font-size: .78rem; font-weight: 600; color: var(--ink); text-align: left;
+}
+.doc-body p.doc-lk strong { font-weight: 800; }
+
 a.doc-card:hover .doc-title { color: var(--rose); }
+
+/* Daftar amatan Karya Inovasi: satu-satunya tabel di situs ini. */
+.tabel-amatan {
+  width: 100%; margin: 1rem 0 0; border-collapse: collapse;
+  border: 3px solid var(--edge); border-radius: var(--r-sm);
+  box-shadow: var(--hard); overflow: hidden; background: var(--card);
+  font-size: .88rem; text-align: left;
+}
+.tabel-amatan caption {
+  caption-side: top; text-align: left; margin-bottom: .55rem;
+  font-size: .82rem; font-weight: 700; color: var(--muted);
+}
+.tabel-amatan th, .tabel-amatan td {
+  border: 2px solid var(--edge); padding: .6rem .75rem; vertical-align: top;
+}
+.tabel-amatan thead th { background: var(--pink); color: var(--on-block); font-weight: 800; }
+.tabel-amatan tbody th { background: var(--wash-blush); color: var(--on-block); font-weight: 700; width: 38%; }
+.tabel-amatan tbody td { color: var(--muted); }
+@media (max-width: 34rem) {
+  .tabel-amatan, .tabel-amatan tbody, .tabel-amatan tr { display: block; width: 100%; }
+  .tabel-amatan thead { display: none; }
+  .tabel-amatan tbody th, .tabel-amatan tbody td { display: block; width: 100%; }
+  .tabel-amatan tbody th { border-bottom: none; }
+  .tabel-amatan caption { display: block; width: 100%; }
+}
 
 .mk-pindah { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
 .mk-pindah__ke {

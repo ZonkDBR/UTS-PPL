@@ -195,6 +195,17 @@ memblokir `file://` dan Chromium bawaannya tidak punya codec H.264**, jadi untuk
 memeriksa tampilan perlu server lokal sementara, dan isi klip mp4 tidak bisa diputar di
 sana.
 
+Kalau Playwright MCP tidak terhubung, pemeriksaan tampilan masih bisa dijalankan sendiri:
+pasang paket `playwright` **di direktori scratchpad, bukan di repo** (aturan "tanpa
+dependensi npm" berlaku untuk repo), jalankan server statis Node seadanya, lalu arahkan
+`chromium.launch({ executablePath: ... })` ke Chromium yang sudah ada di
+`%LOCALAPPDATA%\ms-playwright\chromium-<versi>\chrome-win64\chrome.exe`, karena versi
+browser yang diminta paket npm biasanya berbeda dari yang terpasang. Cara inilah yang
+dipakai untuk mengambil tangkapan layar Ular Tangga Motivasi: buat ruangan, pilih peran,
+tambahkan pemain lewat `#tambah-pemain-nama`, mulai permainan, lalu potret `.bwrap` untuk
+papan dan `#modal .mb` untuk kartunya. Hasilnya diperkecil dengan `System.Drawing` ke
+`assets/ular-tangga/`.
+
 ### ppg-intisari.html adalah halaman utama PPG, judulnya Seminar PPG
 
 Keputusan pemilik 16 Oktober 2026, diperbarui 17 Oktober 2026: **judul halaman ini
@@ -219,8 +230,8 @@ Inovasi, dan PPL, karena pengunjung diarahkan membaca intisari lebih dahulu.
 
 Keputusan pemilik 17 Oktober 2026: **Ular Tangga Motivasi bukan lagi prototipe.**
 Permainannya sudah dipakai dalam layanan bimbingan klasikal bersama **satu kelas X pada
-13 April 2026** (tanggal dari pemilik; tahunnya disimpulkan dari rentang semester I, perlu
-dikonfirmasi bila meleset). Jangan menulis "masih prototipe" lagi di mana pun, termasuk
+1 Agustus 2026** (tanggal dari pemilik, dikoreksi 18 Oktober 2026 dari 13 April 2026 yang
+pernah ditulis sebelumnya). Jangan menulis "masih prototipe" lagi di mana pun, termasuk
 ppg-intisari.html.
 
 `karya-inovasi.html` disusun mengikuti empat komponen LK 4 Penyusunan Desain Karya
@@ -231,8 +242,31 @@ implementasinya di kelas), `#evaluasi` (lima tahap pengukuran plus kebaruan, kre
 kebermanfaatan), lalu `#kaitan` yang sudah ada.
 
 Yang belum ada dan **tidak boleh dikarang**: angka instrumen awal dan akhir, penilaian
-Guru BK sebagai pemakai, dan dokumentasi pelaksanaan 13 April 2026. Ketiganya berupa kotak
-`.kosong` yang terlihat.
+Guru BK sebagai pemakai, dokumentasi pelaksanaan 1 Agustus 2026, dan **bagaimana murid di
+luar enam pemain ikut terlibat**. Keempatnya berupa kotak `.kosong` yang terlihat.
+
+Perbaikan 18 Oktober 2026, menindaklanjuti ulasan yang diteruskan pemilik:
+
+- `#identitas` ditutup dengan "Tujuan dan fokus inovasi", memakai kata "diharapkan" karena
+  perubahan pada murid belum diukur.
+- Tiga temuan di `#gagasan` diberi penanda asalnya pada `.kind` ("data asesmen", "catatan
+  praktik", "tafsiran saya"), dan temuan pertama memuat angka AKPD yang sebenarnya
+  (Belajar 31,65%, Pribadi 31,31%, Sosial 21,89%, Karier 15,15%) **dengan catatan bahwa
+  angka itu dari kelas XI-J, bukan kelas X yang jadi sasaran**. Disebutkan pula bahwa
+  kajian pustakanya belum ada, jadi ini riset sederhana, bukan penelitian lengkap.
+- `#rancangan` memuat galeri `.slider.slider--utuh` berisi empat tangkapan layar asli
+  permainan (`assets/ular-tangga/papan.png`, `kartu-biasa`, `kartu-ular`, `kartu-tangga`),
+  tiap gambar menaut ke berkas ukuran penuhnya. `.slider--utuh` ada supaya gambarnya
+  `object-fit: contain`, tidak dipotong seperti foto kelas.
+- Batas "enam pemain, satu kelas" dinyatakan terus terang berikut asal-usulnya (server
+  asli diganti satu perangkat), lalu "Refleksi pelaksanaan awal" dan `table.tabel-amatan`
+  berisi lima aspek amatan. **Tabelnya sengaja kosong** dan dinyatakan sebagai alat untuk
+  pemakaian berikutnya; jangan diisi dari ingatan.
+- `#evaluasi` dibingkai ulang sebagai rancangan evaluasi: tiap tahap diberi status
+  "sudah" atau "belum", klaim "sisi kedua sudah terpenuhi" diperlunak jadi "secara teknis
+  sudah mungkin tetapi belum terbukti", dan kotak `.kosong` menegaskan bahwa peningkatan
+  motivasi belum boleh diklaim.
+- Refleksi diri ditutup lima langkah tindak lanjut berurutan.
 
 ### ular-tangga/ (Karya Inovasi)
 
@@ -613,8 +647,10 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
 - [ ] **Gambar LKPD Aksi Anti-Bullying** (`#s4-media`): berkas `LKPD Bullying.png` di
       folder Siklus 4 keliru, isinya lembar kerja Penyesuaian Diri Siklus 1.
 - [ ] **Pengukuran Ular Tangga Motivasi**: angka instrumen awal dan akhir serta penilaian
-      Guru BK sebagai pemakai (kotak `.kosong` di `#evaluasi`), ditambah dokumentasi
-      pelaksanaan 13 April 2026 (kotak `.kosong` di `#rancangan`).
+      Guru BK sebagai pemakai (kotak `.kosong` di `#evaluasi`), dokumentasi
+      pelaksanaan 1 Agustus 2026, dan peran murid di luar enam pemain (dua kotak
+      `.kosong` di `#rancangan`). Daftar amatan `table.tabel-amatan` menunggu diisi dari
+      pemakaian berikutnya, bukan dari ingatan.
 - [ ] **Luaran Seminar PPG**: luaran, umpan balik penguji, dan tindak lanjut di `#seminar`
       ppg-intisari.html masih placeholder.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
