@@ -131,10 +131,15 @@ lengkap, Kaitan Praktis, serta **artefak pilihan pemilik beserta alasannya**; si
 adalah artefaknya. Zip diabaikan git (`assets/*.zip`). Keenam halaman semester I mengikuti
 dokumen itu, termasuk daftar artefaknya, jadi jumlah artefak semester I kini 13
 (filosofi 4, asesmen 2, PPL 1, pola pikir 2, design thinking 2, konseling 2) dan semester II
-15. Artefak video Konseling Individu memakai tautan publik
+11 (intervensi 2, PSE 3, PPL 1, konseling 3, projek 2; total situs 24). Artefak video Konseling Individu memakai tautan publik
 <https://youtu.be/cVnyQwDGlUs>.
 
-**Semester II tidak punya dokumen refleksi dari pemilik**, dan atas perintah pemilik
+**Sejak 19 Oktober 2026 dua halaman semester II punya sumber sahih**:
+`assets/Refleksi PPL Mandiri.zip` (ppg-2-ppl.html, satu artefak LK 4 Refleksi ke-3; PDF-nya
+identik byte-per-byte dengan artefak PPL Terbimbing, dipakai atas keputusan pemilik) dan
+`assets/Refleksi Projek kepemimpinan_FahiraFW.docx` (ppg-2-projek.html, dua artefak: LK 5.1
+Peta Pikiran dan Tugas 4.1 Why-How-What). Tiga halaman semester II lainnya masih tanpa
+dokumen refleksi dari pemilik, dan atas perintah pemilik
 (18 Oktober 2026, "lakukan sendiri refleksi semester 2 dengan contoh pada referensi web
 teman dan pada semester 1") kelima halamannya disusun mengikuti bentuk dokumen semester I:
 Connection berpola "Sebelum mengikuti ... Namun, pemikiran saya berubah ... Sebagai calon
@@ -161,10 +166,13 @@ diberi subjudul (Keterkaitan/Tantangan/Konsep/Perubahan), Concept berupa daftar
 `<strong>Istilah:</strong>`, Change berupa daftar komitmen "Saya akan…", suara "saya" di kedua
 semester. Artefak dipangkas jadi satu
 per topik; sejak 18 Oktober 2026 daftarnya mengikuti pilihan pemilik (13 di semester I,
-15 di semester II); jangan kembalikan sisanya. Asalnya dipindah
+11 di semester II); jangan kembalikan sisanya. Asalnya dipindah
 dari dua situs lama. Yang diubah saat pemindahan: emoji dan label "Mata Kuliah 01"
 dibuang, em/en dash jadi tanda hubung, rona per mata kuliah (termasuk lavender) dibuang,
-dan kelasnya disesuaikan. Artefak berupa kartu kode, bukan berkas. Jangan menambah
+dan kelasnya disesuaikan. Artefak berupa kartu kode; sejak 19 Oktober 2026 kartu yang berkasnya ada diberi
+`a.doc-unduh` ke `assets/artefak/` (20 berkas, **hanya artefak yang tampil di kartu**, atas
+permintaan pemilik). Laporan AKPD sengaja tanpa unduhan karena memuat nama murid beserta skor
+masalahnya. Kartu video tetap menaut ke YouTube. Jangan menambah
 `class="intro"` di halaman mana pun:
 `.intro` adalah wadah video hero dan lebarnya dikunci 220px.
 
@@ -214,9 +222,9 @@ sengaja dibiarkan `ppg-intisari.html` supaya tautan di 18 halaman tidak perlu di
 **Dirombak 18 Oktober 2026** mengikuti ulasan yang diteruskan pemilik: halaman terlalu
 penuh karena gagasan yang sama diulang. Kini tiga bagian saja:
 
-1. `#identifikasi` Identifikasi: Temuan dan Asalnya: 11 `doc-card` (dikembalikan atas
-   permintaan pemilik 18 Oktober 2026), tiap kartu satu perubahan diri + kaitan praktisnya
-   + baris `doc-lk`. Ditutup satu paragraf + gambar papan + tautan ke Karya Inovasi.
+1. `#identifikasi` Identifikasi: Temuan dan Asalnya: 11 `doc-card`, tiap kartu satu perubahan
+   diri + "Inti bahan <mata kuliah>" + "Di Ular Tangga Motivasi" + baris `doc-lk` (19 Oktober
+   2026: tidak lagi mengulang refleksi halaman mata kuliah), ditambah sel ke-12 bergambar papan. Ditutup satu paragraf + tautan ke Karya Inovasi.
 2. `#refleksi-akhir` LK 3: pandangan tentang pendidikan Indonesia, upaya menjadi guru
    profesional, dan tiga prioritas tindak lanjut (`.klaster`). Teks dasarnya dari ulasan
    itu, ditambah fakta yang sudah terverifikasi di catatan ini.
@@ -369,9 +377,14 @@ terbaca. Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap te
   rumus. Jangan menyamakan semuanya jadi tiga kartu seragam lagi.
 - **Tanpa tanda pisah panjang** (em dash dan en dash) di teks yang terlihat. Pakai tanda
   hubung biasa.
-- Di bawah 56rem nav jadi dua baris: saklar di atas, `.navlinks` satu baris geser di
+- **Skala tunggal di `:root`** (19 Oktober 2026): `--fs-xs/sm/md/lg/xl`, `--fs-h1/h2/h3`,
+  `--sp-0..5`, `--pad-s/--pad/--pad-l`, `--r-xs`. Titik henti hanya 34, 48, 62rem. Teks tidak
+  lagi dibatasi `max-width` (kelas `.narrow` dihapus): teks memenuhi `.wrap`, dan bila ada sisa
+  kolom diisi gambar. Grid yang jumlah kartunya ganjil melebarkan kartu terakhir supaya baris
+  terakhir tidak bolong; kartu sempit (`.doc-body`) rata kiri, bukan justify.
+- Di bawah 62rem nav jadi dua baris: saklar di atas, `.navlinks` satu baris geser di
   bawahnya (tidak membungkus), sekitar 123px. `scroll-padding-top` 11rem di sana. Di atas
-  56rem nav halaman PPG bisa membungkus sampai sekitar 120px (lebar 56 sampai 68rem),
+  62rem nav halaman PPG bisa membungkus sampai sekitar 120px (lebar 62 sampai 68rem),
   karena itu `scroll-padding-top` dasarnya 9rem. Kalau isi nav berubah, ukur lagi.
 - **Stiker** memakai satu set `<symbol>` SVG di awal tiap halaman, dipakai ulang lewat
   `<use>`. Selektor kelas **tidak menembus** isi `<use>`, jadi warnanya diberikan lewat
@@ -608,7 +621,8 @@ konteks sekolah dan profil.
 ## Aturan konten
 
 **Lima tugas Seminar PPG** (pemilik, 18 Oktober 2026): LK 1 Identifikasi Diri = `index.html#visi-misi`
-(visi pendidikan Indonesia, visi sebagai calon guru, lima langkah konkret); LK 2 semester I
+(dua visi berdampingan + lima komitmen bersambung, tiap butir "Berangkat dari:" menaut ke mata
+kuliah atau Karya Inovasi; label "LK 1" sengaja tidak ditampilkan, permintaan pemilik 19 Oktober 2026); LK 2 semester I
 = ppg-1-* (**sudah benar, jangan disentuh**); LK 2 semester II = ppg-2-*; LK 3 =
 ppg-intisari.html; LK 4 = karya-inovasi.html. Halaman PPG dibuat **ringkas** (bagian 4C
 sekitar 80-130 kata) dan **kritik diri minimal**, karena dosen tidak memberi kritik;

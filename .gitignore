@@ -55,3 +55,6 @@ assets/Refleksi*.docx
 
 # PPT Media Sosial terbit sebagai PDF dan ditautkan dari situs, jadi dikecualikan.
 !assets/SIKLUS 3 PPLM/*/PPT*.pdf
+
+# Artefak terpilih PPG yang bisa diunduh (19 Oktober 2026). Hanya berkas yang tampil di kartu.
+!assets/artefak/*.pdf
