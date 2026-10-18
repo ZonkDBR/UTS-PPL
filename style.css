@@ -1260,7 +1260,7 @@ img.orangtua__foto {
 
 a.doc-card:hover .doc-title { color: var(--rose); }
 
-/* Daftar amatan Karya Inovasi: satu-satunya tabel di situs ini. */
+/* Tabel Karya Inovasi: daftar amatan dan butir angket. */
 .tabel-amatan {
   width: 100%; margin: 1rem 0 0; border-collapse: collapse;
   border: 3px solid var(--edge); border-radius: var(--r-sm);
@@ -1277,6 +1277,7 @@ a.doc-card:hover .doc-title { color: var(--rose); }
 .tabel-amatan thead th { background: var(--pink); color: var(--on-block); font-weight: 800; }
 .tabel-amatan tbody th { background: var(--wash-blush); color: var(--on-block); font-weight: 700; width: 38%; }
 .tabel-amatan tbody td { color: var(--muted); }
+.tabel-amatan + p { margin-top: 1.4rem; }
 @media (max-width: 34rem) {
   .tabel-amatan, .tabel-amatan tbody, .tabel-amatan tr { display: block; width: 100%; }
   .tabel-amatan thead { display: none; }
@@ -1628,6 +1629,10 @@ a.doc-card:hover .doc-title { color: var(--rose); }
 
 /* kotak putus-putus mengikuti blok prosa, jadi butuh jarak sendiri */
 .part + .kosong, .prose + .kosong, .bento + .kosong { margin-top: 2.5rem; }
+
+/* Seminar PPG dan Karya Inovasi: empat kartu outline jadi 2 x 2, bukan empat kolom sempit */
+@media (min-width: 48rem) { .outline--dua { grid-auto-flow: row; grid-template-columns: repeat(2, 1fr); } }
+.outline + *, .doc-grid + .materi-grid, .part + .klaster, .part + .outline { margin-top: 2.5rem; }
 
 /* Di bawah 34rem barisnya terlalu pendek untuk rata kanan-kiri: jaraknya melebar
    dan terbaca berlubang. Sama seperti aturan .cerita yang sudah ada. */

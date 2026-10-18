@@ -40,8 +40,8 @@ ppg-1-*.html satu halaman per mata kuliah semester I (filosofi, asesmen, ppl, po
              design-thinking, konseling)
 ppg-2.html   ringkasan PPG semester II, lima kartu mata kuliah
 ppg-2-*.html intervensi, pse, ppl, konseling, projek
-ppg-intisari.html  Seminar PPG: identifikasi temuan per mata kuliah, benang merah,
-             karya inovasi, luaran dan tindak lanjut, penutup (lima bagian, tanpa
+ppg-intisari.html  Seminar PPG: identifikasi (11 kartu temuan + kaitan praktis), refleksi akhir
+             LK 3, penutup (tiga bagian, tanpa
              .navlinks). Nama berkasnya tetap ppg-intisari.html, hanya judulnya berubah
 karya-inovasi.html karya inovasi: Ular Tangga Motivasi, permainan papan digital berisi
              46 kartu pertanyaan refleksi; disusun mengikuti empat komponen LK 4
@@ -119,8 +119,8 @@ Erika), bukan kesulitan yang pemilik alami sendiri. Aturannya sekarang:
   tertulis di modul.
 - `.mk-inti` dan `.mk-kartu__inti` juga berbentuk refleksi ("Saya semula ... ternyata ..."),
   bukan deskripsi kegiatan mata kuliah. Keduanya kembar, ubah berpasangan.
-- Kartu `#identifikasi` di ppg-intisari.html berjudul perubahan pada diri sendiri, bukan
-  temuan tentang materi.
+- Kartu `#identifikasi` di ppg-intisari.html (11 `doc-card`) berjudul perubahan pada diri
+  sendiri, isinya refleksi singkat berorientasi pengembangan diri plus kaitan praktis.
 
 **Sumber sahih refleksi semester I** adalah berkas kiriman pemilik 18 Oktober 2026:
 `assets/Refleksi Filosofi Pendidikan_FahiraFW.docx` dan lima zip
@@ -211,17 +211,21 @@ papan dan `#modal .mb` untuk kartunya. Hasilnya diperkecil dengan `System.Drawin
 Keputusan pemilik 16 Oktober 2026, diperbarui 17 Oktober 2026: **judul halaman ini
 "Seminar PPG", bukan lagi "Intisari PPG"** ("anggap saja itu seminar PPG"). Nama berkasnya
 sengaja dibiarkan `ppg-intisari.html` supaya tautan di 18 halaman tidak perlu diubah.
-Bagian `#seminar` di dalamnya karena itu berjudul "Luaran dan Tindak Lanjut", bukan
-"Seminar PPG" lagi, supaya tidak mengulang judul halamannya.
+**Dirombak 18 Oktober 2026** mengikuti ulasan yang diteruskan pemilik: halaman terlalu
+penuh karena gagasan yang sama diulang. Kini tiga bagian saja:
 
-Halaman ini wajib memuat tiga hal, selain identifikasi temuan dan penutup yang sudah ada:
+1. `#identifikasi` Identifikasi: Temuan dan Asalnya: 11 `doc-card` (dikembalikan atas
+   permintaan pemilik 18 Oktober 2026), tiap kartu satu perubahan diri + kaitan praktisnya
+   + baris `doc-lk`. Ditutup satu paragraf + gambar papan + tautan ke Karya Inovasi.
+2. `#refleksi-akhir` LK 3: pandangan tentang pendidikan Indonesia, upaya menjadi guru
+   profesional, dan tiga prioritas tindak lanjut (`.klaster`). Teks dasarnya dari ulasan
+   itu, ditambah fakta yang sudah terverifikasi di catatan ini.
+3. `#penutup`: pertanyaan yang berubah + refleksi diri + "Lanjutkan membaca".
 
-1. **Kaitan karya inovasi dengan mata kuliah** (bagian `#karya`), enam mata kuliah yang
-   terbaca pada bentuk Ular Tangga Motivasi.
-2. **Kaitan karya inovasi dengan visi dan misi** di `index.html#visi-misi`; empat butir
-   misi yang terpenuhi, dua butir yang justru jadi pekerjaan rumahnya.
-3. **Kesinambungan refleksi semester I dan II** (bagian `#benang-merah`), enam pasangan
-   mata kuliah semester I yang bersambung ke semester II.
+Yang **sengaja dihapus, jangan dikembalikan**: outline empat prinsip, enam pasangan
+kesinambungan semester I-II, enam kaitan karya inovasi per mata kuliah, empat butir misi,
+dan kotak placeholder luaran seminar. Kaitan karya dengan mata kuliah dan misi cukup ada
+di `karya-inovasi.html#kaitan`.
 
 Di akhir halaman ada pemilih "Lanjutkan membaca" ke Semester I, Semester II, Karya
 Inovasi, dan PPL, karena pengunjung diarahkan membaca intisari lebih dahulu.
@@ -258,15 +262,14 @@ Perbaikan 18 Oktober 2026, menindaklanjuti ulasan yang diteruskan pemilik:
   permainan (`assets/ular-tangga/papan.png`, `kartu-biasa`, `kartu-ular`, `kartu-tangga`),
   tiap gambar menaut ke berkas ukuran penuhnya. `.slider--utuh` ada supaya gambarnya
   `object-fit: contain`, tidak dipotong seperti foto kelas.
-- Batas "enam pemain, satu kelas" dinyatakan terus terang berikut asal-usulnya (server
-  asli diganti satu perangkat), lalu "Refleksi pelaksanaan awal" dan `table.tabel-amatan`
-  berisi lima aspek amatan. **Tabelnya sengaja kosong** dan dinyatakan sebagai alat untuk
-  pemakaian berikutnya; jangan diisi dari ingatan.
-- `#evaluasi` dibingkai ulang sebagai rancangan evaluasi: tiap tahap diberi status
-  "sudah" atau "belum", klaim "sisi kedua sudah terpenuhi" diperlunak jadi "secara teknis
-  sudah mungkin tetapi belum terbukti", dan kotak `.kosong` menegaskan bahwa peningkatan
-  motivasi belum boleh diklaim.
-- Refleksi diri ditutup lima langkah tindak lanjut berurutan.
+- Dipersingkat 18 Oktober 2026 (permintaan pemilik, kritik diri minimal): batas enam pemain
+  disebut sekali di "Pengaturan kelas dan pengembangan berikutnya" beserta mekanisme kelompok
+  pemain/penanggap untuk pemakaian berikutnya (rencana, bukan klaim 1 Agustus). Tabel amatan
+  lama dihapus; tempatnya diambil Lembar Observasi di `#evaluasi`.
+- `#evaluasi`: enam tahap (termasuk validasi isi oleh dosen dan Guru BK dengan Aiken's V),
+  tiga prinsip, empat instrumen + rumus + tabel 10 butir angket, satu kotak `.kosong` untuk angka.
+- Kartu ular dibingkai sebagai kebiasaan umum dan murid boleh melewati pertanyaan (asas
+  kesukarelaan); refleksi diri satu paragraf plus tiga langkah tindak lanjut.
 
 ### ular-tangga/ (Karya Inovasi)
 
@@ -604,6 +607,18 @@ konteks sekolah dan profil.
 
 ## Aturan konten
 
+**Lima tugas Seminar PPG** (pemilik, 18 Oktober 2026): LK 1 Identifikasi Diri = `index.html#visi-misi`
+(visi pendidikan Indonesia, visi sebagai calon guru, lima langkah konkret); LK 2 semester I
+= ppg-1-* (**sudah benar, jangan disentuh**); LK 2 semester II = ppg-2-*; LK 3 =
+ppg-intisari.html; LK 4 = karya-inovasi.html. Halaman PPG dibuat **ringkas** (bagian 4C
+sekitar 80-130 kata) dan **kritik diri minimal**, karena dosen tidak memberi kritik;
+kekurangan ditulis sebagai ruang tumbuh, satu kali saja. Bagian yang tidak butuh data
+(rancangan evaluasi, mekanisme, rencana) boleh diisi dengan wajar; yang butuh data tetap
+placeholder. **Pendekatan konseling tidak dipetakan masalah ke pendekatan** ("Gestalt untuk
+perundungan"): pendekatan disesuaikan dengan asesmen kasus, karakteristik anggota, tujuan
+dan tahap kelompok, serta kompetensi konselor. Media dan layanan memegang asas
+kesukarelaan dan kerahasiaan: murid boleh melewati pertanyaan, jawaban dicatat tanpa nama.
+
 Bahasa Indonesia, sudut pandang orang pertama, nada hangat tapi tidak berlebihan.
 
 **Jangan mengarang analisis.** Bagian yang datanya belum ada diberi placeholder eksplisit
@@ -651,8 +666,9 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
       pelaksanaan 1 Agustus 2026, dan peran murid di luar enam pemain (dua kotak
       `.kosong` di `#rancangan`). Daftar amatan `table.tabel-amatan` menunggu diisi dari
       pemakaian berikutnya, bukan dari ingatan.
-- [ ] **Luaran Seminar PPG**: luaran, umpan balik penguji, dan tindak lanjut di `#seminar`
-      ppg-intisari.html masih placeholder.
+- [ ] **Instrumen Ular Tangga Motivasi** (`karya-inovasi.html#evaluasi`): empat instrumen
+      dan 10 butir angket disusun 18 Oktober 2026 dari isi kartu permainannya; belum
+      divalidasi isi, belum dipasang. Pemilik perlu membaca ulang.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
 - [ ] **Tautan CV** di kartu Kontak profil.html, bila pemilik mau menerbitkannya.
 - [ ] Hasil pengisian instrumen, bila mau menampilkan angka nyata, bukan hanya
