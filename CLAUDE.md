@@ -253,9 +253,28 @@ riset sederhana beserta tiga temuannya), `#rancangan` (isi prototipe dan proses
 implementasinya di kelas), `#evaluasi` (lima tahap pengukuran plus kebaruan, kreativitas,
 kebermanfaatan), lalu `#kaitan` yang sudah ada.
 
-Yang belum ada dan **tidak boleh dikarang**: angka instrumen awal dan akhir, penilaian
-Guru BK sebagai pemakai, dokumentasi pelaksanaan 1 Agustus 2026, dan **bagaimana murid di
-luar enam pemain ikut terlibat**. Keempatnya berupa kotak `.kosong` yang terlihat.
+**Diringkas 19 Oktober 2026** (permintaan pemilik). Fakta baru dari pemilik: kelasnya
+**kelas XI** (bukan X), dan **seluruh kelas dibagi kelompok 2-4 murid, satu HP per
+kelompok, bermain bersamaan**. Bukti: `assets/dokumentasi/karya-inovasi-01..05.jpeg`, tampil
+di slider `#rancangan` bersama `papan.png`, `kartu-ular.png`, `kartu-tangga.png` (diambil ulang
+19 Oktober; `kartu-biasa.png` dihapus). **46 kartu permainan kini diturunkan dari
+`assets/instrumen huhug rev 3.pdf`** (instrumen motivasi belajar skripsi S1 pemilik, Deci &
+Ryan: kemandirian, kompetensi, keterhubungan; 48 butir, skor 48-240, diabaikan git karena
+memuat nama dan NIDN dosen). Butir positif jadi kartu tangga/maju, butir negatif jadi kartu
+ular/mundur berbingkai "Banyak pelajar ...". Angket 10 butir lama diganti kisi-kisi instrumen
+itu; PDF tidak memberi batas angka kategori, jadi tidak dikarang. `#kaitan` memetakan karya ke
+kedua visi dan misi 1-3 di index.html.
+
+**Diringkas lagi 19 Oktober 2026** supaya tidak memancing pertanyaan balik penguji:
+`#gagasan` tiga sel (tantangan dan gagasan, data AKPD, dasar isi kartu), `#evaluasi` hanya tiga
+prinsip + "Cara mengukur" (angket sebelum-sesudah, observasi) + tabel kisi-kisi + kotak hasil,
+`#kaitan` satu paragraf visi-misi + refleksi. **Sengaja dihapus, jangan dikembalikan**: daftar
+tahapan pengukuran, empat kartu instrumen, rumus, penilaian Guru BK, keterangan asal instrumen
+(skripsi, dosen pembimbing), klaim "dipakai Guru BK tanpa saya", temuan catatan praktik dan
+tafsiran, blok Projek Kepemimpinan.
+
+Yang belum ada dan **tidak boleh dikarang**: angka angket awal dan akhir (satu kotak `.kosong`
+di `#evaluasi`).
 
 Perbaikan 18 Oktober 2026, menindaklanjuti ulasan yang diteruskan pemilik:
 
@@ -375,6 +394,10 @@ terbaca. Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap te
 - **Tiap bagian punya keluarga layout sendiri**: dua kartu berdampingan, editorial dengan
   kutipan, bento enam sel, kotak YouTube, kotak kosong, lalu klaster plus blok
   rumus. Jangan menyamakan semuanya jadi tiga kartu seragam lagi.
+- **Blok berbingkai tidak boleh menempel** (audit 19 Oktober 2026): `.bento + *`, `.rumus + *`,
+  `.outline + *`, `.refleksi + *` dan pasangan `.part` di akhir `style.css` memberi jarak
+  `--sp-4`. Saat mengaudit celah lewat Playwright, nyalakan `reducedMotion: 'reduce'` dulu,
+  karena `.reveal` yang belum selesai bergerak membuat celah terbaca lebih sempit.
 - **Tanpa tanda pisah panjang** (em dash dan en dash) di teks yang terlihat. Pakai tanda
   hubung biasa.
 - **Skala tunggal di `:root`** (19 Oktober 2026): `--fs-xs/sm/md/lg/xl`, `--fs-h1/h2/h3`,
@@ -675,14 +698,10 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
       `#s3-materi`) dan **penilaian Guru Pamong**.
 - [ ] **Gambar LKPD Aksi Anti-Bullying** (`#s4-media`): berkas `LKPD Bullying.png` di
       folder Siklus 4 keliru, isinya lembar kerja Penyesuaian Diri Siklus 1.
-- [ ] **Pengukuran Ular Tangga Motivasi**: angka instrumen awal dan akhir serta penilaian
-      Guru BK sebagai pemakai (kotak `.kosong` di `#evaluasi`), dokumentasi
-      pelaksanaan 1 Agustus 2026, dan peran murid di luar enam pemain (dua kotak
-      `.kosong` di `#rancangan`). Daftar amatan `table.tabel-amatan` menunggu diisi dari
-      pemakaian berikutnya, bukan dari ingatan.
-- [ ] **Instrumen Ular Tangga Motivasi** (`karya-inovasi.html#evaluasi`): empat instrumen
-      dan 10 butir angket disusun 18 Oktober 2026 dari isi kartu permainannya; belum
-      divalidasi isi, belum dipasang. Pemilik perlu membaca ulang.
+- [ ] **Pengukuran Ular Tangga Motivasi**: angka angket awal dan akhir serta penilaian
+      Guru BK sebagai pemakai (kotak `.kosong` di `#evaluasi`).
+- [ ] **46 kartu baru Ular Tangga Motivasi** (19 Oktober 2026, dari instrumen motivasi
+      belajar): pemilik perlu membaca ulang.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
 - [ ] **Tautan CV** di kartu Kontak profil.html, bila pemilik mau menerbitkannya.
 - [ ] Hasil pengisian instrumen, bila mau menampilkan angka nyata, bukan hanya
