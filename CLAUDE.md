@@ -268,10 +268,11 @@ kedua visi dan misi 1-3 di index.html.
 **Diringkas lagi 19 Oktober 2026** supaya tidak memancing pertanyaan balik penguji:
 `#gagasan` tiga sel (tantangan dan gagasan, data AKPD, dasar isi kartu), `#evaluasi` hanya tiga
 prinsip + "Cara mengukur" (angket sebelum-sesudah, observasi) + tabel kisi-kisi + kotak hasil,
-`#kaitan` satu paragraf visi-misi + refleksi. **Sengaja dihapus, jangan dikembalikan**: daftar
-tahapan pengukuran, empat kartu instrumen, rumus, penilaian Guru BK, keterangan asal instrumen
-(skripsi, dosen pembimbing), klaim "dipakai Guru BK tanpa saya", temuan catatan praktik dan
-tafsiran, blok Projek Kepemimpinan.
+**Sengaja dihapus, jangan dikembalikan**: daftar tahapan pengukuran, empat kartu instrumen,
+rumus, penilaian Guru BK, keterangan asal instrumen (skripsi, dosen pembimbing), temuan catatan
+praktik dan tafsiran. **`#kaitan` "Yang Menghubungkannya dengan Refleksi Saya" dikembalikan utuh
+atas permintaan pemilik** (enam mata kuliah, visi-misi, refleksi tiga langkah, blok Projek
+Kepemimpinan); jangan dipangkas lagi.
 
 Yang belum ada dan **tidak boleh dikarang**: angka angket awal dan akhir (satu kotak `.kosong`
 di `#evaluasi`).
