@@ -1853,19 +1853,26 @@ a.doc-card:hover .doc-title { color: var(--rose); }
 @media (max-width: 61.99rem) { .hero::before { width: 52vw; opacity: .55; } }
 @media (max-width: 33.99rem) { .hero::before { width: 40vw; opacity: .35; } }
 
-/* taburan bunga samar di latar bagian merah muda */
-.sec--pink:not(.bab) { background-image: url("assets/hias/pola.svg"); background-size: 200px 200px; }
+/* Satu bahasa untuk semua bagian, apa pun warnanya: taburan bunga di latar dan tepi atas
+   bergelombang. Warna isian tepi mengikuti bagiannya lewat --tepi, garisnya selalu --edge. */
+main .sec:not(.bab) { --tepi: var(--page); }
+main .sec--card:not(.bab) { --tepi: var(--card); }
+main .sec--pink:not(.bab) { --tepi: var(--wash-pink); }
+main .sec--blush:not(.bab) { --tepi: var(--wash-blush); }
+.thanks { --tepi: var(--butter); border-top: 0; }
 
-/* tepi atas bergelombang seperti kelopak, menggantikan garis lurus */
-.sec--pink:not(.bab)::before, .thanks::before {
+.sec--card:not(.bab), .sec--pink:not(.bab), .sec--blush:not(.bab) {
+  background-image: url("assets/hias/pola.svg"); background-size: 200px 200px;
+}
+
+main .sec:not(.bab)::before, .thanks::before {
   content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 20px;
   pointer-events: none;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='20'%3E%3Cpath d='M0,16 A12,12 0 0 1 24,16 A12,12 0 0 1 48,16 V20 H0 Z' fill='%23FFDCE8'/%3E%3Cpath d='M0,16 A12,12 0 0 1 24,16 A12,12 0 0 1 48,16' fill='none' stroke='%2317121A' stroke-width='3'/%3E%3C/svg%3E") left bottom / 48px 20px repeat-x;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='20'%3E%3Cpath d='M0,16 A12,12 0 0 1 24,16' fill='none' stroke='%2317121A' stroke-width='3'/%3E%3C/svg%3E") left bottom / 24px 20px repeat-x,
+    radial-gradient(circle at 12px 16px, var(--tepi) 11.6px, transparent 12px) left bottom / 24px 20px repeat-x,
+    linear-gradient(var(--tepi), var(--tepi)) left bottom / 100% 4px no-repeat;
 }
-.thanks::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='20'%3E%3Cpath d='M0,16 A12,12 0 0 1 24,16 A12,12 0 0 1 48,16 V20 H0 Z' fill='%23FFE68C'/%3E%3Cpath d='M0,16 A12,12 0 0 1 24,16 A12,12 0 0 1 48,16' fill='none' stroke='%2317121A' stroke-width='3'/%3E%3C/svg%3E");
-}
-.thanks { border-top: 0; }
 
 /* dua ranting membingkai Terima Kasih, menggantikan stiker bintang */
 .thanks .s-kiri, .thanks .s-kanan { display: none; }
@@ -1919,3 +1926,21 @@ body { background: var(--page) url("assets/hias/latar.svg") 0 0 / 640px 640px; }
 }
 .photo-stack::before { top: -8px; left: 50%; transform: translateX(-50%) rotate(-7deg); }
 .intro::after { top: -12px; left: -20px; transform: rotate(-24deg); }
+
+/* Kartu besar tidak lagi polos: korsase bunga menempel di sudut kanan atas (seperti
+   bros pada kertas), dan satu bunga besar samar di sudut kanan bawah sebagai tanda air. */
+.sec.bab, .metode, .peta4c, .mk-hero, .pintu__kartu, .refleksi { position: relative; }
+.sec.bab, .metode, .peta4c, .mk-hero, .lk-butir, .pintu__kartu {
+  background-image: url("assets/hias/tanda.svg");
+  background-repeat: no-repeat;
+  background-position: right -60px bottom -60px;
+  background-size: 240px 240px;
+}
+.sec.bab::after, .metode::after, .peta4c::after, .pintu__kartu::after, .refleksi::after {
+  content: ""; position: absolute; z-index: 2; pointer-events: none;
+  top: -26px; right: -18px; width: 96px; aspect-ratio: 120 / 100;
+  background: url("assets/hias/korsase.svg") center / contain no-repeat;
+}
+@media (max-width: 47.99rem) {
+  .sec.bab::after, .metode::after, .peta4c::after, .pintu__kartu::after, .refleksi::after { width: 68px; top: -18px; right: -8px; }
+}

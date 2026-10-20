@@ -417,7 +417,16 @@ emas samar di latar `body`, `ranting-kecil.svg` di pojok bawah tiap `main .sec` 
 kanan-kiri lewat `transform`, hanya di atas 62rem), `ranting.svg` juga di `.kepala::before`
 (di atas 48rem), dan `pita.svg` selotip washi di `.photo-stack::before` dan `.intro::after`.
 Semua hiasan memakai `z-index: -1` di dalam bagiannya dan `pointer-events: none`, jadi
-selalu di belakang isi. **Komentar di berkas SVG tidak boleh memuat `--`**: XML menolaknya dan gambarnya tidak tampil
+selalu di belakang isi.
+
+**Satu bahasa hiasan dari atas sampai bawah** (pemilik: "walaupun beda warna, buat style nya
+tersambung"): setiap `main .sec` (bukan `.bab`) dan `.thanks` punya tepi atas bergelombang
+yang sama; isiannya mengikuti warna bagian lewat variabel `--tepi`, garisnya `--edge`. Setiap
+bagian berwarna (card, pink, blush) memakai `pola.svg`. Kartu besar (`.sec.bab`, `.metode`,
+`.peta4c`, `.pintu__kartu`, `.refleksi`) diberi `korsase.svg` di sudut kanan atas (selalu kanan,
+karena di kiri ada lingkaran nomor bab), dan `.sec.bab`, `.metode`, `.peta4c`, `.mk-hero`,
+`.lk-butir`, `.pintu__kartu` diberi `tanda.svg` samar di sudut kanan bawah. Kalau menambah jenis
+bagian atau kartu besar baru, ikutkan ke daftar ini supaya tidak ada yang polos sendiri. **Komentar di berkas SVG tidak boleh memuat `--`**: XML menolaknya dan gambarnya tidak tampil
 sama sekali. Kalau `ranting.svg` diubah, buat ulang `ranting-kiri.svg` (dibungkus
 `<g transform="translate(420 0) scale(-1 1)">`). Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap terbaca.
 
