@@ -33,7 +33,7 @@ Jangan menulis rombel di alt, caption, maupun strip identitas. Jenjang ("kelas X
 
 ```
 index.html   beranda: hero profil + video Home + strip identitas + dua pintu (PPG, PPL)
-profil.html  profil lengkap: tentang, alasan dan nilai, jejak langkah, riwayat (placeholder)
+profil.html  profil lengkap: tentang, visi dan misi, alasan dan nilai, jejak langkah, riwayat (placeholder)
 ppl.html     PPL Mandiri = tugas LK 3: tab Siklus 1-4, Nonmengajar, Penilaian, Tugas
 ppg-1.html   ringkasan PPG semester I: alur 4C + enam kartu mata kuliah
 ppg-1-*.html satu halaman per mata kuliah semester I (filosofi, asesmen, ppl, pola-pikir,
@@ -263,7 +263,7 @@ Ryan: kemandirian, kompetensi, keterhubungan; 48 butir, skor 48-240, diabaikan g
 memuat nama dan NIDN dosen). Butir positif jadi kartu tangga/maju, butir negatif jadi kartu
 ular/mundur berbingkai "Banyak pelajar ...". Angket 10 butir lama diganti kisi-kisi instrumen
 itu; PDF tidak memberi batas angka kategori, jadi tidak dikarang. `#kaitan` memetakan karya ke
-kedua visi dan misi 1-3 di index.html.
+kedua visi dan misi 1-3 di profil.html.
 
 **Diringkas lagi 19 Oktober 2026** supaya tidak memancing pertanyaan balik penguji:
 `#gagasan` tiga sel (tantangan dan gagasan, data AKPD, dasar isi kartu), `#evaluasi` hanya tiga
@@ -644,7 +644,7 @@ konteks sekolah dan profil.
 
 ## Aturan konten
 
-**Lima tugas Seminar PPG** (pemilik, 18 Oktober 2026): LK 1 Identifikasi Diri = `index.html#visi-misi`
+**Lima tugas Seminar PPG** (pemilik, 18 Oktober 2026): LK 1 Identifikasi Diri = `profil.html#visi-misi` (dipindah dari index.html 20 Oktober 2026, di antara #tentang dan #alasan)
 (dua visi berdampingan + lima komitmen bersambung, tiap butir "Berangkat dari:" menaut ke mata
 kuliah atau Karya Inovasi; label "LK 1" sengaja tidak ditampilkan, permintaan pemilik 19 Oktober 2026); LK 2 semester I
 = ppg-1-* (**sudah benar, jangan disentuh**); LK 2 semester II = ppg-2-*; LK 3 =
