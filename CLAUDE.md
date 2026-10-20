@@ -426,7 +426,15 @@ bagian berwarna (card, pink, blush) memakai `pola.svg`. Kartu besar (`.sec.bab`,
 `.peta4c`, `.pintu__kartu`, `.refleksi`) diberi `korsase.svg` di sudut kanan atas (selalu kanan,
 karena di kiri ada lingkaran nomor bab), dan `.sec.bab`, `.metode`, `.peta4c`, `.mk-hero`,
 `.lk-butir`, `.pintu__kartu` diberi `tanda.svg` samar di sudut kanan bawah. Kalau menambah jenis
-bagian atau kartu besar baru, ikutkan ke daftar ini supaya tidak ada yang polos sendiri. **Komentar di berkas SVG tidak boleh memuat `--`**: XML menolaknya dan gambarnya tidak tampil
+bagian atau kartu besar baru, ikutkan ke daftar ini supaya tidak ada yang polos sendiri.
+
+Gerak dan hiasan interaktif (20 Oktober 2026): `script.js` menyuntikkan `.baca` (ranting
+`progres.svg` di tepi atas layar, terbuka dari kiri lewat `clip-path` dan variabel `--p`) dan
+`button.ke-atas` (bunga `atas.svg`, muncul setelah 1,2 layar). Korsase mekar lewat animasi
+berbasis gulir (`view-timeline`, hanya di browser yang mendukung; lainnya tampil diam).
+`.kosong` diberi kuncup `kuncup.svg`; `mungil.svg` muncul saat tombol "Buka Cerita Lengkap",
+tautan pintu, `.lanjut a`, dan `.mk-kartu` disinggahi. Semua gerak dibungkus
+`prefers-reduced-motion: no-preference`. **Komentar di berkas SVG tidak boleh memuat `--`**: XML menolaknya dan gambarnya tidak tampil
 sama sekali. Kalau `ranting.svg` diubah, buat ulang `ranting-kiri.svg` (dibungkus
 `<g transform="translate(420 0) scale(-1 1)">`). Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap terbaca.
 

@@ -327,3 +327,37 @@
     kotak.replaceChildren(muka);
   });
 })();
+
+
+/* Penanda baca berbentuk ranting di tepi atas layar, dan tombol bunga untuk kembali
+   ke atas. Keduanya disuntikkan di sini supaya 18 halaman tidak perlu disunting.
+   Satu pendengar scroll pasif, kerjanya ditunda ke requestAnimationFrame. */
+
+(function () {
+  var ranting = document.createElement('div');
+  ranting.className = 'baca';
+  ranting.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(ranting);
+
+  var atas = document.createElement('button');
+  atas.type = 'button';
+  atas.className = 'ke-atas';
+  atas.setAttribute('aria-label', 'Kembali ke atas halaman');
+  atas.addEventListener('click', function () { window.scrollTo({ top: 0 }); });
+  document.body.appendChild(atas);
+
+  var antre = false;
+  function ukur() {
+    antre = false;
+    var akar = document.documentElement;
+    var jarak = akar.scrollHeight - window.innerHeight;
+    var p = jarak > 0 ? Math.min(1, window.scrollY / jarak) : 0;
+    ranting.style.setProperty('--p', p);
+    atas.classList.toggle('tampil', window.scrollY > window.innerHeight * 1.2);
+  }
+  window.addEventListener('scroll', function () {
+    if (!antre) { antre = true; requestAnimationFrame(ukur); }
+  }, { passive: true });
+  window.addEventListener('resize', ukur);
+  ukur();
+})();

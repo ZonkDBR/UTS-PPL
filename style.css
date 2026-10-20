@@ -1944,3 +1944,72 @@ body { background: var(--page) url("assets/hias/latar.svg") 0 0 / 640px 640px; }
 @media (max-width: 47.99rem) {
   .sec.bab::after, .metode::after, .peta4c::after, .pintu__kartu::after, .refleksi::after { width: 68px; top: -18px; right: -8px; }
 }
+
+/* ---------- gerak dan hiasan interaktif (20 Oktober 2026) ---------- */
+
+/* penanda baca: ranting di tepi atas layar terbuka dari kiri sesuai progres baca */
+.baca {
+  position: fixed; z-index: 49; left: 0; right: 0; top: 0; height: 18px;
+  pointer-events: none;
+  background: url("assets/hias/progres.svg") left center / 160px 18px repeat-x;
+  clip-path: inset(0 calc((1 - var(--p, 0)) * 100%) 0 0);
+}
+
+/* tombol bunga kembali ke atas */
+.ke-atas {
+  position: fixed; z-index: 55; right: 18px; bottom: 18px;
+  width: 58px; height: 58px; padding: 0; border: 0; cursor: pointer;
+  background: url("assets/hias/atas.svg") center / contain no-repeat;
+  filter: drop-shadow(3px 3px 0 var(--edge));
+  opacity: 0; visibility: hidden; transform: scale(.4) rotate(-90deg);
+}
+.ke-atas.tampil { opacity: 1; visibility: visible; transform: none; }
+.ke-atas:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; border-radius: 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  .ke-atas { transition: opacity .3s, visibility .3s, transform .45s var(--pegas); }
+  .ke-atas:hover { transform: rotate(72deg) scale(1.08); }
+  .ke-atas:active { transform: scale(.92); }
+}
+
+/* kotak "menyusul": kuncup sakura, tanda sesuatu sedang tumbuh */
+.kosong::before {
+  content: ""; display: block; width: 84px; height: 77px; margin: 0 auto .6rem;
+  background: url("assets/hias/kuncup.svg") center / contain no-repeat;
+}
+
+/* bunga mungil muncul saat tombol atau kartu disinggahi */
+.mk-kartu__buka, .pintu__daftar a, .lanjut a, .mk-kartu { position: relative; }
+.mk-kartu__buka::before, .pintu__daftar a::after, .lanjut a::after, .mk-kartu::after {
+  content: ""; position: absolute; pointer-events: none;
+  width: 26px; height: 26px; top: -13px; right: -9px;
+  background: url("assets/hias/mungil.svg") center / contain no-repeat;
+  opacity: 0; transform: scale(0) rotate(-120deg);
+}
+.mk-kartu::after { width: 34px; height: 34px; top: -16px; right: -12px; }
+.mk-kartu__buka:hover::before, .mk-kartu__buka:focus-visible::before,
+.pintu__daftar a:hover::after, .pintu__daftar a:focus-visible::after,
+.lanjut a:hover::after, .lanjut a:focus-visible::after,
+.mk-kartu:hover::after { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .mk-kartu__buka::before, .pintu__daftar a::after, .lanjut a::after, .mk-kartu::after {
+    transition: opacity .2s, transform .5s var(--pegas);
+  }
+}
+
+/* korsase mekar saat kartunya masuk layar (gulir), hanya di browser yang mendukung
+   animasi berbasis gulir; di browser lain korsase tetap tampil diam */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sec.bab, .metode, .peta4c, .pintu__kartu, .refleksi { view-timeline: --kartu block; }
+    .sec.bab::after, .metode::after, .peta4c::after, .pintu__kartu::after, .refleksi::after {
+      animation: mekar linear both;
+      animation-timeline: --kartu;
+      animation-range: entry 5% entry 85%;
+    }
+  }
+}
+@keyframes mekar {
+  0%   { transform: scale(0) rotate(-50deg); opacity: 0; }
+  65%  { transform: scale(1.18) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}

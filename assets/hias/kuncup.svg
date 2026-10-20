@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 110" width="120" height="110">
+  <!-- Kuncup sakura di atas tangkai: isi kotak "menyusul", tanda sesuatu sedang tumbuh. -->
+  <g stroke="#17121A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M60,104 C58,84 62,66 60,50" fill="none"/>
+    <path d="M60,84 C46,80 36,70 34,58 C48,58 58,68 60,84 Z" fill="#FFFFFF"/>
+    <path d="M60,74 C74,72 84,62 88,50 C74,50 62,60 60,74 Z" fill="#FFFFFF"/>
+    <path d="M60,50 C46,44 42,26 52,14 C56,20 58,22 60,22 C62,22 64,20 68,14 C78,26 74,44 60,50 Z" fill="#FF8FB3"/>
+    <path d="M60,50 C54,42 54,30 60,22 C66,30 66,42 60,50 Z" fill="#FFD2E0"/>
+    <path d="M50,50 L60,56 L70,50" fill="none"/>
+    <path d="M100,24 C101,30 102,31 108,32 C102,33 101,34 100,40 C99,34 98,33 92,32 C98,31 99,30 100,24 Z" fill="#FFE68C" stroke-width="2.4"/>
+    <path d="M20,30 C21,34 22,35 26,36 C22,37 21,38 20,42 C19,38 18,37 14,36 C18,35 19,34 20,30 Z" fill="#FFE68C" stroke-width="2.2"/>
+  </g>
+</svg>

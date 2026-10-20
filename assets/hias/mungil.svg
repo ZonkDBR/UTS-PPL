@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 40 40" width="40" height="40">
+  <!-- Bunga sakura mungil yang muncul saat tombol atau kartu disinggahi. -->
+  <g stroke="#17121A" stroke-width="2" stroke-linejoin="round" fill="#FF8FB3">
+    <path d="M0,-2 C-6,-6 -8,-13 -4,-17 L0,-14 L4,-17 C8,-13 6,-6 0,-2 Z"/>
+    <path d="M0,-2 C-6,-6 -8,-13 -4,-17 L0,-14 L4,-17 C8,-13 6,-6 0,-2 Z" transform="rotate(72)"/>
+    <path d="M0,-2 C-6,-6 -8,-13 -4,-17 L0,-14 L4,-17 C8,-13 6,-6 0,-2 Z" transform="rotate(144)"/>
+    <path d="M0,-2 C-6,-6 -8,-13 -4,-17 L0,-14 L4,-17 C8,-13 6,-6 0,-2 Z" transform="rotate(216)"/>
+    <path d="M0,-2 C-6,-6 -8,-13 -4,-17 L0,-14 L4,-17 C8,-13 6,-6 0,-2 Z" transform="rotate(288)"/>
+    <circle r="3.6" fill="#FFE68C"/>
+  </g>
+</svg>

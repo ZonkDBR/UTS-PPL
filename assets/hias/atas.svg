@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 -40 80 80" width="80" height="80">
+  <!-- Tombol kembali ke atas: bunga sakura dengan panah di tengahnya. -->
+  <g stroke="#17121A" stroke-width="3" stroke-linejoin="round" fill="#FF8FB3">
+    <path d="M0,-3 C-12,-10 -15,-26 -8,-35 L0,-29 L8,-35 C15,-26 12,-10 0,-3 Z"/>
+    <path d="M0,-3 C-12,-10 -15,-26 -8,-35 L0,-29 L8,-35 C15,-26 12,-10 0,-3 Z" transform="rotate(72)"/>
+    <path d="M0,-3 C-12,-10 -15,-26 -8,-35 L0,-29 L8,-35 C15,-26 12,-10 0,-3 Z" transform="rotate(144)"/>
+    <path d="M0,-3 C-12,-10 -15,-26 -8,-35 L0,-29 L8,-35 C15,-26 12,-10 0,-3 Z" transform="rotate(216)"/>
+    <path d="M0,-3 C-12,-10 -15,-26 -8,-35 L0,-29 L8,-35 C15,-26 12,-10 0,-3 Z" transform="rotate(288)"/>
+    <circle r="13" fill="#FFE68C"/>
+  </g>
+  <path d="M0,7 L0,-6 M-6,0 L0,-6 L6,0" fill="none" stroke="#17121A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
