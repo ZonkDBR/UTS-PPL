@@ -252,12 +252,15 @@ pernah ditulis sebelumnya). Jangan menulis "masih prototipe" lagi di mana pun, t
 ppg-intisari.html.
 
 **Sejak 20 Oktober 2026 `karya-inovasi.html` mengikuti templat `assets/LEMBAR KERJA 4 (LK 4).docx`**
-(permintaan pemilik): identitas lalu lima indikator, dan teks pertanyaan LK menjadi pengantar
-`.sec__head p` tiap bagian. Urutannya: `#alur` (peta enam langkah, `.peta4c__daftar--enam`),
+(permintaan pemilik): identitas lalu lima indikator. **Tiap pertanyaan LK tampil utuh** di
+kotak `.lk-butir` sendiri (pita `.lk-tanya` berisi teks pertanyaan, lalu `.lk-jawab`), sembilan
+pertanyaan termasuk "jika belum pernah diimplementasikan" yang dijawab "tidak diisi"
+(`.lk-butir--lewat`). Tabel catatan LK "Prinsip Karya Inovasi Pendidikan" menjadi bagian
+sendiri `#prinsip` (No, Prinsip, Penjelasan singkat dari LK apa adanya, penerapan pada karya);
+Pertanyaan 3 Indikator 2 menaut ke sana. Urutannya: `#alur` (peta Indikator 1-5 + Prinsip, `.peta4c__daftar--enam`),
 `#identitas` (Nama karya, Sasaran di `.facts`), `#identifikasi` (hasil amatan + data AKPD),
-`#gagasan` (gagasan solusi, tujuan, lalu **lima prinsip** LK 4: kebaruan, kreativitas,
-relevansi dan kontekstualitas, kebermanfaatan, efektivitas terbukti; yang terakhir ditulis
-jujur sebagai "belum diukur"), `#riset` (riset sederhana Deci dan Ryan + empat jenis kartu sebagai
+`#gagasan` (gagasan solusi, tujuan, lalu tautan ke `#prinsip`; baris efektivitas terbukti di
+tabel itu ditulis jujur sebagai "belum diukur"), `#riset` (riset sederhana Deci dan Ryan + empat jenis kartu sebagai
 prototipe), `#implementasi` (empat langkah di samping slider foto), `#evaluasi` (empat tahapan
 `.daftar-kegiatan--empat`, tabel kisi-kisi, kotak `.kosong`), lalu `#kaitan` tanpa perubahan.
 Karena LK 4 menanyakan tahapan evaluasi, larangan "daftar tahapan pengukuran" di bawah tidak
