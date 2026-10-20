@@ -47,6 +47,7 @@ karya-inovasi.html karya inovasi: Ular Tangga Motivasi, permainan papan digital 
              46 kartu pertanyaan refleksi; disusun mengikuti empat komponen LK 4
              (#identitas, #gagasan, #rancangan, #evaluasi) plus #alur dan #kaitan
 ular-tangga/ salinan permainannya yang ikut terbit (index.html + satu-perangkat.js)
+api/         apinator-auth.js, satu-satunya fungsi Vercel (mode banyak HP Ular Tangga)
 style.css    satu berkas untuk semua halaman
 script.js    reveal + kelopak + nav aktif, tab PPL, jejak kursor, slider, video hero, kotak YouTube
 assets/      foto profil, dokumentasi, LKPD, video Home, RPL dan PPT yang ditautkan
@@ -181,9 +182,11 @@ berkas (`file://`) dan halaman harus tampil utuh — tidak boleh butuh server. F
 Google Fonts, sisanya inline/lokal.
 
 Publikasi: **Vercel**, dari repo `ZonkDBR/UTS-PPL` (keputusan pemilik 16 Oktober 2026,
-menggantikan GitHub Pages). Situsnya statis murni, jadi tidak perlu `vercel.json`,
+menggantikan GitHub Pages). Situsnya statis, jadi tidak perlu `vercel.json`,
 perintah build, maupun direktori keluaran: akar repo dilayani apa adanya. Cukup
-`git push origin main`, Vercel menyebar ulang sendiri.
+`git push origin main`, Vercel menyebar ulang sendiri. Satu-satunya pengecualian
+(20 Oktober 2026): fungsi `api/apinator-auth.js` untuk mode banyak HP Ular Tangga, yang
+membaca environment variable Vercel `APINATOR_SECRET`. Rahasia itu **tidak pernah masuk repo**.
 
 Rujukan pola yang sudah terbukti: `C:\Users\ZonkDBR\Documents\Araa\Seminar PPG\Topik 2\website`
 (live di <https://zonkdbr.github.io/Seminar-PPG-UTS-Porto/>). Rujukan kedua:
@@ -319,11 +322,19 @@ Konstanta papan (`SNAKES`, `LADDERS`, `SPECIAL`, `Q`, `PC`) dibaca dari index.ht
 tidak disalin ulang.
 
 **Protokolnya sengaja sama persis dengan server.py** (create, join, host_role, set_name,
-start, roll, move, ack_modal, restart). Kalau nanti multiperangkat dibutuhkan, servernya
-dipasang di tempat yang bisa menjalankan proses hidup (Render, Railway, Fly) lalu
-`satu-perangkat.js` dilepas; atau logika yang sama dipindah ke dua rute HTTP di Vercel
-(`GET /api/state` yang di-polling tiap 1,5 detik dan `POST /api/action`) dengan state
-ruangan disimpan di Redis, karena fungsi serverless tidak punya memori bersama.
+start, roll, move, ack_modal, restart).
+
+**Mode banyak HP lewat Apinator** (20 Oktober 2026, permintaan pemilik). Tombol "Buat Ruangan"
+kini membuka ruangan online berkode lima huruf; "Main Bergantian di Satu Perangkat" adalah
+mode hot seat di atas. Peramban guru yang membuat ruangan menjadi tuan rumah: ia menjalankan
+logika yang sama, murid mengirim aksi sebagai client event `client-aksi` di channel
+`private-ut-<KODE>`, dan guru membalas dengan `client-pesan` (`to` = id murid atau `*`).
+Klien WebSocket Apinator ditulis sendiri di `satu-perangkat.js` (protokol mengikuti paket
+`@apinator/client` 2.2.2: `wss://ws-eu.apinator.io/app/<key>`, `realtime:subscribe`, auth
+`key:HMAC-SHA256(secret, "socket_id:channel")`), karena menyalin SDK pihak ketiga ke repo
+ditolak. App key dan cluster `eu` boleh publik; secret hanya di env Vercel. Batasannya: kalau
+layar guru tertutup atau dimuat ulang, ruangan hilang; murid yang memuat ulang bisa masuk lagi
+dengan nama yang sama.
 
 ## Gaya: neo-brutalism merah muda
 
