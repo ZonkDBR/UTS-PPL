@@ -40,7 +40,7 @@ ppg-1-*.html satu halaman per mata kuliah semester I (filosofi, asesmen, ppl, po
              design-thinking, konseling)
 ppg-2.html   ringkasan PPG semester II, lima kartu mata kuliah
 ppg-2-*.html intervensi, pse, ppl, konseling, projek
-ppg-intisari.html  Seminar PPG: identifikasi (11 kartu temuan + kaitan praktis), refleksi akhir
+ppg-intisari.html  Seminar PPG: identifikasi (11 kartu refleksi + sangkutan Ular Tangga), refleksi akhir
              LK 3, penutup (tiga bagian, tanpa
              .navlinks). Nama berkasnya tetap ppg-intisari.html, hanya judulnya berubah
 karya-inovasi.html karya inovasi: Ular Tangga Motivasi, permainan papan digital berisi
@@ -119,8 +119,8 @@ Erika), bukan kesulitan yang pemilik alami sendiri. Aturannya sekarang:
   tertulis di modul.
 - `.mk-inti` dan `.mk-kartu__inti` juga berbentuk refleksi ("Saya semula ... ternyata ..."),
   bukan deskripsi kegiatan mata kuliah. Keduanya kembar, ubah berpasangan.
-- Kartu `#identifikasi` di ppg-intisari.html (11 `doc-card`) berjudul perubahan pada diri
-  sendiri, isinya refleksi singkat berorientasi pengembangan diri plus kaitan praktis.
+- Kartu `#identifikasi` di ppg-intisari.html (11 `.mk-kartu`) menyalin kartu halaman semester,
+  plus sangkutannya dengan Ular Tangga Motivasi.
 
 **Sumber sahih refleksi semester I** adalah berkas kiriman pemilik 18 Oktober 2026:
 `assets/Refleksi Filosofi Pendidikan_FahiraFW.docx` dan lima zip
@@ -222,9 +222,11 @@ sengaja dibiarkan `ppg-intisari.html` supaya tautan di 18 halaman tidak perlu di
 **Dirombak 18 Oktober 2026** mengikuti ulasan yang diteruskan pemilik: halaman terlalu
 penuh karena gagasan yang sama diulang. Kini tiga bagian saja:
 
-1. `#identifikasi` Identifikasi: Temuan dan Asalnya: 11 `doc-card`, tiap kartu satu perubahan
-   diri + "Inti bahan <mata kuliah>" + "Di Ular Tangga Motivasi" + baris `doc-lk` (19 Oktober
-   2026: tidak lagi mengulang refleksi halaman mata kuliah), ditambah sel ke-12 bergambar papan. Ditutup satu paragraf + tautan ke Karya Inovasi.
+1. `#identifikasi` Identifikasi: Refleksi Tiap Mata Kuliah (20 Oktober 2026, permintaan pemilik
+   karena judul dan isi kartu lama tidak selaras): salinan kartu `.mk-kartu` dari ppg-1.html dan
+   ppg-2.html, dua `.mk-grid` berjudul Semester I dan Semester II, tiap kartu ditambah satu
+   `p.mk-kartu__ut` "Di Ular Tangga Motivasi". Jadi `.mk-kartu__inti` kini kembar tiga: ubah
+   ketiganya bersama. Ditutup satu paragraf + tautan ke Karya Inovasi.
 2. `#refleksi-akhir` LK 3: pandangan tentang pendidikan Indonesia, upaya menjadi guru
    profesional, dan tiga prioritas tindak lanjut (`.klaster`). Teks dasarnya dari ulasan
    itu, ditambah fakta yang sudah terverifikasi di catatan ini.

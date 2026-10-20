@@ -1119,6 +1119,7 @@ img.orangtua__foto {
   font-weight: 700; font-size: var(--fs-sm); text-decoration: none;
   padding: .6rem 1.25rem;
 }
+.mk-kartu__ut { font-size: var(--fs-sm); margin: 0; padding-top: var(--sp-2); border-top: 2px dashed var(--edge); }
 .mk-kartu__buka { margin-top: auto; }
 .mk-kartu__buka::after { content: "\2192"; }
 .kembali { background: var(--card); color: var(--ink); font-size: var(--fs-xs); padding: .4rem 1rem; }
