@@ -407,7 +407,19 @@ membesar, `:active` memakai `translate(2px, 2px)` tanpa bayangan.
 
 Hiasan sakura: kelopak berjatuhan dari CSS murni bergaris hitam (bukan gambar, bukan
 library) dan satu mark bunga enam kelopak di nav yang mekar mengikuti bagian yang
-terbaca. Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap terbaca.
+terbaca. Sejak 20 Oktober 2026 (permintaan pemilik) ada aset SVG di `assets/hias/`, dipasang
+seluruhnya lewat CSS di akhir `style.css` tanpa menyunting HTML: `ranting.svg` di belakang foto
+hero beranda (`.hero::before`, bergoyang pelan) dan bersama `ranting-kiri.svg` (cerminannya)
+membingkai `.thanks`, menggantikan stiker bintang penutup; `pola.svg` taburan bunga samar di
+latar `.sec--pink`; dan tepi atas bergelombang (SVG inline) di `.sec--pink` dan `.thanks`.
+Ditambah lagi hari yang sama (pemilik minta "mewah dan rame"): `latar.svg` bunga besar dan kilau
+emas samar di latar `body`, `ranting-kecil.svg` di pojok bawah tiap `main .sec` (bergantian
+kanan-kiri lewat `transform`, hanya di atas 62rem), `ranting.svg` juga di `.kepala::before`
+(di atas 48rem), dan `pita.svg` selotip washi di `.photo-stack::before` dan `.intro::after`.
+Semua hiasan memakai `z-index: -1` di dalam bagiannya dan `pointer-events: none`, jadi
+selalu di belakang isi. **Komentar di berkas SVG tidak boleh memuat `--`**: XML menolaknya dan gambarnya tidak tampil
+sama sekali. Kalau `ranting.svg` diubah, buat ulang `ranting-kiri.svg` (dibungkus
+`<g transform="translate(420 0) scale(-1 1)">`). Hormati `prefers-reduced-motion: reduce` — animasi mati, isi tetap terbaca.
 
 ### Aturan tampilan yang sudah diterapkan, jangan dibalik lagi
 

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 420 320">
+  <!-- Ranting sakura bergaris hitam, gaya sama dengan stiker situs. Warna dari palet
+       style.css (edge #17121A, blossom #FF8FB3, pink #FFD2E0, butter #FFE68C). -->
+  <defs>
+    <g id="bunga" stroke="#17121A" stroke-width="2.6" stroke-linejoin="round">
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z"/>
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z" transform="rotate(72)"/>
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z" transform="rotate(144)"/>
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z" transform="rotate(216)"/>
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z" transform="rotate(288)"/>
+      <circle r="5.5" fill="#FFE68C"/>
+    </g>
+    <g id="kuncup" stroke="#17121A" stroke-width="2.6" stroke-linejoin="round">
+      <path d="M0,0 C-8,-6 -8,-18 0,-24 C8,-18 8,-6 0,0 Z" fill="#FF8FB3"/>
+      <path d="M-6,-2 L0,4 L6,-2" fill="none"/>
+    </g>
+  </defs>
+
+  <g fill="none" stroke="#17121A" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M436,-12 C368,36 306,58 254,108 S168,198 86,232" stroke-width="11"/>
+    <path d="M312,52 C292,30 282,16 262,8" stroke-width="6"/>
+    <path d="M252,110 C232,104 206,90 192,70" stroke-width="6"/>
+    <path d="M178,188 C178,214 166,244 150,262" stroke-width="6"/>
+    <path d="M124,216 C98,204 78,186 62,170" stroke-width="5"/>
+    <path d="M360,30 C356,52 346,66 334,74" stroke-width="5"/>
+    <path d="M214,150 C226,164 230,176 230,190" stroke-width="4"/>
+  </g>
+
+  <use xlink:href="#bunga" fill="#FF8FB3" transform="translate(262 10) scale(1.1) rotate(12)"/>
+  <use xlink:href="#bunga" fill="#FFD2E0" transform="translate(192 66) scale(1.25) rotate(-8)"/>
+  <use xlink:href="#bunga" fill="#FF8FB3" transform="translate(150 262) scale(1.05) rotate(20)"/>
+  <use xlink:href="#bunga" fill="#FFFFFF" transform="translate(62 168) scale(.9) rotate(-18)"/>
+  <use xlink:href="#bunga" fill="#FFD2E0" transform="translate(86 234) scale(1.35) rotate(6)"/>
+  <use xlink:href="#bunga" fill="#FFFFFF" transform="translate(300 92) scale(.95) rotate(30)"/>
+  <use xlink:href="#bunga" fill="#FF8FB3" transform="translate(232 196) scale(.8) rotate(-24)"/>
+  <use xlink:href="#kuncup" transform="translate(334 78) rotate(-140)"/>
+  <use xlink:href="#kuncup" transform="translate(372 24) rotate(160)"/>
+  <use xlink:href="#kuncup" transform="translate(124 214) rotate(-110)"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Ubin taburan sakura untuk latar bagian merah muda. Sengaja samar (opacity rendah)
+       supaya teks di atasnya tetap terbaca. -->
+  <defs>
+    <g id="b" stroke="#17121A" stroke-width="3" stroke-linejoin="round">
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z"/>
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z" transform="rotate(72)"/>
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z" transform="rotate(144)"/>
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z" transform="rotate(216)"/>
+      <path d="M0,-3 C-10,-9 -13,-22 -7,-29 L0,-24 L7,-29 C13,-22 10,-9 0,-3 Z" transform="rotate(288)"/>
+      <circle r="5" fill="#FFE68C"/>
+    </g>
+    <path id="k" d="M0,0 C-7,-5 -9,-14 -4,-20 C2,-14 4,-6 0,0 Z" stroke="#17121A" stroke-width="2.4" stroke-linejoin="round"/>
+  </defs>
+  <g opacity=".13">
+    <use xlink:href="#b" fill="#FFFFFF" transform="translate(42 46) scale(.55) rotate(14)"/>
+    <use xlink:href="#b" fill="#FFFFFF" transform="translate(146 112) scale(.45) rotate(-20)"/>
+    <use xlink:href="#b" fill="#FFFFFF" transform="translate(70 162) scale(.38) rotate(40)"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 36" width="130" height="36">
+  <!-- Selotip washi bergaris untuk foto dan video, ujungnya bergerigi seperti disobek. -->
+  <defs>
+    <clipPath id="c">
+      <path d="M6,2 L10,6 L6,10 L10,14 L6,18 L10,22 L6,26 L10,30 L6,34 H124 L120,30 L124,26 L120,22 L124,18 L120,14 L124,10 L120,6 L124,2 Z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="130" height="36" fill="#FFE68C"/>
+    <g stroke="#FF8FB3" stroke-width="5">
+      <path d="M0,40 L40,-4 M20,40 L60,-4 M40,40 L80,-4 M60,40 L100,-4 M80,40 L120,-4 M100,40 L140,-4"/>
+    </g>
+  </g>
+  <path d="M6,2 L10,6 L6,10 L10,14 L6,18 L10,22 L6,26 L10,30 L6,34 H124 L120,30 L124,26 L120,22 L124,18 L120,14 L124,10 L120,6 L124,2 Z" fill="none" stroke="#17121A" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>
