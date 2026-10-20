@@ -581,6 +581,9 @@ img.orangtua__foto {
 @media (min-width: 62rem) {
   .bento--empat { grid-template-columns: repeat(4, 1fr); }
   .bento--empat .tile p { text-align: left; }   /* kolom sempit: justify berlubang */
+  /* sisa di baris terakhir bento tiga kolom melebar, supaya tidak ada sel kosong */
+  .bento:not(.bento--empat) > :last-child:nth-child(3n+2) { grid-column: span 2; }
+  .bento:not(.bento--empat) > :last-child:nth-child(3n+1) { grid-column: 1 / -1; }
 }
 
 .tile {
@@ -1765,3 +1768,14 @@ a.doc-card:hover .doc-title { color: var(--rose); }
   /* sisa satu kartu: selebar baris */
   .mk-grid > :last-child:nth-child(3n+1) { grid-column: 1 / -1; }
 }
+
+/* Karya Inovasi mengikuti LK 4: peta enam langkah (identitas + lima indikator) dan
+   empat tahapan evaluasi. Ditulis di akhir supaya menang atas aturan dasarnya. */
+@media (min-width: 62rem) { .peta4c__daftar--enam { grid-template-columns: repeat(3, 1fr); } }
+.peta4c__daftar > li:nth-child(5) > * { background: var(--blush); }
+.peta4c__daftar > li:nth-child(6) > * { background: var(--butter); }
+
+.daftar-kegiatan--empat li { display: flex; flex-direction: column; gap: var(--sp-1); }
+.daftar-kegiatan--empat h4, .daftar-kegiatan--empat p { margin: 0; }
+@media (min-width: 48rem) { .daftar-kegiatan--empat { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 62rem) { .daftar-kegiatan--empat { grid-template-columns: repeat(4, 1fr); } }

@@ -44,8 +44,8 @@ ppg-intisari.html  Seminar PPG: identifikasi (11 kartu refleksi + sangkutan Ular
              LK 3, penutup (tiga bagian, tanpa
              .navlinks). Nama berkasnya tetap ppg-intisari.html, hanya judulnya berubah
 karya-inovasi.html karya inovasi: Ular Tangga Motivasi, permainan papan digital berisi
-             46 kartu pertanyaan refleksi; disusun mengikuti empat komponen LK 4
-             (#identitas, #gagasan, #rancangan, #evaluasi) plus #alur dan #kaitan
+             46 kartu pertanyaan refleksi; disusun mengikuti templat LK 4 (#identitas,
+             #identifikasi, #gagasan, #riset, #implementasi, #evaluasi) plus #alur dan #kaitan
 ular-tangga/ salinan permainannya yang ikut terbit (index.html + satu-perangkat.js)
 api/         apinator-auth.js, satu-satunya fungsi Vercel (mode banyak HP Ular Tangga)
 style.css    satu berkas untuk semua halaman
@@ -251,12 +251,17 @@ Permainannya sudah dipakai dalam layanan bimbingan klasikal bersama **satu kelas
 pernah ditulis sebelumnya). Jangan menulis "masih prototipe" lagi di mana pun, termasuk
 ppg-intisari.html.
 
-`karya-inovasi.html` disusun mengikuti empat komponen LK 4 Penyusunan Desain Karya
-Inovatif: `#alur` (peta empat komponen, menaut ke bawah), `#identitas` (nama karya dan
-sasaran inovasi, satu `.mk-kartu` dengan `.facts`), `#gagasan` (tantangan, gagasan solusi,
-riset sederhana beserta tiga temuannya), `#rancangan` (isi prototipe dan proses
-implementasinya di kelas), `#evaluasi` (lima tahap pengukuran plus kebaruan, kreativitas,
-kebermanfaatan), lalu `#kaitan` yang sudah ada.
+**Sejak 20 Oktober 2026 `karya-inovasi.html` mengikuti templat `assets/LEMBAR KERJA 4 (LK 4).docx`**
+(permintaan pemilik): identitas lalu lima indikator, dan teks pertanyaan LK menjadi pengantar
+`.sec__head p` tiap bagian. Urutannya: `#alur` (peta enam langkah, `.peta4c__daftar--enam`),
+`#identitas` (Nama karya, Sasaran di `.facts`), `#identifikasi` (hasil amatan + data AKPD),
+`#gagasan` (gagasan solusi, tujuan, lalu **lima prinsip** LK 4: kebaruan, kreativitas,
+relevansi dan kontekstualitas, kebermanfaatan, efektivitas terbukti; yang terakhir ditulis
+jujur sebagai "belum diukur"), `#riset` (riset sederhana Deci dan Ryan + empat jenis kartu sebagai
+prototipe), `#implementasi` (empat langkah di samping slider foto), `#evaluasi` (empat tahapan
+`.daftar-kegiatan--empat`, tabel kisi-kisi, kotak `.kosong`), lalu `#kaitan` tanpa perubahan.
+Karena LK 4 menanyakan tahapan evaluasi, larangan "daftar tahapan pengukuran" di bawah tidak
+berlaku lagi; sisa larangannya tetap.
 
 **Diringkas 19 Oktober 2026** (permintaan pemilik). Fakta baru dari pemilik: kelasnya
 **kelas XI** (bukan X), dan **seluruh kelas dibagi kelompok 2-4 murid, satu HP per
