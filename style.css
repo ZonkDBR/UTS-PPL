@@ -577,6 +577,11 @@ img.orangtua__foto {
 
 @media (min-width: 48rem) { .bento { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 62rem) { .bento { grid-template-columns: repeat(3, 1fr); } }
+/* empat ubin: satu baris penuh, bukan 3 + 1 yang menyisakan dua sel kosong */
+@media (min-width: 62rem) {
+  .bento--empat { grid-template-columns: repeat(4, 1fr); }
+  .bento--empat .tile p { text-align: left; }   /* kolom sempit: justify berlubang */
+}
 
 .tile {
   display: flex; flex-direction: column;
