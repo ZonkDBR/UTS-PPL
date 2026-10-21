@@ -235,7 +235,7 @@ penuh karena gagasan yang sama diulang. Kini tiga bagian saja:
    profesional, dan tiga prioritas tindak lanjut (`.klaster`). Teks dasarnya dari ulasan
    itu, ditambah fakta yang sudah terverifikasi di catatan ini. Sejak 21 Oktober 2026 dibuka
    dua paragraf penghubung (gaya `karya-inovasi.html#kaitan`): lima refleksi paling membekas
-   beserta mata kuliahnya, lalu kaitannya dengan ketiga jawaban dan profil. Bagian `#kaitan`
+   beserta mata kuliahnya, lalu kaitannya dengan ketiga jawaban dan profil (dua tautan pil, bukan tautan sebaris). Bagian `#kaitan`
    tersendiri pernah dibuat lalu dihapus atas permintaan pemilik; jangan dikembalikan.
 3. `#penutup`: pertanyaan yang berubah + refleksi diri + "Lanjutkan membaca".
 
