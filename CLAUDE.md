@@ -262,11 +262,11 @@ ppg-intisari.html.
 (permintaan pemilik): identitas lalu lima indikator. **Tiap pertanyaan LK tampil utuh** di
 kotak `.lk-butir` sendiri (pita `.lk-tanya` berisi teks pertanyaan, lalu `.lk-jawab`), delapan
 pertanyaan. Pertanyaan "jika belum pernah diimplementasikan" **dihapus seluruhnya** (21 Oktober 2026,
-permintaan pemilik), jadi Indikator 4 tinggal satu pertanyaan berlabel "Pertanyaan". Tabel catatan LK "Prinsip Karya Inovasi Pendidikan" menjadi bagian
-sendiri `#prinsip` (No, Prinsip, Penjelasan singkat dari LK apa adanya, penerapan pada karya);
-Pertanyaan 3 Indikator 2 menaut ke sana. Urutannya: `#alur` (peta Indikator 1-5 + Prinsip, `.peta4c__daftar--enam`),
+permintaan pemilik), jadi Indikator 4 tinggal satu pertanyaan berlabel "Pertanyaan". Tabel catatan LK "Prinsip Karya Inovasi Pendidikan" (No, Prinsip, Penjelasan
+singkat dari LK apa adanya, penerapan pada karya) **ada di dalam jawaban Pertanyaan 3 Indikator 2**
+(digabung 21 Oktober 2026, permintaan pemilik; bagian `#prinsip` tersendiri sudah dihapus). Urutannya: `#alur` (peta Indikator 1-5, `.peta4c__daftar`),
 `#identitas` (Nama karya, Sasaran di `.facts`), `#identifikasi` (hasil amatan + data AKPD),
-`#gagasan` (gagasan solusi, tujuan, lalu tautan ke `#prinsip`; baris efektivitas terbukti di
+`#gagasan` (gagasan solusi, tujuan, lalu tabel prinsip; baris efektivitas terbukti di
 tabel itu ditulis jujur sebagai "belum diukur"), `#riset` (riset sederhana Deci dan Ryan + empat jenis kartu sebagai
 prototipe), `#implementasi` (empat langkah di samping slider foto), `#evaluasi` (empat tahapan
 `.daftar-kegiatan--empat`, tabel aspek karya, hasil wawancara murid), lalu `#kaitan` tanpa perubahan.
