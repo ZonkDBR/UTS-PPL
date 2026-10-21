@@ -133,7 +133,9 @@ lengkap, Kaitan Praktis, serta **artefak pilihan pemilik beserta alasannya**; si
 adalah artefaknya. Zip diabaikan git (`assets/*.zip`). Keenam halaman semester I mengikuti
 dokumen itu, termasuk daftar artefaknya, jadi jumlah artefak semester I kini 13
 (filosofi 4, asesmen 2, PPL 1, pola pikir 2, design thinking 2, konseling 2) dan semester II
-11 (intervensi 2, PSE 3, PPL 1, konseling 3, projek 2; total situs 24). Artefak video Konseling Individu memakai tautan publik
+11 (intervensi 2, PSE 3, PPL 1, konseling 3, projek 2; total situs 24). Satu penyimpangan dari dokumen (21 Oktober 2026, persetujuan
+pemilik): Concept `ppg-1-ppl.html` tidak lagi menyebut Ular Tangga Motivasi sebagai media PPL
+Terbimbing, karena pemakaian pertamanya 1 Agustus 2026 di PPL Mandiri. Artefak video Konseling Individu memakai tautan publik
 <https://youtu.be/cVnyQwDGlUs>.
 
 **Sejak 19 Oktober 2026 dua halaman semester II punya sumber sahih**:
@@ -760,8 +762,8 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
       `#s3-materi`) dan **penilaian Guru Pamong**.
 - [ ] **Gambar LKPD Aksi Anti-Bullying** (`#s4-media`): berkas `LKPD Bullying.png` di
       folder Siklus 4 keliru, isinya lembar kerja Penyesuaian Diri Siklus 1.
-- [ ] **Pengukuran Ular Tangga Motivasi**: angka angket awal dan akhir serta penilaian
-      Guru BK sebagai pemakai; hasil wawancara murid di `#evaluasi` perlu dibaca ulang pemilik.
+- [ ] **Evaluasi Ular Tangga Motivasi**: hasil penilaian isi oleh Guru BK dan catatan observasi
+      (dampak pada motivasi belajar belum diukur); hasil wawancara murid di `#evaluasi` perlu dibaca ulang pemilik.
 - [ ] **46 kartu baru Ular Tangga Motivasi** (19 Oktober 2026, dari instrumen motivasi
       belajar): pemilik perlu membaca ulang.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
