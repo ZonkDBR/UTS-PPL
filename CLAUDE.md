@@ -224,7 +224,7 @@ Keputusan pemilik 16 Oktober 2026, diperbarui 17 Oktober 2026: **judul halaman i
 "Seminar PPG", bukan lagi "Intisari PPG"** ("anggap saja itu seminar PPG"). Nama berkasnya
 sengaja dibiarkan `ppg-intisari.html` supaya tautan di 18 halaman tidak perlu diubah.
 **Dirombak 18 Oktober 2026** mengikuti ulasan yang diteruskan pemilik: halaman terlalu
-penuh karena gagasan yang sama diulang. Kini empat bagian:
+penuh karena gagasan yang sama diulang. Kini tiga bagian saja:
 
 1. `#identifikasi` Identifikasi: Refleksi Tiap Mata Kuliah (20 Oktober 2026, permintaan pemilik
    karena judul dan isi kartu lama tidak selaras): salinan kartu `.mk-kartu` dari ppg-1.html dan
@@ -233,11 +233,11 @@ penuh karena gagasan yang sama diulang. Kini empat bagian:
    ketiganya bersama. Ditutup satu paragraf + tautan ke Karya Inovasi.
 2. `#refleksi-akhir` LK 3: pandangan tentang pendidikan Indonesia, upaya menjadi guru
    profesional, dan tiga prioritas tindak lanjut (`.klaster`). Teks dasarnya dari ulasan
-   itu, ditambah fakta yang sudah terverifikasi di catatan ini.
-3. `#kaitan` "Yang Menghubungkan PPG dengan Refleksi Saya" (21 Oktober 2026, permintaan pemilik,
-   meniru `karya-inovasi.html#kaitan`): `.klaster` tiga jawaban LK 3 beserta mata kuliah asalnya,
-   paragraf ke visi-misi dan `profil.html#tindak-lanjut`, satu kotak refleksi diri.
-4. `#penutup`: pertanyaan yang berubah + refleksi diri + "Lanjutkan membaca".
+   itu, ditambah fakta yang sudah terverifikasi di catatan ini. Sejak 21 Oktober 2026 dibuka
+   dua paragraf penghubung (gaya `karya-inovasi.html#kaitan`): lima refleksi paling membekas
+   beserta mata kuliahnya, lalu kaitannya dengan ketiga jawaban dan profil. Bagian `#kaitan`
+   tersendiri pernah dibuat lalu dihapus atas permintaan pemilik; jangan dikembalikan.
+3. `#penutup`: pertanyaan yang berubah + refleksi diri + "Lanjutkan membaca".
 
 Yang **sengaja dihapus, jangan dikembalikan**: outline empat prinsip, enam pasangan
 kesinambungan semester I-II, enam kaitan karya inovasi per mata kuliah, empat butir misi,
