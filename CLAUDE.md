@@ -236,8 +236,9 @@ penuh karena gagasan yang sama diulang. Kini tiga bagian saja:
 2. `#refleksi-akhir` LK 3: pandangan tentang pendidikan Indonesia, upaya menjadi guru
    profesional, dan tiga prioritas tindak lanjut (`.klaster`). Teks dasarnya dari ulasan
    itu, ditambah fakta yang sudah terverifikasi di catatan ini. Sejak 21 Oktober 2026 dibuka
-   dua paragraf penghubung (gaya `karya-inovasi.html#kaitan`): lima refleksi paling membekas
-   beserta mata kuliahnya dalam satu paragraf pengantar; kaitan Konseling Individu, Pola Pikir, dan PSE
+   tiga paragraf (teks dari pemilik, diringkas): perubahan cara pandang tentang peran guru BK,
+   lima pembelajaran paling membekas beserta mata kuliahnya plus pelajaran PPL, lalu jembatan
+   ke tiga pertanyaan; kaitan Konseling Individu, Pola Pikir, dan PSE
    ditulis di dalam jawaban 2, dan dua tautan pil ke profil ada di akhir bagian. Bagian `#kaitan`
    tersendiri pernah dibuat lalu dihapus atas permintaan pemilik; jangan dikembalikan.
 3. `#penutup`: pertanyaan yang berubah + refleksi diri + "Lanjutkan membaca".
