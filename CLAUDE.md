@@ -267,7 +267,7 @@ singkat dari LK apa adanya, penerapan pada karya) **ada di dalam jawaban Pertany
 (digabung 21 Oktober 2026, permintaan pemilik; bagian `#prinsip` tersendiri sudah dihapus). Urutannya: `#alur` (peta Indikator 1-5, `.peta4c__daftar`),
 `#identitas` (Nama karya, Sasaran di `.facts`), `#identifikasi` (hasil amatan + data AKPD),
 `#gagasan` (gagasan solusi, tujuan, lalu tabel prinsip; baris efektivitas terbukti di
-tabel itu ditulis jujur sebagai "belum diukur"), `#riset` (riset sederhana Deci dan Ryan + empat jenis kartu sebagai
+tabel itu menyebut uji coba dan evaluasi lewat observasi serta wawancara; kalimat "dampaknya belum diukur" dihapus atas permintaan pemilik 21 Oktober 2026), `#riset` (riset sederhana Deci dan Ryan + empat jenis kartu sebagai
 prototipe), `#implementasi` (empat langkah di samping slider foto), `#evaluasi` (empat tahapan
 `.daftar-kegiatan--empat`, tabel aspek karya, hasil wawancara murid), lalu `#kaitan` tanpa perubahan.
 Karena LK 4 menanyakan tahapan evaluasi, larangan "daftar tahapan pengukuran" di bawah tidak
