@@ -33,8 +33,8 @@ Jangan menulis rombel di alt, caption, maupun strip identitas. Jenjang ("kelas X
 
 ```
 index.html   beranda: hero profil + video Home + strip identitas + dua pintu (PPG, PPL)
-profil.html  profil lengkap: tentang, visi dan misi, alasan dan nilai, jejak langkah, rencana
-             tindak lanjut (tiga prioritas dari refleksi akhir PPG, 21 Oktober 2026), riwayat
+profil.html  profil lengkap: tentang, visi dan misi, rencana
+             tindak lanjut (di bawah visi dan misi; tiga prioritas dari refleksi akhir PPG), alasan dan nilai, jejak langkah, riwayat
 ppl.html     PPL Mandiri = tugas LK 3: tab Siklus 1-4, Nonmengajar, Penilaian, Tugas
 ppg-1.html   ringkasan PPG semester I: alur 4C + enam kartu mata kuliah
 ppg-1-*.html satu halaman per mata kuliah semester I (filosofi, asesmen, ppl, pola-pikir,
