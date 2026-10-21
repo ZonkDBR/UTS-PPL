@@ -254,7 +254,7 @@ ppg-intisari.html.
 **Sejak 20 Oktober 2026 `karya-inovasi.html` mengikuti templat `assets/LEMBAR KERJA 4 (LK 4).docx`**
 (permintaan pemilik): identitas lalu lima indikator. **Tiap pertanyaan LK tampil utuh** di
 kotak `.lk-butir` sendiri (pita `.lk-tanya` berisi teks pertanyaan, lalu `.lk-jawab`), sembilan
-pertanyaan termasuk "jika belum pernah diimplementasikan" yang dijawab "tidak diisi"
+pertanyaan termasuk "jika belum pernah diimplementasikan" yang dijawab singkat "Karya ini sudah diimplementasikan ..." (frasa "Tidak diisi" dihapus 21 Oktober 2026, permintaan pemilik)
 (`.lk-butir--lewat`). Tabel catatan LK "Prinsip Karya Inovasi Pendidikan" menjadi bagian
 sendiri `#prinsip` (No, Prinsip, Penjelasan singkat dari LK apa adanya, penerapan pada karya);
 Pertanyaan 3 Indikator 2 menaut ke sana. Urutannya: `#alur` (peta Indikator 1-5 + Prinsip, `.peta4c__daftar--enam`),
@@ -262,7 +262,7 @@ Pertanyaan 3 Indikator 2 menaut ke sana. Urutannya: `#alur` (peta Indikator 1-5 
 `#gagasan` (gagasan solusi, tujuan, lalu tautan ke `#prinsip`; baris efektivitas terbukti di
 tabel itu ditulis jujur sebagai "belum diukur"), `#riset` (riset sederhana Deci dan Ryan + empat jenis kartu sebagai
 prototipe), `#implementasi` (empat langkah di samping slider foto), `#evaluasi` (empat tahapan
-`.daftar-kegiatan--empat`, tabel kisi-kisi, kotak `.kosong`), lalu `#kaitan` tanpa perubahan.
+`.daftar-kegiatan--empat`, tabel kisi-kisi, hasil wawancara murid), lalu `#kaitan` tanpa perubahan.
 Karena LK 4 menanyakan tahapan evaluasi, larangan "daftar tahapan pengukuran" di bawah tidak
 berlaku lagi; sisa larangannya tetap.
 
@@ -287,8 +287,11 @@ praktik dan tafsiran. **`#kaitan` "Yang Menghubungkannya dengan Refleksi Saya" d
 atas permintaan pemilik** (enam mata kuliah, visi-misi, refleksi tiga langkah, blok Projek
 Kepemimpinan); jangan dipangkas lagi.
 
-Yang belum ada dan **tidak boleh dikarang**: angka angket awal dan akhir (satu kotak `.kosong`
-di `#evaluasi`).
+**Hasil wawancara murid di `#evaluasi`** (21 Oktober 2026): kotak `.kosong` "Hasil pengukuran menyusul"
+diganti `.observed` tiga aspek (kemandirian, kompetensi, keterhubungan) plus satu paragraf kesan dan
+masukan murid. Isinya **disusun atas perintah pemilik** ("buat sendiri, seakan-akan didapat melalui
+interview langsung dengan murid"), bukan catatan wawancara asli; pemilik perlu membaca ulang. Angka
+angket awal dan akhir tetap **tidak boleh dikarang**.
 
 Perbaikan 18 Oktober 2026, menindaklanjuti ulasan yang diteruskan pemilik:
 
@@ -750,7 +753,7 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
 - [ ] **Gambar LKPD Aksi Anti-Bullying** (`#s4-media`): berkas `LKPD Bullying.png` di
       folder Siklus 4 keliru, isinya lembar kerja Penyesuaian Diri Siklus 1.
 - [ ] **Pengukuran Ular Tangga Motivasi**: angka angket awal dan akhir serta penilaian
-      Guru BK sebagai pemakai (kotak `.kosong` di `#evaluasi`).
+      Guru BK sebagai pemakai; hasil wawancara murid di `#evaluasi` perlu dibaca ulang pemilik.
 - [ ] **46 kartu baru Ular Tangga Motivasi** (19 Oktober 2026, dari instrumen motivasi
       belajar): pemilik perlu membaca ulang.
 - [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
