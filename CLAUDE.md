@@ -767,7 +767,7 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
       (dampak pada motivasi belajar belum diukur); hasil wawancara murid di `#evaluasi` perlu dibaca ulang pemilik.
 - [ ] **46 kartu baru Ular Tangga Motivasi** (19 Oktober 2026, dari instrumen motivasi
       belajar): pemilik perlu membaca ulang.
-- [ ] **Tugas UTS** dan **tugas UAS**: isi kartu placeholder di `#tugas` ppl.html.
+- [ ] UTS (`#uts`, Penyesuaian Diri) dan UAS (`#uas`, Perundungan) sudah terbit 25 Okt 2026; teks disusun dari isi siklus, belum dicocokkan dengan PDF LK 4.1-4.4 (teks PDF tak terbaca).
 - [ ] **Tautan CV** di kartu Kontak profil.html, bila pemilik mau menerbitkannya.
 - [ ] Hasil pengisian instrumen, bila mau menampilkan angka nyata, bukan hanya
       rancangannya.
