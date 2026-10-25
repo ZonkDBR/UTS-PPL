@@ -767,7 +767,7 @@ aturan dua portofolio sebelumnya. Yang tetap berlaku:
       (dampak pada motivasi belajar belum diukur); hasil wawancara murid di `#evaluasi` perlu dibaca ulang pemilik.
 - [ ] **46 kartu baru Ular Tangga Motivasi** (19 Oktober 2026, dari instrumen motivasi
       belajar): pemilik perlu membaca ulang.
-- [ ] UTS (`#uts`, Penyesuaian Diri) dan UAS (`#uas`, Perundungan) sudah terbit 25 Okt 2026; teks disusun dari isi siklus, belum dicocokkan dengan PDF LK 4.1-4.4 (teks PDF tak terbaca).
+- [ ] UTS (`#uts`, Penyesuaian Diri) dan UAS (`#uas`, Perundungan) memakai rubrik penilaian: tiap tab punya lima bagian (RPL, media, instrumen, video, refleksi akhir) dengan label Konteks, Tujuan, Kelebihan, Kekurangan, Kajian teori. Teori hanya dari docx RPL dan halaman ppg-*. Disusun 25 Okt 2026 dari LK 4.1-4.4 (terbaca lewat Markitdown); **penilaian GP/DPL dan hasil kerja murid belum ada**, kotak rekaman masih menunggu tonton ulang. Catatan: tanggal LK 4.1-4.4 (18 Agu sampai 8 Sep) mendahului Siklus 3-4 di situs, jadi kutipan LK pada UAS hanya yang umum.
 - [ ] **Tautan CV** di kartu Kontak profil.html, bila pemilik mau menerbitkannya.
 - [ ] Hasil pengisian instrumen, bila mau menampilkan angka nyata, bukan hanya
       rancangannya.
