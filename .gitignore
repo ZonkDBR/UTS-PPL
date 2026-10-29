@@ -58,3 +58,6 @@ assets/Refleksi*.docx
 
 # Artefak terpilih PPG yang bisa diunduh (19 Oktober 2026). Hanya berkas yang tampil di kartu.
 !assets/artefak/*.pdf
+
+# Lampiran penilaian Guru Pamong (29 Oktober 2026), ditautkan dari ppl.html#penilaian.
+!assets/Penilaian/*/*.pdf
